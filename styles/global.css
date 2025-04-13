@@ -52,35 +52,35 @@ a:hover::after {
   margin: 0 10px;
 }
 
-header {
+header .section-1 {
   display: grid;
   grid-template-columns: 3fr 5fr 2fr;
-  padding: 5px 3%;
+  padding: 15px 3%;
   border-bottom: 2px solid var(--primary-color);
 }
-header .brand a {
+header .section-1 .brand a {
   display: flex;
   justify-content: center;
 }
-header .brand a img {
+header .section-1 .brand a img {
   width: 50px;
   -o-object-fit: contain;
      object-fit: contain;
 }
-header .brand a h1 {
+header .section-1 .brand a h1 {
   padding: 0 10px;
 }
-header .search {
+header .section-1 .search {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-header .search .box {
+header .section-1 .search .box {
   display: flex;
   align-items: center;
   width: 100%;
 }
-header .search .box #search-btn {
+header .section-1 .search .box #search-btn {
   background-color: var(--primary-color);
   border: none;
   border-radius: 12px 0 0 12px;
@@ -88,10 +88,10 @@ header .search .box #search-btn {
   padding: 3.5px;
   cursor: pointer;
 }
-header .search .box #search-btn img {
+header .section-1 .search .box #search-btn img {
   width: 35px;
 }
-header .search .box input {
+header .section-1 .search .box input {
   border: none;
   height: 45px;
   border: 1px solid rgba(0, 0, 0, 0.14);
@@ -101,19 +101,41 @@ header .search .box input {
   outline: none;
   width: 100%;
 }
-header .user-actions {
+header .section-1 .user-actions {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   padding: 5px;
 }
-header .user-actions .action-links {
+header .section-1 .user-actions .action-links {
   gap: 5px;
 }
-header .user-actions .action-links::after {
+header .section-1 .user-actions .action-links .action-link img {
+  filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
+}
+header .section-1 .user-actions .action-links::after {
   content: "";
   width: 30px;
   height: 16px;
   background-color: rgba(0, 0, 0, 0.14);
+}
+header .section-2 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--secondary-color);
+  padding: 0 10%;
+}
+header .section-2 .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+header .section-2 .navbar a {
+  margin: 0 5px;
+}
+header .section-2 .welcome-msg {
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=global.css.map */

@@ -73,6 +73,7 @@ header {
       a {
         display: flex;
         justify-content: center;
+        align-items: center;
         img {
           width: 50px;
           object-fit: contain;
@@ -120,6 +121,9 @@ header {
       gap: 5px;
       padding: 5px;
       .action-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 5px;
         .action-link {
           img {
@@ -128,11 +132,10 @@ header {
           }
         }
       }
-      .action-links::after {
-        content: "";
-        width: 30px;
-        height: 16px;
-        background-color: $border-color;
+      .auth-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   }

@@ -65,6 +65,7 @@ header .section-1 {
 header .section-1 .brand a {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 header .section-1 .brand a img {
   width: 50px;
@@ -113,16 +114,18 @@ header .section-1 .user-actions {
   padding: 5px;
 }
 header .section-1 .user-actions .action-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 5px;
 }
 header .section-1 .user-actions .action-links .action-link img {
   filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
 }
-header .section-1 .user-actions .action-links::after {
-  content: "";
-  width: 30px;
-  height: 16px;
-  background-color: rgba(0, 0, 0, 0.14);
+header .section-1 .user-actions .auth-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header .section-2 {
   display: flex;

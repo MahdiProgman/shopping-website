@@ -4,6 +4,7 @@ const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const drawerBox = document.querySelector('header .drawer-menu .drawer');
 const overlay = document.querySelector('body > .overlay');
+const headerSpacer = document.querySelector('header > .spacer');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -29,4 +30,15 @@ closeBtn.addEventListener('click', ()=> {
         drawerBox.classList.remove('on');
         overlay.classList.add('hidden');
     }
-})
+});
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    const setSpacerHeight = () => {
+        headerSpacer.style.height = `${document.querySelector('header > .section-1').clientHeight}px`
+    }
+
+    window.addEventListener('resize', setSpacerHeight);
+
+    const resizeObserver = new ResizeObserver(setSpacerHeight);
+    resizeObserver.observe(document.querySelector('header > .section-1'));
+});

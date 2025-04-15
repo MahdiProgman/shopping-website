@@ -30,7 +30,14 @@ main {
   }
   .bestsellers {
     h4 {
-      border-right: 4px solid var(--highlights-color);
+      border-right: 4px solid var(--errors-alerts-color);
+      padding: 5px 10px;
+      font-size: 1.5em;
+    }
+  }
+  .most-visted {
+    h4 {
+      border-right: 4px solid var(--errors-alerts-color);
       padding: 5px 10px;
       font-size: 1.5em;
     }

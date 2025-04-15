@@ -296,6 +296,48 @@ header > .section-2 .welcome-msg {
   align-items: center;
 }
 
+.products {
+  padding: 15px 3%;
+}
+
+.products .swiper-products {
+  padding: 30px 5%;
+}
+
+.products .swiper-products .product-card {
+  box-shadow: 2px 2px 5px -2px black;
+}
+
+.products .swiper-products .product-card a {
+  padding: 10px;
+}
+
+.products .swiper-products .product-card a .row-1 img {
+  width: 100%;
+}
+
+.products .swiper-products .product-card a .row-2 {
+  color: #363636;
+  padding: 5px 15px;
+}
+
+.products .swiper-products .product-card a .row-2 .rate {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.products .swiper-products .product-card a .row-2 .rate img {
+  width: 25px;
+}
+
+.products .swiper-products .product-card a .row-2 .price {
+  font-size: 1.3em;
+  padding: 15px;
+}
+
 @media screen and (min-width: 1800px) {
   body {
     font-size: 22px;

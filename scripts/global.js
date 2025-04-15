@@ -5,6 +5,7 @@ const closeBtn = document.getElementById('close-btn');
 const drawerBox = document.querySelector('.drawer');
 const overlay = document.querySelector('body > .overlay');
 const headerSpacer = document.querySelector('header > .spacer');
+const swiperProducts = document.querySelectorAll('.swiper-products');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -41,4 +42,30 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     const resizeObserver = new ResizeObserver(setSpacerHeight);
     resizeObserver.observe(document.querySelector('header > .section-1'));
+});
+
+swiperProducts.forEach((value, i) => {
+    new Swiper(`.sp-${i+1}`, {
+        autoplay: {
+            delay: 2500
+        },
+        navigation: {
+            nextEl: `.sp-${i+1} .swiper-button-next`,
+            prevEl: `.sp-${i+1} .swiper-button-prev`
+        },
+        pagination: {
+            el: `.sp-${i+1} .swiper-pagination`
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+            },
+            768: {
+                slidesPerView: 3
+            },
+            640: {
+                slidesPerView: 2
+            }
+        }
+    })
 });

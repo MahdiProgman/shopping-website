@@ -28,6 +28,13 @@ main {
       }
     }
   }
+  .bestsellers {
+    h4 {
+      border-right: 4px solid var(--highlights-color);
+      padding: 5px 10px;
+      font-size: 1.5em;
+    }
+  }
 }
 
 @media screen and (min-width: 1800px) {

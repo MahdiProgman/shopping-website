@@ -285,6 +285,42 @@ header > {
   }
 }
 
+.products {
+  padding: 15px 3%;
+  .swiper-products {
+    padding: 30px 5%;
+    .product-card {
+      box-shadow: 2px 2px 5px -2px black;
+      a {
+        padding: 10px;
+        .row-1 {
+          img {
+            width: 100%;
+          }
+        }
+        .row-2 {
+          color: rgb(54, 54, 54);
+          padding: 5px 15px;
+          .rate {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+            img {
+              width: 25px;
+            }
+          }
+          .price {
+            font-size: 1.3em;
+            padding: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1800px) {
   body {
     font-size: 22px;

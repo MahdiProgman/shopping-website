@@ -34,6 +34,12 @@ main .website-advertise .card .side-2 img {
   width: 55%;
 }
 
+main .bestsellers h4 {
+  border-right: 4px solid var(--highlights-color);
+  padding: 5px 10px;
+  font-size: 1.5em;
+}
+
 @media screen and (min-width: 1800px) {
   .main main .website-advertise .card .side-2 img {
     width: 100%;

@@ -171,7 +171,15 @@ a:hover::after {
       flex-direction: column;
       padding: 10px 2%;
       a {
+        display: flex;
+        justify-content: right;
+        align-items: center;
         font-size: 1.5em;
+        gap: 5px;
+        padding: 5px;
+        img {
+          width: 25px;
+        }
       }
     }
   }
@@ -278,14 +286,24 @@ header > {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid var(--secondary-color);
-    padding: 0 10%;
-    .navbar {
+    padding: 0 5%;
+    .navbar nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       font-size: 1.2em;
+      padding: 5px;
       a {
+        display: flex;
+        flex-direction: row;
         margin: 0 5px;
+        img {
+          width: 25px;
+          object-fit: contain;
+        }
+        span {
+          padding: 5px;
+        }
       }
     }
     .welcome-msg {

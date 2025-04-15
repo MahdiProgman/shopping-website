@@ -174,7 +174,16 @@ a:hover::after {
 }
 
 .drawer .section-2 .navbar a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
   font-size: 1.5em;
+  gap: 5px;
+  padding: 5px;
+}
+
+.drawer .section-2 .navbar a img {
+  width: 25px;
 }
 
 .drawer.on {
@@ -289,18 +298,30 @@ header > .section-2 {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid var(--secondary-color);
-  padding: 0 10%;
+  padding: 0 5%;
 }
 
-header > .section-2 .navbar {
+header > .section-2 .navbar nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.2em;
+  padding: 5px;
 }
 
-header > .section-2 .navbar a {
+header > .section-2 .navbar nav a {
+  display: flex;
+  flex-direction: row;
   margin: 0 5px;
+}
+
+header > .section-2 .navbar nav a img {
+  width: 25px;
+  object-fit: contain;
+}
+
+header > .section-2 .navbar nav a span {
+  padding: 5px;
 }
 
 header > .section-2 .welcome-msg {

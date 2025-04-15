@@ -39,3 +39,14 @@ main .website-advertise .card .side-2 img {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none;
+  }
+  .main main .website-advertise .card {
+    flex-direction: column-reverse;
+    margin: 5px;
+    padding: 5px;
+  }
+}

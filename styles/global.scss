@@ -92,6 +92,10 @@ a:hover::after {
     hue-rotate(342deg) brightness(100%) contrast(98%);
 }
 
+.swiper-pagination-bullet {
+  background-color: var(--primary-color);
+}
+
 .drawer {
   background-color: white;
   position: fixed;
@@ -321,6 +325,7 @@ header > {
 
 @media screen and (max-width: 640px) {
   body {
+    font-size: 10px;
     .main {
       header > {
         .section-1 {
@@ -332,8 +337,6 @@ header > {
               align-items: center;
               #menu-btn {
                 display: block;
-              }
-              .drawer {
               }
             }
             .brand {

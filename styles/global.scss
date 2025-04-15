@@ -72,7 +72,7 @@ a:hover::after {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1;
+  z-index: 1000;
   transition: all 0.75s;
 }
 
@@ -88,7 +88,82 @@ a:hover::after {
 }
 
 .swiper-button-disabled {
-  filter: brightness(0) saturate(100%) invert(72%) sepia(46%) saturate(605%) hue-rotate(342deg) brightness(100%) contrast(98%);
+  filter: brightness(0) saturate(100%) invert(72%) sepia(46%) saturate(605%)
+    hue-rotate(342deg) brightness(100%) contrast(98%);
+}
+
+.drawer {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100vh;
+  transform: translateX(100vw);
+  padding: 10px 0;
+  z-index: 1002;
+  transition: all 0.5s;
+  .section-1 {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid var(--primary-color);
+    .close-div {
+      #close-btn {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        img {
+          width: 30px;
+        }
+      }
+    }
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 35px;
+      }
+      a {
+        color: var(--primary-color);
+        font-size: 1.2em;
+      }
+    }
+  }
+  .section-2 {
+    .auth-links {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border-bottom: 2px solid var(--primary-color);
+    }
+    .action-links {
+      border-bottom: 2px solid var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      padding: 10px 2%;
+      a {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 5px;
+        img {
+          filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg)
+            brightness(100%) contrast(103%);
+          width: 15px;
+        }
+      }
+    }
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 2%;
+    }
+  }
+}
+.drawer.on {
+  transform: translateX(0);
 }
 
 header > {
@@ -102,7 +177,7 @@ header > {
     top: 0;
     right: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 999;
     .drawer-menu {
       display: none;
       button {
@@ -113,73 +188,6 @@ header > {
         img {
           width: 30px;
         }
-      }
-      .drawer {
-        background-color: white;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 60%;
-        height: 100vh;
-        transform: translateX(100vw);
-        padding: 10px 0;
-        z-index: 2;
-        transition: all 0.5s;
-        .section-1 {
-          display: flex;
-          justify-content: space-around;
-          border-bottom: 2px solid var(--primary-color);
-          .close-div {
-            .close-button {
-              cursor: pointer;
-            }
-          }
-          .brand {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 35px;
-            }
-            a {
-              color: var(--primary-color);
-              font-size: 1.2em;
-            }
-          }
-        }
-        .section-2 {
-          .auth-links {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            border-bottom: 2px solid var(--primary-color);
-          }
-          .action-links {
-            border-bottom: 2px solid var(--secondary-color);
-            display: flex;
-            flex-direction: column;
-            padding: 10px 2%;
-            a {
-              display: flex;
-              justify-content: right;
-              align-items: center;
-              gap: 5px;
-              img {
-                filter: invert(64%) sepia(59%) saturate(1175%)
-                  hue-rotate(345deg) brightness(100%) contrast(103%);
-                width: 15px;
-              }
-            }
-          }
-          .navbar {
-            display: flex;
-            flex-direction: column;
-            padding: 10px 2%;
-          }
-        }
-      }
-      .drawer.on {
-        transform: translateX(0);
       }
     }
     .brand {

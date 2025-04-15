@@ -66,7 +66,7 @@ a:hover::after {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1;
+  z-index: 1000;
   transition: all 0.75s;
 }
 
@@ -84,6 +84,87 @@ a:hover::after {
   filter: brightness(0) saturate(100%) invert(72%) sepia(46%) saturate(605%) hue-rotate(342deg) brightness(100%) contrast(98%);
 }
 
+.drawer {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100vh;
+  transform: translateX(100vw);
+  padding: 10px 0;
+  z-index: 1002;
+  transition: all 0.5s;
+}
+
+.drawer .section-1 {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.drawer .section-1 .close-div #close-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.drawer .section-1 .close-div #close-btn img {
+  width: 30px;
+}
+
+.drawer .section-1 .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer .section-1 .brand img {
+  width: 35px;
+}
+
+.drawer .section-1 .brand a {
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+
+.drawer .section-2 .auth-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.drawer .section-2 .action-links {
+  border-bottom: 2px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 2%;
+}
+
+.drawer .section-2 .action-links a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 5px;
+}
+
+.drawer .section-2 .action-links a img {
+  filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
+  width: 15px;
+}
+
+.drawer .section-2 .navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 2%;
+}
+
+.drawer.on {
+  transform: translateX(0);
+}
+
 header > .section-1 {
   background-color: white;
   display: grid;
@@ -94,7 +175,7 @@ header > .section-1 {
   top: 0;
   right: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
 }
 
 header > .section-1 .drawer-menu {
@@ -110,80 +191,6 @@ header > .section-1 .drawer-menu button {
 
 header > .section-1 .drawer-menu button img {
   width: 30px;
-}
-
-header > .section-1 .drawer-menu .drawer {
-  background-color: white;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100vh;
-  transform: translateX(100vw);
-  padding: 10px 0;
-  z-index: 2;
-  transition: all 0.5s;
-}
-
-header > .section-1 .drawer-menu .drawer .section-1 {
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 2px solid var(--primary-color);
-}
-
-header > .section-1 .drawer-menu .drawer .section-1 .close-div .close-button {
-  cursor: pointer;
-}
-
-header > .section-1 .drawer-menu .drawer .section-1 .brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header > .section-1 .drawer-menu .drawer .section-1 .brand img {
-  width: 35px;
-}
-
-header > .section-1 .drawer-menu .drawer .section-1 .brand a {
-  color: var(--primary-color);
-  font-size: 1.2em;
-}
-
-header > .section-1 .drawer-menu .drawer .section-2 .auth-links {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-bottom: 2px solid var(--primary-color);
-}
-
-header > .section-1 .drawer-menu .drawer .section-2 .action-links {
-  border-bottom: 2px solid var(--secondary-color);
-  display: flex;
-  flex-direction: column;
-  padding: 10px 2%;
-}
-
-header > .section-1 .drawer-menu .drawer .section-2 .action-links a {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  gap: 5px;
-}
-
-header > .section-1 .drawer-menu .drawer .section-2 .action-links a img {
-  filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
-  width: 15px;
-}
-
-header > .section-1 .drawer-menu .drawer .section-2 .navbar {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 2%;
-}
-
-header > .section-1 .drawer-menu .drawer.on {
-  transform: translateX(0);
 }
 
 header > .section-1 .brand a {

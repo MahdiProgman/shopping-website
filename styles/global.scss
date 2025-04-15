@@ -81,6 +81,16 @@ a:hover::after {
   opacity: 0;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(73%) saturate(2778%)
+    hue-rotate(346deg) brightness(103%) contrast(103%);
+}
+
+.swiper-button-disabled {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(46%) saturate(605%) hue-rotate(342deg) brightness(100%) contrast(98%);
+}
+
 header > {
   .section-1 {
     background-color: white;
@@ -260,6 +270,12 @@ header > {
       display: flex;
       align-items: center;
     }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  body {
+    font-size: 22px;
   }
 }
 

@@ -364,7 +364,7 @@ header > .section-2 .welcome-msg {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 10px;
+    font-size: 14px;
   }
   body .main header > .section-1 {
     grid-template-columns: 1fr 9fr;
@@ -388,5 +388,8 @@ header > .section-2 .welcome-msg {
   }
   body .main header > .section-2 .navbar {
     display: none;
+  }
+  .products {
+    font-size: 20px;
   }
 }

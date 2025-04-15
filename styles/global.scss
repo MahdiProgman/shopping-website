@@ -361,7 +361,7 @@ header > {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 10px;
+    font-size: 14px;
     .main {
       header > {
         .section-1 {
@@ -391,5 +391,9 @@ header > {
         }
       }
     }
+  }
+
+  .products {
+    font-size: 20px;
   }
 }

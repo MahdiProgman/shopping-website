@@ -101,7 +101,7 @@ a:hover::after {
   position: fixed;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 65%;
   height: 100vh;
   transform: translateX(100vw);
   padding: 10px 0;
@@ -109,8 +109,9 @@ a:hover::after {
   transition: all 0.5s;
   .section-1 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-bottom: 2px solid var(--primary-color);
+    padding: 15px 0;
     .close-div {
       #close-btn {
         background-color: transparent;
@@ -118,7 +119,7 @@ a:hover::after {
         outline: none;
         cursor: pointer;
         img {
-          width: 30px;
+          width: 50px;
         }
       }
     }
@@ -127,7 +128,7 @@ a:hover::after {
       justify-content: center;
       align-items: center;
       img {
-        width: 35px;
+        width: 50px;
       }
       a {
         color: var(--primary-color);
@@ -141,21 +142,27 @@ a:hover::after {
       justify-content: space-evenly;
       align-items: center;
       border-bottom: 2px solid var(--primary-color);
+      font-size: 1.5em;
     }
     .action-links {
       border-bottom: 2px solid var(--secondary-color);
       display: flex;
       flex-direction: column;
+      font-size: 1.5em;
       padding: 10px 2%;
       a {
         display: flex;
         justify-content: right;
         align-items: center;
         gap: 5px;
+        padding: 5px;
+        span {
+          padding: 5px;
+        }
         img {
           filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg)
             brightness(100%) contrast(103%);
-          width: 15px;
+          width: 25px;
         }
       }
     }
@@ -163,6 +170,9 @@ a:hover::after {
       display: flex;
       flex-direction: column;
       padding: 10px 2%;
+      a {
+        font-size: 1.5em;
+      }
     }
   }
 }
@@ -395,5 +405,11 @@ header > {
 
   .products {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 11px;
   }
 }

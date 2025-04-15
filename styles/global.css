@@ -93,7 +93,7 @@ a:hover::after {
   position: fixed;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 65%;
   height: 100vh;
   transform: translateX(100vw);
   padding: 10px 0;
@@ -103,8 +103,9 @@ a:hover::after {
 
 .drawer .section-1 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-bottom: 2px solid var(--primary-color);
+  padding: 15px 0;
 }
 
 .drawer .section-1 .close-div #close-btn {
@@ -115,7 +116,7 @@ a:hover::after {
 }
 
 .drawer .section-1 .close-div #close-btn img {
-  width: 30px;
+  width: 50px;
 }
 
 .drawer .section-1 .brand {
@@ -125,7 +126,7 @@ a:hover::after {
 }
 
 .drawer .section-1 .brand img {
-  width: 35px;
+  width: 50px;
 }
 
 .drawer .section-1 .brand a {
@@ -138,12 +139,14 @@ a:hover::after {
   justify-content: space-evenly;
   align-items: center;
   border-bottom: 2px solid var(--primary-color);
+  font-size: 1.5em;
 }
 
 .drawer .section-2 .action-links {
   border-bottom: 2px solid var(--secondary-color);
   display: flex;
   flex-direction: column;
+  font-size: 1.5em;
   padding: 10px 2%;
 }
 
@@ -152,17 +155,26 @@ a:hover::after {
   justify-content: right;
   align-items: center;
   gap: 5px;
+  padding: 5px;
+}
+
+.drawer .section-2 .action-links a span {
+  padding: 5px;
 }
 
 .drawer .section-2 .action-links a img {
   filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
-  width: 15px;
+  width: 25px;
 }
 
 .drawer .section-2 .navbar {
   display: flex;
   flex-direction: column;
   padding: 10px 2%;
+}
+
+.drawer .section-2 .navbar a {
+  font-size: 1.5em;
 }
 
 .drawer.on {
@@ -391,5 +403,11 @@ header > .section-2 .welcome-msg {
   }
   .products {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 11px;
   }
 }

@@ -1,0 +1,47 @@
+main {
+  padding: 15px;
+  .website-advertise {
+    padding: 5px;
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      margin: 5px 5%;
+      .side-1 {
+        h3 {
+          color: var(--primary-color);
+          font-size: 3em;
+        }
+        p {
+          color: gray;
+          padding: 5px;
+        }
+      }
+      .side-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 55%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .main {
+    main {
+      .website-advertise {
+        .card {
+          .side-2 {
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

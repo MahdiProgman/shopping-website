@@ -334,12 +334,16 @@ header > {
           padding: 5px 15px;
           .rate {
             display: flex;
-            justify-content: left;
             align-items: center;
-            gap: 5px;
+            justify-content: space-around;
+            gap: 7px;
+            border: 1px solid $border-color;
+            border-radius: 10px;
+            justify-self: left;
+            width: fit-content;
             padding: 5px;
             img {
-              width: 25px;
+              width: 20px;
             }
           }
           .price {

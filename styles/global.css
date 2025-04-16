@@ -9,6 +9,7 @@
   font-family: Vazir;
   src: url(/fonts/Vazir.ttf);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,8 +65,7 @@ a:hover::after {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   z-index: 1000;
   transition: all 0.75s;
 }
@@ -100,33 +100,40 @@ a:hover::after {
   z-index: 1002;
   transition: all 0.5s;
 }
+
 .drawer .section-1 {
   display: flex;
   justify-content: space-evenly;
   border-bottom: 2px solid var(--primary-color);
   padding: 15px 0;
 }
+
 .drawer .section-1 .close-div #close-btn {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 }
+
 .drawer .section-1 .close-div #close-btn img {
   width: 50px;
 }
+
 .drawer .section-1 .brand {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .drawer .section-1 .brand img {
   width: 50px;
 }
+
 .drawer .section-1 .brand a {
   color: var(--primary-color);
   font-size: 1.2em;
 }
+
 .drawer .section-2 .auth-links {
   display: flex;
   justify-content: space-evenly;
@@ -134,6 +141,7 @@ a:hover::after {
   border-bottom: 2px solid var(--primary-color);
   font-size: 1.5em;
 }
+
 .drawer .section-2 .action-links {
   border-bottom: 2px solid var(--secondary-color);
   display: flex;
@@ -141,6 +149,7 @@ a:hover::after {
   font-size: 1.5em;
   padding: 10px 2%;
 }
+
 .drawer .section-2 .action-links a {
   display: flex;
   justify-content: right;
@@ -148,18 +157,22 @@ a:hover::after {
   gap: 5px;
   padding: 5px;
 }
+
 .drawer .section-2 .action-links a span {
   padding: 5px;
 }
+
 .drawer .section-2 .action-links a img {
   filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
   width: 25px;
 }
+
 .drawer .section-2 .navbar {
   display: flex;
   flex-direction: column;
   padding: 10px 2%;
 }
+
 .drawer .section-2 .navbar a {
   display: flex;
   justify-content: right;
@@ -168,6 +181,7 @@ a:hover::after {
   gap: 5px;
   padding: 5px;
 }
+
 .drawer .section-2 .navbar a img {
   width: 25px;
 }
@@ -188,41 +202,49 @@ header > .section-1 {
   width: 100%;
   z-index: 999;
 }
+
 header > .section-1 .drawer-menu {
   display: none;
 }
+
 header > .section-1 .drawer-menu button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 }
+
 header > .section-1 .drawer-menu button img {
   width: 30px;
 }
+
 header > .section-1 .brand a {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 header > .section-1 .brand a img {
   width: 50px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
+
 header > .section-1 .brand a h1 {
   padding: 0 10px;
 }
+
 header > .section-1 .search {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 header > .section-1 .search .box {
   display: flex;
   align-items: center;
   width: 100%;
 }
+
 header > .section-1 .search .box #search-btn {
   background-color: var(--primary-color);
   border: none;
@@ -231,9 +253,11 @@ header > .section-1 .search .box #search-btn {
   padding: 3.5px;
   cursor: pointer;
 }
+
 header > .section-1 .search .box #search-btn img {
   width: 35px;
 }
+
 header > .section-1 .search .box input {
   border: none;
   height: 45px;
@@ -244,6 +268,7 @@ header > .section-1 .search .box input {
   outline: none;
   width: 100%;
 }
+
 header > .section-1 .user-actions {
   display: flex;
   justify-content: center;
@@ -251,26 +276,31 @@ header > .section-1 .user-actions {
   gap: 5px;
   padding: 5px;
 }
+
 header > .section-1 .user-actions .action-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
 }
+
 header > .section-1 .user-actions .action-links .action-link img {
   filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
 }
+
 header > .section-1 .user-actions .auth-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 header > .section-2 {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid var(--secondary-color);
   padding: 0 5%;
 }
+
 header > .section-2 .navbar nav {
   display: flex;
   justify-content: space-between;
@@ -278,19 +308,22 @@ header > .section-2 .navbar nav {
   font-size: 1.2em;
   padding: 5px;
 }
+
 header > .section-2 .navbar nav a {
   display: flex;
   flex-direction: row;
   margin: 0 5px;
 }
+
 header > .section-2 .navbar nav a img {
   width: 25px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
+
 header > .section-2 .navbar nav a span {
   padding: 5px;
 }
+
 header > .section-2 .welcome-msg {
   display: flex;
   align-items: center;
@@ -299,41 +332,55 @@ header > .section-2 .welcome-msg {
 .products {
   padding: 15px 3%;
 }
+
 .products .swiper-products {
   padding: 30px 5%;
 }
+
 .products .swiper-products .product-card {
   border: 1px solid rgba(0, 0, 0, 0.14);
 }
+
 .products .swiper-products .product-card a {
   padding: 10px;
 }
+
 .products .swiper-products .product-card a .row-1 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .products .swiper-products .product-card a .row-1 img {
   width: 70%;
 }
+
 .products .swiper-products .product-card a .row-2 {
-  color: rgb(54, 54, 54);
+  color: #363636;
   padding: 5px 15px;
 }
+
 .products .swiper-products .product-card a .row-2 .rate {
   display: flex;
-  justify-content: left;
   align-items: center;
-  gap: 5px;
+  justify-content: space-around;
+  gap: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+  justify-self: left;
+  width: fit-content;
   padding: 5px;
 }
+
 .products .swiper-products .product-card a .row-2 .rate img {
-  width: 25px;
+  width: 20px;
 }
+
 .products .swiper-products .product-card a .row-2 .price {
   font-size: 1.3em;
   padding: 15px;
 }
+
 .products .swiper-products .product-card:hover {
   box-shadow: 2px 2px 5px -2px black;
 }
@@ -343,6 +390,7 @@ header > .section-2 .welcome-msg {
     font-size: 22px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   body {
     font-size: 12px;
@@ -351,6 +399,7 @@ header > .section-2 .welcome-msg {
     padding: 15px 0;
   }
 }
+
 @media screen and (max-width: 768px) {
   body .main header > .section-1 {
     grid-template-columns: 3fr 4fr 3fr;
@@ -359,6 +408,7 @@ header > .section-2 .welcome-msg {
     font-size: 1em;
   }
 }
+
 @media screen and (max-width: 640px) {
   body {
     font-size: 12px;
@@ -390,8 +440,9 @@ header > .section-2 .welcome-msg {
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 375px) {
   body {
     font-size: 11px;
   }
-}/*# sourceMappingURL=global.css.map */
+}

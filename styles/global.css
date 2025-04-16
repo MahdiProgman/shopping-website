@@ -303,7 +303,7 @@ header > .section-2 .welcome-msg {
   padding: 30px 5%;
 }
 .products .swiper-products .product-card {
-  box-shadow: 2px 2px 5px -2px black;
+  border: 1px solid rgba(0, 0, 0, 0.14);
 }
 .products .swiper-products .product-card a {
   padding: 10px;
@@ -322,7 +322,7 @@ header > .section-2 .welcome-msg {
 }
 .products .swiper-products .product-card a .row-2 .rate {
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: center;
   gap: 5px;
   padding: 5px;
@@ -333,6 +333,9 @@ header > .section-2 .welcome-msg {
 .products .swiper-products .product-card a .row-2 .price {
   font-size: 1.3em;
   padding: 15px;
+}
+.products .swiper-products .product-card:hover {
+  box-shadow: 2px 2px 5px -2px black;
 }
 
 @media screen and (min-width: 1800px) {

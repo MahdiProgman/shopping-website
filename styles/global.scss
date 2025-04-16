@@ -318,7 +318,7 @@ header > {
   .swiper-products {
     padding: 30px 5%;
     .product-card {
-      box-shadow: 2px 2px 5px -2px black;
+      border: 1px solid $border-color;
       a {
         padding: 10px;
         .row-1 {
@@ -334,7 +334,7 @@ header > {
           padding: 5px 15px;
           .rate {
             display: flex;
-            justify-content: right;
+            justify-content: left;
             align-items: center;
             gap: 5px;
             padding: 5px;
@@ -348,6 +348,9 @@ header > {
           }
         }
       }
+    }
+    .product-card:hover {
+      box-shadow: 2px 2px 5px -2px black;
     }
   }
 }

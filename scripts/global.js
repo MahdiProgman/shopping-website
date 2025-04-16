@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 swiperProducts.forEach((value, i) => {
     new Swiper(`.sp-${i+1}`, {
         autoplay: {
-            delay: 2500
+            delay: 3500
         },
         navigation: {
             nextEl: `.sp-${i+1} .swiper-button-next`,

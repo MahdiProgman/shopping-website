@@ -361,7 +361,7 @@ header > .section-2 .welcome-msg {
 }
 @media screen and (max-width: 640px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
   }
   body .main header > .section-1 {
     grid-template-columns: 1fr 9fr;

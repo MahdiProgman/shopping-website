@@ -1,6 +1,6 @@
 const websiteAdvertiseSwiper = new Swiper('main > .website-advertise > .swiper', {
     autoplay: {
-        delay: 2500,
+        delay: 3500,
     },
     navigation: {
         nextEl: 'main > .website-advertise > .swiper .swiper-button-next',

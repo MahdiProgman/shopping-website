@@ -40,8 +40,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     window.addEventListener('resize', setSpacerHeight);
 
-    const resizeObserver = new ResizeObserver(setSpacerHeight);
-    resizeObserver.observe(document.querySelector('header > .section-1'));
+    const headerResizeObserver = new ResizeObserver(setSpacerHeight);
+    headerResizeObserver.observe(document.querySelector('header > .section-1'));
+
+    const closeDrawerMenu = () => {
+        if(document.documentElement.clientWidth > 640 && drawerBox.classList.contains('on')){
+            drawerBox.classList.remove('on');
+            overlay.classList.add('hidden');
+        }
+    }
+
+    const drawerResizeObserver = new ResizeObserver(closeDrawerMenu);
+    drawerResizeObserver.observe(document.documentElement);
 });
 
 swiperProducts.forEach((value, i) => {

@@ -564,6 +564,10 @@ footer .side-left .sentence p {
   body .main header > .section-2 {
     display: none;
   }
+  body .main footer {
+    display: flex;
+    flex-direction: column;
+  }
   .products {
     font-size: 20px;
   }

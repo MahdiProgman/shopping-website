@@ -400,6 +400,66 @@ header > .section-2 .welcome-msg {
   align-items: center;
 }
 
+footer {
+  display: grid;
+  grid-template-columns: 7.5fr 2.5fr;
+  border-top: 2px solid var(--primary-color);
+  padding: 15px 5%;
+}
+
+footer .side-right .brand {
+  padding: 15px;
+  width: fit-content;
+}
+
+footer .side-right .brand a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  display: flex;
+}
+
+footer .side-right .brand a img {
+  width: 50px;
+}
+
+footer .side-right .brand p {
+  color: gray;
+  padding: 5px;
+}
+
+footer .side-right .about-us {
+  color: gray;
+  padding: 5px 15px;
+}
+
+footer .side-left {
+  padding: 15px;
+}
+
+footer .side-left .phone-number {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+footer .side-left .phone-number .title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+footer .side-left .phone-number .phone-number {
+  text-align: left;
+}
+
+footer .side-left .sentence {
+  padding: 5px;
+}
+
+footer .side-left .sentence p {
+  border-right: 3px solid var(--primary-color);
+  padding: 5px 15px;
+}
+
 .products {
   padding: 15px 3%;
 }

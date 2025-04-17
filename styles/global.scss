@@ -376,6 +376,57 @@ header > {
   }
 }
 
+footer {
+  display: grid;
+  grid-template-columns: 7.5fr 2.5fr;
+  border-top: 2px solid var(--primary-color);
+  padding: 15px 5%;
+  .side-right {
+    .brand {
+      padding: 15px;
+      width: fit-content;
+      a {
+        border-bottom: 1px solid $border-color;
+        display: flex;
+        img {
+          width: 50px;
+        }
+      }
+      p {
+        color: gray;
+        padding: 5px;
+      }
+    }
+    .about-us {
+      color: gray;
+      padding: 5px 15px;
+    }
+  }
+  .side-left {
+    padding: 15px;
+    .phone-number {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      .title {
+        border-bottom: 1px solid $border-color;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+      .phone-number {
+        text-align: left;
+      }
+    }
+    .sentence {
+      padding: 5px;
+      p {
+        border-right: 3px solid var(--primary-color);
+        padding: 5px 15px;
+      }
+    }
+  }
+}
+
 .products {
   padding: 15px 3%;
   .swiper-products {

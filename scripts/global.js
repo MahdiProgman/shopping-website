@@ -6,6 +6,9 @@ const drawerBox = document.querySelector('.drawer');
 const overlay = document.querySelector('body > .overlay');
 const headerSpacer = document.querySelector('header > .spacer');
 const swiperProducts = document.querySelectorAll('.swiper-products');
+const topSearchesBox = document.querySelector('.top-searches');
+const headerOverlay = document.querySelector('.header-overlay');
+const searchInput = document.getElementById('search-input');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -79,3 +82,15 @@ swiperProducts.forEach((value, i) => {
         }
     })
 });
+
+searchInput.addEventListener('focus', ()=> {
+   topSearchesBox.classList.add('on');
+   headerOverlay.classList.remove('hidden'); 
+});
+
+headerOverlay.addEventListener('click', (e)=> {
+    if(topSearchesBox.classList.contains('on')){
+        topSearchesBox.classList.remove('on');
+        headerOverlay.classList.add('hidden');
+    }
+})

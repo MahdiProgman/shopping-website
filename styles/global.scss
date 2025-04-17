@@ -72,8 +72,20 @@ a:hover::after {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 1500;
   transition: all 0.75s;
+}
+
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: block;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .hidden {
@@ -105,7 +117,7 @@ a:hover::after {
   height: 100vh;
   transform: translateX(100vw);
   padding: 10px 0;
-  z-index: 1002;
+  z-index: 2000;
   transition: all 0.5s;
   .section-1 {
     display: flex;
@@ -188,6 +200,10 @@ a:hover::after {
   transform: translateX(0);
 }
 
+header {
+  position: relative;
+  z-index: 1001;
+}
 header > {
   .section-1 {
     background-color: white;
@@ -230,6 +246,7 @@ header > {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       .box {
         display: flex;
         align-items: center;
@@ -254,6 +271,51 @@ header > {
           width: 100%;
           outline: none;
           width: 100%;
+        }
+        .top-searches {
+          pointer-events: none;
+          background-color: white;
+          border: 1px solid $border-color;
+          border-radius: 0 0 10px 10px;
+          opacity: 0;
+          transform: translateY(100px);
+          padding: 5px 15px;
+          position: absolute;
+          width: 100%;
+          top: 100%;
+          right: 0;
+          z-index: 1001;
+          transition: all .5s;
+          h6 {
+            padding: 5px;
+            font-size: 1.1em;
+            color: gray;
+
+          }
+          .searches {
+            padding: 5px;
+            ul {
+              list-style: none;
+              li {
+                padding: 5px;
+                a {
+                  display: flex;
+                  justify-content: right;
+                  align-items: center;
+                  gap: 10px;
+                  img {
+                    width: 30px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .top-searches.on {
+          display: block;
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
         }
       }
     }
@@ -283,6 +345,7 @@ header > {
     }
   }
   .section-2 {
+    background-color: white;
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid var(--secondary-color);

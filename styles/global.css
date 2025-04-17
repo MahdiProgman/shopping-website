@@ -66,8 +66,20 @@ a:hover::after {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 1500;
   transition: all 0.75s;
+}
+
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: block;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .hidden {
@@ -97,7 +109,7 @@ a:hover::after {
   height: 100vh;
   transform: translateX(100vw);
   padding: 10px 0;
-  z-index: 1002;
+  z-index: 2000;
   transition: all 0.5s;
 }
 
@@ -190,6 +202,11 @@ a:hover::after {
   transform: translateX(0);
 }
 
+header {
+  position: relative;
+  z-index: 1001;
+}
+
 header > .section-1 {
   background-color: white;
   display: grid;
@@ -237,6 +254,7 @@ header > .section-1 .search {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 header > .section-1 .search .box {
@@ -269,6 +287,58 @@ header > .section-1 .search .box input {
   width: 100%;
 }
 
+header > .section-1 .search .box .top-searches {
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  transform: translateY(100px);
+  padding: 5px 15px;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  right: 0;
+  z-index: 1001;
+  transition: all .5s;
+}
+
+header > .section-1 .search .box .top-searches h6 {
+  padding: 5px;
+  font-size: 1.1em;
+  color: gray;
+}
+
+header > .section-1 .search .box .top-searches .searches {
+  padding: 5px;
+}
+
+header > .section-1 .search .box .top-searches .searches ul {
+  list-style: none;
+}
+
+header > .section-1 .search .box .top-searches .searches ul li {
+  padding: 5px;
+}
+
+header > .section-1 .search .box .top-searches .searches ul li a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 10px;
+}
+
+header > .section-1 .search .box .top-searches .searches ul li a img {
+  width: 30px;
+}
+
+header > .section-1 .search .box .top-searches.on {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 header > .section-1 .user-actions {
   display: flex;
   justify-content: center;
@@ -295,6 +365,7 @@ header > .section-1 .user-actions .auth-links {
 }
 
 header > .section-2 {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid var(--secondary-color);

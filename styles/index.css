@@ -80,6 +80,7 @@ main .faq-section .side-right ul .faq-item label {
 }
 
 main .faq-section .side-right ul .faq-item label img {
+  object-fit: contain;
   width: 25px;
   transition: all .5s;
 }

@@ -69,6 +69,7 @@ main {
             padding: 5px;
             cursor: pointer;
             img {
+              object-fit: contain;
               width: 25px;
               transition: all .5s;
             }

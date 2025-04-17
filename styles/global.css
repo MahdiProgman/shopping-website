@@ -502,9 +502,6 @@ header > .section-2 .welcome-msg {
     display: none;
   }
   body .main header > .section-2 {
-    justify-content: center;
-  }
-  body .main header > .section-2 .navbar {
     display: none;
   }
   .products {

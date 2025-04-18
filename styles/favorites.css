@@ -1,0 +1,64 @@
+.main main {
+  padding: 10px 15%;
+}
+
+.main main .favorites-list {
+  padding: 15px;
+}
+
+.main main .favorites-list h1 {
+  color: var(--primary-color);
+  text-align: right;
+}
+
+.main main .favorites-list .products .product a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: #363636;
+  gap: 15px;
+}
+
+.main main .favorites-list .products .product a .image img {
+  width: 120px;
+}
+
+.main main .favorites-list .products .product a .detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main main .favorites-list .products .product a .detail h5 {
+  padding: 5px;
+}
+
+.main main .favorites-list .products .product a .detail .rate {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  justify-self: left;
+  padding: 5px 10px;
+  align-items: center;
+  width: fit-content;
+}
+
+.main main .favorites-list .products .product a .detail .rate img {
+  width: 25px;
+}
+
+.main main .favorites-list .products .product a .detail .delete-product {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 11px;
+  margin-right: auto;
+  padding: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.main main .favorites-list .products .product a .detail .delete-product img {
+  width: 25px;
+}

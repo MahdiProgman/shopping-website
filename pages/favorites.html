@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>سبد خرید من | وبسایت فروشگاهی</title>
-    <link rel="icon" image="x-icon" href="/assets/icons/brand.png" />
-    <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/cart.css">
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>علاقه مندی ها | وبسایت فروشگاهی</title>
+    <link rel="icon" image="x-icon" href="/assets/icons/brand.png">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/favorites.css">
+</head>
+<body>
     <div class="overlay hidden"></div>
     <div class="drawer">
       <div class="section-1">
         <div class="close-div">
           <button id="close-btn">
-            <img src="assets/icons/close.png" alt="close menu button" />
+            <img src="assets/icons/close.png" alt="close menu button">
           </button>
         </div>
         <div class="brand">
@@ -30,29 +30,29 @@
         </div>
         <div class="action-links">
           <a href="/pages/cart.html">
-            <img src="/assets/icons/cart.png" alt="" />
+            <img src="/assets/icons/cart.png" alt="">
             <span>سبد خرید</span>
           </a>
-          <a href="/pages/favorites.html">
-            <img src="/assets/icons/heart.png" alt="" />
+          <a href="#favorites">
+            <img src="/assets/icons/heart.png" alt="">
             <span>علاقه مندی ها</span>
           </a>
         </div>
         <div class="navbar">
           <a href="#home">
-            <img src="/assets/icons/house.png" alt="" />
+            <img src="/assets/icons/house.png" alt="">
             <span>خانه</span>
           </a>
           <a href="#products">
-            <img src="/assets/icons/product.png" alt="" />
+            <img src="/assets/icons/product.png" alt="">
             <span>محصولات</span>
           </a>
           <a href="#categories">
-            <img src="/assets/icons/category.png" alt="" />
+            <img src="/assets/icons/category.png" alt="">
             <span>دسته بندی ها</span>
           </a>
           <a href="#about-us">
-            <img src="/assets/icons/about-us.png" alt="" />
+            <img src="/assets/icons/about-us.png" alt="">
             <span>درباره ما</span>
           </a>
         </div>
@@ -74,11 +74,7 @@
           </div>
           <div class="search">
             <div class="box">
-              <input
-                type="text"
-                id="search-input"
-                placeholder="دنبال محصول خاصی میگردید؟"
-              />
+              <input type="text" id="search-input" placeholder="دنبال محصول خاصی میگردید؟" />
               <button id="search-btn">
                 <img src="/assets/icons/search.svg" alt="" />
               </button>
@@ -88,25 +84,25 @@
                   <ul>
                     <li>
                       <a href="#search?q=هدفون">
-                        <img src="/assets/icons/search.svg" alt="" />
+                        <img src="/assets/icons/search.svg" alt="">
                         <span>هدفون</span>
                       </a>
                     </li>
                     <li>
                       <a href="#search?q=هدفون">
-                        <img src="/assets/icons/search.svg" alt="" />
+                        <img src="/assets/icons/search.svg" alt="">
                         <span>هدفون</span>
                       </a>
                     </li>
                     <li>
                       <a href="#search?q=هدفون">
-                        <img src="/assets/icons/search.svg" alt="" />
+                        <img src="/assets/icons/search.svg" alt="">
                         <span>هدفون</span>
                       </a>
                     </li>
                     <li>
                       <a href="#search?q=هدفون">
-                        <img src="/assets/icons/search.svg" alt="" />
+                        <img src="/assets/icons/search.svg" alt="">
                         <span>هدفون</span>
                       </a>
                     </li>
@@ -136,19 +132,19 @@
           <div class="navbar">
             <nav>
               <a href="#home">
-                <img src="/assets/icons/house.png" alt="" />
+                <img src="/assets/icons/house.png" alt="">
                 <span>خانه</span>
               </a>
               <a href="#products">
-                <img src="/assets/icons/product.png" alt="" />
+                <img src="/assets/icons/product.png" alt="">
                 <span>محصولات</span>
               </a>
               <a href="#categories">
-                <img src="/assets/icons/category.png" alt="" />
+                <img src="/assets/icons/category.png" alt="">
                 <span>دسته بندی ها</span>
               </a>
               <a href="#about-us">
-                <img src="/assets/icons/about-us.png" alt="" />
+                <img src="/assets/icons/about-us.png" alt="">
                 <span>درباره ما</span>
               </a>
             </nav>
@@ -164,10 +160,10 @@
       </header>
       <div class="header-overlay hidden"></div>
       <main>
-        <section class="cart-section">
-            <div class="products-list">
-                <h3>لیست محصولات</h3>
-                <div class="products">
+        <section class="favorites-list">
+            <h1>لیست علاقه مندی ها • ۵ محصول</h1>
+            <div class="products">
+                <div class="product">
                     <div class="product">
                         <a class="special" href="">
                             <div class="image">
@@ -180,6 +176,9 @@
                                     <span class="rate-number">۵</span>
                                 </div>
                                 <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                                <button class="delete-product">
+                                    <img src="/assets/icons/trash.png" alt="">
+                                </button>
                             </div>
                         </a>
                     </div>
@@ -195,6 +194,9 @@
                                     <span class="rate-number">۵</span>
                                 </div>
                                 <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                                <button class="delete-product">
+                                    <img src="/assets/icons/trash.png" alt="">
+                                </button>
                             </div>
                         </a>
                     </div>
@@ -210,6 +212,9 @@
                                     <span class="rate-number">۵</span>
                                 </div>
                                 <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                                <button class="delete-product">
+                                    <img src="/assets/icons/trash.png" alt="">
+                                </button>
                             </div>
                         </a>
                     </div>
@@ -225,6 +230,9 @@
                                     <span class="rate-number">۵</span>
                                 </div>
                                 <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                                <button class="delete-product">
+                                    <img src="/assets/icons/trash.png" alt="">
+                                </button>
                             </div>
                         </a>
                     </div>
@@ -240,15 +248,13 @@
                                     <span class="rate-number">۵</span>
                                 </div>
                                 <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                                <button class="delete-product">
+                                    <img src="/assets/icons/trash.png" alt="">
+                                </button>
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="order-details">
-                <h5>جزییات سفارش</h5>
-                <span class="sum-of-all">جمع کل : ۶۹,۸۰۰,۰۰۰ تومان</span>
-                <button class="place-order-btn">ثبت سفارش</button>
             </div>
         </section>
       </main>
@@ -278,5 +284,5 @@
       </footer>
     </div>
     <script src="/scripts/global.js"></script>
-  </body>
+</body>
 </html>

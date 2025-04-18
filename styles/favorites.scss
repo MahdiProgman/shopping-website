@@ -1,0 +1,64 @@
+$border-color: rgba(0, 0, 0, 0.14);
+
+.main {
+    main {
+        padding: 10px 15%;
+        .favorites-list {
+            padding: 15px;
+            h1 {
+                color: var(--primary-color);
+                text-align: right;
+            }
+            .products {
+                .product {
+                    a {
+                        display: flex;
+                        justify-content: right;
+                        align-items: center;
+                        border-bottom: 1px solid $border-color;
+                        color: rgb(54, 54, 54);
+                        gap: 15px;
+                        .image {
+                            img {
+                                width: 120px;
+                            }
+                        }
+                        .detail {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            h5 {
+                                padding: 5px;
+                            }
+                            .rate {
+                                border: 1px solid $border-color;
+                                border-radius: 15px;
+                                display: flex;
+                                justify-content: space-between;
+                                justify-self: left;
+                                padding: 5px 10px;
+                                align-items: center;
+                                width: fit-content;
+                                img {
+                                    width: 25px;
+                                }
+                            }
+                            .delete-product {
+                                background-color: transparent;
+                                border: 1px solid $border-color;
+                                border-radius: 11px;
+                                margin-right: auto;
+                                padding: 5px;
+                                width: fit-content;
+                                cursor: pointer;
+                                img {
+                                    width: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

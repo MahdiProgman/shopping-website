@@ -81,3 +81,23 @@ $border-color: rgba(0, 0, 0, 0.14);
         }
     }
 }
+
+@media screen and (max-width: 640px) {
+    .main {
+        main {
+            .cart-section {
+                display: flex;
+                flex-direction: column-reverse;
+                .product a {
+                    display: flex;
+                    flex-direction: column;
+                    .image {
+                        display: flex;
+                        justify-content: right;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

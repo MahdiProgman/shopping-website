@@ -84,3 +84,19 @@
   margin: 25px 0;
   cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+  .main main .cart-section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .main main .cart-section .product a {
+    display: flex;
+    flex-direction: column;
+  }
+  .main main .cart-section .product a .image {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+  }
+}

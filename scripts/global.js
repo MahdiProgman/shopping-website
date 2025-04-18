@@ -88,9 +88,21 @@ searchInput.addEventListener('focus', ()=> {
    headerOverlay.classList.remove('hidden'); 
 });
 
-headerOverlay.addEventListener('click', (e)=> {
-    if(topSearchesBox.classList.contains('on')){
+document.addEventListener('mousedown', (e) => {
+    if(!topSearchesBox.contains(e.target) && topSearchesBox.classList.contains('on')){
         topSearchesBox.classList.remove('on');
         headerOverlay.classList.add('hidden');
     }
-})
+});
+
+document.addEventListener('touchstart', (e) => {
+    if(!topSearchesBox.contains(e.target) && topSearchesBox.classList.contains('on')){
+        topSearchesBox.classList.remove('on');
+        headerOverlay.classList.add('hidden');
+    }
+
+    if(!drawerBox.contains(e.target) && drawerBox.classList.contains('on')){
+        drawerBox.classList.remove('on');
+        overlay.classList.add('hidden');
+    }
+});

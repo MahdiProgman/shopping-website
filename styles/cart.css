@@ -1,0 +1,86 @@
+.main main .cart-section {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  padding: 15px 5%;
+}
+
+.main main .cart-section .products-list {
+  padding: 5px;
+}
+
+.main main .cart-section .products-list h3 {
+  color: var(--primary-color);
+  font-size: 1.5em;
+}
+
+.main main .cart-section .products-list .products .product {
+  width: 100%;
+}
+
+.main main .cart-section .products-list .products .product a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: #363636;
+  gap: 15px;
+}
+
+.main main .cart-section .products-list .products .product a .image img {
+  width: 120px;
+}
+
+.main main .cart-section .products-list .products .product a .detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.main main .cart-section .products-list .products .product a .detail h5 {
+  padding: 5px;
+}
+
+.main main .cart-section .products-list .products .product a .detail .rate {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  justify-self: left;
+  padding: 5px 10px;
+  align-items: center;
+  width: fit-content;
+}
+
+.main main .cart-section .products-list .products .product a .detail .rate img {
+  width: 25px;
+}
+
+.main main .cart-section .order-details {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 11px;
+  height: fit-content;
+  padding: 0 15px;
+}
+
+.main main .cart-section .order-details h5 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: var(--primary-color);
+  font-size: 1.5em;
+  padding: 10px 15px;
+}
+
+.main main .cart-section .order-details .sum-of-all {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 15px;
+}
+
+.main main .cart-section .order-details .place-order-btn {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  margin: 25px 0;
+  cursor: pointer;
+}

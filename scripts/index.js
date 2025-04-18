@@ -10,3 +10,28 @@ const websiteAdvertiseSwiper = new Swiper('main > .website-advertise > .swiper',
         el: 'main > .website-advertise > .swiper .swiper-pagination'
     }
 })
+
+const categoriesSwiper = new Swiper('main > .categories > .swiper', {
+    autoplay: {
+        delay: 3500,
+    },
+    navigation: {
+        nextEl: 'main > .categories > .swiper .swiper-button-next',
+        prevEl: 'main > .categories > .swiper .swiper-button-prev'
+    },
+    pagination: {
+        el: `main > .categories > .swiper .swiper-pagination`
+    },
+    spaceBetween : 5,
+    breakpoints: {
+        1024: {
+            slidesPerView: 4,
+        },
+        768: {
+            slidesPerView: 3
+        },
+        640: {
+            slidesPerView: 2
+        }
+    }
+});

@@ -40,6 +40,60 @@ main .bestsellers h4 {
   font-size: 1.5em;
 }
 
+main .categories h4 {
+  color: var(--primary-color);
+  font-size: 1.3em;
+  text-align: right;
+}
+
+main .categories .swiper {
+  padding: 15px;
+}
+
+main .categories .swiper .swiper-wrapper {
+  margin: 5px;
+  padding: 5px 5%;
+}
+
+main .categories .swiper .swiper-wrapper .swiper-slide {
+  border: none;
+  border-radius: 11px;
+  box-shadow: 2px 2px 5px -2px black;
+  overflow: hidden;
+}
+
+main .categories .swiper .swiper-wrapper .swiper-slide a {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 200px;
+}
+
+main .categories .swiper .swiper-wrapper .swiper-slide a img {
+  mask-image: linear-gradient(to top, transparent 0%, black 70%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 70%);
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+main .categories .swiper .swiper-wrapper .swiper-slide a .details {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+  padding: 15px;
+}
+
+main .categories .swiper .swiper-wrapper .swiper-slide a .details h5 {
+  font-size: 1.5em;
+}
+
 main .most-visted h4 {
   border-right: 4px solid var(--errors-alerts-color);
   padding: 5px 10px;

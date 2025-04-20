@@ -1,0 +1,45 @@
+.main {
+    main {
+        .support-section {
+            text-align: center;
+            padding: 15px 10%;
+            h1 {
+                color: var(--primary-color);
+                font-size: 2.5em;
+            }
+            p {
+                color: gray;
+                padding: 10px;
+            }
+            .contact {
+                display: flex;
+                justify-content: space-between;
+                .contact-way {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    h3 {
+                        color: var(--primary-color);
+                        font-size: 2em;
+                    }
+                    img {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .main {
+        main {
+            .support-section {
+                .contact {
+                    flex-direction: column-reverse;
+                }
+            }
+        }
+    }
+}

@@ -129,3 +129,50 @@ $border-color: rgba(54, 54, 54, 0.14);
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .main {
+        main {
+            .product-section {
+                .details {
+                    .buttons {
+                        flex-direction: column;
+                        position: static;
+                        button {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .main {
+        main {
+            padding: 15px 0;
+            .product-section {
+                flex-direction: column;
+                > {
+                    .images {
+                        text-align: center;
+                        .main-image {
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .details {
+                        .buttons {
+                            background-color: white;
+                            padding: 20px;
+                            position: sticky;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

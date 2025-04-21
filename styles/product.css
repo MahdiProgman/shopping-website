@@ -141,3 +141,34 @@
 .main main .product-section .details .buttons button.cart {
   background-color: var(--secondary-color);
 }
+
+@media screen and (max-width: 768px) {
+  .main main .product-section .details .buttons {
+    flex-direction: column;
+    position: static;
+  }
+  .main main .product-section .details .buttons button {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main main {
+    padding: 15px 0;
+  }
+  .main main .product-section {
+    flex-direction: column;
+  }
+  .main main .product-section > .images {
+    text-align: center;
+  }
+  .main main .product-section > .images .main-image img {
+    width: 100%;
+  }
+  .main main .product-section > .details .buttons {
+    background-color: white;
+    padding: 20px;
+    position: sticky;
+    width: 100%;
+  }
+}

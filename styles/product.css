@@ -19,7 +19,7 @@
 }
 
 .image-viewer img {
-  max-width: 30%;
+  width: 30%;
 }
 
 .image-viewer.on {
@@ -37,8 +37,12 @@
   gap: 15px;
 }
 
+.main main .product-section .images {
+  width: 45%;
+}
+
 .main main .product-section .images .main-image img {
-  max-width: 300px;
+  width: 100%;
 }
 
 .main main .product-section .images .images-list {
@@ -51,11 +55,12 @@
   border-radius: 11px;
   padding: 5px;
   margin: 2px;
+  width: 15%;
   cursor: pointer;
 }
 
 .main main .product-section .images .images-list .image-btn img {
-  width: 35px;
+  width: 100%;
 }
 
 .main main .product-section .details {
@@ -123,6 +128,7 @@
   border-radius: 11px;
   color: white;
   display: flex;
+  font-size: 1.2em;
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
@@ -132,6 +138,7 @@
 
 .main main .product-section .details .buttons button img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(262deg) brightness(103%) contrast(102%);
+  width: 25px;
 }
 
 .main main .product-section .details .buttons button.favorite {
@@ -143,6 +150,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .image-viewer img {
+    width: 55%;
+  }
+  .main main .product-section .images .images-list .image-btn {
+    width: 25%;
+  }
   .main main .product-section .details .buttons {
     flex-direction: column;
     position: static;
@@ -153,6 +166,9 @@
 }
 
 @media screen and (max-width: 640px) {
+  .image-viewer img {
+    width: 65%;
+  }
   .main main {
     padding: 15px 0;
   }
@@ -161,9 +177,16 @@
   }
   .main main .product-section > .images {
     text-align: center;
+    width: 100%;
   }
   .main main .product-section > .images .main-image img {
-    width: 100%;
+    width: 40%;
+  }
+  .main main .product-section > .images .images-list {
+    width: 60%;
+  }
+  .main main .product-section > .images .images-list .image-btn {
+    width: 25%;
   }
   .main main .product-section > .details .buttons {
     background-color: white;

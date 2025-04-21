@@ -18,7 +18,7 @@ $border-color: rgba(54, 54, 54, 0.14);
         cursor: pointer;
     }
     img {
-        max-width: 30%;
+        width: 30%;
     }
 }
 
@@ -35,9 +35,10 @@ $border-color: rgba(54, 54, 54, 0.14);
             padding: 15px;
             gap: 15px;
             .images {
+                width: 45%;
                 .main-image {
                     img {
-                        max-width: 300px;
+                        width: 100%;
                     }
                 }
                 .images-list {
@@ -48,9 +49,10 @@ $border-color: rgba(54, 54, 54, 0.14);
                         border-radius: 11px;
                         padding: 5px;
                         margin: 2px;
+                        width: 15%;
                         cursor: pointer;
                         img {
-                            width: 35px;
+                            width: 100%;
                         }
                     }
                 }
@@ -109,6 +111,7 @@ $border-color: rgba(54, 54, 54, 0.14);
                         border-radius: 11px;
                         color: white;
                         display: flex;
+                        font-size: 1.2em;
                         justify-content: space-between;
                         align-items: center;
                         padding: 10px 15px;
@@ -116,6 +119,7 @@ $border-color: rgba(54, 54, 54, 0.14);
                         cursor: pointer;
                         img {
                             filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(262deg) brightness(103%) contrast(102%);
+                            width: 25px;
                         }
                     }
                     button.favorite {
@@ -131,9 +135,22 @@ $border-color: rgba(54, 54, 54, 0.14);
 }
 
 @media screen and (max-width: 768px) {
+    .image-viewer {
+        img {
+            width: 55%;
+        }
+    }
+
     .main {
         main {
             .product-section {
+                .images {
+                    .images-list {
+                        .image-btn {
+                            width: 25%;
+                        }
+                    }
+                }
                 .details {
                     .buttons {
                         flex-direction: column;
@@ -149,6 +166,12 @@ $border-color: rgba(54, 54, 54, 0.14);
 }
 
 @media screen and (max-width: 640px) {
+    .image-viewer {
+        img {
+            width: 65%;
+        }
+    }
+
     .main {
         main {
             padding: 15px 0;
@@ -157,9 +180,16 @@ $border-color: rgba(54, 54, 54, 0.14);
                 > {
                     .images {
                         text-align: center;
+                        width: 100%;
                         .main-image {
                             img {
-                                width: 100%;
+                                width: 40%;
+                            }
+                        }
+                        .images-list {
+                            width: 60%;
+                            .image-btn {
+                                width: 25%;
                             }
                         }
                     }

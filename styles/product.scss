@@ -146,16 +146,12 @@ $border-color: rgba(54, 54, 54, 0.14);
                 }
                 p {
                     color: gray;
-                    max-height: 80px;
                     overflow: hidden;
                     padding: 5px;
                     transition: all .75s;
                 }
-                p.open {
-                    max-height: 1000px;
-                }
                 button.show-more-btn {
-                    display: flex;
+                    display: none;
                     align-items: center;
                     justify-self: center;
                     background-color: transparent;
@@ -283,6 +279,19 @@ $border-color: rgba(54, 54, 54, 0.14);
                             position: sticky;
                             width: 100%;
                         }
+                    }
+                }
+            }
+            .description-and-specifications {
+                .description {
+                    p {
+                        max-height: 120px;
+                    }
+                    p.open {
+                        max-height: 1000px;
+                    }
+                    button.show-more-btn {
+                        display: flex;
                     }
                 }
             }

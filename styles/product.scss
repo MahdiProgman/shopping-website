@@ -240,6 +240,10 @@ $border-color: rgba(54, 54, 54, 0.14);
                     }
                 }
             }
+            .description-and-specifications {
+                display: flex;
+                flex-direction: column-reverse;
+            }
         }
     }
 }

@@ -253,6 +253,10 @@
   .main main .product-section .details .buttons button {
     justify-content: center;
   }
+  .main main .description-and-specifications {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 @media screen and (max-width: 640px) {

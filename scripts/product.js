@@ -8,12 +8,10 @@ const textOfDescription = document.querySelector('.description-and-specification
 showMoreBtn.addEventListener('click', () => {
     if(!showMoreBtn.classList.contains('on')){
         showMoreBtn.classList.add('on');
-        textOfDescription.style.maxHeight = '1000px';
-        showMoreBtn.children[0].innerText = 'مشاهده کمتر';
+        textOfDescription.classList.add('open');
     } else {
         showMoreBtn.classList.remove('on');
-        textOfDescription.style.maxHeight = '80px';
-        showMoreBtn.children[0].innerText = 'مشاهده بیشتر';
+        textOfDescription.classList.remove('open');
     }
 });
 

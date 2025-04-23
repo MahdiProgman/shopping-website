@@ -28,7 +28,7 @@ $border-color: rgba(54, 54, 54, 0.14);
 
 .main {
     main {
-        padding: 15px 8%;
+        padding: 15px 5%;
         .product-section {
             display: flex;
             justify-content: space-around;
@@ -132,9 +132,9 @@ $border-color: rgba(54, 54, 54, 0.14);
             }
         }
         .description-and-specifications {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 15px;
             padding: 10px;
             .description {
                 h5 {
@@ -142,6 +142,7 @@ $border-color: rgba(54, 54, 54, 0.14);
                     color: var(--errors-alerts-color);
                     font-size: 1.8em;
                     padding: 10px 15px;
+                    width: fit-content;
                 }
                 p {
                     color: gray;
@@ -149,6 +150,9 @@ $border-color: rgba(54, 54, 54, 0.14);
                     overflow: hidden;
                     padding: 5px;
                     transition: all .75s;
+                }
+                p.open {
+                    max-height: 1000px;
                 }
                 button.show-more-btn {
                     display: flex;
@@ -175,6 +179,33 @@ $border-color: rgba(54, 54, 54, 0.14);
                     }
                     span {
                         content: 'مشاهده کمتر';
+                    }
+                }
+            }
+            .specifications {
+                flex-shrink: 0;
+                h5 {
+                    color: var(--errors-alerts-color);
+                    font-size: 1.8em;
+                    padding: 10px 15px;
+                }
+                .specification-rows {
+                    border: 1px solid $border-color;
+                    border-radius: 11px;
+                    padding: 10px 15px;
+                    gap: 15px;
+                    .specification-row {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 1px solid $border-color;
+                        padding: 10px;
+                        span.property {
+                            color: var(--primary-color);
+                        }
+                        span.value {
+                            color: rgb(54, 54, 54);
+                        }
                     }
                 }
             }

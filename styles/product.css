@@ -28,7 +28,7 @@
 }
 
 .main main {
-  padding: 15px 8%;
+  padding: 15px 5%;
 }
 
 .main main .product-section {
@@ -151,9 +151,9 @@
 }
 
 .main main .description-and-specifications {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 15px;
   padding: 10px;
 }
 
@@ -162,6 +162,7 @@
   color: var(--errors-alerts-color);
   font-size: 1.8em;
   padding: 10px 15px;
+  width: fit-content;
 }
 
 .main main .description-and-specifications .description p {
@@ -170,6 +171,10 @@
   overflow: hidden;
   padding: 5px;
   transition: all .75s;
+}
+
+.main main .description-and-specifications .description p.open {
+  max-height: 1000px;
 }
 
 .main main .description-and-specifications .description button.show-more-btn {
@@ -199,6 +204,39 @@
 
 .main main .description-and-specifications .description button.show-more-btn.on span {
   content: 'مشاهده کمتر';
+}
+
+.main main .description-and-specifications .specifications {
+  flex-shrink: 0;
+}
+
+.main main .description-and-specifications .specifications h5 {
+  color: var(--errors-alerts-color);
+  font-size: 1.8em;
+  padding: 10px 15px;
+}
+
+.main main .description-and-specifications .specifications .specification-rows {
+  border: 1px solid rgba(54, 54, 54, 0.14);
+  border-radius: 11px;
+  padding: 10px 15px;
+  gap: 15px;
+}
+
+.main main .description-and-specifications .specifications .specification-rows .specification-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  padding: 10px;
+}
+
+.main main .description-and-specifications .specifications .specification-rows .specification-row span.property {
+  color: var(--primary-color);
+}
+
+.main main .description-and-specifications .specifications .specification-rows .specification-row span.value {
+  color: #363636;
 }
 
 @media screen and (max-width: 768px) {

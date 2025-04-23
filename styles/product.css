@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .image-viewer {
   display: none;
   flex-direction: column;
@@ -147,6 +148,57 @@
 
 .main main .product-section .details .buttons button.cart {
   background-color: var(--secondary-color);
+}
+
+.main main .description-and-specifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.main main .description-and-specifications .description h5 {
+  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  color: var(--errors-alerts-color);
+  font-size: 1.8em;
+  padding: 10px 15px;
+}
+
+.main main .description-and-specifications .description p {
+  color: gray;
+  max-height: 80px;
+  overflow: hidden;
+  padding: 5px;
+  transition: all .75s;
+}
+
+.main main .description-and-specifications .description button.show-more-btn {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: transparent;
+  border: 1px solid rgba(54, 54, 54, 0.14);
+  border-radius: 11px;
+  color: var(--primary-color);
+  gap: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  width: fit-content;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.main main .description-and-specifications .description button.show-more-btn img {
+  width: 25px;
+  transition: all .5s;
+}
+
+.main main .description-and-specifications .description button.show-more-btn.on img {
+  transform: rotate(180deg);
+}
+
+.main main .description-and-specifications .description button.show-more-btn.on span {
+  content: 'مشاهده کمتر';
 }
 
 @media screen and (max-width: 768px) {

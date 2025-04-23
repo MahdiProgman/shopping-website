@@ -131,6 +131,54 @@ $border-color: rgba(54, 54, 54, 0.14);
                 }
             }
         }
+        .description-and-specifications {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            .description {
+                h5 {
+                    border-bottom: 1px solid $border-color;
+                    color: var(--errors-alerts-color);
+                    font-size: 1.8em;
+                    padding: 10px 15px;
+                }
+                p {
+                    color: gray;
+                    max-height: 80px;
+                    overflow: hidden;
+                    padding: 5px;
+                    transition: all .75s;
+                }
+                button.show-more-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-self: center;
+                    background-color: transparent;
+                    border: 1px solid $border-color;
+                    border-radius: 11px;
+                    color: var(--primary-color);
+                    gap: 10px;
+                    text-align: center;
+                    padding: 10px 15px;
+                    width: fit-content;
+                    transition: all .5s;
+                    cursor: pointer;
+                    img {
+                        width: 25px;
+                        transition: all .5s;
+                    }
+                }
+                button.show-more-btn.on {
+                    img {
+                        transform: rotate(180deg);
+                    }
+                    span {
+                        content: 'مشاهده کمتر';
+                    }
+                }
+            }
+        }
     }
 }
 

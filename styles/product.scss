@@ -206,7 +206,7 @@ $border-color: rgba(54, 54, 54, 0.14);
                 }
             }
         }
-        .comments {
+        .comments-section {
             display: grid;
             grid-template-columns: 3fr 7fr;
             padding: 15px;
@@ -240,6 +240,58 @@ $border-color: rgba(54, 54, 54, 0.14);
                     padding: 8px 15px;
                     width: 100%;
                     cursor: pointer;
+                }
+            }
+            div.comments {
+                h5 {
+                    color: var(--errors-alerts-color);
+                    font-size: 1.8em;
+                }
+                .comments-list {
+                    max-height: 400px;
+                    padding: 10px;
+                    overflow: auto;
+                    .comment {
+                        border-bottom: 1px solid $border-color;
+                        padding: 10px;
+                        .name {
+                            display: flex;
+                            align-items: center;
+                            justify-content: right;
+                            padding: 10px;
+                            img {
+                                width: 50px;
+                            }
+                            h6 {
+                                color: var(--primary-color);
+                                font-size: 1.2em;
+                            }
+                        }
+                        .rate {
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            padding: 10px;
+                            img {
+                                width: 25px;
+                            }
+                        }
+                        p.comment-text {
+                            padding: 10px;
+                        }
+                        ul {
+                            list-style: none;
+                            li {
+                                display: flex;
+                                align-items: center;
+                                padding: 3px;
+                                gap: 10px;
+                                img {
+                                    width: 25px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -234,41 +234,41 @@
   color: #363636;
 }
 
-.main main .comments {
+.main main .comments-section {
   display: grid;
   grid-template-columns: 3fr 7fr;
   padding: 15px;
 }
 
-.main main .comments .rate-and-submit-comment {
+.main main .comments-section .rate-and-submit-comment {
   color: #363636;
   padding: 10px;
 }
 
-.main main .comments .rate-and-submit-comment .rate {
+.main main .comments-section .rate-and-submit-comment .rate {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.main main .comments .rate-and-submit-comment .rate img {
+.main main .comments-section .rate-and-submit-comment .rate img {
   width: 60px;
 }
 
-.main main .comments .rate-and-submit-comment .rate .rate-number {
+.main main .comments-section .rate-and-submit-comment .rate .rate-number {
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.main main .comments .rate-and-submit-comment p {
+.main main .comments-section .rate-and-submit-comment p {
   padding: 10px;
 }
 
-.main main .comments .rate-and-submit-comment .comments-number {
+.main main .comments-section .rate-and-submit-comment .comments-number {
   padding: 15px;
 }
 
-.main main .comments .rate-and-submit-comment button.write-comment-btn {
+.main main .comments-section .rate-and-submit-comment button.write-comment-btn {
   background-color: transparent;
   border: 2px solid var(--primary-color);
   border-radius: 11px;
@@ -277,6 +277,68 @@
   padding: 8px 15px;
   width: 100%;
   cursor: pointer;
+}
+
+.main main .comments-section div.comments h5 {
+  color: var(--errors-alerts-color);
+  font-size: 1.8em;
+}
+
+.main main .comments-section div.comments .comments-list {
+  max-height: 400px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.main main .comments-section div.comments .comments-list .comment {
+  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  padding: 10px;
+}
+
+.main main .comments-section div.comments .comments-list .comment .name {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 10px;
+}
+
+.main main .comments-section div.comments .comments-list .comment .name img {
+  width: 50px;
+}
+
+.main main .comments-section div.comments .comments-list .comment .name h6 {
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+
+.main main .comments-section div.comments .comments-list .comment .rate {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.main main .comments-section div.comments .comments-list .comment .rate img {
+  width: 25px;
+}
+
+.main main .comments-section div.comments .comments-list .comment p.comment-text {
+  padding: 10px;
+}
+
+.main main .comments-section div.comments .comments-list .comment ul {
+  list-style: none;
+}
+
+.main main .comments-section div.comments .comments-list .comment ul li {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  gap: 10px;
+}
+
+.main main .comments-section div.comments .comments-list .comment ul li img {
+  width: 25px;
 }
 
 @media screen and (max-width: 768px) {

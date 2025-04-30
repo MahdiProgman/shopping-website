@@ -399,4 +399,8 @@
   .main main .description-and-specifications .description button.show-more-btn {
     display: flex;
   }
+  .main main .comments-section {
+    display: flex;
+    flex-direction: column;
+  }
 }

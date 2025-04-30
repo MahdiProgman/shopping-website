@@ -206,6 +206,43 @@ $border-color: rgba(54, 54, 54, 0.14);
                 }
             }
         }
+        .comments {
+            display: grid;
+            grid-template-columns: 3fr 7fr;
+            padding: 15px;
+            .rate-and-submit-comment {
+                color: rgb(54, 54, 54);
+                padding: 10px;
+                .rate {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    img {
+                        width: 60px;
+                    }
+                    .rate-number {
+                        font-size: 1.5em;
+                        font-weight: bold;
+                    }
+                }
+                p {
+                    padding: 10px;
+                }
+                .comments-number {
+                    padding: 15px;
+                }
+                button.write-comment-btn {
+                    background-color: transparent;
+                    border: 2px solid var(--primary-color);
+                    border-radius: 11px;
+                    color: var(--primary-color);
+                    font-size: 1.1em;
+                    padding: 8px 15px;
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 

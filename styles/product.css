@@ -234,6 +234,51 @@
   color: #363636;
 }
 
+.main main .comments {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  padding: 15px;
+}
+
+.main main .comments .rate-and-submit-comment {
+  color: #363636;
+  padding: 10px;
+}
+
+.main main .comments .rate-and-submit-comment .rate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main main .comments .rate-and-submit-comment .rate img {
+  width: 60px;
+}
+
+.main main .comments .rate-and-submit-comment .rate .rate-number {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.main main .comments .rate-and-submit-comment p {
+  padding: 10px;
+}
+
+.main main .comments .rate-and-submit-comment .comments-number {
+  padding: 15px;
+}
+
+.main main .comments .rate-and-submit-comment button.write-comment-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 11px;
+  color: var(--primary-color);
+  font-size: 1.1em;
+  padding: 8px 15px;
+  width: 100%;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .image-viewer img {
     width: 55%;

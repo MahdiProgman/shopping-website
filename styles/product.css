@@ -1,4 +1,126 @@
 @charset "UTF-8";
+.submit-comment-box {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1503;
+}
+
+.submit-comment-box .box {
+  background-color: white;
+  border-radius: 11px;
+  width: 50%;
+  height: 80%;
+  overflow: auto;
+}
+
+.submit-comment-box .box .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  position: static;
+  padding: 10px 5%;
+}
+
+.submit-comment-box .box .header h5 {
+  color: var(--errors-alerts-color);
+  font-size: 1.3em;
+}
+
+.submit-comment-box .box .header button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-comment-box .box .header button img {
+  padding-top: 5px;
+  width: 30px;
+}
+
+.submit-comment-box .box .main {
+  padding: 15px 5%;
+}
+
+.submit-comment-box .box .main label {
+  padding: 10px;
+}
+
+.submit-comment-box .box .main textarea {
+  resize: none;
+}
+
+.submit-comment-box .box .main textarea, .submit-comment-box .box .main input {
+  border: 1px solid rgba(54, 54, 54, 0.14);
+  border-radius: 11px;
+  outline: none;
+  padding: 10px 15px;
+  width: 100%;
+  transition: all .5s;
+}
+
+.submit-comment-box .box .main textarea:focus, .submit-comment-box .box .main input:focus {
+  border-color: var(--primary-color);
+}
+
+.submit-comment-box .box .main .positive-points .input, .submit-comment-box .box .main .negetive-points .input {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.submit-comment-box .box .main .positive-points .input button, .submit-comment-box .box .main .negetive-points .input button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 11px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.submit-comment-box .box .main .positive-points ul, .submit-comment-box .box .main .negetive-points ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.submit-comment-box .box .main .positive-points ul li, .submit-comment-box .box .main .negetive-points ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-comment-box .box .main .positive-points ul li .text, .submit-comment-box .box .main .negetive-points ul li .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.submit-comment-box .box .main .positive-points ul li button, .submit-comment-box .box .main .negetive-points ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-comment-box .box .main > button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 11px;
+  color: white;
+  margin: 15px 0;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.submit-comment-box.on {
+  display: flex;
+}
+
 .image-viewer {
   display: none;
   flex-direction: column;

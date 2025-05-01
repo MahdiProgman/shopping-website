@@ -463,6 +463,12 @@
   width: 25px;
 }
 
+.main main .best-selling-products-in-this-category h4 {
+  border-right: 4px solid var(--errors-alerts-color);
+  font-size: 1.5em;
+  padding: 5px 10px;
+}
+
 @media screen and (max-width: 768px) {
   .submit-comment-box .box {
     border-radius: 0;

@@ -1,10 +1,10 @@
-require("dotenv").config();
 const http = require("http");
 const app = require("./app");
+const config = require("./core/config");
 
 const server = http.createServer(app);
 
-const port = process.env.APP_PORT || 8080;
+const port = config.getAppConfig().port;
 
 server.listen(port, () => {
   console.log(`THE APP is listen on port ${port}`);

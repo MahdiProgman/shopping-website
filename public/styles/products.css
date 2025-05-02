@@ -102,3 +102,15 @@
 .main main .products-section .products .pagination button img {
   width: 25px;
 }
+
+@media screen and (max-width: 425px) {
+  .main main .products-section .products .filters {
+    flex-direction: column;
+  }
+  .main main .products-section .products .filters div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}

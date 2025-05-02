@@ -3,6 +3,26 @@
   padding: 15px;
 }
 
+.main main .products-section .products .filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+}
+
+.main main .products-section .products .filters div select {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.main main .products-section .products .filters div select option:focus {
+  background-color: var(--primary-color);
+  color: white;
+}
+
 .main main .products-section .products .products-list .product-card {
   border: 1px solid rgba(0, 0, 0, 0.14);
 }

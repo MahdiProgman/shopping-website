@@ -30,6 +30,7 @@ $border-color: rgba(0, 0, 0, 0.14);
                             .detail {
                                 display: flex;
                                 flex-direction: column;
+                                width: 100%;
                                 h5 {
                                     padding: 5px;
                                 }
@@ -42,6 +43,18 @@ $border-color: rgba(0, 0, 0, 0.14);
                                     padding: 5px 10px;
                                     align-items: center;
                                     width: fit-content;
+                                    img {
+                                        width: 25px;
+                                    }
+                                }
+                                .delete-product {
+                                    background-color: transparent;
+                                    border: 1px solid $border-color;
+                                    border-radius: 11px;
+                                    margin-right: auto;
+                                    padding: 5px;
+                                    width: fit-content;
+                                    cursor: pointer;
                                     img {
                                         width: 25px;
                                     }
@@ -65,8 +78,11 @@ $border-color: rgba(0, 0, 0, 0.14);
                     padding: 10px 15px;
                 }
                 .sum-of-all {
+                    padding: 10px;
+                }
+                .payable {
                     border-bottom: 1px solid $border-color;
-                    padding: 15px;
+                    padding: 10px;
                 }
                 .place-order-btn {
                     border: none;

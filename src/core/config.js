@@ -4,7 +4,9 @@ const Joi = require("joi");
 const configValidation = Joi.object({
     app: Joi.object({
         port: Joi.number().required(),
-        session_secret: Joi.string().required()
+        session_secret: Joi.string().required(),
+        refresh_token_secret: Joi.string().required(),
+        access_token_secret: Joi.string().required()
     }),
     db: Joi.object({
         username: Joi.string().required(),
@@ -27,7 +29,9 @@ module.exports = new (class {
         this.config = {
             app: {
                 port: process.env.APP_PORT,
-                session_secret: process.env.SESSION_SECRET
+                session_secret: process.env.SESSION_SECRET,
+                refresh_token_secret: process.env.REFRESH_TOKEN_SECRET,
+                access_token_secret: process.env.ACCESS_TOKEN_SECRET
             },
             db: {
                 username: process.env.DB_USERNAME,

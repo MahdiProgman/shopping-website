@@ -25,6 +25,16 @@ module.exports = (sequelize) => {
                 type: DataTypes.JSON,
                 allowNull: false
             },
+            category_id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'tbl_categories',
+                    key: 'id'
+                },
+                onDelete: 'RESTRICT',
+                onUpdate: 'CASCADE'
+            },
             rate: {
                 type: DataTypes.INTEGER,
                 defaultValue: 5,

@@ -9,6 +9,16 @@ module.exports = (sequelize) => {
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true
             },
+            user_id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'tbl_users',
+                    key: 'id'
+                },
+                onDelete: 'RESTRICT',
+                onUpdate: 'CASCADE'
+            },
             refresh_token: {
                 type: DataTypes.STRING(512),
                 allowNull: false

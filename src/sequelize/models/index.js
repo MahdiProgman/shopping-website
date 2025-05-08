@@ -28,6 +28,15 @@ const loadModels = async (sequelize) => {
         as: 'product'
     });
 
+    await User.hasOne(RefreshToken, {
+        foreignKey: 'user_id',
+        as: 'refreshToken'
+    });
+    await RefreshToken.belongsTo(User, {
+        foreignKey: 'user_id',
+        as: 'user'
+    });
+
     return {
         User,
         Product,

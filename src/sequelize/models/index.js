@@ -55,6 +55,15 @@ const loadModels = async (sequelize) => {
         as: 'user'
     });
 
+    await Product.hasMany(UserCartProduct, {
+        foreignKey: 'product_id',
+        as: 'userCartProducts'
+    });
+    await UserCartProduct.belongsTo(Product, {
+        foreignKey: 'product_id',
+        as: 'product'
+    });
+
     return {
         User,
         Product,

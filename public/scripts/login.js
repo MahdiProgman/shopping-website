@@ -1,3 +1,11 @@
+const notyf = new Notyf({
+    duration: 3000,
+    ripple: true,
+    position: {
+        x: 'left',
+        y: 'top'
+    }
+});
 const showPasswordBtn = document.getElementById('show-password-btn');
 
 showPasswordBtn.addEventListener('click', ()=> {

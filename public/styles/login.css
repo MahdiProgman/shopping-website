@@ -54,6 +54,7 @@ body .main .box form {
 
 body .main .box form > .inputs {
   padding: 5px;
+  width: 285px;
 }
 
 body .main .box form > .inputs .input {
@@ -92,6 +93,11 @@ body .main .box form > .inputs .input:has(input:focus) {
   outline-color: var(--primary-color);
 }
 
+body .main .box form > .inputs .field-errors li {
+  color: var(--errors-alerts-color);
+  font-size: .8em;
+}
+
 body .main .box form > button {
   background-color: var(--primary-color);
   border: none;
@@ -108,4 +114,10 @@ body .main .box form > p {
 
 body .main .box form > a {
   padding: 5px;
+}
+
+@media screen and (min-width: 1800px) {
+  body .main .box form > .inputs {
+    width: 330px;
+  }
 }

@@ -43,6 +43,7 @@ body {
                 > {
                     .inputs {
                         padding: 5px;
+                        width: 285px;
                         .input {
                             border: 1px solid $border-color;
                             border-radius: 12px 13px 14px 15px;
@@ -74,6 +75,12 @@ body {
                             border-color: var(--secondary-color);
                             outline-color: var(--primary-color);
                         }
+                        .field-errors {
+                            li {
+                                color: var(--errors-alerts-color);
+                                font-size: .8em;
+                            }
+                        }
                     }
                     button {
                         background-color: var(--primary-color);
@@ -89,6 +96,22 @@ body {
                     }
                     a {
                         padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    body {
+        .main {
+            .box {
+                form {
+                    > {
+                        .inputs {
+                            width: 330px;
+                        }
                     }
                 }
             }

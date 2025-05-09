@@ -1,10 +1,22 @@
 const express = require("express");
 const path = require("path");
+const session = require('express-session');
+const flash = require('connect-flash')
+const config = require('./core/config');
 const authRouter = require("./routers/auth.router");
 const pagesRouter = require('./routers/pages.router');
 
 const app = express();
 
+app.use(session({
+    secret: config.getAppConfig().session_secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false
+    }
+}));
+app.use(flash());
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.urlencoded({ extended: true }));
 

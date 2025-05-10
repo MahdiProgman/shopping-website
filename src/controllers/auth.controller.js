@@ -28,7 +28,7 @@ const actionRegister = async (req, res) => {
     } 
     else {
         res.cookie('refresh_token', result.refreshToken, {
-            path: '/auth/access-token',
+            path: '/',
             maxAge: (((60 * 60) * 24) * 7) * 1000,
             httpOnly: true,
             sameSite: 'strict',
@@ -71,7 +71,7 @@ const actionLogin = async (req, res) => {
         res.redirect('/auth/login');
     } else {
         res.cookie('refresh_token', result.refreshToken, {
-            path: '/auth/access-token',
+            path: '/',
             maxAge: (((60 * 60) * 24) * 7) * 1000,
             httpOnly: true,
             sameSite: 'strict',

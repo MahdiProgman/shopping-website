@@ -107,6 +107,11 @@ const loginService = async (email, password) => {
     }
 }
 
+const logoutService = async (refresh_token) => {
+    const decryptedToken = jwt.verify(refresh_token, config.getAppConfig().refresh_token_secret);
+    await refreshTokenRepo.deleteRefreshTokenByUserId(decryptedToken.id);
+}
+
 const getAccessTokenService = async (refresh_token) => {
     let decryptedToken;
 
@@ -166,4 +171,4 @@ const getAccessTokenService = async (refresh_token) => {
     }
 }
 
-module.exports = { registerService, loginService, getAccessTokenService };
+module.exports = { registerService, loginService, getAccessTokenService, logoutService };

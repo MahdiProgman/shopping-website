@@ -96,4 +96,25 @@ const actionLogin = async (req, res) => {
     }
 }
 
-module.exports = { getRegisterPage, getLoginPage, actionRegister, actionLogin };
+const actionLogout = async (req, res) => {
+    const refreshToken = req.signedCookies.refresh_token;
+
+    await authService.logoutService(refreshToken);
+
+    res.clearCookie('access_token', {
+        path: '/',
+        signed: true
+    });
+    
+    res.clearCookie('refresh_token', {
+        path: '/',
+        signed: true
+    });
+
+    req.login_state = false;
+    req.user = null;
+
+    res.redirect('/');
+}
+
+module.exports = { getRegisterPage, getLoginPage, actionRegister, actionLogin, actionLogout };

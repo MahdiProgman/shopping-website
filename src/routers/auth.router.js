@@ -3,6 +3,7 @@ const authController = require('../controllers/auth.controller');
 const authValidator = require('../validators/auth.validator');
 const validator = require('../validators/validator');
 const checkAuthMiddleware = require('../middlewares/checkAuth.middleware');
+const authGuard = require('../guards/auth.guard');
 
 const router = express.Router();
 
@@ -21,5 +22,7 @@ router.post(
     validator.validate.bind(validator),
     authController.actionLogin
 );
+router.use(authGuard);
+router.post('/logout', authController.actionLogout);
 
 module.exports = router;

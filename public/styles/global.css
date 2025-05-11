@@ -154,6 +154,44 @@ a:hover::after {
   font-size: 1.5em;
 }
 
+.drawer .section-2 .user-data {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.drawer .section-2 .user-data .name {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.drawer .section-2 .user-data .name img {
+  width: 30px;
+}
+
+.drawer .section-2 .user-data .name span {
+  color: var(--primary-color);
+  font-size: 1.5em;
+}
+
+.drawer .section-2 .user-data #exit-from-account-drawer-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.drawer .section-2 .user-data #exit-from-account-drawer-btn img {
+  width: 25px;
+}
+
+.drawer .section-2 .user-data #exit-from-account-drawer-btn span {
+  color: var(--errors-alerts-color);
+  font-size: 1.5em;
+}
+
 .drawer .section-2 .action-links {
   border-bottom: 2px solid var(--secondary-color);
   display: flex;
@@ -362,6 +400,80 @@ header > .section-1 .user-actions .auth-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+header > .section-1 .user-actions .user-data {
+  position: relative;
+  padding: 5px;
+}
+
+header > .section-1 .user-actions .user-data #open-user-data-box-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+header > .section-1 .user-actions .user-data #open-user-data-box-btn img {
+  width: 25px;
+}
+
+header > .section-1 .user-actions .user-data #open-user-data-box-btn img:nth-child(2) {
+  transition: all .75s;
+}
+
+header > .section-1 .user-actions .user-data #open-user-data-box-btn.open img:nth-child(2) {
+  transform: rotate(180deg);
+}
+
+header > .section-1 .user-actions .user-data .user-data-box {
+  display: none;
+  background-color: white;
+  box-shadow: 2px 2px 5px -2px black;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-30%);
+  padding: 5px 10px;
+  z-index: 5000;
+}
+
+header > .section-1 .user-actions .user-data .user-data-box .name {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  gap: 5px;
+  padding: 5px;
+}
+
+header > .section-1 .user-actions .user-data .user-data-box .name img {
+  width: 25px;
+}
+
+header > .section-1 .user-actions .user-data .user-data-box .name span {
+  color: var(--primary-color);
+}
+
+header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  gap: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn img {
+  width: 25px;
+}
+
+header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn span {
+  color: var(--errors-alerts-color);
+}
+
+header > .section-1 .user-actions .user-data .user-data-box.on {
+  display: block;
 }
 
 header > .section-2 {

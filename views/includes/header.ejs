@@ -64,10 +64,29 @@
         </a>
       </div>
       <span class="vertical-line"></span>
-      <div class="auth-links">
-        <a class="auth-link" href="/auth/register">ثبت نام</a>
-        <a class="auth-link" href="/auth/login">ورود</a>
-      </div>
+      <% if(!login_state) { %>
+        <div class="auth-links">
+          <a class="auth-link" href="/auth/register">ثبت نام</a>
+          <a class="auth-link" href="/auth/login">ورود</a>
+        </div>
+      <% } else { %>
+        <div class="user-data">
+          <button id="open-user-data-box-btn">
+            <img src="/assets/icons/person.png" alt="">
+            <img src="/assets/icons/caret.png" alt="">
+          </button>
+          <div class="user-data-box">
+            <div class="name">
+              <img src="/assets/icons/person.png" alt="">
+              <span><%= user.first_name %></span>
+            </div>
+            <button id="exit-from-account-btn">
+              <img src="/assets/icons/exit.png" alt="">
+              <span>خروج</span>
+            </button>
+          </div>
+        </div>
+      <% } %>
     </div>
   </div>
   <div class="spacer"></div>

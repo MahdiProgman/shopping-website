@@ -156,6 +156,37 @@ a:hover::after {
       border-bottom: 2px solid var(--primary-color);
       font-size: 1.5em;
     }
+    .user-data {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 2px solid var(--primary-color);
+      .name {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        img {
+          width: 30px;
+        }
+        span {
+          color: var(--primary-color);
+          font-size: 1.5em;
+        }
+      }
+      #exit-from-account-drawer-btn {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        img {
+          width: 25px;
+        }
+        span {
+          color: var(--errors-alerts-color);
+          font-size: 1.5em;
+        }
+      }
+    }
     .action-links {
       border-bottom: 2px solid var(--secondary-color);
       display: flex;
@@ -341,6 +372,69 @@ header > {
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+      .user-data {
+        position: relative;
+        padding: 5px;
+        #open-user-data-box-btn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          img {
+            width: 25px;
+          }
+          img:nth-child(2) {
+            transition: all .75s;
+          }
+        }
+        #open-user-data-box-btn.open {
+          img:nth-child(2) {
+            transform: rotate(180deg);
+          }
+        }
+        .user-data-box {
+          display: none;
+          background-color: white;
+          box-shadow: 2px 2px 5px -2px black;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          transform: translateX(-30%);
+          padding: 5px 10px;
+          z-index: 5000;
+          .name {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border-color;
+            gap: 5px;
+            padding: 5px;
+            img {
+              width: 25px;
+            }
+            span {
+              color: var(--primary-color);
+            }
+          }
+          #exit-from-account-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            border: none;
+            gap: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            img {
+              width: 25px;
+            }
+            span {
+              color: var(--errors-alerts-color);
+            }
+          }
+        }
+        .user-data-box.on {
+          display: block;
+        }
       }
     }
   }

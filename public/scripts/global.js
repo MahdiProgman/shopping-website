@@ -9,6 +9,10 @@ const swiperProducts = document.querySelectorAll('.swiper-products');
 const topSearchesBox = document.querySelector('.top-searches');
 const headerOverlay = document.querySelector('.header-overlay');
 const searchInput = document.getElementById('search-input');
+const openUserDataBoxBtn = document.getElementById('open-user-data-box-btn');
+const userDataBox = document.querySelector('header .user-data-box');
+const exitFromAccountBtn = document.getElementById('exit-from-account-btn');
+const exitFromAccountDrawerBtn = document.getElementById('exit-from-account-drawer-btn');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -20,6 +24,72 @@ if (time.getHours() >= 6 && time.getHours() <= 12) {
 } else {
     greetingText.innerText = 'شب بخیر';
     greetingIcon.src = '/assets/icons/night.png';
+}
+
+if(openUserDataBoxBtn && userDataBox && exitFromAccountBtn) {
+    openUserDataBoxBtn.addEventListener('click', () => {
+        if(!userDataBox.classList.contains('on')) {
+            userDataBox.classList.add('on');
+            openUserDataBoxBtn.classList.add('open');
+        } else {
+            userDataBox.classList.remove('on');
+            openUserDataBoxBtn.classList.remove('open');
+        }
+    });
+
+    exitFromAccountBtn.addEventListener('click', () => {
+        Swal.fire({
+            title: 'آیا شما مطمعن هستید؟',
+            text: 'با این کار شما به طور کامل از حساب خود خارج خواهید شد.',
+            confirmButtonColor: '#f16767',
+            confirmButtonText: 'خروج',
+            showCancelButton: true,
+            cancelButtonText: 'لغو',
+            icon: 'warning'
+        }).then(async result => {
+            if(result.isConfirmed) {
+                const form = document.createElement('form');
+
+                form.method = 'POST';
+                form.action = '/auth/logout';
+
+                document.body.appendChild(form);
+
+                requestAnimationFrame(() => {
+                    form.submit();
+                });
+            }
+        })
+    });
+
+    exitFromAccountDrawerBtn.addEventListener('click', () => {
+        Swal.fire({
+            title: 'آیا شما مطمعن هستید؟',
+            text: 'با این کار شما به طور کامل از حساب خود خارج خواهید شد.',
+            confirmButtonColor: '#f16767',
+            confirmButtonText: 'خروج',
+            showCancelButton: true,
+            cancelButtonText: 'لغو',
+            icon: 'warning',
+            willOpen: () => {
+                drawerBox.classList.remove('on');
+                overlay.classList.add('hidden');
+            }
+        }).then(async result => {
+            if(result.isConfirmed) {
+                const form = document.createElement('form');
+
+                form.method = 'POST';
+                form.action = '/auth/logout';
+
+                document.body.appendChild(form);
+
+                requestAnimationFrame(() => {
+                    form.submit();
+                });
+            }
+        })
+    });
 }
 
 menuBtn.addEventListener('click', ()=> {

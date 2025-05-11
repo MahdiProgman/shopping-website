@@ -2,6 +2,8 @@ const _ = require('lodash');
 const authService = require('../services/auth.service');
 
 const getRegisterPage = (req, res) => {
+    if(req.login_state) return res.redirect('/');
+
     const error = req.flash('error')[0];
     const errors = req.flash('errors');
     const oldData = req.flash('oldData')[0];
@@ -50,6 +52,8 @@ const actionRegister = async (req, res) => {
 }
 
 const getLoginPage = (req, res) => {
+    if(req.login_state) return res.redirect('/');
+
     const error = req.flash('error')[0];
     const errors = req.flash('errors');
     const oldData = req.flash('oldData')[0];

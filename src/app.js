@@ -6,6 +6,7 @@ const config = require('./core/config');
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routers/auth.router");
 const pagesRouter = require('./routers/pages.router');
+const setHelpersMiddleware = require("./middlewares/setHelpers.middleware");
 
 const app = express();
 
@@ -23,6 +24,8 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
+
+app.use(setHelpersMiddleware);
 
 app.use('/', pagesRouter);
 app.use("/auth", authRouter);

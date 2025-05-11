@@ -5,6 +5,7 @@ const getHomePage = async (req, res) => {
   const result = await pagesService.homePageService();
   res.render("index", {
     advertiseCards: result.advertiseCards,
+    questions: result.questions,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     login_state: req.login_state,
     user: req.user ? {

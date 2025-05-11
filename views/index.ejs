@@ -18,48 +18,30 @@
       <%- include("includes/header") %>
       <div class="header-overlay hidden"></div>
       <main>
-        <section class="website-advertise">
-          <div class="swiper">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="card">
-                  <div class="side-1">
-                    <h3>فقط سه مرحله :‌ سفارش - پردازش - ارسال!</h3>
-                    <p>اعتبار شما اعتبار ماست.</p>
+        <% if(advertiseCards) { %>
+          <section class="website-advertise">
+            <div class="swiper">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-wrapper">
+                <% advertiseCards.map(advertiseCard => { %>
+                  <div class="swiper-slide">
+                    <div class="card">
+                      <div class="side-1">
+                        <h3><%= advertiseCard.title %></h3>
+                        <p><%= advertiseCard.short_explanation %></p>
+                      </div>
+                      <div class="side-2">
+                        <img src="<%= advertiseCard.image %>" alt="">
+                      </div>
+                    </div>
                   </div>
-                  <div class="side-2">
-                    <img src="/assets/gifs/online-shopping.gif" alt="">
-                  </div>
-                </div>
+                <% }); %>
               </div>
-              <div class="swiper-slide">
-                <div class="card">
-                  <div class="side-1">
-                    <h3>پشتیبانی ۲۴ ساعته عین رفیق کنارته!</h3>
-                    <p>حل مشکلاتتون رو به پشتیبانی مجرب ما بسپارید.</p>
-                  </div>
-                  <div class="side-2">
-                    <img src="/assets/gifs/support.gif" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="card">
-                  <div class="side-1">
-                    <h3>هر نقطه ای  از کشور باشی برا ما فرقی نمیکنه!</h3>
-                    <p>ارسال ایمن مرسوله به سراسر کشور.</p>
-                  </div>
-                  <div class="side-2">
-                    <img src="/assets/gifs/delivery-truck.gif" alt="">
-                  </div>
-                </div>
-              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </section>
+          </section>
+        <% } %>
         <section class="bestsellers">
           <h4>پرفروش ترین ها</h4>
           <%- include("includes/products-list") %>

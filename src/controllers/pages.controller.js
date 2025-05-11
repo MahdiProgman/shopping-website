@@ -1,7 +1,10 @@
 const _ = require('lodash');
+const pagesService = require('../services/pages.service');
 
-const getHomePage = (req, res) => {
+const getHomePage = async (req, res) => {
+  const result = await pagesService.homePageService();
   res.render("index", {
+    advertiseCards: result.advertiseCards,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     login_state: req.login_state,
     user: req.user ? {

@@ -1,8 +1,10 @@
 const express = require('express');
 const pagesController = require('../controllers/pages.controller');
+const checkAuthMiddleware = require('../middlewares/checkAuth.middleware');
 
 const router = express.Router();
 
+router.use(checkAuthMiddleware);
 router.get('/', pagesController.getHomePage);
 router.get('/product', pagesController.getProductPage)
 router.get('/products', pagesController.getProductsPage);

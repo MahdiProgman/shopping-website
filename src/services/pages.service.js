@@ -66,8 +66,11 @@ const aboutUsPageService = async () => {
 const supportPageService = async () => {
     const globalData = await globalPageService();
     const supportCardsFound = await supportCardRepo.findAllSupportCards();
+    const supportTextFound = await websiteDataRepo.findByName('support-text');
+
     return {
         supportCards: supportCardsFound,
+        supportText: supportTextFound,
         footerData: globalData.footerData
     };
 }

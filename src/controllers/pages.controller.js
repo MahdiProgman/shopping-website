@@ -83,6 +83,7 @@ const getSupportPage = async (req, res) => {
     footerData: result.footerData,
     login_state: req.login_state,
     supportCards: result.supportCards,
+    supportText: result.supportText,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

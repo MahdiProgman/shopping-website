@@ -2,6 +2,7 @@ const advertiseCardRepo = require("../repositories/advertiseCard.repository");
 const questionRepo = require("../repositories/question.repository");
 const websiteDataRepo = require("../repositories/websiteData.repository");
 const supportCardRepo = require("../repositories/supportCard.repository");
+const featureCardRepo = require("../repositories/featureCard.repository");
 
 const globalPageService = async () => {
     const footerDataFound = await websiteDataRepo.findFooterData();
@@ -57,8 +58,10 @@ const favoritesPageService = async () => {
 
 const aboutUsPageService = async () => {
     const globalData = await globalPageService();
+    const featureCardsFound = await featureCardRepo.findAllFeatureCards();
 
     return {
+        featureCards: featureCardsFound,
         footerData: globalData.footerData
     };
 }

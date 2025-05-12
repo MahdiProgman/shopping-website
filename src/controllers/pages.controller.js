@@ -68,8 +68,9 @@ const getAboutUsPage = async (req, res) => {
   const result = await pagesService.aboutUsPageService();
 
   res.render("about-us", {
-    login_state: req.login_state,
+    featureCards: result.featureCards,
     footerData: result.footerData,
+    login_state: req.login_state,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

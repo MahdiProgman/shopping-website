@@ -1,6 +1,7 @@
 const advertiseCardRepo = require("../repositories/advertiseCard.repository");
 const questionRepo = require("../repositories/question.repository");
 const websiteDataRepo = require("../repositories/websiteData.repository");
+const supportCardRepo = require("../repositories/supportCard.repository");
 
 const globalPageService = async () => {
     const footerDataFound = await websiteDataRepo.findFooterData();
@@ -64,8 +65,9 @@ const aboutUsPageService = async () => {
 
 const supportPageService = async () => {
     const globalData = await globalPageService();
-
+    const supportCardsFound = await supportCardRepo.findAllSupportCards();
     return {
+        supportCards: supportCardsFound,
         footerData: globalData.footerData
     };
 }

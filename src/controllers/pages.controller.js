@@ -80,8 +80,9 @@ const getSupportPage = async (req, res) => {
   const result = await pagesService.supportPageService();
 
   res.render("support", {
-    login_state: req.login_state,
     footerData: result.footerData,
+    login_state: req.login_state,
+    supportCards: result.supportCards,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

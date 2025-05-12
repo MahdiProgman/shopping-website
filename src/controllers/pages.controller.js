@@ -3,9 +3,11 @@ const pagesService = require('../services/pages.service');
 
 const getHomePage = async (req, res) => {
   const result = await pagesService.homePageService();
+
   res.render("index", {
     advertiseCards: result.advertiseCards,
     questions: result.questions,
+    footerData: result.footerData,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     login_state: req.login_state,
     user: req.user ? {
@@ -14,54 +16,72 @@ const getHomePage = async (req, res) => {
   });
 };
 
-const getProductPage = (req, res) => {
+const getProductPage = async (req, res) => {
+  const result = await pagesService.productPageService();
+
   res.render("product", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 }
 
-const getProductsPage = (req, res) => {
+const getProductsPage = async (req, res) => {
+  const result = await pagesService.productsPageService();
+
   res.render("products", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 };
 
-const getCartPage = (req, res) => {
+const getCartPage = async (req, res) => {
+  const result = await pagesService.cartPageService();
+
   res.render("cart", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 };
 
-const getFavoritesPage = (req, res) => {
+const getFavoritesPage = async (req, res) => {
+  const result = await pagesService.favoritesPageService();
+
   res.render("favorites", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 };
 
-const getAboutUsPage = (req, res) => {
+const getAboutUsPage = async (req, res) => {
+  const result = await pagesService.aboutUsPageService();
+
   res.render("about-us", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 };
 
-const getSupportPage = (req, res) => {
+const getSupportPage = async (req, res) => {
+  const result = await pagesService.supportPageService();
+
   res.render("support", {
     login_state: req.login_state,
+    footerData: result.footerData,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

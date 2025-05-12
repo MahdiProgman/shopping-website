@@ -50,7 +50,46 @@ const actionRegister = async (req, res) => {
 }
 
 const getLoginPage = (req, res) => {
-    res.render('login');
+    const error = req.flash('error')[0];
+    const errors = req.flash('errors');
+    const oldData = req.flash('oldData')[0];
+
+    res.render('login', {
+        error: error ? error : '',
+        errors: !_.isEmpty(errors) ? errors : [],
+        oldData: !_.isEmpty(oldData) ? oldData : {}   
+    });
 };
 
-module.exports = { getRegisterPage, getLoginPage, actionRegister };
+const actionLogin = async (req, res) => {
+    const { email, password } = req.body;
+    const result = await authService.loginService(email, password);
+
+    if(result == 'EMAIL_OR_PASSWORD_IS_WRONG') {
+        req.flash('error', 'ایمیل یا رمز عبور اشتباه است');
+        req.flash('oldData', req.body);
+        res.redirect('/auth/login');
+    } else {
+        res.cookie('refresh_token', result.refreshToken, {
+            path: '/auth/access-token',
+            maxAge: (((60 * 60) * 24) * 7) * 1000,
+            httpOnly: true,
+            sameSite: 'strict',
+            signed: true,
+            priority: 'high'
+        });
+
+        res.cookie('access_token', result.accessToken, {
+           maxAge: (60 * 15) * 1000,
+           httpOnly: true,
+           sameSite: 'strict',
+           signed: true,
+           priority: "medium"
+        });
+
+        req.flash('isLoggedInNow', true);
+        res.redirect('/');
+    }
+}
+
+module.exports = { getRegisterPage, getLoginPage, actionRegister, actionLogin };

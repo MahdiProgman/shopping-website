@@ -13,5 +13,11 @@ router.post(
     authController.actionRegister
 );
 router.get('/login', authController.getLoginPage);
+router.post(
+    '/login',
+    authValidator.loginValidation(),
+    validator.validate.bind(validator),
+    authController.actionLogin
+);
 
 module.exports = router;

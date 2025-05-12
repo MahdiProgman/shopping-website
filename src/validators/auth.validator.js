@@ -13,4 +13,13 @@ module.exports = new (class {
             check('password').isLength({ min: 8, max: 24}).withMessage('طول رمز عبور باید بین ۸ تا ۲۴ کاراکتر باشد')
         ];
     }
+
+    loginValidation(){
+        return [
+            check('email').not().isEmpty().withMessage('ایمیل نباید خالی باشد'),
+            check('email').isEmail().withMessage('ایمیل وارد شده ایمیلی معتبر نیست'),
+            check('password').not().isEmpty().withMessage('رمز عبور نباید خالی باشد'),
+            check('password').isLength({ min: 8, max: 24}).withMessage('طول رمز عبور باید بین ۸ تا ۲۴ کاراکتر باشد')
+        ];
+    }
 })();

@@ -17,8 +17,8 @@ const registerService = async (email, first_name, last_name, password, repeat_pa
         const salt = await bcrypt.genSalt(3);
         const cryptedPass = await bcrypt.hash(password, salt);
 
-        const expireTimeOfRefreshToken = Date.now() + (((60 * 60) * 24) * 7);
-        const expireTimeOfAccessToken = Date.now() + (60 * 15);
+        const expireTimeOfRefreshToken = Date.now() + (((60 * 60) * 24) * 7) * 1000;
+        const expireTimeOfAccessToken = Date.now() + (60 * 15) * 1000;
 
         const newUser = await userRepo.createUser(email, first_name, last_name, cryptedPass);
 
@@ -57,4 +57,54 @@ const registerService = async (email, first_name, last_name, password, repeat_pa
     }
 }
 
-module.exports = { registerService };
+const loginService = async (email, password) => {
+    const userFound = await userRepo.findByEmail(email, true);
+
+    if(userFound) {
+        const isPasswordMatch = await bcrypt.compare(password, userFound.password);
+
+        if(isPasswordMatch) {
+            const expireTimeOfRefreshToken = Date.now() + (((60 * 60) * 24) * 7);
+            const expireTimeOfAccessToken = Date.now() + (60 * 15);
+    
+            const refreshTokenFound = await refreshTokenRepo.findByUserId(userFound.id);
+            const refreshToken = jwt.sign(
+                { 
+                    id: userFound.id,
+                    email: email,
+                    expire: expireTimeOfRefreshToken,
+                    version: refreshTokenFound ? refreshTokenFound.version + 1 : 1
+                },
+                config.getAppConfig().refresh_token_secret,
+                {
+                    expiresIn: expireTimeOfRefreshToken
+                }
+            );
+            const accessToken = jwt.sign(
+                { 
+                    id: userFound.id,
+                    email: email,
+                    expire: expireTimeOfAccessToken,
+                },
+                config.getAppConfig().access_token_secret,
+                {
+                    expiresIn: expireTimeOfAccessToken
+                }
+            );
+    
+            if(refreshTokenFound){
+                await refreshTokenRepo.updateRefreshTokenByUserId(userFound.id, refreshToken, expireTimeOfRefreshToken, refreshTokenFound.version + 1);
+            } else {
+                await refreshTokenRepo.createRefreshToken(userFound.id, refreshToken, expireTimeOfRefreshToken, 1);
+            }
+
+            return { refreshToken, accessToken };
+        } else {
+            return 'EMAIL_OR_PASSWORD_IS_WRONG'
+        }
+    } else {
+        return 'EMAIL_OR_PASSWORD_IS_WRONG';
+    }
+}
+
+module.exports = { registerService, loginService };

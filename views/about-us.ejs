@@ -28,26 +28,20 @@
             باشیم.ممنون که به ما اعتماد دارید.❤️
             </p>
         </section>
-        <section class="features">
+        <% if(featureCards) { %>
+          <section class="features">
             <h3>ویژگی های ما</h3>
             <div class="feat-cards">
-                <div class="feat-card">
-                    <img src="/assets/gifs/helpdesk.gif" alt="">
-                    <h5>پشتیبانی ۲۴ ساعته</h5>
-                    <p>اگر به مشکلی برخوردید نگران نباشید! تیم پشتیبانی ۲۴ ساعته پاسخگوی تمام مشکلات شما خواهد بود و به شما کمک خواهد کرد.</p>
-                </div>
-                <div class="feat-card">
-                    <img src="/assets/gifs/cybersecurity.gif" alt="">
-                    <h5>سفارش آسان و ایمن</h5>
-                    <p>شما میتوانید به راحتی محصول مورد نظر خود را سفارش دهید و نگران امنیت نباشید. ما از بهترین درگاه های پرداخت استفاده میکنیم.</p>
-                </div>
-                <div class="feat-card">
-                    <img src="/assets/gifs/delivery-truck.gif" alt="">
-                    <h5>ارسال مرسوله به سراسر کشور</h5>
-                    <p>نگرانی بابت محل زندگی خود نداشته باشید اگر در ایران هستید هیچ مشکلی نخواهید خورد و مرسوله شما به راحتی به دسستان میرسد.</p>
-                </div>
+                <% featureCards.map(featureCard => { %>
+                  <div class="feat-card">
+                      <img src="<%= featureCard.image %>" alt="">
+                      <h5><%= featureCard.title %></h5>
+                      <p><%= featureCard.description %></p>
+                  </div>
+                <% }); %>
             </div>
-        </section>
+          </section>
+        <% } %>
       </main>
       <%- include("includes/footer") %>
     </div>

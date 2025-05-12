@@ -1,5 +1,7 @@
 const getHomePage = (req, res) => {
-  res.render("index");
+  res.render("index", {
+    isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false
+  });
 };
 
 const getProductPage = (req, res) => {

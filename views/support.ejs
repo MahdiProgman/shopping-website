@@ -18,18 +18,17 @@
         <section class="support-section">
             <h1>پشتیبانی</h1>
             <p>پشتیبانی ما با هدف پاسخ‌گویی سریع، دقیق و مؤثر به نیازها و سوالات کاربران طراحی شده است. در این بخش، تلاش کرده‌ایم تا تمامی پرسش‌های رایج، مشکلات احتمالی و راهنمایی‌های لازم را در اختیار شما قرار دهیم تا تجربه‌ای روان و بدون دغدغه از استفاده از خدمات ما داشته باشید. رضایت شما اولویت ماست و همواره آماده‌ایم تا در کوتاه‌ترین زمان ممکن پاسخ‌گوی درخواست‌ها، نظرات و گزارش‌های شما باشیم.</p>
-            <div class="contact">
-                <div class="contact-way">
-                    <img src="/assets/gifs/phone.gif" alt="">
-                    <h3>ارتباط تلفنی</h3>
-                    <p>شما میتوانید با شماره گیری  ۰۱۳۴۲۶۲xxxx با پشتیانی ارتباط بگیرید و انواع مشکلاتی مثل مشکلات فنی یا مالی را به ما اطلاع دهید.</p>
-                </div>
-                <div class="contact-way">
-                  <img src="/assets/gifs/mail.gif" alt="">
-                  <h3>ارسال تیکت</h3>
-                  <p>شما میتوانید با ارسال تیکت به تیم ما کمک بگیرید. در این روش شما موضوع درخواستتان و توضیحاتی درباره آنبه ما ارسال میکنید و ما در اسرع وقت به شما پاسخ میدهیم.</p>
-                </div>
-            </div>
+            <% if(supportCards) { %>
+              <div class="contact">
+                <% supportCards.map(supportCard => { %>
+                  <div class="contact-way">
+                      <img src="<%= supportCard.image %>" alt="">
+                      <h3><%= supportCard.title %></h3>
+                      <p><%= supportCard.description.replace('[phone_number]', toPersianDigitsHelper(getValueByNameHelper(footerData, 'phone_number'))) %></p>
+                  </div>
+                <% }); %>
+              </div>
+            <% } %>
         </section>
       </main>
       <div class="header-overlay hidden"></div>

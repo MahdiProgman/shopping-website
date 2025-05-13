@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.use(checkAuthMiddleware);
 router.get('/', pagesController.getHomePage);
-router.get('/product', pagesController.getProductPage)
+router.get('/product/:product_code', pagesController.getProductPage)
 router.get(
     '/products',
     pagesValidator.productsPageValidation(),

@@ -19,12 +19,17 @@ const getHomePage = async (req, res) => {
   });
 };
 
-const getProductPage = async (req, res) => {
-  const result = await pagesService.productPageService();
+const getProductPage = async (req, res, next) => {
+  const { product_code } = req.params;
+  const result = await pagesService.productPageService(product_code);
+
+  if(!result.product) return next();
 
   res.render("product", {
-    login_state: req.login_state,
     footerData: result.footerData,
+    login_state: req.login_state,
+    product: result.product,
+    productsInThisCategory: result.productsInThisCategory,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

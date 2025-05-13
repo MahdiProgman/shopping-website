@@ -33,4 +33,21 @@ module.exports = new (class {
             image: category.image
         } : null;
     }
+
+    async findById(category_id) {
+        const category = await Category.findOne({
+            where: {
+                id: category_id
+            }
+        });
+
+        return category ? {
+            id: category.id,
+            name: category.name,
+            name_fa: category.name_fa,
+            short_explanation: category.short_explanation,
+            boxColor: category.boxColor,
+            image: category.image
+        } : null;
+    }
 })();

@@ -9,6 +9,16 @@ module.exports = (sequelize) => {
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true
             },
+            product_id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'tbl_products',
+                    key: 'id'
+                },
+                onDelete: 'RESTRICT',
+                onUpdate: 'CASCADE'
+            },
             commentText: {
                 type: DataTypes.TEXT,
                 allowNull: false

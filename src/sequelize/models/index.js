@@ -8,7 +8,7 @@ const AdvertiseCardModel = require('./advertiseCard.model');
 const WebsiteDataModel = require('./websiteData.model');
 const UserCartProductModel = require('./userCartProduct.model');
 
-const loadModels = (sequelize) => {
+const loadModels = async (sequelize) => {
     const User = UserModel(sequelize);
     const Product = ProductModel(sequelize);
     const ProductComment = ProductCommentModel(sequelize);
@@ -18,6 +18,15 @@ const loadModels = (sequelize) => {
     const AdvertiseCard = AdvertiseCardModel(sequelize);
     const WebsiteData = WebsiteDataModel(sequelize);
     const UserCartProduct = UserCartProductModel(sequelize);
+
+    await Product.hasMany(ProductComment, {
+        foreignKey: 'product_id',
+        as: 'productComments'
+    });
+    await ProductComment.belongsTo(Product, {
+        foreignKey: 'product_id',
+        as: 'product'
+    });
 
     return {
         User,

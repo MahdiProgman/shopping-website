@@ -6,9 +6,10 @@ const getHomePage = async (req, res) => {
 
   res.render("index", {
     advertiseCards: result.advertiseCards,
-    questions: result.questions,
+    categories: result.categories,
     footerData: result.footerData,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
+    questions: result.questions,
     login_state: req.login_state,
     user: req.user ? {
       first_name: req.user.first_name
@@ -32,6 +33,7 @@ const getProductsPage = async (req, res) => {
   const result = await pagesService.productsPageService();
 
   res.render("products", {
+    categories: result.categories,
     login_state: req.login_state,
     footerData: result.footerData,
     user: req.user ? {

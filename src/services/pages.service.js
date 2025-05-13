@@ -3,6 +3,7 @@ const questionRepo = require("../repositories/question.repository");
 const websiteDataRepo = require("../repositories/websiteData.repository");
 const supportCardRepo = require("../repositories/supportCard.repository");
 const featureCardRepo = require("../repositories/featureCard.repository");
+const categoryRepo = require("../repositories/category.repository");
 
 const globalPageService = async () => {
     const footerDataFound = await websiteDataRepo.findFooterData();
@@ -15,10 +16,12 @@ const globalPageService = async () => {
 const homePageService = async () => {
     const advertiseCardsFound = await advertiseCardRepo.findAllAdvertiseCards();
     const questionsFound = await questionRepo.findAllQuestions();
+    const categoriesFound = await categoryRepo.findAllCategories();
     const globalData = await globalPageService();
 
     return {
         advertiseCards: advertiseCardsFound,
+        categories: categoriesFound,
         questions: questionsFound,
         footerData: globalData.footerData
     };
@@ -34,8 +37,10 @@ const productPageService = async () => {
 
 const productsPageService = async () => {
     const globalData = await globalPageService();
+    const categoriesFound = await categoryRepo.findAllCategories();
 
     return {
+        categories: categoriesFound,
         footerData: globalData.footerData
     };
 }

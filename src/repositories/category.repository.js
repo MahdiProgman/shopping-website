@@ -16,4 +16,21 @@ module.exports = new (class {
             image: category.image
         }));
     }
+
+    async findByName(categoryName) {
+        const category = await Category.findOne({
+            where: {
+                name: categoryName
+            }
+        });
+
+        return category ? {
+            id: category.id,
+            name: category.name,
+            name_fa: category.name_fa,
+            short_explanation: category.short_explanation,
+            boxColor: category.boxColor,
+            image: category.image
+        } : null;
+    }
 })();

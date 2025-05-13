@@ -42,10 +42,12 @@
             </div>
           </section>
         <% } %>
-        <section class="bestsellers">
-          <h4>پرفروش ترین ها</h4>
-          <%- include("includes/products-list") %>
-        </section>
+        <% if(bestSellProducts) { %>
+          <section class="bestsellers">
+            <h4>پرفروش ترین ها</h4>
+            <%- include("includes/products-list", { products: bestSellProducts, toPersianDigitsHelper }) %>
+          </section>
+        <% } %>
         <% if(categories) { %>
           <section class="categories">
             <h4>دسته بندی ها</h4>
@@ -69,10 +71,12 @@
             </div>
           </section>
         <% } %>
-        <section class="most-visted">
-          <h4>پربازدید ترین ها</h4>
-          <%- include("includes/products-list") %>
-        </section>
+        <% if(mostVisitedProducts) { %>
+          <section class="most-visted">
+            <h4>پربازدید ترین ها</h4>
+            <%- include("includes/products-list", { products: mostVisitedProducts }) %>
+          </section>
+        <% } %>
         <% if(questions){ %>
           <section class="faq-section">
             <div class="side-right">

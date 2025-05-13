@@ -10,7 +10,7 @@ module.exports = {
 
     await queryInterface.addConstraint('tbl_refreshTokens', {
       fields: ['user_id'],
-      type: 'foreign key',
+      type: 'FOREIGN KEY',
       name: 'fk_refreshToken_user',
       references: {
         table: 'tbl_users',

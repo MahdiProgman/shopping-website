@@ -10,7 +10,7 @@ module.exports = {
 
     await queryInterface.addConstraint('tbl_productComments', {
       fields: ['product_id'],
-      type: 'foreign key',
+      type: 'FOREIGN KEY',
       name: 'fk_productComment_product',
       references: {
         table: 'tbl_products',

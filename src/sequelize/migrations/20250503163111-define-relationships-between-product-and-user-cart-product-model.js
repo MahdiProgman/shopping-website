@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.addConstraint('tbl_userCartProducts', {
       fields: ['product_id'],
-      type: 'foreign key',
+      type: 'FOREIGN KEY',
       name: 'fk_userCartProduct_product',
       references: {
         table: 'tbl_products',

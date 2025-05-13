@@ -32,10 +32,14 @@ const homePageService = async () => {
     };
 };
 
-const productPageService = async () => {
+const productPageService = async (product_code) => {
     const globalData = await globalPageService();
+    const productFound = await productRepo.findByProductCode(product_code);
+    const productsInThisCategoryFound = await productRepo.findAllProductsOfCategoryById(productFound.category_id);
 
     return {
+        product: productFound,
+        productsInThisCategory: productsInThisCategoryFound,
         footerData: globalData.footerData
     };
 }

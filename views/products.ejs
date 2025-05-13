@@ -21,15 +21,16 @@
           <div class="products">
             <h1>محصولات</h1>
             <div class="filters">
-              <div class="category">
-                <label for="category">دسته بندی</label>
-                <select name="" id="category">
-                  <option value="electronics">کالای الکترونیک</option>
-                  <option value="electronics">کالای الکترونیک</option>
-                  <option value="electronics">کالای الکترونیک</option>
-                  <option value="electronics">کالای الکترونیک</option>
-                </select>
-              </div>
+              <% if(categories) { %>
+                <div class="category">
+                  <label for="category">دسته بندی</label>
+                  <select name="" id="category">
+                    <% categories.map(category => { %>
+                    <option value="<%= category.name %>"><%= category.name_fa %></option>
+                    <% }); %>
+                  </select>
+                </div>
+              <% } %>
               <div class="order-by">
                 <label for="order-by">بر اساس</label>
                 <select name="" id="order-by">

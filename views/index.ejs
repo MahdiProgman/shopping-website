@@ -46,88 +46,29 @@
           <h4>پرفروش ترین ها</h4>
           <%- include("includes/products-list") %>
         </section>
-        <section class="categories">
-          <h4>دسته بندی ها</h4>
-          <div class="swiper">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" style="background-color: #FF6B6B;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
+        <% if(categories) { %>
+          <section class="categories">
+            <h4>دسته بندی ها</h4>
+            <div class="swiper">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-wrapper">
+                <% categories.map(category => { %>
+                  <div class="swiper-slide" style="background-color: <%= category.boxColor %>;">
+                    <a href="#<%= category.name %>">
+                      <img src="<%= category.image %>" alt="">
+                      <div class="details">
+                        <h5><%= category.name_fa %></h5>
+                        <span><%= category.short_explanation %></span>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                <% }); %>
               </div>
-              <div class="swiper-slide" style="background-color: green;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: #b9c737;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: #4D96FF;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: rgb(31, 188, 228);">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: teal;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: burlywood;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide" style="background-color: tomato;">
-                <a href="#electronics-category">
-                  <img src="/assets/images/electronics.jpg" alt="">
-                  <div class="details">
-                    <h5>کالای الکترونیک</h5>
-                    <span>لپ تاپ, گوشی, تبلت و ...</span>
-                  </div>
-                </a>
-              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </section>
+          </section>
+        <% } %>
         <section class="most-visted">
           <h4>پربازدید ترین ها</h4>
           <%- include("includes/products-list") %>

@@ -51,6 +51,10 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
                 defaultValue: 0
             },
+            sells: {
+                type: DataTypes.INTEGER,
+                defaultValue: 0
+            },
             comments_number: {
                 type: DataTypes.INTEGER,
                 defaultValue: 0

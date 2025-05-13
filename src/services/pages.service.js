@@ -59,8 +59,10 @@ const favoritesPageService = async () => {
 const aboutUsPageService = async () => {
     const globalData = await globalPageService();
     const featureCardsFound = await featureCardRepo.findAllFeatureCards();
+    const aboutUsTextFound = await websiteDataRepo.findByName('about-us-text');
 
     return {
+        aboutUsText: aboutUsTextFound,
         featureCards: featureCardsFound,
         footerData: globalData.footerData
     };

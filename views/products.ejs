@@ -24,199 +24,66 @@
               <% if(categories) { %>
                 <div class="category">
                   <label for="category">دسته بندی</label>
-                  <select name="" id="category">
+                  <select name="category" id="category">
+                    <option value="all" <%= settings.category == 'all' ? 'selected' : '' %>>همه</option>
                     <% categories.map(category => { %>
-                    <option value="<%= category.name %>"><%= category.name_fa %></option>
+                      <option value="<%=category.name%>" <%= settings.category == category.name ? 'selected' : '' %>><%= category.name_fa %></option>
                     <% }); %>
                   </select>
                 </div>
               <% } %>
               <div class="order-by">
                 <label for="order-by">بر اساس</label>
-                <select name="" id="order-by">
-                  <option value="most-visted">پر بازدید ترین</option>
-                  <option value="best-seller">پرفروش ترین</option>
-                  <option value="newest">جدید ترین</option>
-                  <option value="most-expensive">گران ترین</option>
-                  <option value="the-cheapest">ارزان ترین</option>
-                  <option value="buyers-suggestions">پیشنهادات خریداران</option>
+                <select name="order-by" id="order-by">
+                  <option value="most-visted" <%= settings.orderBy == 'most-visted' ? 'selected' : '' %>>پر بازدید ترین</option>
+                  <option value="best-seller" <%= settings.orderBy == 'best-seller' ? 'selected' : '' %>>پرفروش ترین</option>
+                  <option value="newest" <%= settings.orderBy == 'newest' ? 'selected' : '' %>>جدید ترین</option>
+                  <option value="most-expensive" <%= settings.orderBy == 'most-expensive' ? 'selected' : '' %>>گران ترین</option>
+                  <option value="the-cheapest" <%= settings.orderBy == 'the-cheapest' ? 'selected' : '' %>>ارزان ترین</option>
+                  <option value="buyers-suggestions" <%= settings.orderBy == 'buyers-suggestions' ? 'selected' : '' %>>پیشنهادات خریداران</option>
                 </select>
               </div>
             </div>
-            <div class="products-list row">
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
+            <% if(products) { %>
+              <div class="products-list row">
+              <% products.products.map(product => { %>
+                <div
+                  class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
+                >
+                  <a class="special" href="/product/<%= product.product_code %>">
+                    <div class="row-1">
+                      <img src="<%= product.image %>" alt="" />
                     </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
+                    <div class="row-2">
+                      <h5><%= product.title %></h5>
+                      <div class="rate">
+                        <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
+                        <img src="/assets/icons/star.png" alt="" />
+                      </div>
+                        <span class="price"><%= product.price_fa %> تومان</span>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                <% }); %>
               </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
+              <div class="pagination">
+                <% if(products.pages !== 1){ %>
+                   <button>
+                    <img src="/assets/icons/back.png" style="transform: rotate(180deg);" alt="">
+                  </button>
+                <% for(let page in products.pages) { %>
+                  <a class="<%= page == settings.page ? 'on' : '' %> special" href="/products?page=<%= page %>&category=<%= settings.category %>&orderBy=<%= settings.orderBy %>"><%= toPersianDigitsHelper(products.pages) %></a>
+                <% } %>
+                  <button>
+                    <img src="/assets/icons/back.png" alt="">
+                  </button>
+                <% } %>
               </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
+            <% } else { %>
+              <div style="text-align: center;">
+                <p style="font-size: 1.3em;">محصولی وجود ندارد.</p>
               </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
-              </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
-              </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
-              </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
-              </div>
-              <div
-                class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
-              >
-                <a class="special" href="/product">
-                  <div class="row-1">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="row-2">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <span class="rate-number">۵</span>
-                      <img src="/assets/icons/star.png" alt="" />
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="pagination">
-              <button>
-                  <img src="/assets/icons/back.png" style="transform: rotate(180deg);" alt="">
-                </button>
-                <a class="on special" href="#1">۱</a>
-                <a class="special" href="#2">۲</a>
-                <a class="special" href="#3">۳</a>
-                <a class="special" href="#4">۴</a>
-                <button>
-                  <img src="/assets/icons/back.png" alt="">
-              </button>
-            </div>
+            <% } %>
           </div>
         </section>
       </main>

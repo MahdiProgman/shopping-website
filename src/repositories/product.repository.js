@@ -16,6 +16,58 @@ module.exports = new (class {
         return product;
     }
 
+    async findAllProducts(category = 'all', orderBy = 'buyers-suggestions', limit = 8, page = 1) {
+        const whereClause = {};
+        const orderClause = [];
+
+        if (category !== 'all') {
+            const categoryFound = await categoryRepo.findByName(category);
+            whereClause.category_id = categoryFound.id;
+        }
+
+        switch (orderBy) {
+            case 'buyers-suggestions':
+                orderClause.push(['rate', 'DESC']);
+                break;
+            case 'most-visited':
+                orderClause.push(['views', 'DESC']);
+                break;
+            case 'best-seller':
+                orderClause.push(['sells', 'DESC']);
+                break;
+            case 'most-expensive':
+                orderClause.push(['price', 'DESC']);
+                break;
+            case 'the-cheapest':
+                orderClause.push(['price', 'ASC']);
+                break;
+            case 'newest':
+                orderClause.push(['createdAt', 'DESC']);
+                break;
+        }
+
+        const { count, rows } = await Product.findAndCountAll({
+            where: whereClause,
+            order: orderClause,
+            limit,
+            offset: (page - 1) * limit
+        });
+
+        if(rows.length === 0) return null;
+
+        return {
+            page,
+            pages: Math.ceil(count / limit),
+            products: rows.map(product => ({
+                product_code: product.product_code,
+                title: product.title,
+                image: product.image,
+                rate: product.rate,
+                price_fa: product.price_fa
+            }))
+        };
+    }
+
     async findBestSellProducts() {
         const products = await Product.findAll({
             order: [['sells', 'DESC']],

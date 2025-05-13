@@ -1,5 +1,6 @@
 const { dataBase } = require('../core/db');
 const ProductModel = require('./../sequelize/models/product.model');
+const categoryRepo = require('./category.repository');
 const Product = ProductModel(dataBase);
 
 module.exports = new (class {
@@ -15,32 +16,38 @@ module.exports = new (class {
         return product;
     }
 
-    async createProduct({
-        title,
-        image,
-        category_id,
-        rate = 5,
-        rate_fa = '۵.۰',
-        views = 0,
-        comments_number = 0,
-        price,
-        price_fa,
-        inventory,
-        description
-    }) {
-        await Product.create({
-            title,
-            image,
-            category_id,
-            rate,
-            rate_fa,
-            views,
-            comments_number,
-            price,
-            price_fa,
-            inventory,
-            description
+    async findBestSellProducts() {
+        const products = await Product.findAll({
+            order: [['sells', 'DESC']],
+            limit: 8
         });
+
+        if(products.length == 0 || products[0].sells == 0) return null;
+
+        return products.map(product => ({
+            product_code: product.product_code,
+            image: product.image,
+            title: product.title,
+            rate: product.rate,
+            price_fa: product.price_fa
+        }));
+    }
+
+    async findMostVisitedProducts() {
+        const products = await Product.findAll({
+            order: [['views', 'DESC']],
+            limit: 8
+        });
+
+        if(products.length == 0 || products[0].views == 0) return null;
+
+        return products.map(product => ({
+            product_code: product.product_code,
+            image: product.image,
+            title: product.title,
+            rate: product.rate,
+            price_fa: product.price_fa
+        }));
     }
 
     async deleteProduct(id) {

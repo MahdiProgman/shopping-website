@@ -20,4 +20,17 @@ module.exports = new (class {
             value: footerData.value
         }));
     }
+
+    async findByName(name) {
+        const result = await WebsiteData.findOne({
+            where: {
+                name: name
+            }
+        });
+
+        return result ? {
+            name: result.name,
+            value: result.value
+        } : null;
+    }
 })();

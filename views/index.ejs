@@ -56,7 +56,7 @@
               <div class="swiper-wrapper">
                 <% categories.map(category => { %>
                   <div class="swiper-slide" style="background-color: <%= category.boxColor %>;">
-                    <a href="#<%= category.name %>">
+                    <a href="/products?category=<%= category.name %>">
                       <img src="<%= category.image %>" alt="">
                       <div class="details">
                         <h5><%= category.name_fa %></h5>

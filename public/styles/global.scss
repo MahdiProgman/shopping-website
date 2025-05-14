@@ -279,29 +279,31 @@ header > {
       align-items: center;
       position: relative;
       .box {
-        display: flex;
-        align-items: center;
         width: 100%;
-        #search-btn {
-          background-color: var(--primary-color);
-          border: none;
-          border-radius: 12px 0 0 12px;
-          height: 45px;
-          padding: 3.5px;
-          cursor: pointer;
-          img {
-            width: 35px;
+        .search-form {
+          display: flex;
+          align-items: center;
+          #search-btn {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 12px 0 0 12px;
+            height: 45px;
+            padding: 3.5px;
+            cursor: pointer;
+            img {
+              width: 35px;
+            }
           }
-        }
-        input {
-          border: none;
-          height: 45px;
-          border: 1px solid $border-color;
-          border-radius: 0 12px 12px 0;
-          padding: 15px;
-          width: 100%;
-          outline: none;
-          width: 100%;
+          input {
+            border: none;
+            height: 45px;
+            border: 1px solid $border-color;
+            border-radius: 0 12px 12px 0;
+            padding: 15px;
+            width: 100%;
+            outline: none;
+            width: 100%;
+          }
         }
         .top-searches {
           pointer-events: none;

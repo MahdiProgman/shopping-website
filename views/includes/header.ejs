@@ -13,14 +13,19 @@
     </div>
     <div class="search">
       <div class="box">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="دنبال محصول خاصی میگردید؟"
-        />
-        <button id="search-btn">
-          <img src="/assets/icons/search.svg" alt="" />
-        </button>
+        <form action="/search" class="search-form">
+          <input
+            type="text"
+            name="q"
+            id="search-input"
+            value="<%= text %>"
+            required
+            placeholder="دنبال محصول خاصی میگردید؟"
+          />
+          <button id="search-btn">
+            <img src="/assets/icons/search.svg" alt="" />
+          </button>
+        </form>
         <div class="top-searches">
           <h6>بیشترین جستجوی های کاربران</h6>
           <div class="searches">

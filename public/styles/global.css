@@ -296,12 +296,15 @@ header > .section-1 .search {
 }
 
 header > .section-1 .search .box {
-  display: flex;
-  align-items: center;
   width: 100%;
 }
 
-header > .section-1 .search .box #search-btn {
+header > .section-1 .search .box .search-form {
+  display: flex;
+  align-items: center;
+}
+
+header > .section-1 .search .box .search-form #search-btn {
   background-color: var(--primary-color);
   border: none;
   border-radius: 12px 0 0 12px;
@@ -310,11 +313,11 @@ header > .section-1 .search .box #search-btn {
   cursor: pointer;
 }
 
-header > .section-1 .search .box #search-btn img {
+header > .section-1 .search .box .search-form #search-btn img {
   width: 35px;
 }
 
-header > .section-1 .search .box input {
+header > .section-1 .search .box .search-form input {
   border: none;
   height: 45px;
   border: 1px solid rgba(0, 0, 0, 0.14);

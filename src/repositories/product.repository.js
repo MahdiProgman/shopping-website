@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { dataBase } = require('../core/db');
 const ProductModel = require('./../sequelize/models/product.model');
 const categoryRepo = require('./category.repository');
@@ -111,6 +112,26 @@ module.exports = new (class {
                 price_fa: product.price_fa
             }))
         };
+    }
+
+    async findProductsByTitleStartsWith(text) {
+        const products = await Product.findAll({
+            where: {
+                title: {
+                    [Op.startsWith] : text
+                }
+            }
+        });
+
+        if(products.length == 0) return null;
+
+        return products.map(product => ({
+            product_code: product.product_code,
+            image: product.image,
+            title: product.title,
+            rate: product.rate,
+            price_fa: product.price_fa
+        }));
     }
 
     async findBestSellProducts() {

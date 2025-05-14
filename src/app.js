@@ -27,7 +27,7 @@ app.set("view engine", "ejs");
 
 app.use(setHelpersMiddleware);
 
-app.use('/', pagesRouter);
 app.use("/auth", authRouter);
+app.use('/', pagesRouter);
 
 module.exports = app;

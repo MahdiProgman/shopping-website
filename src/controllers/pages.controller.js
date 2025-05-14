@@ -11,8 +11,9 @@ const getHomePage = async (req, res) => {
     footerData: result.footerData,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     questions: result.questions,
-    login_state: req.login_state,
     mostVisitedProducts: result.mostVisitedProducts,
+    login_state: req.login_state,
+    text: '',
     user: req.user ? {
       first_name: req.user.first_name
     } : null
@@ -28,6 +29,7 @@ const getProductPage = async (req, res, next) => {
   res.render("product", {
     footerData: result.footerData,
     login_state: req.login_state,
+    text: '',
     product: result.product,
     productsInThisCategory: result.productsInThisCategory,
     user: req.user ? {
@@ -44,6 +46,7 @@ const getProductsPage = async (req, res) => {
     categories: result.categories,
     footerData: result.footerData,
     login_state: req.login_state,
+    text: '',
     settings: {
       category: category ? category : 'all',
       orderBy: orderBy ? orderBy : 'buyers-suggestions',
@@ -62,6 +65,7 @@ const getCartPage = async (req, res) => {
   res.render("cart", {
     login_state: req.login_state,
     footerData: result.footerData,
+    text: '',
     user: req.user ? {
       first_name: req.user.first_name
     } : null
@@ -74,6 +78,7 @@ const getFavoritesPage = async (req, res) => {
   res.render("favorites", {
     login_state: req.login_state,
     footerData: result.footerData,
+    text: '',
     user: req.user ? {
       first_name: req.user.first_name
     } : null
@@ -88,11 +93,27 @@ const getAboutUsPage = async (req, res) => {
     featureCards: result.featureCards,
     footerData: result.footerData,
     login_state: req.login_state,
+    text: '',
     user: req.user ? {
       first_name: req.user.first_name
     } : null
   });
 };
+
+const getSearchResultsPage = async (req, res) => {
+  const { q } = req.query;
+  const result = await pagesService.searchResultsPageService(q);
+
+  res.render('search-results', {
+    footerData: result.footerData,
+    login_state: req.login_state,
+    text: q,
+    products: result.products,
+    user: req.user ? {
+      first_name: req.user.first_name
+    } : null
+  });
+}
 
 const getSupportPage = async (req, res) => {
   const result = await pagesService.supportPageService();
@@ -101,6 +122,7 @@ const getSupportPage = async (req, res) => {
     footerData: result.footerData,
     login_state: req.login_state,
     supportCards: result.supportCards,
+    text: '',
     supportText: result.supportText,
     user: req.user ? {
       first_name: req.user.first_name
@@ -114,6 +136,7 @@ const getNotFoundPage = async (req, res) => {
   res.render("404", {
     footerData: result.footerData,
     login_state: req.login_state,
+    text: '',
     user: req.user ? {
       first_name: req.user.first_name
     } : null
@@ -128,5 +151,6 @@ module.exports = {
   getFavoritesPage,
   getAboutUsPage,
   getSupportPage,
-  getNotFoundPage
+  getNotFoundPage,
+  getSearchResultsPage
 };

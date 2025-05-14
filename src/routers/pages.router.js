@@ -18,6 +18,7 @@ router.get(
 router.get('/cart', pagesController.getCartPage);
 router.get('/favorites', pagesController.getFavoritesPage);
 router.get('/about-us', pagesController.getAboutUsPage);
+router.get('/search', pagesController.getSearchResultsPage);
 router.get('/support', pagesController.getSupportPage);
 
 router.use(pagesController.getNotFoundPage);

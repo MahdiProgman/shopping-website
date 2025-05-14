@@ -44,6 +44,16 @@ const productPageService = async (product_code) => {
     };
 }
 
+const searchResultsPageService = async (text) => {
+    const globalData = await globalPageService();
+    const productsFound = await productRepo.findProductsByTitleStartsWith(text);
+
+    return {
+        footerData: globalData.footerData,
+        products: productsFound
+    };
+}
+
 const productsPageService = async (category, orderBy, page) => {
     const globalData = await globalPageService();
     const categoriesFound = await categoryRepo.findAllCategories();
@@ -118,5 +128,6 @@ module.exports = {
     favoritesPageService,
     aboutUsPageService,
     supportPageService ,
-    notFoundPageService
+    notFoundPageService,
+    searchResultsPageService
 };

@@ -40,13 +40,20 @@ const productPageService = async () => {
     };
 }
 
-const productsPageService = async () => {
+const productsPageService = async (category, orderBy, page) => {
     const globalData = await globalPageService();
     const categoriesFound = await categoryRepo.findAllCategories();
+    const productsFound = await productRepo.findAllProducts(
+        category ? category : 'all',
+        orderBy ? orderBy : 'buyers-suggestions',
+        8,
+        page ? page : 1
+    );
 
     return {
         categories: categoriesFound,
-        footerData: globalData.footerData
+        footerData: globalData.footerData,
+        products: productsFound
     };
 }
 

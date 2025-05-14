@@ -32,12 +32,19 @@ const getProductPage = async (req, res) => {
 }
 
 const getProductsPage = async (req, res) => {
-  const result = await pagesService.productsPageService();
+  const { category, orderBy, page } = req.query;
+  const result = await pagesService.productsPageService(category, orderBy, page);
 
   res.render("products", {
     categories: result.categories,
-    login_state: req.login_state,
     footerData: result.footerData,
+    login_state: req.login_state,
+    settings: {
+      category: category ? category : 'all',
+      orderBy: orderBy ? orderBy : 'buyers-suggestions',
+      page: page ? page : 1
+    },
+    products: result ? result.products : null,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

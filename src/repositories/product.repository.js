@@ -1,6 +1,7 @@
 const { dataBase } = require('../core/db');
 const ProductModel = require('./../sequelize/models/product.model');
 const categoryRepo = require('./category.repository');
+const productCommentRepo = require('./productComment.repository');
 const Product = ProductModel(dataBase);
 
 module.exports = new (class {
@@ -14,6 +15,50 @@ module.exports = new (class {
             where: { title }
         });
         return product;
+    }
+
+    async findByProductCode(product_code) {
+        const product = await Product.findOne({
+            where: { product_code }
+        });
+        const comments = await productCommentRepo.findAllCommentsOfProductByProductId(product.id);
+        const categoryFound = await categoryRepo.findById(product.category_id);
+
+        return product ? {
+            id: product.id,
+            product_code: product.product_code,
+            title: product.title,
+            category_id: categoryFound.id,
+            category: categoryFound.name,
+            category_fa: categoryFound.name_fa,
+            image: product.image,
+            images: product.images,
+            views: product.views,
+            rate: product.rate,
+            specifications: product.specifications,
+            description: product.description,
+            price_fa: product.price_fa,
+            comments: comments,
+            inventory: product.inventory
+        } : null;
+    }
+
+    async findAllProductsOfCategoryById(category_id) {
+        const products = await Product.findAll({
+            where: {
+                category_id : category_id
+            }
+        });
+
+        if(products.length == 0) return null;
+        
+        return products.map(product => ({
+            product_code: product.product_code,
+            image: product.image,
+            title: product.title,
+            rate: product.rate,
+            price_fa: product.price_fa
+        }));
     }
 
     async findAllProducts(category = 'all', orderBy = 'buyers-suggestions', limit = 8, page = 1) {

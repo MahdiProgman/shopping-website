@@ -4,6 +4,7 @@ const websiteDataRepo = require("../repositories/websiteData.repository");
 const supportCardRepo = require("../repositories/supportCard.repository");
 const featureCardRepo = require("../repositories/featureCard.repository");
 const categoryRepo = require("../repositories/category.repository");
+const productRepo = require("../repositories/product.repository");
 
 const globalPageService = async () => {
     const footerDataFound = await websiteDataRepo.findFooterData();
@@ -18,12 +19,16 @@ const homePageService = async () => {
     const questionsFound = await questionRepo.findAllQuestions();
     const categoriesFound = await categoryRepo.findAllCategories();
     const globalData = await globalPageService();
+    const bestSellProductsFound = await productRepo.findBestSellProducts();
+    const mostVisitedProductsFound = await productRepo.findMostVisitedProducts();
 
     return {
         advertiseCards: advertiseCardsFound,
+        bestSellProducts: bestSellProductsFound,
         categories: categoriesFound,
+        footerData: globalData.footerData,
+        mostVisitedProducts: mostVisitedProductsFound,
         questions: questionsFound,
-        footerData: globalData.footerData
     };
 };
 

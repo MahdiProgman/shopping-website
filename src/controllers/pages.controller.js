@@ -6,11 +6,13 @@ const getHomePage = async (req, res) => {
 
   res.render("index", {
     advertiseCards: result.advertiseCards,
+    bestSellProducts: result.bestSellProducts,
     categories: result.categories,
     footerData: result.footerData,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     questions: result.questions,
     login_state: req.login_state,
+    mostVisitedProducts: result.mostVisitedProducts,
     user: req.user ? {
       first_name: req.user.first_name
     } : null

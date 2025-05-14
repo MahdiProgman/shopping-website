@@ -16,63 +16,32 @@
       <%- include("includes/header") %>
       <main>
         <section class="search-results">
-          <h1>نتایج جستوجو ● ۳ محصول</h1>
-          <div class="products">
-            <div class="product">
-              <a class="special" href="">
-                <div class="image">
-                  <img src="/assets/images/croma.png" alt="" />
+          <h1>نتایج جستوجو ● <%= toPersianDigitsHelper(products ? products.length : 0) %> محصول</h1>
+          <% if(products) { %>
+            <div class="products">
+              <% products.map(product => { %>
+                <div class="product">
+                  <a class="special" href="/product/<%= product.product_code %>">
+                    <div class="image">
+                      <img src="<%= product.image %>" alt="" />
+                    </div>
+                    <div class="detail">
+                      <h5><%= product.title %></h5>
+                      <div class="rate">
+                        <img src="/assets/icons/star.png" alt="" />
+                        <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
+                      </div>
+                      <span class="price"><%= product.price_fa %> تومان</span>
+                    </div>
+                  </a>
                 </div>
-                <div class="detail">
-                  <h5>
-                    هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                    مشکی)
-                  </h5>
-                  <div class="rate">
-                    <img src="/assets/icons/star.png" alt="" />
-                    <span class="rate-number">۵</span>
-                  </div>
-                  <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                </div>
-              </a>
-            </div>
-            <div class="product">
-              <a class="special" href="">
-                <div class="image">
-                  <img src="/assets/images/croma.png" alt="" />
-                </div>
-                <div class="detail">
-                  <h5>
-                    هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                    مشکی)
-                  </h5>
-                  <div class="rate">
-                    <img src="/assets/icons/star.png" alt="" />
-                    <span class="rate-number">۵</span>
-                  </div>
-                  <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                </div>
-              </a>
-            </div>
-            <div class="product">
-              <a class="special" href="">
-                <div class="image">
-                  <img src="/assets/images/croma.png" alt="" />
-                </div>
-                <div class="detail">
-                  <h5>
-                    هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                    مشکی)
-                  </h5>
-                  <div class="rate">
-                    <img src="/assets/icons/star.png" alt="" />
-                    <span class="rate-number">۵</span>
-                  </div>
-                  <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                </div>
-              </a>
-            </div>
+              <% }); %>
           </div>
+          <% } else { %>
+            <div style="text-align: center;">
+              <p style="font-size: 1.5em;">محصولی یافت نشد.</p>
+            </div>
+          <% } %>
         </section>
       </main>
       <div class="header-overlay hidden"></div>

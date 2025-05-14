@@ -20,9 +20,10 @@
         <section class="products-section">
           <div class="products">
             <h1>محصولات</h1>
-            <div class="filters">
-              <% if(categories) { %>
-                <div class="category">
+            <form action="/products" class="filters-form">
+                <div class="filters">
+                  <% if(categories) { %>
+                    <div class="category">
                   <label for="category">دسته بندی</label>
                   <select name="category" id="category">
                     <option value="all" <%= settings.category == 'all' ? 'selected' : '' %>>همه</option>
@@ -30,20 +31,24 @@
                       <option value="<%=category.name%>" <%= settings.category == category.name ? 'selected' : '' %>><%= category.name_fa %></option>
                     <% }); %>
                   </select>
-                </div>
-              <% } %>
-              <div class="order-by">
+                    </div>
+                    <div class="order-by">
                 <label for="order-by">بر اساس</label>
-                <select name="order-by" id="order-by">
-                  <option value="most-visted" <%= settings.orderBy == 'most-visted' ? 'selected' : '' %>>پر بازدید ترین</option>
+                <select name="orderBy" id="order-by">
+                  <option value="most-visited" <%= settings.orderBy == 'most-visted' ? 'selected' : '' %>>پر بازدید ترین</option>
                   <option value="best-seller" <%= settings.orderBy == 'best-seller' ? 'selected' : '' %>>پرفروش ترین</option>
                   <option value="newest" <%= settings.orderBy == 'newest' ? 'selected' : '' %>>جدید ترین</option>
                   <option value="most-expensive" <%= settings.orderBy == 'most-expensive' ? 'selected' : '' %>>گران ترین</option>
                   <option value="the-cheapest" <%= settings.orderBy == 'the-cheapest' ? 'selected' : '' %>>ارزان ترین</option>
                   <option value="buyers-suggestions" <%= settings.orderBy == 'buyers-suggestions' ? 'selected' : '' %>>پیشنهادات خریداران</option>
                 </select>
-              </div>
-            </div>
+                    </div>
+                  <% } %>
+                </div>
+                <div class="submit">
+                  <button class="submit-btn">اعمال</button>
+                </div>
+            </form>
             <% if(products) { %>
               <div class="products-list row">
               <% products.products.map(product => { %>

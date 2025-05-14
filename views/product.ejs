@@ -57,40 +57,38 @@
         <section class="product-section">
             <div class="images">
               <div class="main-image">
-                <img src="/assets/images/croma.png" alt="">
+                <img src="<%= product.image %>" alt="">
               </div>
-              <div class="images-list">
-                <button class="image-btn">
-                  <img src="/assets/images/croma.png" alt="">
-                </button>
-                <button class="image-btn">
-                  <img src="/assets/images/croma.png" alt="">
-                </button>
-                <button class="image-btn">
-                  <img src="/assets/images/croma.png" alt="">
-                </button>
-              </div>
+              <% if(product.images.length !== 0) { %>
+                <div class="images-list">
+                  <% product.images.map(image => {%>
+                    <button class="image-btn">
+                      <img src="<%= image %>" alt="">
+                    </button>
+                  <% }); %>
+                </div>
+              <% } %>
             </div>
             <div class="details">
                 <div class="category">
                   <span>در دسته بندی : </span>
-                  <a class="special" href="#category">کالای الکترونیک</a>
+                  <a class="special" href="/products?category=<%= product.category %>"><%= product.category_fa %></a>
                 </div>
-                <h1>هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش، مشکی)</h1>
+                <h1><%= product.title %></h1>
                 <div class="rate">
                   <img src="/assets/icons/star.png" alt="">
-                  <span class="rate-number">۵.۰</span>
+                  <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
                 </div>
                 <div class="number-of-views number">
                   <img src="/assets/icons/eye-2.png" alt="">
-                  <span>۱۲۳</span>
+                  <span><%= toPersianDigitsHelper(product.views) %></span>
                 </div>
                 <div class="number-of-comments number">
                   <img src="/assets/icons/message.png" alt="">
-                  <span>۵</span>
+                  <span><%= toPersianDigitsHelper(product.comments ? product.comments.length : 0) %></span>
                 </div>
                 <div class="price">
-                  <h4>۱۳,۹۶۰,۰۰۰ تومان</h4>
+                  <h4><%= product.price_fa %> تومان</h4>
                 </div>
                 <div class="buttons">
                   <button class="favorite">
@@ -107,7 +105,7 @@
         <section class="description-and-specifications">
           <div class="description">
             <h5>توضیحات</h5>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+            <p><%= product.description %></p>
             <button class="show-more-btn">
               <span>مشاهده بیشتر</span>
               <img src="/assets/icons/caret.png" alt="">
@@ -116,34 +114,12 @@
           <div class="specifications">
             <h5>مشخصات</h5>
             <div class="specification-rows">
-              <div class="specification-row">
-                <span class="property">برند</span>
-                <span class="value">کروما</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">شماره مدل</span>
-                <span class="value">CREEH1904sHPA4</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">پشتیبانی از بلوتوث</span>
-                <span class="value">بله</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">نسخه بلوتوث</span>
-                <span class="value">بلوتوث ۵.۰</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">ظرفیت باتری</span>
-                <span class="value">۴۰۰ میلی آمپر بر ساعت</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">سری مدل</span>
-                <span class="value">CREEH1904sHPA4</span>
-              </div>
-              <div class="specification-row">
-                <span class="property">دستگاه های سازگار</span>
-                <span class="value">تبلت, تلفن های همراه</span>
-              </div>
+              <% product.specifications.map(specification => { %>
+                <div class="specification-row">
+                  <span class="property"><%= specification.name %></span>
+                  <span class="value"><%= specification.value %></span>
+                </div>
+              <% }); %>
             </div>
           </div>
         </section>
@@ -280,7 +256,7 @@
         </section>
         <section class="best-selling-products-in-this-category">
           <h4>کالا های پرفروش در این دسته بندی</h4>
-          <%- include("includes/products-list") %>
+          <%- include("includes/products-list", { products: productsInThisCategory }) %>
         </section>
       </main>
       <%- include("includes/footer") %>

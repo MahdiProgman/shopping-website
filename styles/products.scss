@@ -1,0 +1,82 @@
+$border-color: rgba(0, 0, 0, 0.14);
+
+.main {
+    main {
+        .products-section {
+            .products {
+                h1 {
+                    color: var(--primary-color);
+                    padding: 15px;
+                }
+                .products-list {
+                    .product-card {
+                        border: 1px solid $border-color;
+                        a {
+                          padding: 10px;
+                          .row-1 {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            img {
+                              width: 70%;
+                            }
+                          }
+                          .row-2 {
+                            color: rgb(54, 54, 54);
+                            padding: 5px 15px;
+                            .rate {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-around;
+                              gap: 7px;
+                              border: 1px solid $border-color;
+                              border-radius: 10px;
+                              justify-self: left;
+                              width: fit-content;
+                              padding: 5px;
+                              img {
+                                width: 20px;
+                              }
+                            }
+                            .price {
+                              font-size: 1.3em;
+                              padding: 15px;
+                            }
+                          }
+                        }
+                      }
+                      .product-card:hover {
+                        box-shadow: 2px 2px 5px -2px black;
+                      }
+                }
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+                    gap: 15px;
+                    a {
+                        background-color: transparent;
+                        border: 1px solid $border-color;
+                        border-radius: 11px;
+                        padding: 5px 10px;
+                    }
+                    a.on {
+                        background-color: var(--primary-color);
+                        color: white;
+                    }
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        padding: 5px;
+                        img {
+                            width: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

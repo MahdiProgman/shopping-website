@@ -1,8 +1,15 @@
 :root {
   --primary-color: #ff9b17;
-  --secondary-color: #fcb454;
-  --highlights-color: #fff085;
-  --errors-alerts-color: #f16767;
+  --secondary-color: #00b2a9;
+  --bg-color: #ffffff;
+  --bg-soft: #f9fafb;
+  --primary-text-color: #1a1a1a;
+  --secondary-text-color: #808080;
+  --border-color: rgba(0, 0, 0, 0.14);
+  --shadow-color: #000000;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --link-color: #00b2a9;
 }
 
 @font-face {
@@ -53,7 +60,7 @@ a:hover::after {
 }
 
 .vertical-line {
-  border-left: 1px solid rgba(0, 0, 0, 0.14);
+  border-left: 1px solid var(--border-color);
   height: 80%;
   margin: 0 10px;
 }
@@ -320,7 +327,7 @@ header > .section-1 .search .box .search-form #search-btn img {
 header > .section-1 .search .box .search-form input {
   border: none;
   height: 45px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 0 12px 12px 0;
   padding: 15px;
   width: 100%;
@@ -331,7 +338,7 @@ header > .section-1 .search .box .search-form input {
 header > .section-1 .search .box .top-searches {
   pointer-events: none;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 0 0 10px 10px;
   opacity: 0;
   transform: translateY(100px);
@@ -443,7 +450,7 @@ header > .section-1 .user-actions .user-data .user-data-box {
 header > .section-1 .user-actions .user-data .user-data-box .name {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   gap: 5px;
   padding: 5px;
 }
@@ -528,7 +535,7 @@ footer .side-right .brand {
 }
 
 footer .side-right .brand a {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
 }
 
@@ -557,7 +564,7 @@ footer .side-left .phone-number {
 }
 
 footer .side-left .phone-number .title {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   color: var(--primary-color);
   font-weight: bold;
 }
@@ -584,7 +591,7 @@ footer .side-left .sentence p {
 }
 
 .products .swiper-products .product-card {
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
 }
 
 .products .swiper-products .product-card a {
@@ -611,7 +618,7 @@ footer .side-left .sentence p {
   align-items: center;
   justify-content: space-around;
   gap: 7px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   justify-self: left;
   width: fit-content;

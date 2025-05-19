@@ -1,14 +1,27 @@
 $primary-color: #ff9b17;
-$secondary-color: #fcb454;
-$highlights-color: #fff085;
-$errors-alerts-color: #f16767;
+$secondary-color: #00b2a9;
+$bg-color: #ffffff;
+$bg-soft: #f9fafb;
+$primary-text-color: #1a1a1a;
+$secondary-text-color: #808080;
 $border-color: rgba(0, 0, 0, 0.14);
+$shadow-color: #000000;
+$success-color: #10b981;
+$error-color: #ef4444;
+$link-color: $secondary-color; 
 
 :root {
   --primary-color: #{$primary-color};
   --secondary-color: #{$secondary-color};
-  --highlights-color: #{$highlights-color};
-  --errors-alerts-color: #{$errors-alerts-color};
+  --bg-color: #{$bg-color};
+  --bg-soft: #{$bg-soft};
+  --primary-text-color: #{$primary-text-color};
+  --secondary-text-color: #{$secondary-text-color};
+  --border-color: #{$border-color};
+  --shadow-color: #{$shadow-color};
+  --success-color: #{$success-color};
+  --error-color: #{$error-color};
+  --link-color: #{$link-color};
 }
 
 @font-face {
@@ -59,7 +72,7 @@ a:hover::after {
 }
 
 .vertical-line {
-  border-left: 1px solid $border-color;
+  border-left: 1px solid var(--border-color);
   height: 80%;
   margin: 0 10px;
 }
@@ -297,7 +310,7 @@ header > {
           input {
             border: none;
             height: 45px;
-            border: 1px solid $border-color;
+            border: 1px solid var(--border-color);
             border-radius: 0 12px 12px 0;
             padding: 15px;
             width: 100%;
@@ -308,7 +321,7 @@ header > {
         .top-searches {
           pointer-events: none;
           background-color: white;
-          border: 1px solid $border-color;
+          border: 1px solid var(--border-color);
           border-radius: 0 0 10px 10px;
           opacity: 0;
           transform: translateY(100px);
@@ -323,7 +336,6 @@ header > {
             padding: 5px;
             font-size: 1.1em;
             color: gray;
-
           }
           .searches {
             padding: 5px;
@@ -407,7 +419,7 @@ header > {
           .name {
             display: flex;
             align-items: center;
-            border-bottom: 1px solid $border-color;
+            border-bottom: 1px solid var(--border-color);
             gap: 5px;
             padding: 5px;
             img {
@@ -482,7 +494,7 @@ footer {
       padding: 15px;
       width: fit-content;
       a {
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
         display: flex;
         img {
           width: 50px;
@@ -505,7 +517,7 @@ footer {
       flex-direction: column;
       padding: 5px;
       .title {
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
         color: var(--primary-color);
         font-weight: bold;
       }
@@ -528,7 +540,7 @@ footer {
   .swiper-products {
     padding: 30px 5%;
     .product-card {
-      border: 1px solid $border-color;
+      border: 1px solid var(--border-color);
       a {
         padding: 10px;
         .row-1 {
@@ -547,7 +559,7 @@ footer {
             align-items: center;
             justify-content: space-around;
             gap: 7px;
-            border: 1px solid $border-color;
+            border: 1px solid var(--border-color);
             border-radius: 10px;
             justify-self: left;
             width: fit-content;

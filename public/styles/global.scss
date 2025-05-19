@@ -24,6 +24,10 @@ $link-color: $secondary-color;
   --link-color: #{$link-color};
 }
 
+@mixin secondaryColorFilter {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
+}
+
 @font-face {
   font-family: Vazir;
   src: url(/fonts/Vazir.ttf);
@@ -387,8 +391,8 @@ header > {
         gap: 5px;
         .action-link {
           img {
-            filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg)
-              brightness(100%) contrast(103%);
+            @include secondaryColorFilter();
+            width: 25px;
           }
         }
       }

@@ -10,6 +10,7 @@
   --success-color: #10b981;
   --error-color: #ef4444;
   --link-color: #00b2a9;
+  --gray-color: #62666d;
 }
 
 @font-face {
@@ -268,7 +269,7 @@ header > .section-1 {
   display: grid;
   grid-template-columns: 3fr 5fr 2fr;
   padding: 15px 3%;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
   position: fixed;
   top: 0;
   right: 0;
@@ -288,6 +289,7 @@ header > .section-1 .drawer-menu button {
 }
 
 header > .section-1 .drawer-menu button img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
   width: 30px;
 }
 
@@ -444,6 +446,7 @@ header > .section-1 .user-actions .user-data #open-user-data-box-btn {
 }
 
 header > .section-1 .user-actions .user-data #open-user-data-box-btn img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
   width: 25px;
 }
 
@@ -476,11 +479,12 @@ header > .section-1 .user-actions .user-data .user-data-box .name {
 }
 
 header > .section-1 .user-actions .user-data .user-data-box .name img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
   width: 25px;
 }
 
 header > .section-1 .user-actions .user-data .user-data-box .name span {
-  color: var(--primary-color);
+  color: var(--primary-text-color);
 }
 
 header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn {
@@ -495,11 +499,12 @@ header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-b
 }
 
 header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn img {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
   width: 25px;
 }
 
 header > .section-1 .user-actions .user-data .user-data-box #exit-from-account-btn span {
-  color: var(--errors-alerts-color);
+  color: #ff2500;
 }
 
 header > .section-1 .user-actions .user-data .user-data-box.on {
@@ -510,7 +515,7 @@ header > .section-2 {
   background-color: var(--bg-color);
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 0 5%;
 }
 
@@ -518,23 +523,34 @@ header > .section-2 .navbar nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.1em;
   padding: 5px;
 }
 
 header > .section-2 .navbar nav a {
   display: flex;
   flex-direction: row;
+  border-left: 1px solid var(--border-color);
+  color: var(--gray-color);
   margin: 0 5px;
 }
 
 header > .section-2 .navbar nav a img {
-  width: 25px;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   object-fit: contain;
+  width: 25px;
 }
 
 header > .section-2 .navbar nav a span {
   padding: 5px;
+}
+
+header > .section-2 .navbar nav a.on {
+  color: var(--secondary-color);
+}
+
+header > .section-2 .navbar nav a.on img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
 }
 
 header > .section-2 .welcome-msg {

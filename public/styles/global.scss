@@ -9,6 +9,7 @@ $shadow-color: #000000;
 $success-color: #10b981;
 $error-color: #ef4444;
 $link-color: $secondary-color;
+$gray-color: #62666d;
 
 :root {
   --primary-color: #{$primary-color};
@@ -22,10 +23,15 @@ $link-color: $secondary-color;
   --success-color: #{$success-color};
   --error-color: #{$error-color};
   --link-color: #{$link-color};
+  --gray-color: #{$gray-color};
 }
 
 @mixin secondaryColorFilter {
   filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
+}
+
+@mixin grayColorFilter {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
 }
 
 @font-face {
@@ -268,7 +274,7 @@ header > {
     display: grid;
     grid-template-columns: 3fr 5fr 2fr;
     padding: 15px 3%;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
     position: fixed;
     top: 0;
     right: 0;
@@ -282,6 +288,7 @@ header > {
         outline: none;
         cursor: pointer;
         img {
+          @include secondaryColorFilter();
           width: 30px;
         }
       }
@@ -415,6 +422,7 @@ header > {
           border: none;
           cursor: pointer;
           img {
+            @include secondaryColorFilter();
             width: 25px;
           }
           img:nth-child(2) {
@@ -443,10 +451,11 @@ header > {
             gap: 5px;
             padding: 5px;
             img {
+              @include secondaryColorFilter();
               width: 25px;
             }
             span {
-              color: var(--primary-color);
+              color: var(--primary-text-color);
             }
           }
           #exit-from-account-btn {
@@ -459,10 +468,10 @@ header > {
             padding: 5px 10px;
             cursor: pointer;
             img {
-              width: 25px;
+              filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);              width: 25px;
             }
             span {
-              color: var(--errors-alerts-color);
+              color: #ff2500;
             }
           }
         }
@@ -476,24 +485,33 @@ header > {
     background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
     padding: 0 5%;
     .navbar nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.2em;
+      font-size: 1.1em;
       padding: 5px;
       a {
         display: flex;
         flex-direction: row;
+        border-left: 1px solid var(--border-color);
+        color: var(--gray-color);
         margin: 0 5px;
         img {
-          width: 25px;
+          @include grayColorFilter();
           object-fit: contain;
+          width: 25px;
         }
         span {
           padding: 5px;
+        }
+      }
+      a.on {
+        color: var(--secondary-color);
+        img {
+          @include secondaryColorFilter();
         }
       }
     }

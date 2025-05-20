@@ -15,6 +15,7 @@ const exitFromAccountBtn = document.getElementById("exit-from-account-btn");
 const exitFromAccountDrawerBtn = document.getElementById(
   "exit-from-account-drawer-btn"
 );
+const customSelectElements = document.querySelectorAll('.custom-select');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -189,3 +190,21 @@ document.addEventListener("touchstart", (e) => {
     overlay.classList.add("hidden");
   }
 });
+
+if(customSelectElements.length !== 0) {
+  customSelectElements.forEach(customSelect => {
+    customSelect.addEventListener('click', () => {
+      if(!customSelect.classList.contains('open')) customSelect.classList.add('open');
+      else customSelect.classList.remove('open');
+    });
+
+    customSelect.querySelectorAll('.dropdown ul li').forEach(choice => {
+      choice.addEventListener('click', () => {
+        customSelect.querySelector('.select-box span').innerText = choice.children[0].innerText;
+        customSelect.querySelector('.dropdown ul li.selected').classList.remove('selected');
+        choice.classList.add('selected');
+        document.querySelector('.custom-select-input').value = choice.dataset.value;
+      });
+    });
+  });
+}

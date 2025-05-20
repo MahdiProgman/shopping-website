@@ -293,6 +293,66 @@ a:hover::after {
   transform: translateX(0);
 }
 
+.custom-select {
+  border-radius: 11px;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  .select-box {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+    padding: 10px 15px;
+    transition: all .5s;
+    img {
+      transition: all .5s;
+      width: 25px;
+    }
+  }
+  .dropdown {
+    display: none;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 0 0 11px 11px;
+    box-shadow: 3px 3px 6px -3px var(--shadow-color);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1003;
+    ul {
+      gap: 5px;
+      list-style: none;
+      li {
+        border-bottom: 1px solid var(--border-color);
+        padding: 10px 15px;
+      }
+      li:not(.selected):hover {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+      li.selected {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+    }
+  }
+}
+.custom-select.open {
+  .select-box {
+    border-color: var(--secondary-color);
+    border-radius: 11px 11px 0 0;
+    img {
+      rotate: 180deg;
+    }
+  }
+  .dropdown {
+    display: block;
+  }
+}
+
 header {
   position: relative;
   z-index: 1001;

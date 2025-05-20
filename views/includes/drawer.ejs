@@ -8,14 +8,14 @@
     <div class="brand">
       <img src="/assets/icons/brand.png" alt="brand icon" />
       <span class="vertical-line"></span>
-      <a href="/">وبسایت فروشگاهی</a>
+      <a class="special" href="/">وبسایت فروشگاهی</a>
     </div>
   </div>
   <div class="section-2">
     <% if(!login_state){ %>
     <div class="auth-links">
-      <a href="/auth/register">ثبت نام</a>
-      <a href="/auth/login">ورود</a>
+      <a class="special" href="/auth/register">ثبت نام</a>
+      <a class="special" href="/auth/login">ورود</a>
     </div>
     <% } else { %>
     <div class="user-data">
@@ -30,29 +30,29 @@
     </div>
     <% } %>
     <div class="action-links">
-      <a href="/cart">
+      <a class="special <%= page == 'cart' ? 'on' : '' %>" href="/cart">
         <img src="/assets/icons/cart.svg" alt="" />
         <span>سبد خرید</span>
       </a>
-      <a href="/favorites">
+      <a class="special <%= page == 'favorites' ? 'on' : '' %>" href="/favorites">
         <img src="/assets/icons/heart.svg" alt="" />
         <span>علاقه مندی ها</span>
       </a>
     </div>
     <div class="navbar">
-      <a href="/">
+      <a class="special <%= page == 'index' ? 'on' : '' %>" href="/">
         <img src="/assets/icons/house.svg" alt="" />
         <span>خانه</span>
       </a>
-      <a href="/products">
+      <a class="special <%= page == 'products' ? 'on' : '' %>" href="/products">
         <img src="/assets/icons/product.svg" alt="" />
         <span>محصولات</span>
       </a>
-      <a href="/support">
+      <a class="special <%= page == 'support' ? 'on' : '' %>" href="/support">
         <img src="/assets/icons/support.svg" alt="" />
         <span>پشتیبانی</span>
       </a>
-      <a href="/about-us">
+      <a class="special <%= page == 'about-us' ? 'on' : '' %>" href="/about-us">
         <img src="/assets/icons/about-us.svg" alt="" />
         <span>درباره ما</span>
       </a>

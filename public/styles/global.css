@@ -135,7 +135,7 @@ a:hover::after {
 .drawer .section-1 {
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 15px 0;
 }
 
@@ -147,6 +147,7 @@ a:hover::after {
 }
 
 .drawer .section-1 .close-div #close-btn img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 50px;
 }
 
@@ -169,14 +170,18 @@ a:hover::after {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border-bottom: 2px solid var(--primary-color);
-  font-size: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.1em;
+}
+
+.drawer .section-2 .auth-links a {
+  color: var(--primary-color);
 }
 
 .drawer .section-2 .user-data {
   display: flex;
   justify-content: space-around;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .drawer .section-2 .user-data .name {
@@ -186,11 +191,12 @@ a:hover::after {
 }
 
 .drawer .section-2 .user-data .name img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
   width: 30px;
 }
 
 .drawer .section-2 .user-data .name span {
-  color: var(--primary-color);
+  color: var(--gray-color);
   font-size: 1.5em;
 }
 
@@ -203,20 +209,20 @@ a:hover::after {
 }
 
 .drawer .section-2 .user-data #exit-from-account-drawer-btn img {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
+  width: 25px;
   width: 25px;
 }
 
 .drawer .section-2 .user-data #exit-from-account-drawer-btn span {
-  color: var(--errors-alerts-color);
+  color: #ff2500;
   font-size: 1.5em;
 }
 
 .drawer .section-2 .action-links {
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  font-size: 1.5em;
-  padding: 10px 2%;
 }
 
 .drawer .section-2 .action-links a {
@@ -228,31 +234,60 @@ a:hover::after {
 }
 
 .drawer .section-2 .action-links a span {
-  padding: 5px;
+  color: var(--gray-color);
+  padding: 0 5px;
 }
 
 .drawer .section-2 .action-links a img {
-  filter: invert(64%) sepia(59%) saturate(1175%) hue-rotate(345deg) brightness(100%) contrast(103%);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 25px;
+}
+
+.drawer .section-2 .action-links a.on {
+  background-color: var(--secondary-color);
+}
+
+.drawer .section-2 .action-links a.on img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+.drawer .section-2 .action-links a.on span {
+  color: white;
 }
 
 .drawer .section-2 .navbar {
   display: flex;
   flex-direction: column;
-  padding: 10px 2%;
 }
 
 .drawer .section-2 .navbar a {
   display: flex;
   justify-content: right;
   align-items: center;
-  font-size: 1.5em;
   gap: 5px;
   padding: 5px;
 }
 
 .drawer .section-2 .navbar a img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 25px;
+}
+
+.drawer .section-2 .navbar a span {
+  color: var(--gray-color);
+  padding: 0 5px;
+}
+
+.drawer .section-2 .navbar a.on {
+  background-color: var(--secondary-color);
+}
+
+.drawer .section-2 .navbar a.on img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+.drawer .section-2 .navbar a.on span {
+  color: white;
 }
 
 .drawer.on {
@@ -703,7 +738,7 @@ footer .side-left .sentence p {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 12px;
+    font-size: 14px;
   }
   body .main header > .section-1 {
     grid-template-columns: 1fr 9fr;

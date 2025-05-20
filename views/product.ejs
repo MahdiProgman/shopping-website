@@ -31,6 +31,33 @@
             rows="10"
             placeholder="نظر خود را بنویسید..."
           ></textarea>
+          <label>امتیاز</label>
+          <div class="custom-select">
+            <input class="custom-select-input" id="rate" name="rate" type="hidden">
+            <div class="select-box">
+              <span>😍 عالی (۵ از ۵ امتیاز)</span>
+              <img src="/assets/icons/caret.svg" alt="">
+            </div>
+            <div class="dropdown">
+              <ul>
+                <li data-value="5" class="selected">
+                  <span>😍 عالی (۵ از ۵ امتیاز)</span>
+                </li>
+                <li data-value="4">
+                  <span>😊 خوب (۴ از ۵ امتیاز)</span>
+                </li>
+                <li data-value="3">
+                  <span>🙂 معمولی (۳ از ۵ امتیاز)</span>
+                </li>
+                <li data-value="2">
+                  <span>☹️ ضعیف (۲ از ۵ امتیاز)</span>
+                </li>
+                <li data-value="1">
+                  <span>👎 بد (۱ از ۵ امتیاز)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
           <label for="positive-points">نکات مثبت</label>
           <div class="positive-points">
             <div class="input">
@@ -55,8 +82,6 @@
             </div>
             <ul></ul>
           </div>
-          <label for="rate">امتیاز</label>
-          <input type="number" id="rate" min="0" max="5" step="0.1" />
           <button>ثبت نظر</button>
         </div>
       </div>

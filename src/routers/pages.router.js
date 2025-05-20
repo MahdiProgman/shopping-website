@@ -3,10 +3,12 @@ const pagesController = require('../controllers/pages.controller');
 const checkAuthMiddleware = require('../middlewares/checkAuth.middleware');
 const pagesValidator = require('../validators/pages.validator');
 const validator = require('../validators/validator');
+const sendGlobalDataMiddleware = require('../middlewares/sendGlobalData.middleware');
 
 const router = express.Router();
 
 router.use(checkAuthMiddleware);
+router.use(sendGlobalDataMiddleware);
 router.get('/', pagesController.getHomePage);
 router.get('/product/:product_code', pagesController.getProductPage)
 router.get(

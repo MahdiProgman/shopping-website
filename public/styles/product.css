@@ -11,7 +11,7 @@
 }
 
 .submit-comment-box .box {
-  background-color: white;
+  background-color: var(--bg-color);
   border-radius: 11px;
   width: 50%;
   height: 80%;
@@ -22,13 +22,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  border-bottom: 1px solid var(--border-color);
   position: static;
   padding: 10px 5%;
 }
 
 .submit-comment-box .box .header h5 {
-  color: var(--errors-alerts-color);
   font-size: 1.3em;
 }
 
@@ -55,27 +54,31 @@
   resize: none;
 }
 
-.submit-comment-box .box .main textarea, .submit-comment-box .box .main input {
-  border: 1px solid rgba(54, 54, 54, 0.14);
+.submit-comment-box .box .main textarea,
+.submit-comment-box .box .main input {
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   outline: none;
   padding: 10px 15px;
   width: 100%;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
-.submit-comment-box .box .main textarea:focus, .submit-comment-box .box .main input:focus {
-  border-color: var(--primary-color);
+.submit-comment-box .box .main textarea:focus,
+.submit-comment-box .box .main input:focus {
+  border-color: var(--secondary-color);
 }
 
-.submit-comment-box .box .main .positive-points .input, .submit-comment-box .box .main .negetive-points .input {
+.submit-comment-box .box .main .positive-points .input,
+.submit-comment-box .box .main .negetive-points .input {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.submit-comment-box .box .main .positive-points .input button, .submit-comment-box .box .main .negetive-points .input button {
-  background-color: var(--primary-color);
+.submit-comment-box .box .main .positive-points .input button,
+.submit-comment-box .box .main .negetive-points .input button {
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;
   color: white;
@@ -83,31 +86,35 @@
   padding: 10px 15px;
 }
 
-.submit-comment-box .box .main .positive-points ul, .submit-comment-box .box .main .negetive-points ul {
+.submit-comment-box .box .main .positive-points ul,
+.submit-comment-box .box .main .negetive-points ul {
   list-style: none;
   padding: 10px;
 }
 
-.submit-comment-box .box .main .positive-points ul li, .submit-comment-box .box .main .negetive-points ul li {
+.submit-comment-box .box .main .positive-points ul li,
+.submit-comment-box .box .main .negetive-points ul li {
   display: flex;
   justify-content: space-between;
 }
 
-.submit-comment-box .box .main .positive-points ul li .text, .submit-comment-box .box .main .negetive-points ul li .text {
+.submit-comment-box .box .main .positive-points ul li .text,
+.submit-comment-box .box .main .negetive-points ul li .text {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.submit-comment-box .box .main .positive-points ul li button, .submit-comment-box .box .main .negetive-points ul li button {
+.submit-comment-box .box .main .positive-points ul li button,
+.submit-comment-box .box .main .negetive-points ul li button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
 .submit-comment-box .box .main > button {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;
   color: white;
@@ -174,7 +181,7 @@
 
 .main main .product-section .images .images-list .image-btn {
   background-color: transparent;
-  border: 1px solid rgba(54, 54, 54, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   padding: 5px;
   margin: 2px;
@@ -198,11 +205,15 @@
   font-size: 2em;
 }
 
+.main main .product-section .details .category a {
+  color: var(--secondary-color);
+}
+
 .main main .product-section .details .rate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid rgba(54, 54, 54, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   gap: 7px;
   padding: 5px;
@@ -265,11 +276,11 @@
 }
 
 .main main .product-section .details .buttons button.favorite {
-  background-color: var(--errors-alerts-color);
+  background-color: #d11313;
 }
 
 .main main .product-section .details .buttons button.cart {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .main main .description-and-specifications {
@@ -280,18 +291,16 @@
 }
 
 .main main .description-and-specifications .description h5 {
-  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
-  color: var(--errors-alerts-color);
+  border-bottom: 1px solid var(--border-color);
   font-size: 1.8em;
   padding: 10px 15px;
   width: fit-content;
 }
 
 .main main .description-and-specifications .description p {
-  color: gray;
   overflow: hidden;
   padding: 5px;
-  transition: all .75s;
+  transition: all 0.75s;
 }
 
 .main main .description-and-specifications .description button.show-more-btn {
@@ -299,20 +308,20 @@
   align-items: center;
   justify-self: center;
   background-color: transparent;
-  border: 1px solid rgba(54, 54, 54, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   color: var(--primary-color);
   gap: 10px;
   text-align: center;
   padding: 10px 15px;
   width: fit-content;
-  transition: all .5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
 .main main .description-and-specifications .description button.show-more-btn img {
   width: 25px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .main main .description-and-specifications .description button.show-more-btn.on img {
@@ -320,7 +329,7 @@
 }
 
 .main main .description-and-specifications .description button.show-more-btn.on span {
-  content: 'مشاهده کمتر';
+  content: "مشاهده کمتر";
 }
 
 .main main .description-and-specifications .specifications {
@@ -328,13 +337,12 @@
 }
 
 .main main .description-and-specifications .specifications h5 {
-  color: var(--errors-alerts-color);
   font-size: 1.8em;
   padding: 10px 15px;
 }
 
 .main main .description-and-specifications .specifications .specification-rows {
-  border: 1px solid rgba(54, 54, 54, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   padding: 10px 15px;
   gap: 15px;
@@ -344,12 +352,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  border-bottom: 1px solid var(--border-color);
   padding: 10px;
 }
 
 .main main .description-and-specifications .specifications .specification-rows .specification-row span.property {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .main main .description-and-specifications .specifications .specification-rows .specification-row span.value {
@@ -392,9 +400,9 @@
 
 .main main .comments-section .rate-and-submit-comment button.write-comment-btn {
   background-color: transparent;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 11px;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.1em;
   padding: 8px 15px;
   width: 100%;
@@ -402,7 +410,6 @@
 }
 
 .main main .comments-section div.comments h5 {
-  color: var(--errors-alerts-color);
   font-size: 1.8em;
 }
 
@@ -413,7 +420,7 @@
 }
 
 .main main .comments-section div.comments .comments-list .comment {
-  border-bottom: 1px solid rgba(54, 54, 54, 0.14);
+  border-bottom: 1px solid var(--border-color);
   padding: 10px;
 }
 
@@ -429,7 +436,6 @@
 }
 
 .main main .comments-section div.comments .comments-list .comment .name h6 {
-  color: var(--primary-color);
   font-size: 1.2em;
 }
 
@@ -464,7 +470,7 @@
 }
 
 .main main .best-selling-products-in-this-category h4 {
-  border-right: 4px solid var(--errors-alerts-color);
+  border-right: 4px solid var(--secondary-color);
   font-size: 1.5em;
   padding: 5px 10px;
 }
@@ -518,7 +524,7 @@
     width: 25%;
   }
   .main main .product-section > .details .buttons {
-    background-color: white;
+    background-color: var(--bg-color);
     padding: 20px;
     position: sticky;
     width: 100%;

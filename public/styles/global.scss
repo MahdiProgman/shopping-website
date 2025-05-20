@@ -8,7 +8,7 @@ $border-color: rgba(0, 0, 0, 0.14);
 $shadow-color: #000000;
 $success-color: #10b981;
 $error-color: #ef4444;
-$link-color: $secondary-color; 
+$link-color: $secondary-color;
 
 :root {
   --primary-color: #{$primary-color};
@@ -45,15 +45,29 @@ $link-color: $secondary-color;
 }
 
 body {
+  background-color: var(--bg-color);
   font-size: 16px;
   position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-text-color);
+}
+
+p {
+  color: var(--secondary-text-color);
 }
 
 a {
   text-decoration: none;
   position: relative;
   padding: 5px;
-  color: var(--primary-color);
+  color: var(--link-color);
 }
 
 a:not(.special)::after {
@@ -63,7 +77,7 @@ a:not(.special)::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   transition: width 0.3s ease;
 }
 
@@ -108,21 +122,16 @@ a:hover::after {
 
 .swiper-button-next,
 .swiper-button-prev {
-  filter: brightness(0) saturate(100%) invert(71%) sepia(73%) saturate(2778%)
-    hue-rotate(346deg) brightness(103%) contrast(103%);
-}
-
-.swiper-button-disabled {
-  filter: brightness(0) saturate(100%) invert(72%) sepia(46%) saturate(605%)
-    hue-rotate(342deg) brightness(100%) contrast(98%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(63%) saturate(5182%)
+    hue-rotate(143deg) brightness(95%) contrast(101%);
 }
 
 .swiper-pagination-bullet {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
 .drawer {
-  background-color: white;
+  background-color: var(--bg-color);
   position: fixed;
   top: 0;
   right: 0;
@@ -250,7 +259,7 @@ header {
 }
 header > {
   .section-1 {
-    background-color: white;
+    background-color: var(--bg-color);
     display: grid;
     grid-template-columns: 3fr 5fr 2fr;
     padding: 15px 3%;
@@ -282,6 +291,7 @@ header > {
           object-fit: contain;
         }
         h1 {
+          color: var(--primary-color);
           padding: 0 10px;
         }
       }
@@ -297,7 +307,7 @@ header > {
           display: flex;
           align-items: center;
           #search-btn {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             border: none;
             border-radius: 12px 0 0 12px;
             height: 45px;
@@ -320,7 +330,7 @@ header > {
         }
         .top-searches {
           pointer-events: none;
-          background-color: white;
+          background-color: var(--bg-color);
           border: 1px solid var(--border-color);
           border-radius: 0 0 10px 10px;
           opacity: 0;
@@ -331,11 +341,10 @@ header > {
           top: 100%;
           right: 0;
           z-index: 1001;
-          transition: all .5s;
+          transition: all 0.5s;
           h6 {
             padding: 5px;
             font-size: 1.1em;
-            color: gray;
           }
           .searches {
             padding: 5px;
@@ -386,6 +395,12 @@ header > {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        a {
+          color: var(--primary-color);
+        }
+        a:not(.special)::after {
+          background-color: var(--primary-color);
+        }
       }
       .user-data {
         position: relative;
@@ -398,7 +413,7 @@ header > {
             width: 25px;
           }
           img:nth-child(2) {
-            transition: all .75s;
+            transition: all 0.75s;
           }
         }
         #open-user-data-box-btn.open {
@@ -408,7 +423,7 @@ header > {
         }
         .user-data-box {
           display: none;
-          background-color: white;
+          background-color: var(--bg-color);
           box-shadow: 2px 2px 5px -2px black;
           position: absolute;
           top: 100%;
@@ -453,7 +468,7 @@ header > {
     }
   }
   .section-2 {
-    background-color: white;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid var(--secondary-color);
@@ -499,14 +514,15 @@ footer {
         img {
           width: 50px;
         }
+        h1 {
+          color: var(--primary-color);
+        }
       }
       p {
-        color: gray;
         padding: 5px;
       }
     }
     .about-us {
-      color: gray;
       padding: 5px 15px;
     }
   }
@@ -518,7 +534,7 @@ footer {
       padding: 5px;
       .title {
         border-bottom: 1px solid var(--border-color);
-        color: var(--primary-color);
+        color: var(--secondary-color);
         font-weight: bold;
       }
       .phone-number {
@@ -528,7 +544,7 @@ footer {
     .sentence {
       padding: 5px;
       p {
-        border-right: 3px solid var(--primary-color);
+        border-right: 3px solid var(--secondary-color);
         padding: 5px 15px;
       }
     }
@@ -540,6 +556,7 @@ footer {
   .swiper-products {
     padding: 30px 5%;
     .product-card {
+      background-color: var(--bg-soft);
       border: 1px solid var(--border-color);
       a {
         padding: 10px;

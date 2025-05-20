@@ -4,14 +4,13 @@
 }
 
 .main main .about-us h1 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 2em;
   padding: 15px;
 }
 
 .main main .about-us p {
   padding: 5px;
-  color: gray;
 }
 
 .main main .features {
@@ -20,7 +19,7 @@
 }
 
 .main main .features h3 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 2em;
   padding: 15px;
 }
@@ -44,13 +43,8 @@
 }
 
 .main main .features .feat-cards .feat-card h5 {
-  color: var(--primary-color);
   font-size: 1.8em;
   padding: 10px;
-}
-
-.main main .features .feat-cards .feat-card p {
-  color: gray;
 }
 
 @media screen and (max-width: 640px) {

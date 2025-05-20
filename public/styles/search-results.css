@@ -3,7 +3,6 @@
 }
 
 .main main .search-results h1 {
-  color: var(--primary-color);
   font-size: 2em;
   padding: 10px;
 }
@@ -16,7 +15,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   color: #363636;
   gap: 15px;
 }
@@ -35,7 +34,7 @@
 }
 
 .main main .search-results .products .product a .detail .rate {
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 15px;
   display: flex;
   justify-content: space-between;

@@ -24,7 +24,7 @@ body .main .box h1 {
 }
 
 body .main .box .brand {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   padding: 5px;
 }
 
@@ -43,9 +43,12 @@ body .main .box .brand a h1 {
 }
 
 body .main .box .title {
-  color: var(--primary-color);
   font-size: 1.7em;
   padding: 5px;
+}
+
+body .main .box .title h5 {
+  color: var(--secondary-color);
 }
 
 body .main .box form {
@@ -58,16 +61,14 @@ body .main .box form > .inputs {
 }
 
 body .main .box form > .inputs .input {
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 12px 13px 14px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 260px;
-  outline: 1px solid transparent;
   padding: 5px;
   margin: 5px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 body .main .box form > .inputs .input img {
@@ -90,16 +91,15 @@ body .main .box form > .inputs .input .show-password-btn {
 
 body .main .box form > .inputs .input:has(input:focus) {
   border-color: var(--secondary-color);
-  outline-color: var(--primary-color);
 }
 
 body .main .box form > .inputs .field-errors li {
-  color: var(--errors-alerts-color);
-  font-size: .8em;
+  color: red;
+  font-size: 0.8em;
 }
 
 body .main .box form > button {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;
   color: white;

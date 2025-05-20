@@ -4,12 +4,11 @@
 }
 
 .main main .support-section h1 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 2.5em;
 }
 
 .main main .support-section p {
-  color: gray;
   padding: 10px;
 }
 
@@ -26,7 +25,6 @@
 }
 
 .main main .support-section .contact .contact-way h3 {
-  color: var(--primary-color);
   font-size: 2em;
 }
 

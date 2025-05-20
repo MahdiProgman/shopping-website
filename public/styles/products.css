@@ -1,5 +1,5 @@
 .main main .products-section .products h1 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 15px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .main main .products-section .products .filters-form .submit .submit-btn {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;
   color: white;
@@ -40,7 +40,7 @@
 }
 
 .main main .products-section .products .products-list .product-card {
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
 }
 
 .main main .products-section .products .products-list .product-card a {
@@ -67,7 +67,7 @@
   align-items: center;
   justify-content: space-around;
   gap: 7px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   justify-self: left;
   width: fit-content;
@@ -97,7 +97,7 @@
 
 .main main .products-section .products .pagination a {
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   padding: 5px 10px;
 }

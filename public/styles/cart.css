@@ -9,7 +9,7 @@
 }
 
 .main main .cart-section .products-list h3 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.5em;
 }
 
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   color: #363636;
   gap: 15px;
 }
@@ -41,7 +41,7 @@
 }
 
 .main main .cart-section .products-list .products .product a .detail .rate {
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
@@ -57,7 +57,7 @@
 
 .main main .cart-section .products-list .products .product a .detail .delete-product {
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   margin-right: auto;
   padding: 5px;
@@ -72,15 +72,15 @@
 .main main .cart-section .order-details {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-color);
   border-radius: 11px;
   height: fit-content;
   padding: 0 15px;
 }
 
 .main main .cart-section .order-details h5 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
-  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--secondary-color);
   font-size: 1.5em;
   padding: 10px 15px;
 }
@@ -90,14 +90,14 @@
 }
 
 .main main .cart-section .order-details .payable {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   padding: 10px;
 }
 
 .main main .cart-section .order-details .place-order-btn {
   border: none;
   border-radius: 10px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: white;
   padding: 10px 15px;
   margin: 25px 0;

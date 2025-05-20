@@ -4,20 +4,19 @@
             padding: 10px 5%;
             text-align: center;
             h1 {
-                color: var(--primary-color);
+                color: var(--secondary-color);
                 font-size: 2em;
                 padding: 15px;
             }
             p {
                 padding: 5px;
-                color: gray;
             }
         }
         .features {
             text-align: center;
             padding: 15px 5%;
             h3 {
-                color: var(--primary-color);
+                color: var(--secondary-color);
                 font-size: 2em;
                 padding: 15px;
             }
@@ -35,12 +34,8 @@
                         width: 200px;
                     }
                     h5 {
-                        color: var(--primary-color);
                         font-size: 1.8em;
                         padding: 10px;
-                    }
-                    p {
-                        color: gray;
                     }
                 }
             }

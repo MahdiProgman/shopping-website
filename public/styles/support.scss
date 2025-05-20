@@ -4,11 +4,10 @@
             text-align: center;
             padding: 15px 10%;
             h1 {
-                color: var(--primary-color);
+                color: var(--secondary-color);
                 font-size: 2.5em;
             }
             p {
-                color: gray;
                 padding: 10px;
             }
             .contact {
@@ -20,7 +19,6 @@
                     justify-content: space-between;
                     align-items: center;
                     h3 {
-                        color: var(--primary-color);
                         font-size: 2em;
                     }
                     img {

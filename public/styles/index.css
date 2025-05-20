@@ -15,12 +15,11 @@ main .website-advertise .card {
 }
 
 main .website-advertise .card .side-1 h3 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 2em;
 }
 
 main .website-advertise .card .side-1 p {
-  color: gray;
   padding: 5px;
 }
 
@@ -35,15 +34,16 @@ main .website-advertise .card .side-2 img {
 }
 
 main .bestsellers h4 {
-  border-right: 4px solid var(--errors-alerts-color);
+  border-right: 4px solid var(--secondary-color);
   padding: 5px 10px;
   font-size: 1.5em;
 }
 
 main .categories h4 {
-  color: var(--primary-color);
-  font-size: 1.3em;
+  border-right: 4px solid var(--secondary-color);
+  font-size: 1.5em;
   text-align: right;
+  padding: 5px;
 }
 
 main .categories .swiper {
@@ -58,7 +58,7 @@ main .categories .swiper .swiper-wrapper {
 main .categories .swiper .swiper-wrapper .swiper-slide {
   border: none;
   border-radius: 11px;
-  box-shadow: 2px 2px 5px -2px black;
+  box-shadow: 2px 2px 5px -2px var(--shadow-color);
   overflow: hidden;
 }
 
@@ -91,11 +91,12 @@ main .categories .swiper .swiper-wrapper .swiper-slide a .details {
 }
 
 main .categories .swiper .swiper-wrapper .swiper-slide a .details h5 {
+  color: white;
   font-size: 1.5em;
 }
 
 main .most-visted h4 {
-  border-right: 4px solid var(--errors-alerts-color);
+  border-right: 4px solid var(--secondary-color);
   padding: 5px 10px;
   font-size: 1.5em;
 }
@@ -108,12 +109,7 @@ main .faq-section {
 }
 
 main .faq-section .side-right h4 {
-  color: var(--primary-color);
   font-size: 2em;
-}
-
-main .faq-section .side-right p {
-  color: gray;
 }
 
 main .faq-section .side-right ul {
@@ -128,7 +124,7 @@ main .faq-section .side-right ul .faq-item {
 main .faq-section .side-right ul .faq-item label {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid var(--border-color);
   padding: 5px;
   cursor: pointer;
 }

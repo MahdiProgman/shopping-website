@@ -6,19 +6,10 @@ const featureCardRepo = require("../repositories/featureCard.repository");
 const categoryRepo = require("../repositories/category.repository");
 const productRepo = require("../repositories/product.repository");
 
-const globalPageService = async () => {
-    const footerDataFound = await websiteDataRepo.findFooterData();
-
-    return {
-        footerData: footerDataFound
-    };
-}
-
 const homePageService = async () => {
     const advertiseCardsFound = await advertiseCardRepo.findAllAdvertiseCards();
     const questionsFound = await questionRepo.findAllQuestions();
     const categoriesFound = await categoryRepo.findAllCategories();
-    const globalData = await globalPageService();
     const bestSellProductsFound = await productRepo.findBestSellProducts();
     const mostVisitedProductsFound = await productRepo.findMostVisitedProducts();
 
@@ -26,36 +17,30 @@ const homePageService = async () => {
         advertiseCards: advertiseCardsFound,
         bestSellProducts: bestSellProductsFound,
         categories: categoriesFound,
-        footerData: globalData.footerData,
         mostVisitedProducts: mostVisitedProductsFound,
-        questions: questionsFound,
+        questions: questionsFound
     };
 };
 
 const productPageService = async (product_code) => {
-    const globalData = await globalPageService();
     const productFound = await productRepo.findByProductCode(product_code);
     const productsInThisCategoryFound = await productRepo.findAllProductsOfCategoryById(productFound.category_id);
 
     return {
         product: productFound,
-        productsInThisCategory: productsInThisCategoryFound,
-        footerData: globalData.footerData
+        productsInThisCategory: productsInThisCategoryFound
     };
 }
 
 const searchResultsPageService = async (text) => {
-    const globalData = await globalPageService();
     const productsFound = await productRepo.findProductsByTitleStartsWith(text);
 
     return {
-        footerData: globalData.footerData,
         products: productsFound
     };
 }
 
 const productsPageService = async (category, orderBy, page) => {
-    const globalData = await globalPageService();
     const categoriesFound = await categoryRepo.findAllCategories();
     const productsFound = await productRepo.findAllProducts(
         category ? category : 'all',
@@ -66,56 +51,27 @@ const productsPageService = async (category, orderBy, page) => {
 
     return {
         categories: categoriesFound,
-        footerData: globalData.footerData,
         products: productsFound
     };
 }
 
-const cartPageService = async () => {
-    const globalData = await globalPageService();
-
-    return {
-        footerData: globalData.footerData
-    };
-}
-
-const favoritesPageService = async () => {
-    const globalData = await globalPageService();
-
-    return {
-        footerData: globalData.footerData
-    };
-}
-
 const aboutUsPageService = async () => {
-    const globalData = await globalPageService();
     const featureCardsFound = await featureCardRepo.findAllFeatureCards();
     const aboutUsTextFound = await websiteDataRepo.findByName('about-us-text');
 
     return {
         aboutUsText: aboutUsTextFound,
-        featureCards: featureCardsFound,
-        footerData: globalData.footerData
+        featureCards: featureCardsFound
     };
 }
 
 const supportPageService = async () => {
-    const globalData = await globalPageService();
     const supportCardsFound = await supportCardRepo.findAllSupportCards();
     const supportTextFound = await websiteDataRepo.findByName('support-text');
 
     return {
         supportCards: supportCardsFound,
-        supportText: supportTextFound,
-        footerData: globalData.footerData
-    };
-}
-
-const notFoundPageService = async () => {
-    const globalData = await globalPageService();
-
-    return {
-        footerData: globalData.footerData
+        supportText: supportTextFound
     };
 }
 
@@ -124,10 +80,7 @@ module.exports = {
     homePageService,
     productPageService,
     productsPageService,
-    cartPageService,
-    favoritesPageService,
     aboutUsPageService,
     supportPageService ,
-    notFoundPageService,
     searchResultsPageService
 };

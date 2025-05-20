@@ -8,15 +8,9 @@ const getHomePage = async (req, res) => {
     advertiseCards: result.advertiseCards,
     bestSellProducts: result.bestSellProducts,
     categories: result.categories,
-    footerData: result.footerData,
     isLoggedInNow: req.flash('isLoggedInNow')[0] ?? false,
     questions: result.questions,
-    mostVisitedProducts: result.mostVisitedProducts,
-    login_state: req.login_state,
-    text: '',
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    mostVisitedProducts: result.mostVisitedProducts
   });
 };
 
@@ -27,14 +21,8 @@ const getProductPage = async (req, res, next) => {
   if(!result.product) return next();
 
   res.render("product", {
-    footerData: result.footerData,
-    login_state: req.login_state,
-    text: '',
     product: result.product,
-    productsInThisCategory: result.productsInThisCategory,
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    productsInThisCategory: result.productsInThisCategory
   });
 }
 
@@ -44,45 +32,21 @@ const getProductsPage = async (req, res) => {
 
   res.render("products", {
     categories: result.categories,
-    footerData: result.footerData,
-    login_state: req.login_state,
-    text: '',
     settings: {
       category: category ? category : 'all',
       orderBy: orderBy ? orderBy : 'buyers-suggestions',
       page: page ? page : 1
     },
-    products: result ? result.products : null,
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    products: result ? result.products : null
   });
 };
 
 const getCartPage = async (req, res) => {
-  const result = await pagesService.cartPageService();
-
-  res.render("cart", {
-    login_state: req.login_state,
-    footerData: result.footerData,
-    text: '',
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
-  });
+  res.render("cart");
 };
 
 const getFavoritesPage = async (req, res) => {
-  const result = await pagesService.favoritesPageService();
-
-  res.render("favorites", {
-    login_state: req.login_state,
-    footerData: result.footerData,
-    text: '',
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
-  });
+  res.render("favorites");
 };
 
 const getAboutUsPage = async (req, res) => {
@@ -90,13 +54,7 @@ const getAboutUsPage = async (req, res) => {
 
   res.render("about-us", {
     aboutUsText: result.aboutUsText,
-    featureCards: result.featureCards,
-    footerData: result.footerData,
-    login_state: req.login_state,
-    text: '',
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    featureCards: result.featureCards
   });
 };
 
@@ -105,13 +63,7 @@ const getSearchResultsPage = async (req, res) => {
   const result = await pagesService.searchResultsPageService(q);
 
   res.render('search-results', {
-    footerData: result.footerData,
-    login_state: req.login_state,
-    text: q,
-    products: result.products,
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    products: result.products
   });
 }
 
@@ -120,27 +72,13 @@ const getSupportPage = async (req, res) => {
 
   res.render("support", {
     footerData: result.footerData,
-    login_state: req.login_state,
     supportCards: result.supportCards,
-    text: '',
-    supportText: result.supportText,
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
+    supportText: result.supportText
   });
 };
 
 const getNotFoundPage = async (req, res) => {
-  const result = await pagesService.notFoundPageService();
-
-  res.render("404", {
-    footerData: result.footerData,
-    login_state: req.login_state,
-    text: '',
-    user: req.user ? {
-      first_name: req.user.first_name
-    } : null
-  });
+  res.render("404");
 }
 
 module.exports = {

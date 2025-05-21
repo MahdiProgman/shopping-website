@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ثبت نام | وبسایت فروشگاهی</title>
+    <title>ورود | وبسایت فروشگاهی</title>
     <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="/styles/login.css">
   </head>
   <body>
     <div class="main">
@@ -19,7 +19,7 @@
           </a>
         </div>
         <div class="title">
-          <h5>ثبت نام</h5>
+          <h5>ورود</h5>
         </div>
         <form action="">
           <div class="inputs">
@@ -33,24 +33,6 @@
               />
             </div>
             <div class="input">
-              <img src="/assets/icons/name.png" alt="" />
-              <input
-                type="text"
-                name="first_name"
-                required
-                placeholder="نام خود را وارد کنید..."
-              />
-            </div>
-            <div class="input">
-              <img src="/assets/icons/name.png" alt="" />
-              <input
-                type="text"
-                name="last_name"
-                required
-                placeholder="نام خانوادگی خود را وارد کنید..."
-              />
-            </div>
-            <div class="input">
               <img src="/assets/icons/password.png" alt="" />
               <input
                 type="password"
@@ -58,29 +40,17 @@
                 required
                 placeholder="رمز عبور خود را وارد کنید..."
               />
-              <button type="button" class="show-password-btn">
-                <img src="/assets/icons/eye.png" alt="">
-              </button>
-            </div>
-            <div class="input">
-              <img src="/assets/icons/password.png" alt="" />
-              <input
-                type="password"
-                name="repeat-password"
-                required
-                placeholder="تکرار رمز عبور را وارد کنید..."
-              />
-              <button type="button" class="show-password-btn">
+              <button type="button" class="show-password-btn" id="show-password-btn">
                 <img src="/assets/icons/eye.png" alt="">
               </button>
             </div>
           </div>
-          <button type="submit">ثبت نام</button>
+          <button type="submit">ورود</button>
         </form>
-        <p>حسابی دارید؟ <a href="/pages/login.html">وارد شوید</a>.</p>
+        <p>حساب ندارید؟ <a href="/pages/register.html">ساخت حساب</a>.</p>
         <a href="/">صفحه اصلی</a>
       </div>
     </div>
-    <script src="/scripts/register.js"></script>
+    <script src="/scripts/login.js"></script>
   </body>
 </html>

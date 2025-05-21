@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>پشتیبانی | وبسایت فروشگاهی</title>
-    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.svg" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/support.css">
-    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="/styles/support.css" />
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
   </head>
   <body>
     <div class="overlay hidden"></div>
@@ -16,21 +16,24 @@
       <%- include("includes/header") %>
       <main>
         <section class="support-section">
-            <h1>پشتیبانی</h1>
-            <% if(supportText) { %>
-              <p><%= supportText.value %></p>
-            <% } %>
-            <% if(supportCards) { %>
-              <div class="contact">
-                <% supportCards.map(supportCard => { %>
-                  <div class="contact-way">
-                      <img src="<%= supportCard.image %>" alt="">
-                      <h3><%= supportCard.title %></h3>
-                      <p><%= supportCard.description.replace('[phone_number]', toPersianDigitsHelper(getValueByNameHelper(footerData, 'phone_number'))) %></p>
-                  </div>
-                <% }); %>
-              </div>
-            <% } %>
+          <h1>پشتیبانی</h1>
+          <% if(supportText) { %>
+          <p><%= supportText.value %></p>
+          <% } %> <% if(supportCards) { %>
+          <div class="contact">
+            <% supportCards.map(supportCard => { %>
+            <div class="contact-way">
+              <img src="<%= supportCard.image %>" alt="" />
+              <h3><%= supportCard.title %></h3>
+              <p>
+                <%= supportCard.description.replace('[phone_number]',
+                toPersianDigitsHelper(getValueByNameHelper(footerData,
+                'phone_number'))) %>
+              </p>
+            </div>
+            <% }); %>
+          </div>
+          <% } %>
         </section>
       </main>
       <div class="header-overlay hidden"></div>

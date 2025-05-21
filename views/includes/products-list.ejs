@@ -3,23 +3,25 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-wrapper">
       <% products.map(product => { %>
-        <div class="swiper-slide">
-          <div class="product-card">
-            <a class="special" href="/product/<%= product.product_code %>">
-              <div class="row-1">
-                <img src="<%= product.image %>" alt="" />
+      <div class="swiper-slide">
+        <div class="product-card">
+          <a class="special" href="/product/<%= product.product_code %>">
+            <div class="row-1">
+              <img src="<%= product.image %>" alt="" />
+            </div>
+            <div class="row-2">
+              <h5><%= product.title %></h5>
+              <div class="rate">
+                <span class="rate-number"
+                  ><%= toPersianDigitsHelper(product.rate) %></span
+                >
+                <img src="/assets/icons/star.png" alt="" />
               </div>
-              <div class="row-2">
-                <h5><%= product.title %></h5>
-                <div class="rate">
-                  <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
-                  <img src="/assets/icons/star.png" alt="" />
-                </div>
-                <span class="price"><%= product.price_fa %> تومان</span>
-              </div>
-            </a>
-          </div>
+              <span class="price"><%= product.price_fa %> تومان</span>
+            </div>
+          </a>
         </div>
+      </div>
       <% }); %>
     </div>
     <div class="swiper-button-next"></div>

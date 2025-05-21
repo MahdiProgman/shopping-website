@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>درباره ما | وبسایت فروشگاهی</title>
-    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.svg" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/about-us.css">
-    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="/styles/about-us.css" />
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
   </head>
   <body>
     <div class="overlay hidden"></div>
@@ -17,24 +17,23 @@
       <div class="header-overlay hidden"></div>
       <main>
         <% if(aboutUsText) { %>
-          <section class="about-us">
-              <h1>درباره ما</h1>
-              <p><%= aboutUsText.value %></p>
-          </section>
-        <% } %>
-        <% if(featureCards) { %>
-          <section class="features">
-            <h3>ویژگی های ما</h3>
-            <div class="feat-cards">
-                <% featureCards.map(featureCard => { %>
-                  <div class="feat-card">
-                      <img src="<%= featureCard.image %>" alt="">
-                      <h5><%= featureCard.title %></h5>
-                      <p><%= featureCard.description %></p>
-                  </div>
-                <% }); %>
+        <section class="about-us">
+          <h1>درباره ما</h1>
+          <p><%= aboutUsText.value %></p>
+        </section>
+        <% } %> <% if(featureCards) { %>
+        <section class="features">
+          <h3>ویژگی های ما</h3>
+          <div class="feat-cards">
+            <% featureCards.map(featureCard => { %>
+            <div class="feat-card">
+              <img src="<%= featureCard.image %>" alt="" />
+              <h5><%= featureCard.title %></h5>
+              <p><%= featureCard.description %></p>
             </div>
-          </section>
+            <% }); %>
+          </div>
+        </section>
         <% } %>
       </main>
       <%- include("includes/footer") %>

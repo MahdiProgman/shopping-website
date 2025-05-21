@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const authRouter = require("./routers/auth.router");
 const pagesRouter = require('./routers/pages.router');
 const setHelpersMiddleware = require("./middlewares/setHelpers.middleware");
+const setValidationDataMiddleware = require("./middlewares/setValidationData.middleware");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.use(setHelpersMiddleware);
+app.use(setValidationDataMiddleware);
 
 app.use("/auth", authRouter);
 app.use('/', pagesRouter);

@@ -12,14 +12,14 @@ router.get('/register', authController.getRegisterPage);
 router.post(
     '/register',
     authValidator.registerValidation(),
-    validator.validate.bind(validator),
+    validator.validate().bind(validator),
     authController.actionRegister
 );
 router.get('/login', authController.getLoginPage);
 router.post(
     '/login',
     authValidator.loginValidation(),
-    validator.validate.bind(validator),
+    validator.validate().bind(validator),
     authController.actionLogin
 );
 router.use(authGuard);

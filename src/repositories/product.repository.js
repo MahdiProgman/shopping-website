@@ -22,6 +22,9 @@ module.exports = new (class {
         const product = await Product.findOne({
             where: { product_code }
         });
+
+        if (!product) return null;
+
         const comments = await productCommentRepo.findAllCommentsOfProductByProductId(product.id);
         const categoryFound = await categoryRepo.findById(product.category_id);
 

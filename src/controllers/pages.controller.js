@@ -18,7 +18,7 @@ const getProductPage = async (req, res, next) => {
   const { product_code } = req.params;
   const result = await pagesService.productPageService(product_code);
 
-  if(!result.product) return next();
+  if(!result) return next();
 
   res.render("product", {
     product: result.product,

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>وبسایت فروشگاهی</title>
     <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
-    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
+    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/index.css">
-    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
   </head>
   <body>
     <div class="overlay hidden"></div>
@@ -19,94 +19,95 @@
       <div class="header-overlay hidden"></div>
       <main>
         <% if(advertiseCards) { %>
-          <section class="website-advertise">
-            <div class="swiper">
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-wrapper">
-                <% advertiseCards.map(advertiseCard => { %>
-                  <div class="swiper-slide">
-                    <div class="card">
-                      <div class="side-1">
-                        <h3><%= advertiseCard.title %></h3>
-                        <p><%= advertiseCard.short_explanation %></p>
-                      </div>
-                      <div class="side-2">
-                        <img src="<%= advertiseCard.image %>" alt="">
-                      </div>
-                    </div>
+        <section class="website-advertise">
+          <div class="swiper">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+              <% advertiseCards.map(advertiseCard => { %>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="side-1">
+                    <h3><%= advertiseCard.title %></h3>
+                    <p><%= advertiseCard.short_explanation %></p>
                   </div>
-                <% }); %>
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </section>
-        <% } %>
-        <% if(bestSellProducts) { %>
-          <section class="bestsellers">
-            <h4>پرفروش ترین ها</h4>
-            <%- include("includes/products-list", { products: bestSellProducts, toPersianDigitsHelper }) %>
-          </section>
-        <% } %>
-        <% if(categories) { %>
-          <section class="categories">
-            <h4>دسته بندی ها</h4>
-            <div class="swiper">
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-wrapper">
-                <% categories.map(category => { %>
-                  <div class="swiper-slide" style="background-color: <%= category.boxColor %>;">
-                    <a href="/products?category=<%= category.name %>">
-                      <img src="<%= category.image %>" alt="">
-                      <div class="details">
-                        <h5><%= category.name_fa %></h5>
-                        <span><%= category.short_explanation %></span>
-                      </div>
-                    </a>
+                  <div class="side-2">
+                    <img src="<%= advertiseCard.image %>" alt="" />
                   </div>
-                <% }); %>
+                </div>
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-pagination"></div>
+              <% }); %>
             </div>
-          </section>
-        <% } %>
-        <% if(mostVisitedProducts) { %>
-          <section class="most-visted">
-            <h4>پربازدید ترین ها</h4>
-            <%- include("includes/products-list", { products: mostVisitedProducts }) %>
-          </section>
-        <% } %>
-        <% if(questions){ %>
-          <section class="faq-section">
-            <div class="side-right">
-              <h4>سوالات متداول</h4>
-              <p>سوالاتی که ممکنه داشته باشید.</p>
-              <ul>
-                <% questions.map((question, index) => { %>
-                  <li class="faq-item">
-                    <input type="checkbox" id="faq<%= index + 1 %>" hidden>
-                    <label for="faq<%= index + 1 %>">
-                      <span class="text"><%= question.question %></span>
-                      <img src="/assets/icons/caret.png" alt="">
-                    </label>
-                    <div class="faq-answer">
-                      <p><%= question.answer %></p>
-                    </div>
-                  </li>
-                <% }); %>
-              </ul>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+        <% } %> <% if(bestSellProducts) { %>
+        <section class="bestsellers">
+          <h4>پرفروش ترین ها</h4>
+          <%- include("includes/products-list", { products: bestSellProducts,
+          toPersianDigitsHelper }) %>
+        </section>
+        <% } %> <% if(categories) { %>
+        <section class="categories">
+          <h4>دسته بندی ها</h4>
+          <div class="swiper">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+              <% categories.map(category => { %>
+              <div
+                class="swiper-slide"
+                style="background-color: <%= category.boxColor %>"
+              >
+                <a href="/products?category=<%= category.name %>">
+                  <img src="<%= category.image %>" alt="" />
+                  <div class="details">
+                    <h5><%= category.name_fa %></h5>
+                    <span><%= category.short_explanation %></span>
+                  </div>
+                </a>
+              </div>
+              <% }); %>
             </div>
-            <div class="side-left">
-              <img src="/assets/gifs/faq.gif" alt="">
-            </div>
-          </section>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+        <% } %> <% if(mostVisitedProducts) { %>
+        <section class="most-visted">
+          <h4>پربازدید ترین ها</h4>
+          <%- include("includes/products-list", { products: mostVisitedProducts
+          }) %>
+        </section>
+        <% } %> <% if(questions){ %>
+        <section class="faq-section">
+          <div class="side-right">
+            <h4>سوالات متداول</h4>
+            <p>سوالاتی که ممکنه داشته باشید.</p>
+            <ul>
+              <% questions.map((question, index) => { %>
+              <li class="faq-item">
+                <input type="checkbox" id="faq<%= index + 1 %>" hidden />
+                <label for="faq<%= index + 1 %>">
+                  <span class="text"><%= question.question %></span>
+                  <img src="/assets/icons/caret.svg" alt="" />
+                </label>
+                <div class="faq-answer">
+                  <p><%= question.answer %></p>
+                </div>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+          <div class="side-left">
+            <img src="/assets/gifs/faq.gif" alt="" />
+          </div>
+        </section>
         <% } %>
       </main>
       <%- include("includes/footer") %>
     </div>
     <script>
-      window.isLoggedInNow = JSON.parse('<%- JSON.stringify(isLoggedInNow) %>')
+      window.isLoggedInNow = JSON.parse("<%- JSON.stringify(isLoggedInNow) %>");
     </script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/libs/notyf/notyf.min.js"></script>

@@ -2,7 +2,7 @@
   <div class="section-1">
     <div class="close-div">
       <button id="close-btn">
-        <img src="/assets/icons/close.png" alt="close menu button" />
+        <img src="/assets/icons/close.svg" alt="close menu button" />
       </button>
     </div>
     <div class="brand">
@@ -13,47 +13,47 @@
   </div>
   <div class="section-2">
     <% if(!login_state){ %>
-      <div class="auth-links">
-        <a href="/auth/register">ثبت نام</a>
-        <a href="/auth/login">ورود</a>
+    <div class="auth-links">
+      <a href="/auth/register">ثبت نام</a>
+      <a href="/auth/login">ورود</a>
+    </div>
+    <% } else { %>
+    <div class="user-data">
+      <div class="name">
+        <img src="/assets/icons/person.svg" alt="" />
+        <span><%= user.first_name %></span>
       </div>
-    <% } else  { %>
-      <div class="user-data">
-        <div class="name">
-          <img src="/assets/icons/person.png" alt="">
-          <span><%= user.first_name %></span>
-        </div>
-        <button id="exit-from-account-drawer-btn">
-          <img src="/assets/icons/exit.png" alt="">
-          <span>خروج</span>
-        </button>
-      </div>
+      <button id="exit-from-account-drawer-btn">
+        <img src="/assets/icons/exit.svg" alt="" />
+        <span>خروج</span>
+      </button>
+    </div>
     <% } %>
     <div class="action-links">
       <a href="/cart">
-        <img src="/assets/icons/cart.png" alt="" />
+        <img src="/assets/icons/cart.svg" alt="" />
         <span>سبد خرید</span>
       </a>
       <a href="/favorites">
-        <img src="/assets/icons/heart.png" alt="" />
+        <img src="/assets/icons/heart.svg" alt="" />
         <span>علاقه مندی ها</span>
       </a>
     </div>
     <div class="navbar">
       <a href="/">
-        <img src="/assets/icons/house.png" alt="" />
+        <img src="/assets/icons/house.svg" alt="" />
         <span>خانه</span>
       </a>
       <a href="/products">
-        <img src="/assets/icons/product.png" alt="" />
+        <img src="/assets/icons/product.svg" alt="" />
         <span>محصولات</span>
       </a>
       <a href="/support">
-        <img src="/assets/icons/support.png" alt="" />
+        <img src="/assets/icons/support.svg" alt="" />
         <span>پشتیبانی</span>
       </a>
       <a href="/about-us">
-        <img src="/assets/icons/about-us.png" alt="" />
+        <img src="/assets/icons/about-us.svg" alt="" />
         <span>درباره ما</span>
       </a>
     </div>

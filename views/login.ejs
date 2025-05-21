@@ -6,8 +6,8 @@
     <title>ورود | وبسایت فروشگاهی</title>
     <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
-    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
   </head>
   <body>
     <div class="main">
@@ -25,7 +25,7 @@
         <form action="/auth/login" method="post">
           <div class="inputs">
             <div class="input">
-              <img src="/assets/icons/mail.png" alt="" />
+              <img src="/assets/icons/mail.svg" alt="" />
               <input
                 type="email"
                 name="email"
@@ -34,15 +34,12 @@
                 placeholder="ایمیل خود را وارد کنید..."
               />
             </div>
-            <% if(errors && errors.length > 0){ %>
-              <% errors.map(error => { %>
-                <% if(error.field == "email") { %>
-                  <li><%= error.error %></li>
-                <% } %>
-              <% }); %>
-            <% } %>
+            <% if(errors && errors.length > 0){ %> <% errors.map(error => { %>
+            <% if(error.field == "email") { %>
+            <li><%= error.error %></li>
+            <% } %> <% }); %> <% } %>
             <div class="input">
-              <img src="/assets/icons/password.png" alt="" />
+              <img src="/assets/icons/password.svg" alt="" />
               <input
                 type="password"
                 name="password"
@@ -50,17 +47,18 @@
                 required
                 placeholder="رمز عبور خود را وارد کنید..."
               />
-              <button type="button" class="show-password-btn" id="show-password-btn">
-                <img src="/assets/icons/eye.png" alt="">
+              <button
+                type="button"
+                class="show-password-btn"
+                id="show-password-btn"
+              >
+                <img src="/assets/icons/eye.svg" alt="" />
               </button>
             </div>
-            <% if(errors && errors.length > 0){ %>
-              <% errors.map(error => { %>
-                <% if(error.field == "password") { %>
-                  <li><%= error.error %></li>
-                <% } %>
-              <% }); %>
-            <% } %>
+            <% if(errors && errors.length > 0){ %> <% errors.map(error => { %>
+            <% if(error.field == "password") { %>
+            <li><%= error.error %></li>
+            <% } %> <% }); %> <% } %>
           </div>
           <button type="submit">ورود</button>
         </form>
@@ -71,8 +69,8 @@
     <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/scripts/login.js"></script>
     <script>
-      if('<%= error %>') {
-        notyf.error('<%= error %>');
+      if ("<%= error %>") {
+        notyf.error("<%= error %>");
       }
     </script>
   </body>

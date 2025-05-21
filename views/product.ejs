@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش، مشکی)</title>
+    <title>
+      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش، مشکی)
+    </title>
     <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
-    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/styles/product.css">
-    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="/styles/product.css" />
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
   </head>
   <body>
     <div class="overlay hidden"></div>
@@ -18,16 +20,25 @@
         <div class="header">
           <h5>ثبت نظر</h5>
           <button class="close-box">
-            <img src="/assets/icons/close.png" alt="">
+            <img src="/assets/icons/close.svg" alt="" />
           </button>
         </div>
         <div class="main">
           <label for="comment-text">نظر شما</label>
-          <textarea name="" id="comment-text" rows="10" placeholder="نظر خود را بنویسید..."></textarea>
+          <textarea
+            name=""
+            id="comment-text"
+            rows="10"
+            placeholder="نظر خود را بنویسید..."
+          ></textarea>
           <label for="positive-points">نکات مثبت</label>
           <div class="positive-points">
             <div class="input">
-              <input type="text" id="positive-points" placeholder="نکته مثبت خود را بنویسید...">
+              <input
+                type="text"
+                id="positive-points"
+                placeholder="نکته مثبت خود را بنویسید..."
+              />
               <button>ثبت</button>
             </div>
             <ul></ul>
@@ -35,19 +46,23 @@
           <label for="negetive-points">نکات منفی</label>
           <div class="negetive-points">
             <div class="input">
-              <input type="text" id="negetive-points" placeholder="نکته منفی خود را بنویسید...">
+              <input
+                type="text"
+                id="negetive-points"
+                placeholder="نکته منفی خود را بنویسید..."
+              />
               <button>ثبت</button>
             </div>
             <ul></ul>
           </div>
           <label for="rate">امتیاز</label>
-          <input type="number" id="rate" min="0" max="5" step="0.1">
+          <input type="number" id="rate" min="0" max="5" step="0.1" />
           <button>ثبت نظر</button>
         </div>
       </div>
     </div>
     <div class="image-viewer">
-      <img src="/assets/images/croma.png" alt="">
+      <img src="/assets/images/croma.png" alt="" />
       <button class="close-image-btn">بستن</button>
     </div>
     <div class="main">
@@ -55,70 +70,79 @@
       <div class="header-overlay hidden"></div>
       <main>
         <section class="product-section">
-            <div class="images">
-              <div class="main-image">
-                <img src="<%= product.image %>" alt="">
-              </div>
-              <% if(product.images.length !== 0) { %>
-                <div class="images-list">
-                  <% product.images.map(image => {%>
-                    <button class="image-btn">
-                      <img src="<%= image %>" alt="">
-                    </button>
-                  <% }); %>
-                </div>
-              <% } %>
+          <div class="images">
+            <div class="main-image">
+              <img src="<%= product.image %>" alt="" />
             </div>
-            <div class="details">
-                <div class="category">
-                  <span>در دسته بندی : </span>
-                  <a class="special" href="/products?category=<%= product.category %>"><%= product.category_fa %></a>
-                </div>
-                <h1><%= product.title %></h1>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
-                  <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
-                </div>
-                <div class="number-of-views number">
-                  <img src="/assets/icons/eye-2.png" alt="">
-                  <span><%= toPersianDigitsHelper(product.views) %></span>
-                </div>
-                <div class="number-of-comments number">
-                  <img src="/assets/icons/message.png" alt="">
-                  <span><%= toPersianDigitsHelper(product.comments ? product.comments.length : 0) %></span>
-                </div>
-                <div class="price">
-                  <h4><%= product.price_fa %> تومان</h4>
-                </div>
-                <div class="buttons">
-                  <button class="favorite">
-                    <img src="/assets/icons/heart.png" alt="">
-                    <span>افزودن به علاقه مندی ها</span>
-                  </button>
-                  <button class="cart">
-                    <img src="/assets/icons/cart.png" alt="">
-                    <span>افزودن به سبد خرید</span>
-                  </button>
-                </div>
-              </div>
-          </section>
+            <% if(product.images.length !== 0) { %>
+            <div class="images-list">
+              <% product.images.map(image => {%>
+              <button class="image-btn">
+                <img src="<%= image %>" alt="" />
+              </button>
+              <% }); %>
+            </div>
+            <% } %>
+          </div>
+          <div class="details">
+            <div class="category">
+              <span>در دسته بندی : </span>
+              <a
+                class="special"
+                href="/products?category=<%= product.category %>"
+                ><%= product.category_fa %></a
+              >
+            </div>
+            <h1><%= product.title %></h1>
+            <div class="rate">
+              <img src="/assets/icons/star.png" alt="" />
+              <span class="rate-number"
+                ><%= toPersianDigitsHelper(product.rate) %></span
+              >
+            </div>
+            <div class="number-of-views number">
+              <img src="/assets/icons/eye.svg" alt="" />
+              <span><%= toPersianDigitsHelper(product.views) %></span>
+            </div>
+            <div class="number-of-comments number">
+              <img src="/assets/icons/message.svg" alt="" />
+              <span
+                ><%= toPersianDigitsHelper(product.comments ?
+                product.comments.length : 0) %></span
+              >
+            </div>
+            <div class="price">
+              <h4><%= product.price_fa %> تومان</h4>
+            </div>
+            <div class="buttons">
+              <button class="favorite">
+                <img src="/assets/icons/heart.svg" alt="" />
+                <span>افزودن به علاقه مندی ها</span>
+              </button>
+              <button class="cart">
+                <img src="/assets/icons/cart.svg" alt="" />
+                <span>افزودن به سبد خرید</span>
+              </button>
+            </div>
+          </div>
+        </section>
         <section class="description-and-specifications">
           <div class="description">
             <h5>توضیحات</h5>
             <p><%= product.description %></p>
             <button class="show-more-btn">
               <span>مشاهده بیشتر</span>
-              <img src="/assets/icons/caret.png" alt="">
+              <img src="/assets/icons/caret.svg" alt="" />
             </button>
           </div>
           <div class="specifications">
             <h5>مشخصات</h5>
             <div class="specification-rows">
               <% product.specifications.map(specification => { %>
-                <div class="specification-row">
-                  <span class="property"><%= specification.name %></span>
-                  <span class="value"><%= specification.value %></span>
-                </div>
+              <div class="specification-row">
+                <span class="property"><%= specification.name %></span>
+                <span class="value"><%= specification.value %></span>
+              </div>
               <% }); %>
             </div>
           </div>
@@ -126,7 +150,7 @@
         <section class="comments-section">
           <div class="rate-and-submit-comment">
             <div class="rate">
-              <img src="/assets/icons/star.png" alt="">
+              <img src="/assets/icons/star.png" alt="" />
               <span class="rate-number">۵.۰</span>
             </div>
             <span class="comments-number">از مجموع ۲۴ نظر</span>
@@ -138,115 +162,130 @@
             <div class="comments-list">
               <div class="comment">
                 <div class="name">
-                  <img src="/assets/icons/person.png" alt="">
+                  <img src="/assets/icons/person.svg" alt="" />
                   <h6>آرش راستگو</h6>
                 </div>
                 <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
+                  <img src="/assets/icons/star.png" alt="" />
                   <span class="rate-number">۵.۰</span>
                 </div>
-                <p class="comment-text">این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه</p>
+                <p class="comment-text">
+                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
+                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
+                </p>
                 <ul class="positive-points">
                   <li>
-                    <img src="/assets/icons/plus-green.png" alt="">
+                    <img src="/assets/icons/plus.svg" alt="" />
                     <span>کیفیت صدا قابل قبول</span>
                   </li>
                 </ul>
                 <ul class="negetive-points">
                   <li>
-                    <img src="/assets/icons/minus-red.png" alt="">
+                    <img src="/assets/icons/minus.svg" alt="" />
                     <span>مشکل در بلوتوث</span>
                   </li>
                 </ul>
               </div>
               <div class="comment">
                 <div class="name">
-                  <img src="/assets/icons/person.png" alt="">
+                  <img src="/assets/icons/person.svg" alt="" />
                   <h6>آرش راستگو</h6>
                 </div>
                 <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
+                  <img src="/assets/icons/star.png" alt="" />
                   <span class="rate-number">۵.۰</span>
                 </div>
-                <p class="comment-text">این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه</p>
+                <p class="comment-text">
+                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
+                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
+                </p>
                 <ul class="positive-points">
                   <li>
-                    <img src="/assets/icons/plus-green.png" alt="">
+                    <img src="/assets/icons/plus.svg" alt="" />
                     <span>کیفیت صدا قابل قبول</span>
                   </li>
                 </ul>
                 <ul class="negetive-points">
                   <li>
-                    <img src="/assets/icons/minus-red.png" alt="">
+                    <img src="/assets/icons/minus.svg" alt="" />
                     <span>مشکل در بلوتوث</span>
                   </li>
                 </ul>
               </div>
               <div class="comment">
                 <div class="name">
-                  <img src="/assets/icons/person.png" alt="">
+                  <img src="/assets/icons/person.svg" alt="" />
                   <h6>آرش راستگو</h6>
                 </div>
                 <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
+                  <img src="/assets/icons/star.png" alt="" />
                   <span class="rate-number">۵.۰</span>
                 </div>
-                <p class="comment-text">این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه</p>
+                <p class="comment-text">
+                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
+                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
+                </p>
                 <ul class="positive-points">
                   <li>
-                    <img src="/assets/icons/plus-green.png" alt="">
+                    <img src="/assets/icons/plus.svg" alt="" />
                     <span>کیفیت صدا قابل قبول</span>
                   </li>
                 </ul>
                 <ul class="negetive-points">
                   <li>
-                    <img src="/assets/icons/minus-red.png" alt="">
+                    <img src="/assets/icons/minus.svg" alt="" />
                     <span>مشکل در بلوتوث</span>
                   </li>
                 </ul>
               </div>
               <div class="comment">
                 <div class="name">
-                  <img src="/assets/icons/person.png" alt="">
+                  <img src="/assets/icons/person.svg" alt="" />
                   <h6>آرش راستگو</h6>
                 </div>
                 <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
+                  <img src="/assets/icons/star.png" alt="" />
                   <span class="rate-number">۵.۰</span>
                 </div>
-                <p class="comment-text">این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه</p>
+                <p class="comment-text">
+                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
+                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
+                </p>
                 <ul class="positive-points">
                   <li>
-                    <img src="/assets/icons/plus-green.png" alt="">
+                    <img src="/assets/icons/plus.svg" alt="" />
                     <span>کیفیت صدا قابل قبول</span>
                   </li>
                 </ul>
                 <ul class="negetive-points">
                   <li>
-                    <img src="/assets/icons/minus-red.png" alt="">
+                    <img src="/assets/icons/minus.svg" alt="" />
                     <span>مشکل در بلوتوث</span>
                   </li>
                 </ul>
               </div>
               <div class="comment">
                 <div class="name">
-                  <img src="/assets/icons/person.png" alt="">
+                  <img src="/assets/icons/person.svg" alt="" />
                   <h6>آرش راستگو</h6>
                 </div>
                 <div class="rate">
-                  <img src="/assets/icons/star.png" alt="">
+                  <img src="/assets/icons/star.png" alt="" />
                   <span class="rate-number">۵.۰</span>
                 </div>
-                <p class="comment-text">این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه</p>
+                <p class="comment-text">
+                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
+                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
+                </p>
                 <ul class="positive-points">
                   <li>
-                    <img src="/assets/icons/plus-green.png" alt="">
+                    <img src="/assets/icons/plus.svg" alt="" />
                     <span>کیفیت صدا قابل قبول</span>
                   </li>
                 </ul>
                 <ul class="negetive-points">
                   <li>
-                    <img src="/assets/icons/minus-red.png" alt="">
+                    <img src="/assets/icons/minus.svg" alt="" />
                     <span>مشکل در بلوتوث</span>
                   </li>
                 </ul>
@@ -256,7 +295,8 @@
         </section>
         <section class="best-selling-products-in-this-category">
           <h4>کالا های پرفروش در این دسته بندی</h4>
-          <%- include("includes/products-list", { products: productsInThisCategory }) %>
+          <%- include("includes/products-list", { products:
+          productsInThisCategory }) %>
         </section>
       </main>
       <%- include("includes/footer") %>

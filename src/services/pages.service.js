@@ -24,6 +24,9 @@ const homePageService = async () => {
 
 const productPageService = async (product_code) => {
     const productFound = await productRepo.findByProductCode(product_code);
+
+    if(!productFound) return null;
+
     const productsInThisCategoryFound = await productRepo.findAllProductsOfCategoryById(productFound.category_id);
 
     return {

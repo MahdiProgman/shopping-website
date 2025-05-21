@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 
 module.exports = new (class {
-  validationBody(req, res) {
+  validationBody(req, res, helperFunction) {
     const result = validationResult(req);
     if (!result.isEmpty()) {
       const errors = result.array();
@@ -12,19 +12,23 @@ module.exports = new (class {
 
       req.flash('errors', messages);
       req.flash('oldData', req.body);
-      res.redirect(req.originalUrl);
-      
+
+      if(helperFunction) helperFunction(req, res);
+      else res.redirect(req.originalUrl);
+
       return false;
     } else {
       return true;
     }
   }
 
-  validate(req, res, next) {
-    if (!this.validationBody(req, res)) {
-      return;
-    } else {
-      next();
+  validate(helperFunction = null) {
+    return function (req, res, next) {
+      if (!this.validationBody(req, res, helperFunction)) {
+        return;
+      } else {
+        return next();
+      }
     }
   }
 })();

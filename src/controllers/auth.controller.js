@@ -1,17 +1,11 @@
-const _ = require('lodash');
 const authService = require('../services/auth.service');
 
 const getRegisterPage = (req, res) => {
     if(req.login_state) return res.redirect('/');
 
     const error = req.flash('error')[0];
-    const errors = req.flash('errors');
-    const oldData = req.flash('oldData')[0];
-
     res.render('register', {
         error: error ? error : '',
-        errors: !_.isEmpty(errors) ? errors : [],
-        oldData: !_.isEmpty(oldData) ? oldData : {}   
     });
 };
 
@@ -55,13 +49,9 @@ const getLoginPage = (req, res) => {
     if(req.login_state) return res.redirect('/');
 
     const error = req.flash('error')[0];
-    const errors = req.flash('errors');
-    const oldData = req.flash('oldData')[0];
 
     res.render('login', {
         error: error ? error : '',
-        errors: !_.isEmpty(errors) ? errors : [],
-        oldData: !_.isEmpty(oldData) ? oldData : {}   
     });
 };
 

@@ -14,7 +14,7 @@ router.get('/product/:product_code', pagesController.getProductPage)
 router.get(
     '/products',
     pagesValidator.productsPageValidation(),
-    validator.validate.bind(validator),
+    validator.validate().bind(validator),
     pagesController.getProductsPage
 );
 router.get('/cart', pagesController.getCartPage);

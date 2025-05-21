@@ -97,6 +97,14 @@ const supportPageService = async () => {
     };
 }
 
+const notFoundPageService = async () => {
+    const globalData = await globalPageService();
+
+    return {
+        footerData: globalData.footerData
+    };
+}
+
 
 module.exports = { 
     homePageService,
@@ -105,5 +113,6 @@ module.exports = {
     cartPageService,
     favoritesPageService,
     aboutUsPageService,
-    supportPageService 
+    supportPageService ,
+    notFoundPageService
 };

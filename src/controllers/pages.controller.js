@@ -103,6 +103,18 @@ const getSupportPage = async (req, res) => {
   });
 };
 
+const getNotFoundPage = async (req, res) => {
+  const result = await pagesService.notFoundPageService();
+
+  res.render("404", {
+    footerData: result.footerData,
+    login_state: req.login_state,
+    user: req.user ? {
+      first_name: req.user.first_name
+    } : null
+  });
+}
+
 module.exports = {
   getHomePage,
   getProductPage,
@@ -110,5 +122,6 @@ module.exports = {
   getCartPage,
   getFavoritesPage,
   getAboutUsPage,
-  getSupportPage
+  getSupportPage,
+  getNotFoundPage
 };

@@ -20,4 +20,6 @@ router.get('/favorites', pagesController.getFavoritesPage);
 router.get('/about-us', pagesController.getAboutUsPage);
 router.get('/support', pagesController.getSupportPage);
 
+router.use(pagesController.getNotFoundPage);
+
 module.exports = router;

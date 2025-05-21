@@ -1,0 +1,13 @@
+const showPasswordBtns = document.querySelectorAll('.show-password-btn');
+
+showPasswordBtns.forEach(showPasswordBtn => {
+    showPasswordBtn.addEventListener('click', ()=> {
+        if(showPasswordBtn.parentElement.children[1].type == 'password'){
+            showPasswordBtn.parentElement.children[1].type = 'text'
+            showPasswordBtn.children[0].src = '/assets/icons/closed-eye.png';
+        } else {
+            showPasswordBtn.parentElement.children[1].type = 'password';
+            showPasswordBtn.children[0].src = '/assets/icons/eye.png';
+        }
+    });
+});

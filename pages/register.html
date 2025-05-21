@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ثبت نام | وبسایت فروشگاهی</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/register.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="box">
+        <div class="brand">
+          <a class="special" href="#">
+            <img src="/assets/icons/brand.png" alt="">
+            <span class="vertical-line"></span>
+            <h1>وبسایت فروشگاهی</h1>
+          </a>
+        </div>
+        <div class="title">
+          <h5>ثبت نام</h5>
+        </div>
+        <form action="">
+          <div class="inputs">
+            <div class="input">
+              <img src="/assets/icons/mail.png" alt="" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="ایمیل خود را وارد کنید..."
+              />
+            </div>
+            <div class="input">
+              <img src="/assets/icons/name.png" alt="" />
+              <input
+                type="text"
+                name="first_name"
+                required
+                placeholder="نام خود را وارد کنید..."
+              />
+            </div>
+            <div class="input">
+              <img src="/assets/icons/name.png" alt="" />
+              <input
+                type="text"
+                name="last_name"
+                required
+                placeholder="نام خانوادگی خود را وارد کنید..."
+              />
+            </div>
+            <div class="input">
+              <img src="/assets/icons/password.png" alt="" />
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="رمز عبور خود را وارد کنید..."
+              />
+              <button type="button" class="show-password-btn">
+                <img src="/assets/icons/eye.png" alt="">
+              </button>
+            </div>
+            <div class="input">
+              <img src="/assets/icons/password.png" alt="" />
+              <input
+                type="password"
+                name="repeat-password"
+                required
+                placeholder="تکرار رمز عبور را وارد کنید..."
+              />
+              <button type="button" class="show-password-btn">
+                <img src="/assets/icons/eye.png" alt="">
+              </button>
+            </div>
+          </div>
+          <button type="submit">ثبت نام</button>
+        </form>
+        <p>حسابی دارید؟ <a href="#login">وارد شوید</a>.</p>
+        <a href="/">صفحه اصلی</a>
+      </div>
+    </div>
+    <script src="/scripts/register.js"></script>
+  </body>
+</html>

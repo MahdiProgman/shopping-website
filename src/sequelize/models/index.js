@@ -68,6 +68,15 @@ const loadModels = (sequelize) => {
         as: 'product'
     });
 
+    User.hasMany(ProductComment, {
+        foreignKey: 'user_id',
+        as: 'comments'
+    });
+    ProductComment.belongsTo(User, {
+        foreignKey: 'user_id',
+        as: 'user'
+    });
+
     return {
         User,
         Product,

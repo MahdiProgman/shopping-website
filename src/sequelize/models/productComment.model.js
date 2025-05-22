@@ -38,6 +38,16 @@ module.exports = (sequelize) => {
                     min: 0,
                     max: 5
                 }
+            },
+            user_id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'tbl_users',
+                    key: 'id'
+                },
+                onDelete: 'RESTRICT',
+                onUpdate: 'CASCADE'
             }
         },
         {

@@ -7,7 +7,6 @@ module.exports = new (class {
     constructor () {
         this.Product = models.Product;
     }
-
     async findById(id) {
         const product = await this.Product.findByPk(id);
         return product;
@@ -187,5 +186,29 @@ module.exports = new (class {
         await this.Product.update(data, {
             where: { id }
         });
+    }
+
+    async updateRateOfProductByProductCode (product_code) {
+        const productFound = await this.findByProductCode(product_code);
+
+        if(productFound.comments) {
+
+            let rate = 0;
+            let totalRatesNumber = 0;
+
+            productFound.comments.forEach(comment => {
+                totalRatesNumber += comment.rate;
+            });
+
+            rate = totalRatesNumber / productFound.comments.length;
+
+            await this.Product.update({ 
+                rate: rate.toFixed(1)
+            }, {
+                where: {
+                    id: productFound.id
+                }
+            });
+        }
     }
 })();

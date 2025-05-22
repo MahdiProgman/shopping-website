@@ -1,10 +1,12 @@
-const { dataBase } = require('../core/db');
-const CategoryModel = require('../sequelize/models/category.model');
-const Category = CategoryModel(dataBase);
+const { models } = require("../core/db");
 
 module.exports = new (class {
+    constructor () {
+        this.Category = models.Category;
+    }
+
     async findAllCategories() {
-        const categoriesFound = await Category.findAll();
+        const categoriesFound = await this.Category.findAll();
 
         if(categoriesFound.length == 0) return null;
 
@@ -18,7 +20,7 @@ module.exports = new (class {
     }
 
     async findByName(categoryName) {
-        const category = await Category.findOne({
+        const category = await this.Category.findOne({
             where: {
                 name: categoryName
             }
@@ -35,7 +37,7 @@ module.exports = new (class {
     }
 
     async findById(category_id) {
-        const category = await Category.findOne({
+        const category = await this.Category.findOne({
             where: {
                 id: category_id
             }

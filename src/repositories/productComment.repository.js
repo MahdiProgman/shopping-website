@@ -1,10 +1,13 @@
-const { dataBase } = require('../core/db');
-const ProductCommentModel = require('../sequelize/models/productComment.model');
-const ProductComment = ProductCommentModel(dataBase);
+const { models } = require('../core/db');
 
 module.exports = new (class {
+    constructor () {
+        this.ProductCommentModel = models.ProductComment;
+        this.UserModel = models.User;
+    }
+
     async findAllCommentsOfProductByProductId(product_id) {
-        const commentsOfProduct = await ProductComment.findAll({
+        const commentsOfProduct = await this.ProductCommentModel.findAll({
             where: {
                 product_id: product_id
             }

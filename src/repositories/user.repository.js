@@ -1,10 +1,12 @@
-const { dataBase } = require('../core/db');
-const UserModel = require('./../sequelize/models/user.model');
-const User = UserModel(dataBase);
+const { models } = require('../core/db');
 
 module.exports = new (class {
+    constructor () {
+        this.User = models.User;
+    }
+
     async findByEmail(email, returnWithPassword = false) {
-        const userFound = await User.findOne({
+        const userFound = await this.User.findOne({
             where: {
                 email: email
             }
@@ -25,7 +27,7 @@ module.exports = new (class {
     }
 
     async findById(id, returnWithPassword = false) {
-        const userFound = await User.findByPk(id);
+        const userFound = await this.User.findByPk(id);
 
         return userFound ? returnWithPassword ? {
             id: userFound.id,
@@ -42,7 +44,7 @@ module.exports = new (class {
     }
 
     async createUser(email, first_name, last_name, password, returnWithPassword = false) {
-        const newUser = await User.create({ 
+        const newUser = await this.User.create({ 
             email: email,
             first_name: first_name,
             last_name: last_name,

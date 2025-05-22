@@ -1,10 +1,12 @@
-const { dataBase } = require('../core/db');
-const AdvertiseCardModel = require('../sequelize/models/advertiseCard.model');
-const AdvertiseCard = AdvertiseCardModel(dataBase);
+const { models } = require("../core/db");
 
 module.exports = new (class {
+    constructor () {
+        this.AdvertiseCard = models.AdvertiseCard;
+    }
+
     async findAllAdvertiseCards() {
-        const advertiseCards = await AdvertiseCard.findAll();
+        const advertiseCards = await this.AdvertiseCard.findAll();
 
         if(advertiseCards.length < 0) return null;
 

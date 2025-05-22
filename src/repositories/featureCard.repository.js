@@ -1,10 +1,11 @@
-const { dataBase } = require('../core/db');
-const FeatureCardModel = require('../sequelize/models/featureCard.model');
-const FeatureCard = FeatureCardModel(dataBase);
+const { models } = require("../core/db");
 
 module.exports = new (class {
+    constructor () {
+        this.FeatureCard = models.FeatureCard;
+    }
     async findAllFeatureCards() {
-        const featureCardsFound = await FeatureCard.findAll();
+        const featureCardsFound = await this.FeatureCard.findAll();
 
         if(featureCardsFound.length == 0) return null;
 

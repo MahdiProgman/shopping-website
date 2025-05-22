@@ -1,25 +1,27 @@
 const { Op } = require('sequelize');
-const { dataBase } = require('../core/db');
-const ProductModel = require('./../sequelize/models/product.model');
 const categoryRepo = require('./category.repository');
 const productCommentRepo = require('./productComment.repository');
-const Product = ProductModel(dataBase);
+const { models } = require('../core/db');
 
 module.exports = new (class {
+    constructor () {
+        this.Product = models.Product;
+    }
+
     async findById(id) {
-        const product = await Product.findByPk(id);
+        const product = await this.Product.findByPk(id);
         return product;
     }
 
     async findByTitle(title) {
-        const product = await Product.findOne({
+        const product = await this.Product.findOne({
             where: { title }
         });
         return product;
     }
 
     async findByProductCode(product_code) {
-        const product = await Product.findOne({
+        const product = await this.Product.findOne({
             where: { product_code }
         });
 
@@ -48,7 +50,7 @@ module.exports = new (class {
     }
 
     async findAllProductsOfCategoryById(category_id) {
-        const products = await Product.findAll({
+        const products = await this.Product.findAll({
             where: {
                 category_id : category_id
             }
@@ -95,7 +97,7 @@ module.exports = new (class {
                 break;
         }
 
-        const { count, rows } = await Product.findAndCountAll({
+        const { count, rows } = await this.Product.findAndCountAll({
             where: whereClause,
             order: orderClause,
             limit,
@@ -118,7 +120,7 @@ module.exports = new (class {
     }
 
     async findProductsByTitleStartsWith(text) {
-        const products = await Product.findAll({
+        const products = await this.Product.findAll({
             where: {
                 title: {
                     [Op.startsWith] : text
@@ -138,7 +140,7 @@ module.exports = new (class {
     }
 
     async findBestSellProducts() {
-        const products = await Product.findAll({
+        const products = await this.Product.findAll({
             order: [['sells', 'DESC']],
             limit: 8
         });
@@ -155,7 +157,7 @@ module.exports = new (class {
     }
 
     async findMostVisitedProducts() {
-        const products = await Product.findAll({
+        const products = await this.Product.findAll({
             order: [['views', 'DESC']],
             limit: 8
         });
@@ -172,17 +174,17 @@ module.exports = new (class {
     }
 
     async deleteProduct(id) {
-        return await Product.destroy({
+        return await this.Product.destroy({
             where: { id }
         });
     }
 
     async getAllProducts() {
-        return await Product.findAll();
+        return await this.Product.findAll();
     }
 
     async updateProduct(id, data) {
-        await Product.update(data, {
+        await this.Product.update(data, {
             where: { id }
         });
     }

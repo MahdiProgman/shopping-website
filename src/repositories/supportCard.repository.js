@@ -1,10 +1,12 @@
-const { dataBase } = require('../core/db');
-const SupportCardModel = require('../sequelize/models/supportCard.model');
-const SupportCard = SupportCardModel(dataBase);
+const { models } = require("../core/db");
 
 module.exports = new (class {
+    constructor () {
+        this.SupportCard = models.SupportCard;
+    }
+    
     async findAllSupportCards() {
-        const supportCardsFound = await SupportCard.findAll();
+        const supportCardsFound = await this.SupportCard.findAll();
 
         if(supportCardsFound.length == 0) return null;
 

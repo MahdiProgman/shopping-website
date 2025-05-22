@@ -1,11 +1,11 @@
-const { dataBase } = require('../core/db');
-const RefreshTokenModel = require('./../sequelize/models/refreshToken.model');
-
-const RefreshToken = RefreshTokenModel(dataBase);
+const { models } = require("../core/db");
 
 module.exports = new (class {
+    constructor () {
+        this.RefreshToken = models.RefreshToken;
+    }
     async findByUserId(user_id) {
-        const refreshTokenFound = await RefreshToken.findOne({
+        const refreshTokenFound = await this.RefreshToken.findOne({
             where: {
                 user_id: user_id
             }
@@ -15,7 +15,7 @@ module.exports = new (class {
     }
 
     async createRefreshToken(user_id, refresh_token, expire_time, version) {
-        await RefreshToken.create({
+        await this.RefreshToken.create({
             user_id,
             refresh_token,
             expire_time,
@@ -36,7 +36,7 @@ module.exports = new (class {
     }
 
     async deleteRefreshTokenByUserId(user_id) {
-        await RefreshToken.destroy({
+        await this.RefreshToken.destroy({
             where: {
                 user_id: user_id
             }

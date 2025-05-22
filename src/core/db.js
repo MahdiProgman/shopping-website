@@ -7,14 +7,16 @@ const dataBase = new Sequelize({
     ...config.getDBConfig(),
     logging: false
 });
+
+let models = loadModels(dataBase);
+
 const connectToDB = async () => {
     try {
         await dataBase.authenticate();
-        loadModels(dataBase);
         console.log("THE APP connected to DB successfully!");
     } catch (e) {
         console.log("THE APP could'nt connect to DB and had a error : ", e);
     }
 };
 
-module.exports = { dataBase, connectToDB };
+module.exports = { dataBase, connectToDB, models };

@@ -1,10 +1,11 @@
-const { dataBase } = require('../core/db');
-const QuestionModel = require('../sequelize/models/question.model');
-const Question = QuestionModel(dataBase);
-
+const { models } = require('../core/db');
 module.exports = new (class {
+    constructor () {
+        this.Question = models.Question;
+    }
+
     async findAllQuestions() {
-        const questions = await Question.findAll();
+        const questions = await this.Question.findAll();
 
         if(questions.length == 0) return null;
 

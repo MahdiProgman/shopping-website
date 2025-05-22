@@ -10,7 +10,7 @@ const UserCartProductModel = require('./userCartProduct.model');
 const FeatureCardModel = require('./featureCard.model');
 const SupportCardModel = require('./supportCard.model');
 
-const loadModels = async (sequelize) => {
+const loadModels = (sequelize) => {
     const User = UserModel(sequelize);
     const Product = ProductModel(sequelize);
     const ProductComment = ProductCommentModel(sequelize);
@@ -23,47 +23,47 @@ const loadModels = async (sequelize) => {
     const FeatureCard = FeatureCardModel(sequelize);
     const SupportCard = SupportCardModel(sequelize);
 
-    await Product.hasMany(ProductComment, {
+    Product.hasMany(ProductComment, {
         foreignKey: 'product_id',
         as: 'productComments'
     });
-    await ProductComment.belongsTo(Product, {
+    ProductComment.belongsTo(Product, {
         foreignKey: 'product_id',
         as: 'product'
     });
 
-    await User.hasOne(RefreshToken, {
+    User.hasOne(RefreshToken, {
         foreignKey: 'user_id',
         as: 'refreshToken'
     });
-    await RefreshToken.belongsTo(User, {
+    RefreshToken.belongsTo(User, {
         foreignKey: 'user_id',
         as: 'user'
     });
 
-    await Category.hasMany(Product, {
+    Category.hasMany(Product, {
         foreignKey: 'category_id',
         as: 'products'
     });
-    await Product.belongsTo(Category, {
+    Product.belongsTo(Category, {
         foreignKey: 'category_id',
         as: 'category'
     });
 
-    await User.hasMany(UserCartProduct, {
+    User.hasMany(UserCartProduct, {
         foreignKey: 'user_id',
         as: 'userCartProducts'
     });
-    await UserCartProduct.belongsTo(User, {
+    UserCartProduct.belongsTo(User, {
         foreignKey: 'user_id',
         as: 'user'
     });
 
-    await Product.hasMany(UserCartProduct, {
+    Product.hasMany(UserCartProduct, {
         foreignKey: 'product_id',
         as: 'userCartProducts'
     });
-    await UserCartProduct.belongsTo(Product, {
+    UserCartProduct.belongsTo(Product, {
         foreignKey: 'product_id',
         as: 'product'
     });

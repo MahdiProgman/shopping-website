@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="/styles/product.css" />
     <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
   </head>
   <body>
-    <div class="overlay hidden"></div>
+    <div class="overlay <%= !isCommentBoxOpen ? 'hidden' : '' %>"></div>
     <%- include("includes/drawer", { page: 'product' }) %>
-    <div class="submit-comment-box">
+    <div class="submit-comment-box  <%= isCommentBoxOpen ? 'on' : '' %>">
       <div class="box">
         <div class="header">
           <h5>ثبت نظر</h5>
@@ -23,67 +24,119 @@
             <img src="/assets/icons/close.svg" alt="" />
           </button>
         </div>
-        <div class="main">
-          <label for="comment-text">نظر شما</label>
-          <textarea
-            name=""
-            id="comment-text"
-            rows="10"
-            placeholder="نظر خود را بنویسید..."
-          ></textarea>
-          <label>امتیاز</label>
-          <div class="custom-select">
-            <input class="custom-select-input" id="rate" name="rate" type="hidden">
-            <div class="select-box">
-              <span>😍 عالی (۵ از ۵ امتیاز)</span>
-              <img src="/assets/icons/caret.svg" alt="">
-            </div>
-            <div class="dropdown">
+        <form action="/<%= product.product_code %>/add/comment" method="post">
+          <div class="main">
+            <label for="comment-text">نظر شما</label>
+            <textarea
+              name="comment_text"
+              id="comment-text"
+              rows="10"
+              placeholder="نظر خود را بنویسید..."
+            ><%= oldData ? oldData.comment_text : '' %></textarea>
+            <% if(errors) { %>
               <ul>
-                <li data-value="5" class="selected">
-                  <span>😍 عالی (۵ از ۵ امتیاز)</span>
-                </li>
-                <li data-value="4">
-                  <span>😊 خوب (۴ از ۵ امتیاز)</span>
-                </li>
-                <li data-value="3">
-                  <span>🙂 معمولی (۳ از ۵ امتیاز)</span>
-                </li>
-                <li data-value="2">
-                  <span>☹️ ضعیف (۲ از ۵ امتیاز)</span>
-                </li>
-                <li data-value="1">
-                  <span>👎 بد (۱ از ۵ امتیاز)</span>
-                </li>
+                <% errors.forEach(error => { %>
+                  <% if(error.field == 'comment_text') { %>
+                    <li><%= error.error %></li>
+                  <% } %>
+                <% }); %>
+              </ul>
+            <% } %>
+            <label>امتیاز</label>
+            <%
+              const rateTexts = {
+                '5': '😍 عالی (۵ از ۵ امتیاز)',
+                '4': '😊 خوب (۴ از ۵ امتیاز)',
+                '3': '🙂 معمولی (۳ از ۵ امتیاز)',
+                '2': '☹️ ضعیف (۲ از ۵ امتیاز)',
+                '1': '👎 بد (۱ از ۵ امتیاز)'
+              };
+
+              const selectedRate = oldData ? oldData.rate : '5';
+            %>
+            <div class="custom-select">
+              <input class="custom-select-input" id="rate" name="rate" type="hidden" value="<%= oldData ? oldData.rate : 5 %>">
+              <div class="select-box">
+                <span><%= rateTexts[selectedRate] %></span>               
+                <img src="/assets/icons/caret.svg" alt="">
+              </div>
+              <div class="dropdown">
+                <ul>
+                  <li data-value="5" class="<%= selectedRate == '5' ? 'selected' : 'selected' %>">
+                    <span>😍 عالی (۵ از ۵ امتیاز)</span>
+                  </li>
+                  <li data-value="4" class="<%= selectedRate == '4' ? 'selected' : '' %>">
+                    <span>😊 خوب (۴ از ۵ امتیاز)</span>
+                  </li>
+                  <li data-value="3" class="<%= selectedRate == '3' ? 'selected' : '' %>">
+                    <span>🙂 معمولی (۳ از ۵ امتیاز)</span>
+                  </li>
+                  <li data-value="2" class="<%= selectedRate == '2' ? 'selected' : '' %>">
+                    <span>☹️ ضعیف (۲ از ۵ امتیاز)</span>
+                  </li>
+                  <li data-value="1" class="<%= selectedRate == '1' ? 'selected' : '' %>">
+                    <span>👎 بد (۱ از ۵ امتیاز)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <label for="positive-points">نکات مثبت</label>
+            <div class="positive-points">
+              <div class="input">
+                <input
+                  type="text"
+                  id="positive-points"
+                  placeholder="نکته مثبت خود را بنویسید..."
+                />
+                <button type="button">ثبت</button>
+              </div>
+              <ul>
+                <% if (oldData && oldData.positive_points && oldData.positive_points.length !== 0) { %>
+                  <% for(let positivePoint of oldData.positive_points) { %>
+                    <li>
+                      <div class="text">
+                        <img src="/assets/icons/plus.svg" />
+                        <span><%= positivePoint %></span>
+                        <input type="hidden" name="positive_points[]" required value="<%= positivePoint %>" />
+                      </div>
+                      <button type="button" class="delete-btn">
+                        <img src="/assets/icons/trash.svg" />
+                      </button>
+                    </li>
+                  <% }; %>
+                <% } %>
               </ul>
             </div>
-          </div>
-          <label for="positive-points">نکات مثبت</label>
-          <div class="positive-points">
-            <div class="input">
-              <input
-                type="text"
-                id="positive-points"
-                placeholder="نکته مثبت خود را بنویسید..."
-              />
-              <button>ثبت</button>
+            <label for="negetive-points">نکات منفی</label>
+            <div class="negetive-points">
+              <div class="input">
+                <input
+                  type="text"
+                  id="negetive-points"
+                  placeholder="نکته منفی خود را بنویسید..."
+                />
+                <button type="button">ثبت</button>
+              </div>
+              <ul>
+                <% if (oldData && oldData.negetive_points && oldData.negetive_points.length !== 0) { %>
+                  <% for(let negetivePoint of oldData.negetive_points) { %>
+                    <li>
+                      <div class="text">
+                        <img src="/assets/icons/plus.svg" />
+                        <span><%= negetivePoint %></span>
+                        <input type="hidden" name="negetive_points[]" required value="<%= negetivePoint %>" />
+                      </div>
+                      <button type="button" class="delete-btn">
+                        <img src="/assets/icons/trash.svg" />
+                      </button>
+                    </li>
+                  <% }; %>
+                <% } %>
+              </ul>
             </div>
-            <ul></ul>
+            <button type="submit">ثبت نظر</button>
           </div>
-          <label for="negetive-points">نکات منفی</label>
-          <div class="negetive-points">
-            <div class="input">
-              <input
-                type="text"
-                id="negetive-points"
-                placeholder="نکته منفی خود را بنویسید..."
-              />
-              <button>ثبت</button>
-            </div>
-            <ul></ul>
-          </div>
-          <button>ثبت نظر</button>
-        </div>
+        </form>
       </div>
     </div>
     <div class="image-viewer">
@@ -180,7 +233,7 @@
             </div>
             <span class="comments-number">از مجموع ۲۴ نظر</span>
             <p>شما هم نظر خود را ثبت کنید!</p>
-            <button class="write-comment-btn">نوشتن نظر</button>
+            <button class="write-comment-btn" id="write-comment-btn">نوشتن نظر</button>
           </div>
           <div class="comments">
             <h5>نظرات</h5>
@@ -326,9 +379,17 @@
       </main>
       <%- include("includes/footer") %>
     </div>
+    <script>
+      let login_state = JSON.parse("<%= login_state %>");
+      let newCommentSubmitted = JSON.parse("<%= newCommentSubmitted %>");
+    </script>
+    <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/libs/swiper/swiper-bundle.min.js"></script>
     <script src="/scripts/global.js"></script>
     <script src="/scripts/product.js"></script>
+    <script>
+      if('<%= error %>') notyf.error('<%= error %>');
+    </script>
   </body>
 </html>

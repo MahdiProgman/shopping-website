@@ -35,7 +35,7 @@ $border-color: rgba(54, 54, 54, 0.14);
         }
       }
     }
-    .main {
+    form .main {
       padding: 15px 5%;
       label {
         padding: 10px;
@@ -51,6 +51,12 @@ $border-color: rgba(54, 54, 54, 0.14);
         padding: 10px 15px;
         width: 100%;
         transition: all 0.5s;
+      }
+      textarea ~ ul {
+        padding: 10px 15px;
+        li {
+          color: #ff2500;
+        }
       }
       textarea:focus,
       input:focus {

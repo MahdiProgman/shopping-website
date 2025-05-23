@@ -42,20 +42,20 @@
   width: 30px;
 }
 
-.submit-comment-box .box .main {
+.submit-comment-box .box form .main {
   padding: 15px 5%;
 }
 
-.submit-comment-box .box .main label {
+.submit-comment-box .box form .main label {
   padding: 10px;
 }
 
-.submit-comment-box .box .main textarea {
+.submit-comment-box .box form .main textarea {
   resize: none;
 }
 
-.submit-comment-box .box .main textarea,
-.submit-comment-box .box .main input {
+.submit-comment-box .box form .main textarea,
+.submit-comment-box .box form .main input {
   border: 1px solid var(--border-color);
   border-radius: 11px;
   outline: none;
@@ -64,20 +64,28 @@
   transition: all 0.5s;
 }
 
-.submit-comment-box .box .main textarea:focus,
-.submit-comment-box .box .main input:focus {
+.submit-comment-box .box form .main textarea ~ ul {
+  padding: 10px 15px;
+}
+
+.submit-comment-box .box form .main textarea ~ ul li {
+  color: #ff2500;
+}
+
+.submit-comment-box .box form .main textarea:focus,
+.submit-comment-box .box form .main input:focus {
   border-color: var(--secondary-color);
 }
 
-.submit-comment-box .box .main .positive-points .input,
-.submit-comment-box .box .main .negetive-points .input {
+.submit-comment-box .box form .main .positive-points .input,
+.submit-comment-box .box form .main .negetive-points .input {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.submit-comment-box .box .main .positive-points .input button,
-.submit-comment-box .box .main .negetive-points .input button {
+.submit-comment-box .box form .main .positive-points .input button,
+.submit-comment-box .box form .main .negetive-points .input button {
   background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;
@@ -86,34 +94,34 @@
   padding: 10px 15px;
 }
 
-.submit-comment-box .box .main .positive-points ul,
-.submit-comment-box .box .main .negetive-points ul {
+.submit-comment-box .box form .main .positive-points ul,
+.submit-comment-box .box form .main .negetive-points ul {
   list-style: none;
   padding: 10px;
 }
 
-.submit-comment-box .box .main .positive-points ul li,
-.submit-comment-box .box .main .negetive-points ul li {
+.submit-comment-box .box form .main .positive-points ul li,
+.submit-comment-box .box form .main .negetive-points ul li {
   display: flex;
   justify-content: space-between;
 }
 
-.submit-comment-box .box .main .positive-points ul li .text,
-.submit-comment-box .box .main .negetive-points ul li .text {
+.submit-comment-box .box form .main .positive-points ul li .text,
+.submit-comment-box .box form .main .negetive-points ul li .text {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.submit-comment-box .box .main .positive-points ul li button,
-.submit-comment-box .box .main .negetive-points ul li button {
+.submit-comment-box .box form .main .positive-points ul li button,
+.submit-comment-box .box form .main .negetive-points ul li button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.submit-comment-box .box .main > button {
+.submit-comment-box .box form .main > button {
   background-color: var(--secondary-color);
   border: none;
   border-radius: 11px;

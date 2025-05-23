@@ -22,6 +22,17 @@ const addNewNegetivePointBtn = document.querySelector(
   ".submit-comment-box .negetive-points .input button"
 );
 
+const notyf = new Notyf({
+  duration: 3000,
+  ripple: true,
+  position: {
+    x: 'left',
+    y: 'top'
+  }
+});
+
+if(newCommentSubmitted) notyf.success('نظر شما با موفقیت ثبت شد');
+
 showMoreBtn.addEventListener("click", () => {
   if (!showMoreBtn.classList.contains("on")) {
     showMoreBtn.classList.add("on");
@@ -33,13 +44,12 @@ showMoreBtn.addEventListener("click", () => {
 });
 
 writeCommentBtn.addEventListener("click", () => {
-  submitCommentBox.classList.add("on");
-  overlay.classList.remove("hidden");
-
-  overlay.addEventListener("click", () => {
-    submitCommentBox.classList.remove("on");
-    overlay.classList.add("hidden");
-  });
+  if(login_state) {
+    submitCommentBox.classList.add("on");
+    overlay.classList.remove("hidden");
+  } else {
+    notyf.error('لطفا وارد حساب خود شوید');
+  }
 });
 
 closeSubmitCommentBox.addEventListener("click", () => {
@@ -54,8 +64,9 @@ addNewPositivePointBtn.addEventListener("click", () => {
             <div class="text">
                 <img src="/assets/icons/plus.svg" />
                 <span>${addNewPositivePointBtn.parentElement.children[0].value}</span>
+                <input type="hidden" name="positive_points[]" required value="${addNewPositivePointBtn.parentElement.children[0].value}" />
             </div>
-            <button class="delete-btn">
+            <button type="button" class="delete-btn">
                 <img src="/assets/icons/trash.svg" />
             </button>
         `;
@@ -73,7 +84,15 @@ addNewPositivePointBtn.addEventListener("click", () => {
         newPositivePoint
       );
     });
+  } else {
+    notyf.error('نکته مثبت شما باید بیشتر از ۳ کاراکتر باشد');
   }
+});
+addNewPositivePointBtn.parentElement.children[0].addEventListener('keydown', (e) => {
+  if(e.key.toLowerCase() == 'enter') {
+    e.preventDefault();
+    addNewPositivePointBtn.click();
+  };
 });
 
 addNewNegetivePointBtn.addEventListener("click", () => {
@@ -83,8 +102,9 @@ addNewNegetivePointBtn.addEventListener("click", () => {
             <div class="text">
                 <img src="/assets/icons/minus.svg" />
                 <span>${addNewNegetivePointBtn.parentElement.children[0].value}</span>
+                <input type="hidden" visibled="false" name="negetive_points[]" required value="${addNewNegetivePointBtn.parentElement.children[0].value}" />
             </div>
-            <button class="delete-btn">
+            <button type="button" class="delete-btn">
                 <img src="/assets/icons/trash.svg" />
             </button>
         `;
@@ -102,10 +122,26 @@ addNewNegetivePointBtn.addEventListener("click", () => {
         newNegetivePoint
       );
     });
+  } else {
+    notyf.error('نکته منفی شما باید بیشتر از ۳ کاراکتر باشد');
   }
+});
+addNewNegetivePointBtn.parentElement.children[0].addEventListener('keydown', (e) => {
+  if(e.key.toLowerCase() == 'enter') {
+    e.preventDefault();
+    addNewNegetivePointBtn.click();
+  };
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  if(addNewPositivePointBtn.parentElement.parentElement.children[1].children.length !== 0) {
+    Array.from(addNewPositivePointBtn.parentElement.parentElement.children).forEach(liElement => {
+      liElement.children[1].addEventListener('click', () => {
+        liElement.parentElement.removeChild(liElement);
+      });
+    });
+  }
+
   imagesBtn.forEach((imageBtn) => {
     imageBtn.addEventListener("click", () => {
       imageViewer.children[0].src = imageBtn.children[0].src;

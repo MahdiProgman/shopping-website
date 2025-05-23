@@ -45,4 +45,15 @@ module.exports = new (class {
         await newComment.save();
     }
 
+    async hasUserCommentedBefore(user_id, product_id) {
+        const commentFound = await this.ProductCommentModel.findOne({
+            where: {
+                user_id: user_id,
+                product_id: product_id
+            }
+        });
+
+        return commentFound ? true : false;
+    }
+
 })();

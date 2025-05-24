@@ -25,10 +25,14 @@ module.exports = new (class {
         return commentsOfProduct.map(commentOfProduct => ({
             id: commentOfProduct.id,
             commentText: commentOfProduct.commentText,
-            positivePoints: commentOfProduct.positivePoints,
-            negitivePoints: commentOfProduct.negitivePoints,
+            positivePoints: JSON.parse(commentOfProduct.positivePoints),
+            negetivePoints: JSON.parse(commentOfProduct.negetivePoints),
             rate: commentOfProduct.rate,
-            user: commentOfProduct.user
+            user: {
+                id: commentOfProduct.user.id,
+                first_name: commentOfProduct.user.first_name,
+                last_name: commentOfProduct.user.last_name
+            },
         }));
     }
 

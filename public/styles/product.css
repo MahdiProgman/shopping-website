@@ -477,6 +477,17 @@
   width: 25px;
 }
 
+.main main .comments-section div.comments .no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main main .comments-section div.comments .no-data img {
+  width: 30vw;
+}
+
 .main main .best-selling-products-in-this-category h4 {
   border-right: 4px solid var(--secondary-color);
   font-size: 1.5em;
@@ -549,5 +560,8 @@
   .main main .comments-section {
     display: flex;
     flex-direction: column;
+  }
+  .main main .comments-section div.comments .no-data img {
+    width: 100%;
   }
 }

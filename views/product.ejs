@@ -229,146 +229,58 @@
           <div class="rate-and-submit-comment">
             <div class="rate">
               <img src="/assets/icons/star.png" alt="" />
-              <span class="rate-number">۵.۰</span>
+              <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
             </div>
-            <span class="comments-number">از مجموع ۲۴ نظر</span>
+            <span class="comments-number">از مجموع <%= toPersianDigitsHelper(product.comments ? product.comments.length : 0) %> نظر</span>
             <p>شما هم نظر خود را ثبت کنید!</p>
             <button class="write-comment-btn" id="write-comment-btn">نوشتن نظر</button>
           </div>
           <div class="comments">
             <h5>نظرات</h5>
-            <div class="comments-list">
-              <div class="comment">
-                <div class="name">
-                  <img src="/assets/icons/person.svg" alt="" />
-                  <h6>آرش راستگو</h6>
-                </div>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="" />
-                  <span class="rate-number">۵.۰</span>
-                </div>
-                <p class="comment-text">
-                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
-                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
-                </p>
-                <ul class="positive-points">
-                  <li>
-                    <img src="/assets/icons/plus.svg" alt="" />
-                    <span>کیفیت صدا قابل قبول</span>
-                  </li>
-                </ul>
-                <ul class="negetive-points">
-                  <li>
-                    <img src="/assets/icons/minus.svg" alt="" />
-                    <span>مشکل در بلوتوث</span>
-                  </li>
-                </ul>
+            <% if(product.comments) { %>
+              <div class="comments-list">
+                <% product.comments.map(comment => { %>
+                  <div class="comment">
+                    <div class="name">
+                      <img src="/assets/icons/person.svg" alt="" />
+                      <h6><%= comment.user.first_name + ' ' + comment.user.last_name %></h6>
+                    </div>
+                    <div class="rate">
+                      <img src="/assets/icons/star.png" alt="" />
+                      <span class="rate-number"><%= toPersianDigitsHelper(comment.rate) %></span>
+                    </div>
+                    <p class="comment-text">
+                      <%= comment.commentText %>
+                    </p>
+                    <ul class="positive-points">
+                      <% if(comment.positivePoints.length !== 0) { %>
+                        <% comment.positivePoints.map(positivePoint => { %>
+                          <li>
+                            <img src="/assets/icons/plus.svg" alt="" />
+                            <span><%= positivePoint %></span>
+                          </li>
+                        <% }); %>
+                      <% } %>
+                    </ul>
+                    <ul class="negetive-points">
+                      <% if(comment.negetivePoints.lenght !== 0) { %>
+                        <% comment.negetivePoints.map(negetivePoint => { %>
+                          <li>
+                            <img src="/assets/icons/minus.svg" alt="" />
+                            <span><%= negetivePoint %></span>
+                          </li>
+                        <% }); %>
+                      <% } %>
+                    </ul>
+                  </div>
+                <% }); %>
               </div>
-              <div class="comment">
-                <div class="name">
-                  <img src="/assets/icons/person.svg" alt="" />
-                  <h6>آرش راستگو</h6>
-                </div>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="" />
-                  <span class="rate-number">۵.۰</span>
-                </div>
-                <p class="comment-text">
-                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
-                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
-                </p>
-                <ul class="positive-points">
-                  <li>
-                    <img src="/assets/icons/plus.svg" alt="" />
-                    <span>کیفیت صدا قابل قبول</span>
-                  </li>
-                </ul>
-                <ul class="negetive-points">
-                  <li>
-                    <img src="/assets/icons/minus.svg" alt="" />
-                    <span>مشکل در بلوتوث</span>
-                  </li>
-                </ul>
+            <% } else { %>
+              <div class="no-data">
+                <img src="/assets/icons/no-data.png" alt="">
+                <span>تا الان نظری برای این محصول ثبت نشده.</span>
               </div>
-              <div class="comment">
-                <div class="name">
-                  <img src="/assets/icons/person.svg" alt="" />
-                  <h6>آرش راستگو</h6>
-                </div>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="" />
-                  <span class="rate-number">۵.۰</span>
-                </div>
-                <p class="comment-text">
-                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
-                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
-                </p>
-                <ul class="positive-points">
-                  <li>
-                    <img src="/assets/icons/plus.svg" alt="" />
-                    <span>کیفیت صدا قابل قبول</span>
-                  </li>
-                </ul>
-                <ul class="negetive-points">
-                  <li>
-                    <img src="/assets/icons/minus.svg" alt="" />
-                    <span>مشکل در بلوتوث</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="comment">
-                <div class="name">
-                  <img src="/assets/icons/person.svg" alt="" />
-                  <h6>آرش راستگو</h6>
-                </div>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="" />
-                  <span class="rate-number">۵.۰</span>
-                </div>
-                <p class="comment-text">
-                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
-                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
-                </p>
-                <ul class="positive-points">
-                  <li>
-                    <img src="/assets/icons/plus.svg" alt="" />
-                    <span>کیفیت صدا قابل قبول</span>
-                  </li>
-                </ul>
-                <ul class="negetive-points">
-                  <li>
-                    <img src="/assets/icons/minus.svg" alt="" />
-                    <span>مشکل در بلوتوث</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="comment">
-                <div class="name">
-                  <img src="/assets/icons/person.svg" alt="" />
-                  <h6>آرش راستگو</h6>
-                </div>
-                <div class="rate">
-                  <img src="/assets/icons/star.png" alt="" />
-                  <span class="rate-number">۵.۰</span>
-                </div>
-                <p class="comment-text">
-                  این هدفون کیفیت صدای قابل قبولی داره ولی یه مشکلی که داره اینه
-                  که بلوتوثش گاهی اوقات اذیت میکنه و وصل نمیشه
-                </p>
-                <ul class="positive-points">
-                  <li>
-                    <img src="/assets/icons/plus.svg" alt="" />
-                    <span>کیفیت صدا قابل قبول</span>
-                  </li>
-                </ul>
-                <ul class="negetive-points">
-                  <li>
-                    <img src="/assets/icons/minus.svg" alt="" />
-                    <span>مشکل در بلوتوث</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <% } %>
           </div>
         </section>
         <section class="best-selling-products-in-this-category">

@@ -410,6 +410,15 @@ $border-color: rgba(54, 54, 54, 0.14);
             }
           }
         }
+        .no-data {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 30vw;
+          }
+        }
       }
     }
     .best-selling-products-in-this-category {
@@ -518,6 +527,13 @@ $border-color: rgba(54, 54, 54, 0.14);
       .comments-section {
         display: flex;
         flex-direction: column;
+        div.comments {
+          .no-data {
+            img {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }

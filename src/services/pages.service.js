@@ -23,16 +23,27 @@ const homePageService = async () => {
     };
 };
 
-const productPageService = async (product_code) => {
+const productPageService = async (product_code, user_id = null) => {
     const productFound = await productRepo.findByProductCode(product_code);
 
     if(!productFound) return null;
 
     const productsInThisCategoryFound = await productRepo.findAllProductsOfCategoryById(productFound.category_id);
 
+    if(user_id) {
+        const isUserCommentedBefore = await productCommentRepo.hasUserCommentedBefore(user_id, productFound.id);
+
+        return {
+            product: productFound,
+            productsInThisCategory: productsInThisCategoryFound,
+            isUserCommentedBefore: isUserCommentedBefore
+        };
+    }
+
     return {
         product: productFound,
-        productsInThisCategory: productsInThisCategoryFound
+        productsInThisCategory: productsInThisCategoryFound,
+        isUserCommentedBefore: false
     };
 }
 

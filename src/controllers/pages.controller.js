@@ -20,9 +20,16 @@ const getProductPage = async (req, res, next) => {
 
   if(!result) return next();
 
+  const newCommentSubmitted = req.flash('newCommentSubmitted')[0];
+  const isCommentBoxOpen = req.flash('isCommentBoxOpen')[0];
+  const error = req.flash('error')[0];
+
   res.render("product", {
     product: result.product,
-    productsInThisCategory: result.productsInThisCategory
+    productsInThisCategory: result.productsInThisCategory,
+    newCommentSubmitted: newCommentSubmitted ? newCommentSubmitted : false,
+    isCommentBoxOpen: isCommentBoxOpen ? isCommentBoxOpen : false,
+    error: error ? error : null
   });
 }
 
@@ -81,6 +88,30 @@ const getNotFoundPage = async (req, res) => {
   res.render("404");
 }
 
+const addCommentAction = async (req, res) => {
+  const { product_code } = req.params;
+  const { comment_text, rate, positive_points, negetive_points } = req.body;
+
+  const result = await pagesService.addCommentActionService(
+    comment_text,
+    positive_points ? positive_points : [],
+    negetive_points ? negetive_points : [],
+    parseInt(rate),
+    product_code,
+    res.locals.user.id
+  );
+
+  if(result == 'PRODUCT_NOT_FOUND') res.redirect('/');
+  else if(result == 'USER_COMMENTED_BEFORE') {
+    req.flash('error', 'کاربر گرامی شما فقط میتوانید یک نظر در هر محصول داشته باشید');
+    res.redirect(`/product/${product_code}`);
+  }
+  else {
+    req.flash('newCommentSubmitted', true);
+    res.redirect(`/product/${product_code}`);
+  }
+}
+
 module.exports = {
   getHomePage,
   getProductPage,
@@ -90,5 +121,6 @@ module.exports = {
   getAboutUsPage,
   getSupportPage,
   getNotFoundPage,
-  getSearchResultsPage
+  getSearchResultsPage,
+  addCommentAction
 };

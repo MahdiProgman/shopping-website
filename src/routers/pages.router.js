@@ -4,6 +4,7 @@ const checkAuthMiddleware = require('../middlewares/checkAuth.middleware');
 const pagesValidator = require('../validators/pages.validator');
 const validator = require('../validators/validator');
 const sendGlobalDataMiddleware = require('../middlewares/sendGlobalData.middleware');
+const authGuard = require('../guards/auth.guard');
 
 const router = express.Router();
 
@@ -23,6 +24,16 @@ router.get('/about-us', pagesController.getAboutUsPage);
 router.get('/search', pagesController.getSearchResultsPage);
 router.get('/support', pagesController.getSupportPage);
 
+router.post(
+    '/:product_code/add/comment',
+    authGuard,
+    pagesValidator.commentValidation(),
+    validator.validate((req, res) => {
+        req.flash('isCommentBoxOpen', true);
+        res.redirect(`/product/${req.params.product_code}`);
+    }).bind(validator),
+    pagesController.addCommentAction
+);
 router.use(pagesController.getNotFoundPage);
 
 module.exports = router;

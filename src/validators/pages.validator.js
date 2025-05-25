@@ -21,4 +21,12 @@ module.exports = new (class {
             check('page').optional().isNumeric()
         ];
     }
+    commentValidation() {
+        return [
+            check('comment_text').not().isEmpty().withMessage('متن نظر نباید خالی باشد'),
+            check('comment_text').isLength({ min: 10, max: 300 }).withMessage('طول متن نظر باید بین ۱۰ تا ۳۰۰ کاراکتر باشد'),
+            check('rate').not().not().isEmpty().withMessage('امتیاز نباید خالی باشد'),
+            check('rate').isIn(['1', '2', '3', '4', '5']).withMessage('امتیاز باید بین ۱ تا ۵ باشد'),
+        ];
+    }
 })();

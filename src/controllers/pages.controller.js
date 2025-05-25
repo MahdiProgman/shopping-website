@@ -16,7 +16,7 @@ const getHomePage = async (req, res) => {
 
 const getProductPage = async (req, res, next) => {
   const { product_code } = req.params;
-  const result = await pagesService.productPageService(product_code);
+  const result = await pagesService.productPageService(product_code, res.locals.user.id ? res.locals.user.id : null);
 
   if(!result) return next();
 
@@ -29,6 +29,7 @@ const getProductPage = async (req, res, next) => {
     productsInThisCategory: result.productsInThisCategory,
     newCommentSubmitted: newCommentSubmitted ? newCommentSubmitted : false,
     isCommentBoxOpen: isCommentBoxOpen ? isCommentBoxOpen : false,
+    isUserCommentedBefore: result.isUserCommentedBefore,
     error: error ? error : null
   });
 }

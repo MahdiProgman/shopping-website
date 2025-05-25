@@ -45,8 +45,12 @@ showMoreBtn.addEventListener("click", () => {
 
 writeCommentBtn.addEventListener("click", () => {
   if(login_state) {
-    submitCommentBox.classList.add("on");
-    overlay.classList.remove("hidden");
+    if(!isUserCommentedBefore) {
+      submitCommentBox.classList.add("on");
+      overlay.classList.remove("hidden");
+    } else {
+      notyf.error('کاربر گرامی شما فقط میتوانید یک نظر در هر محصول داشته باشید');
+    }
   } else {
     notyf.error('لطفا وارد حساب خود شوید');
   }

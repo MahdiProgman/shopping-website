@@ -5,6 +5,7 @@ const supportCardRepo = require("../repositories/supportCard.repository");
 const featureCardRepo = require("../repositories/featureCard.repository");
 const categoryRepo = require("../repositories/category.repository");
 const productRepo = require("../repositories/product.repository");
+const productCommentRepo = require("../repositories/productComment.repository");
 
 const homePageService = async () => {
     const advertiseCardsFound = await advertiseCardRepo.findAllAdvertiseCards();
@@ -78,12 +79,24 @@ const supportPageService = async () => {
     };
 }
 
+const addCommentActionService = async (commentText, positivePoints, negetivePoints, rate, productCode, user_id) => {
+    const productFound = await productRepo.findByProductCode(productCode);
+    if(!productFound) return 'PRODUCT_NOT_FOUND';
+    
+    const isCommentUnique = !(await productCommentRepo.hasUserCommentedBefore(user_id, productFound.id));
+
+    if(!isCommentUnique) return 'USER_COMMENTED_BEFORE';
+
+    await productCommentRepo.createComment(commentText, positivePoints, negetivePoints, rate, productFound.id, user_id);
+    await productRepo.updateRateOfProductByProductCode(productCode);
+}
 
 module.exports = { 
     homePageService,
     productPageService,
     productsPageService,
     aboutUsPageService,
-    supportPageService ,
-    searchResultsPageService
+    supportPageService,
+    searchResultsPageService,
+    addCommentActionService
 };

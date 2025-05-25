@@ -40,7 +40,7 @@ module.exports = (sequelize) => {
                 onUpdate: 'CASCADE'
             },
             rate: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.DECIMAL(2, 1),
                 defaultValue: 5,
                 validate: {
                     min: 0,

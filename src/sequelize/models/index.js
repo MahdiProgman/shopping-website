@@ -99,6 +99,11 @@ const loadModels = (sequelize) => {
         as: 'product'
     });
 
+    User.hasMany(UserSearch, {
+        foreignKey: 'user_id',
+        as: 'searches'
+    });
+
     return {
         User,
         Product,

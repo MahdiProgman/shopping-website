@@ -11,7 +11,13 @@ module.exports = (sequelize) => {
             },
             user_id: {
                 type: DataTypes.UUID,
-                allowNull: false
+                allowNull: false,
+                references: {
+                    model: 'tbl_userSearches',
+                    key: 'id',
+                    onDelete: 'CASCADE',
+                    onUpdate: 'CASCADE'
+                }
             },
             query: {
                 type: DataTypes.STRING,

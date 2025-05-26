@@ -228,36 +228,38 @@
           position: absolute;
           left: 5%;
           bottom: 5%;
-          button {
-            background-color: transparent;
-            border: none;
-            border-radius: 11px;
-            color: white;
-            display: flex;
-            font-size: 1.2em;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            gap: 15px;
-            cursor: pointer;
-            img {
-              filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
-                saturate(7492%) hue-rotate(262deg) brightness(103%)
-                contrast(102%);
-              width: 25px;
+          form {
+            button {
+              background-color: transparent;
+              border: none;
+              border-radius: 11px;
+              color: white;
+              display: flex;
+              font-size: 1.2em;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 15px;
+              gap: 15px;
+              cursor: pointer;
+              img {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+                  saturate(7492%) hue-rotate(262deg) brightness(103%)
+                  contrast(102%);
+                width: 25px;
+              }
             }
-          }
-          button.favorite {
-            background-color: #d11313;
-          }
-          button.cart {
-            background-color: var(--primary-color);
-          }
-          button.added {
-            background-color: #d4d4d4;
-            color: var(--gray-color);
-            img {
-              @include grayColorFilter();
+            button.favorite {
+              background-color: #d11313;
+            }
+            button.cart {
+              background-color: var(--primary-color);
+            }
+            button.added {
+              background-color: #d4d4d4;
+              color: var(--gray-color);
+              img {
+                @include grayColorFilter();
+              }
             }
           }
         }
@@ -516,7 +518,13 @@
               background-color: var(--bg-color);
               padding: 20px;
               position: sticky;
-              width: 100%;
+              form {
+                width: 100%;
+                button {
+                  justify-content: center;
+                  width: 100%;
+                }
+              }
             }
           }
         }

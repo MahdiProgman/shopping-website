@@ -193,10 +193,21 @@
               <h4><%= product.price_fa %> تومان</h4>
             </div>
             <div class="buttons">
-              <button class="favorite">
-                <img src="/assets/icons/heart.svg" alt="" />
-                <span>افزودن به علاقه مندی ها</span>
-              </button>
+              <% if(!isProductInFavorites) { %>
+                <form action="/favorites/add/<%= product.product_code %>" method="post">
+                  <button class="favorite">
+                    <img src="/assets/icons/heart.svg" alt="" />
+                    <span>افزودن به علاقه مندی ها</span>
+                  </button>
+                </form>
+              <% } else { %>
+                <form action="/favorites/delete/<%= product.product_code %>" method="post">
+                  <button class="favorite added">
+                    <img src="/assets/icons/heart.svg" alt="" />
+                    <span>حذف از علاقه مندی ها</span>
+                  </button>
+                </form>
+              <% } %>
               <% if(!isProductInCart) { %>
                 <form action="/cart/add/<%= product.product_code %>" method="post">
                   <button class="cart">
@@ -307,6 +318,7 @@
       let newCommentSubmitted = JSON.parse("<%= newCommentSubmitted %>");
       let isUserCommentedBefore = JSON.parse("<%= isUserCommentedBefore %>");
       let cartAction = "<%= cartAction %>";
+      let favoritesAction = "<%= favoritesAction %>";
     </script>
     <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>

@@ -6,6 +6,7 @@ const featureCardRepo = require("../repositories/featureCard.repository");
 const categoryRepo = require("../repositories/category.repository");
 const productRepo = require("../repositories/product.repository");
 const productCommentRepo = require("../repositories/productComment.repository");
+const userCartProductRepo = require("../repositories/userCartProduct.repository");
 
 const homePageService = async () => {
     const advertiseCardsFound = await advertiseCardRepo.findAllAdvertiseCards();
@@ -32,18 +33,21 @@ const productPageService = async (product_code, user_id = null) => {
 
     if(user_id) {
         const isUserCommentedBefore = await productCommentRepo.hasUserCommentedBefore(user_id, productFound.id);
+        const isProductInCart = await userCartProductRepo.isProductInCart(user_id, productFound.id);
 
         return {
             product: productFound,
             productsInThisCategory: productsInThisCategoryFound,
-            isUserCommentedBefore: isUserCommentedBefore
+            isUserCommentedBefore: isUserCommentedBefore,
+            isProductInCart: isProductInCart
         };
     }
 
     return {
         product: productFound,
         productsInThisCategory: productsInThisCategoryFound,
-        isUserCommentedBefore: false
+        isUserCommentedBefore: false,
+        isProductInCart: false
     };
 }
 
@@ -102,6 +106,27 @@ const addCommentActionService = async (commentText, positivePoints, negetivePoin
     await productRepo.updateRateOfProductByProductCode(productCode);
 }
 
+const addToCartActionService = async (user_id, product_code) => {
+    const productFound = await productRepo.findByProductCode(product_code);
+
+    if(!productFound) return 'PRODUCT_IS_NOT_EXISTS';
+
+    const isProductInCart = await userCartProductRepo.isProductInCart(user_id, productFound.id);
+
+    if(isProductInCart) return 'PRODUCT_IS_EXISTS_IN_CART';
+
+    await userCartProductRepo.addToCart(user_id, productFound.id);
+}
+
+const removeFromCartActionService = async (user_id, product_code) => {
+    const productFound = await productRepo.findByProductCode(product_code);
+    const isProductInCart = await userCartProductRepo.isProductInCart(user_id, productFound.id);
+
+    if(!isProductInCart) return 'PRODUCT_IS_NOT_EXISTS_IN_CART';
+
+    await userCartProductRepo.removeFromCart(user_id, productFound.id);
+}
+
 module.exports = { 
     homePageService,
     productPageService,
@@ -109,5 +134,7 @@ module.exports = {
     aboutUsPageService,
     supportPageService,
     searchResultsPageService,
-    addCommentActionService
+    addCommentActionService,
+    addToCartActionService,
+    removeFromCartActionService
 };

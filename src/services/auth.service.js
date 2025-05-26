@@ -121,54 +121,47 @@ const getAccessTokenService = async (refresh_token) => {
         return 'TOKEN_IS_INVALID';
     }
 
-    if(decryptedToken) {
-        const refreshTokenFound = await refreshTokenRepo.findByUserId(decryptedToken.id);
-        if(decryptedToken.version == refreshTokenFound.version && Date.now() < refreshTokenFound.expire_time) {
-            const userFound = await userRepo.findById(decryptedToken.id);
-            if(userFound) {
-                const expireTimeOfRefreshToken = Date.now() + (((60 * 60) * 24) * 7) * 1000;
-                const expireTimeOfAccessToken = Date.now() + (60 * 15) * 1000;
+    if(!decryptedToken) return 'TOKEN_IS_INVALID';
+
+    const refreshTokenFound = await refreshTokenRepo.findByUserId(decryptedToken.id);
     
-                const refreshToken = jwt.sign(
-                    { 
-                        id: userFound.id,
-                        email: userFound.email,
-                        expire: expireTimeOfRefreshToken,
-                        version: refreshTokenFound ? refreshTokenFound.version + 1 : 1
-                    },
-                    config.getAppConfig().refresh_token_secret,
-                    {
-                        expiresIn: expireTimeOfRefreshToken
-                    }
-                );
-                const accessToken = jwt.sign(
-                    { 
-                        id: userFound.id,
-                        email: userFound.email,
-                        expire: expireTimeOfAccessToken,
-                    },
-                    config.getAppConfig().access_token_secret,
-                    {
-                        expiresIn: expireTimeOfAccessToken
-                    }
-                );
-    
-                if(refreshTokenFound) {
-                    await refreshTokenRepo.updateRefreshTokenByUserId(decryptedToken.id, refreshToken, expireTimeOfRefreshToken, refreshTokenFound ? refreshTokenFound.version + 1 : 1)
-                } else {
-                    await refreshTokenRepo.createRefreshToken(decryptedToken.id, refreshToken, expireTimeOfRefreshToken, 1);
-                }
-    
-                return { refreshToken, accessToken }
-            } else {
-                return 'TOKEN_IS_INVALID';
-            }
-        } else {
-            return 'TOKEN_IS_INVALID';
+    if(!refreshTokenFound) return 'TOKEN_IS_INVALID';
+    if(!(decryptedToken.version == refreshTokenFound.version && Date.now() < refreshTokenFound.expire_time)) return 'TOKEN_IS_INVALID';
+
+    const userFound = await userRepo.findById(decryptedToken.id);
+
+    if(!userFound) return 'TOKEN_IS_INVALID';
+
+    const expireTimeOfRefreshToken = Date.now() + (((60 * 60) * 24) * 7) * 1000;
+    const expireTimeOfAccessToken = Date.now() + (60 * 15) * 1000;
+
+    const refreshToken = jwt.sign(
+        { 
+            id: userFound.id,
+            email: userFound.email,
+            expire: expireTimeOfRefreshToken,
+            version: refreshTokenFound ? refreshTokenFound.version + 1 : 1
+        },
+        config.getAppConfig().refresh_token_secret,
+        {
+            expiresIn: expireTimeOfRefreshToken
         }
-    } else {
-        return 'TOKEN_IS_INVALID';
-    }
+    );
+    const accessToken = jwt.sign(
+        { 
+            id: userFound.id,
+            email: userFound.email,
+            expire: expireTimeOfAccessToken,
+        },
+        config.getAppConfig().access_token_secret,
+        {
+            expiresIn: expireTimeOfAccessToken
+        }
+    );
+
+    await refreshTokenRepo.createRefreshToken(decryptedToken.id, refreshToken, expireTimeOfRefreshToken, 1);
+
+    return { refreshToken, accessToken }
 }
 
 module.exports = { registerService, loginService, getAccessTokenService, logoutService };

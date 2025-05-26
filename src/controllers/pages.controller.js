@@ -16,12 +16,13 @@ const getHomePage = async (req, res) => {
 
 const getProductPage = async (req, res, next) => {
   const { product_code } = req.params;
-  const result = await pagesService.productPageService(product_code, res.locals.user.id ? res.locals.user.id : null);
+  const result = await pagesService.productPageService(product_code, res.locals.user ? res.locals.user.id : null);
 
   if(!result) return next();
 
   const newCommentSubmitted = req.flash('newCommentSubmitted')[0];
   const isCommentBoxOpen = req.flash('isCommentBoxOpen')[0];
+  const cartAction = req.flash('cartAction')[0];
   const error = req.flash('error')[0];
 
   res.render("product", {
@@ -30,6 +31,8 @@ const getProductPage = async (req, res, next) => {
     newCommentSubmitted: newCommentSubmitted ? newCommentSubmitted : false,
     isCommentBoxOpen: isCommentBoxOpen ? isCommentBoxOpen : false,
     isUserCommentedBefore: result.isUserCommentedBefore,
+    isProductInCart: result.isProductInCart,
+    cartAction: cartAction ? cartAction : null,
     error: error ? error : null
   });
 }
@@ -113,6 +116,28 @@ const addCommentAction = async (req, res) => {
   }
 }
 
+const addToCartAction = async (req, res) => {
+  const { product_code } = req.params;
+
+  const result = await pagesService.addToCartActionService(res.locals.user.id, product_code);
+
+  if(result == 'PRODUCT_IS_EXISTS_IN_CART' || result == 'PRODUCT_IS_NOT_EXISTS') return res.redirect('/');
+
+  req.flash('cartAction', 'added');
+  res.redirect(`/product/${product_code}`);
+}
+
+const removeFromCartAction = async (req, res) => {
+  const { product_code } = req.params;
+
+  const result = await pagesService.removeFromCartActionService(res.locals.user.id, product_code);
+
+  if(result == 'PRODUCT_IS_EXISTS_IN_CART' || result == 'PRODUCT_IS_NOT_EXISTS') return res.redirect('/');
+
+  req.flash('cartAction', 'removed');
+  res.redirect(`/product/${product_code}`);
+}
+
 module.exports = {
   getHomePage,
   getProductPage,
@@ -123,5 +148,7 @@ module.exports = {
   getSupportPage,
   getNotFoundPage,
   getSearchResultsPage,
-  addCommentAction
+  addCommentAction,
+  addToCartAction,
+  removeFromCartAction
 };

@@ -34,6 +34,21 @@ router.post(
     }).bind(validator),
     pagesController.addCommentAction
 );
+router.post(
+    '/cart/add/:product_code',
+    authGuard((req, res) => {
+        res.redirect(`/product/${req.params.product_code}`);
+    }),
+    pagesController.addToCartAction
+);
+router.post(
+    '/cart/delete/:product_code',
+    authGuard((req, res) => {
+        res.redirect(`/product/${req.params.product_code}`);
+    }),
+    pagesController.removeFromCartAction
+);
+
 router.use(pagesController.getNotFoundPage);
 
 module.exports = router;

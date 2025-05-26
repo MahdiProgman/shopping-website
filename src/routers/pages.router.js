@@ -48,6 +48,20 @@ router.post(
     }),
     pagesController.removeFromCartAction
 );
+router.post(
+    '/favorites/add/:product_code',
+    authGuard((req, res) => {
+        res.redirect(`/product/${req.params.product_code}`)
+    }),
+    pagesController.addToFavoritesAction
+);
+router.post(
+    '/favorites/delete/:product_code',
+    authGuard((req, res) => {
+        res.redirect(`/product/${req.params.product_code}`);
+    }),
+    pagesController.removeFromFavoritesAction
+);
 
 router.use(pagesController.getNotFoundPage);
 

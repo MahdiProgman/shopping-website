@@ -22,7 +22,7 @@ router.post(
     validator.validate().bind(validator),
     authController.actionLogin
 );
-router.use(authGuard);
+router.use(authGuard());
 router.post('/logout', authController.actionLogout);
 
 module.exports = router;

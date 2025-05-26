@@ -197,10 +197,21 @@
                 <img src="/assets/icons/heart.svg" alt="" />
                 <span>افزودن به علاقه مندی ها</span>
               </button>
-              <button class="cart">
-                <img src="/assets/icons/cart.svg" alt="" />
-                <span>افزودن به سبد خرید</span>
-              </button>
+              <% if(!isProductInCart) { %>
+                <form action="/cart/add/<%= product.product_code %>" method="post">
+                  <button class="cart">
+                    <img src="/assets/icons/cart.svg" alt="" />
+                    <span>افزودن به سبد خرید</span>
+                  </button>
+                </form>
+              <% } else { %>
+                <form action="/cart/delete/<%= product.product_code %>" method="post">
+                  <button class="cart added">
+                    <img src="/assets/icons/cart.svg" alt="" />
+                    <span>حذف از سبد خرید</span>
+                  </button>
+                </form>
+              <% } %>
             </div>
           </div>
         </section>
@@ -295,6 +306,7 @@
       let login_state = JSON.parse("<%= login_state %>");
       let newCommentSubmitted = JSON.parse("<%= newCommentSubmitted %>");
       let isUserCommentedBefore = JSON.parse("<%= isUserCommentedBefore %>");
+      let cartAction = "<%= cartAction %>";
     </script>
     <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>

@@ -291,6 +291,15 @@
   background-color: var(--primary-color);
 }
 
+.main main .product-section .details .buttons button.added {
+  background-color: #d4d4d4;
+  color: var(--gray-color);
+}
+
+.main main .product-section .details .buttons button.added img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+}
+
 .main main .description-and-specifications {
   display: grid;
   grid-template-columns: 7fr 3fr;

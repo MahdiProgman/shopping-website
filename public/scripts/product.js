@@ -36,6 +36,9 @@ if(newCommentSubmitted) notyf.success('نظر شما با موفقیت ثبت ش
 if(cartAction == 'added') notyf.success('محصول با موفقیت به سبد خرید شما اضافه شد');
 else if(cartAction == 'removed') notyf.success('محصول با موفقیت از سبد خرید شما حذف شد');
 
+if(favoritesAction == 'added') notyf.success('محصول با موفقیت به علاقه مندی های شما اضافه شد');
+else if(favoritesAction == 'removed') notyf.success('محصول با موفقیت از علاقه مندی های شما حذف شد');
+
 showMoreBtn.addEventListener("click", () => {
   if (!showMoreBtn.classList.contains("on")) {
     showMoreBtn.classList.add("on");

@@ -264,7 +264,7 @@
   bottom: 5%;
 }
 
-.main main .product-section .details .buttons button {
+.main main .product-section .details .buttons form button {
   background-color: transparent;
   border: none;
   border-radius: 11px;
@@ -278,25 +278,25 @@
   cursor: pointer;
 }
 
-.main main .product-section .details .buttons button img {
+.main main .product-section .details .buttons form button img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(262deg) brightness(103%) contrast(102%);
   width: 25px;
 }
 
-.main main .product-section .details .buttons button.favorite {
+.main main .product-section .details .buttons form button.favorite {
   background-color: #d11313;
 }
 
-.main main .product-section .details .buttons button.cart {
+.main main .product-section .details .buttons form button.cart {
   background-color: var(--primary-color);
 }
 
-.main main .product-section .details .buttons button.added {
+.main main .product-section .details .buttons form button.added {
   background-color: #d4d4d4;
   color: var(--gray-color);
 }
 
-.main main .product-section .details .buttons button.added img {
+.main main .product-section .details .buttons form button.added img {
   filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
 }
 
@@ -555,6 +555,12 @@
     background-color: var(--bg-color);
     padding: 20px;
     position: sticky;
+  }
+  .main main .product-section > .details .buttons form {
+    width: 100%;
+  }
+  .main main .product-section > .details .buttons form button {
+    justify-content: center;
     width: 100%;
   }
   .main main .description-and-specifications .description p {

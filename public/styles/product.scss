@@ -1,4 +1,7 @@
-$border-color: rgba(54, 54, 54, 0.14);
+@mixin grayColorFilter {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%)
+    hue-rotate(180deg) brightness(92%) contrast(83%);
+}
 
 .submit-comment-box {
   display: none;
@@ -249,6 +252,13 @@ $border-color: rgba(54, 54, 54, 0.14);
           }
           button.cart {
             background-color: var(--primary-color);
+          }
+          button.added {
+            background-color: #d4d4d4;
+            color: var(--gray-color);
+            img {
+              @include grayColorFilter();
+            }
           }
         }
       }

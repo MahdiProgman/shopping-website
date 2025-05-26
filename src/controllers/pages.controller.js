@@ -23,6 +23,7 @@ const getProductPage = async (req, res, next) => {
   const newCommentSubmitted = req.flash('newCommentSubmitted')[0];
   const isCommentBoxOpen = req.flash('isCommentBoxOpen')[0];
   const cartAction = req.flash('cartAction')[0];
+  const favoritesAction = req.flash('favoritesAction')[0];
   const error = req.flash('error')[0];
 
   res.render("product", {
@@ -32,7 +33,9 @@ const getProductPage = async (req, res, next) => {
     isCommentBoxOpen: isCommentBoxOpen ? isCommentBoxOpen : false,
     isUserCommentedBefore: result.isUserCommentedBefore,
     isProductInCart: result.isProductInCart,
+    isProductInFavorites: result.isProductInFavorites,
     cartAction: cartAction ? cartAction : null,
+    favoritesAction: favoritesAction ? favoritesAction : null,
     error: error ? error : null
   });
 }
@@ -138,6 +141,26 @@ const removeFromCartAction = async (req, res) => {
   res.redirect(`/product/${product_code}`);
 }
 
+const addToFavoritesAction = async (req, res) => {
+  const { product_code } = req.params;
+  const result = await pagesService.addToFavoritesActionService(res.locals.user.id, product_code);
+
+  if(result == 'PRODUCT_IS_EXISTS_IN_FAVORITES' || result == 'PRODUCT_IS_NOT_EXISTS') return res.redirect('/');
+
+  req.flash('favoritesAction', 'added');
+  res.redirect(`/product/${product_code}`);
+}
+
+const removeFromFavoritesAction = async (req, res) => {
+  const { product_code } = req.params;
+  const result = await pagesService.removeFromFavoritesActionService(res.locals.user.id, product_code);
+
+  if(result == 'PRODUCT_IS_NOT_EXISTS_IN_FAVORITES' || result == 'PRODUCT_IS_NOT_EXISTS') return res.redirect('/');
+
+  req.flash('favoritesAction', 'removed');
+  res.redirect(`/product/${product_code}`);
+}
+
 module.exports = {
   getHomePage,
   getProductPage,
@@ -150,5 +173,7 @@ module.exports = {
   getSearchResultsPage,
   addCommentAction,
   addToCartAction,
-  removeFromCartAction
+  removeFromCartAction,
+  addToFavoritesAction,
+  removeFromFavoritesAction
 };

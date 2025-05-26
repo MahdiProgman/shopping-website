@@ -6,6 +6,7 @@ const CategoryModel = require('./category.model');
 const QuestionModel = require('./question.model');
 const AdvertiseCardModel = require('./advertiseCard.model');
 const WebsiteDataModel = require('./websiteData.model');
+const UserCartProductModel = require('./userCartProduct.model');
 
 const loadModels = (sequelize) => {
     const User = UserModel(sequelize);
@@ -16,6 +17,7 @@ const loadModels = (sequelize) => {
     const Question = QuestionModel(sequelize);
     const AdvertiseCard = AdvertiseCardModel(sequelize);
     const WebsiteData = WebsiteDataModel(sequelize);
+    const UserCartProduct = UserCartProductModel(sequelize);
 
     return {
         User,
@@ -25,7 +27,8 @@ const loadModels = (sequelize) => {
         Category,
         Question,
         AdvertiseCard,
-        WebsiteData
+        WebsiteData,
+        UserCartProduct
     };
 };
 

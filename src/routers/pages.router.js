@@ -26,7 +26,7 @@ router.get('/support', pagesController.getSupportPage);
 
 router.post(
     '/:product_code/add/comment',
-    authGuard,
+    authGuard(),
     pagesValidator.commentValidation(),
     validator.validate((req, res) => {
         req.flash('isCommentBoxOpen', true);

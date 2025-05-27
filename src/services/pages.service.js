@@ -8,6 +8,7 @@ const productRepo = require("../repositories/product.repository");
 const productCommentRepo = require("../repositories/productComment.repository");
 const userCartProductRepo = require("../repositories/userCartProduct.repository");
 const favoriteRepo = require("../repositories/favorite.repository");
+const userSearchRepo = require("../repositories/userSearch.repository");
 
 const homePageService = async () => {
     const advertiseCardsFound = await advertiseCardRepo.findAllAdvertiseCards();
@@ -55,8 +56,12 @@ const productPageService = async (product_code, user_id = null) => {
     };
 }
 
-const searchResultsPageService = async (text) => {
+const searchResultsPageService = async (text, user_id) => {
     const productsFound = await productRepo.findProductsByTitleStartsWith(text);
+
+    if(user_id) {
+        await userSearchRepo.addNewSearch(user_id, text);
+    }
 
     return {
         products: productsFound

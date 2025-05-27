@@ -74,7 +74,7 @@ const getAboutUsPage = async (req, res) => {
 
 const getSearchResultsPage = async (req, res) => {
   const { q } = req.query;
-  const result = await pagesService.searchResultsPageService(q);
+  const result = await pagesService.searchResultsPageService(q, res.locals.user ? res.locals.user.id : null);
 
   res.render('search-results', {
     products: result.products

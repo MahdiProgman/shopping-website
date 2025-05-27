@@ -26,37 +26,23 @@
             <img src="/assets/icons/search.svg" alt="" />
           </button>
         </form>
-        <div class="top-searches">
-          <h6>بیشترین جستجوی های کاربران</h6>
-          <div class="searches">
-            <ul>
-              <li>
-                <a href="#search?q=هدفون">
-                  <img src="/assets/icons/search.svg" alt="" />
-                  <span>هدفون</span>
-                </a>
-              </li>
-              <li>
-                <a href="#search?q=هدفون">
-                  <img src="/assets/icons/search.svg" alt="" />
-                  <span>هدفون</span>
-                </a>
-              </li>
-              <li>
-                <a href="#search?q=هدفون">
-                  <img src="/assets/icons/search.svg" alt="" />
-                  <span>هدفون</span>
-                </a>
-              </li>
-              <li>
-                <a href="#search?q=هدفون">
-                  <img src="/assets/icons/search.svg" alt="" />
-                  <span>هدفون</span>
-                </a>
-              </li>
-            </ul>
+        <% if (recentSearches) { %>
+          <div class="recent-searches">
+            <h6>جستجو های اخیر شما</h6>
+            <div class="searches">
+              <ul>
+                <% recentSearches.map(recentSearch => { %>
+                  <li>
+                    <a href="/search?q=<%= recentSearch.query %>">
+                      <img src="/assets/icons/recent.svg" alt="" />
+                      <span><%= recentSearch.query %></span>
+                    </a>
+                  </li>
+                <% }); %>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% } %>
       </div>
     </div>
     <div class="user-actions">

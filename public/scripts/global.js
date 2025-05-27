@@ -6,7 +6,7 @@ const drawerBox = document.querySelector(".drawer");
 const overlay = document.querySelector("body > .overlay");
 const headerSpacer = document.querySelector("header > .spacer");
 const swiperProducts = document.querySelectorAll(".swiper-products");
-const topSearchesBox = document.querySelector(".top-searches");
+const recentSearchesBox = document.querySelector(".recent-searches");
 const headerOverlay = document.querySelector(".header-overlay");
 const searchInput = document.getElementById("search-input");
 const openUserDataBoxBtn = document.getElementById("open-user-data-box-btn");
@@ -161,28 +161,33 @@ swiperProducts.forEach((value, i) => {
   });
 });
 
-searchInput.addEventListener("focus", () => {
-  topSearchesBox.classList.add("on");
-  headerOverlay.classList.remove("hidden");
-});
 
-document.addEventListener("mousedown", (e) => {
-  if (
-    !topSearchesBox.contains(e.target) &&
-    topSearchesBox.classList.contains("on")
-  ) {
-    topSearchesBox.classList.remove("on");
-    headerOverlay.classList.add("hidden");
-  }
-});
+if(recentSearchesBox) {
+  searchInput.addEventListener("focus", () => {
+    recentSearchesBox.classList.add("on");
+    headerOverlay.classList.remove("hidden");
+  });
+
+  document.addEventListener("mousedown", (e) => {
+    if (
+      !recentSearchesBox.contains(e.target) &&
+      recentSearchesBox.classList.contains("on")
+    ) {
+      recentSearchesBox.classList.remove("on");
+      headerOverlay.classList.add("hidden");
+    }
+  });
+}
 
 document.addEventListener("touchstart", (e) => {
-  if (
-    !topSearchesBox.contains(e.target) &&
-    topSearchesBox.classList.contains("on")
-  ) {
-    topSearchesBox.classList.remove("on");
-    headerOverlay.classList.add("hidden");
+  if(recentSearchesBox) {
+    if (
+      !recentSearchesBox.contains(e.target) &&
+      recentSearchesBox.classList.contains("on")
+    ) {
+      recentSearchesBox.classList.remove("on");
+      headerOverlay.classList.add("hidden");
+    }
   }
 
   if (!drawerBox.contains(e.target) && drawerBox.classList.contains("on")) {

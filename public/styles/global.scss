@@ -429,7 +429,7 @@ header > {
             width: 100%;
           }
         }
-        .top-searches {
+        .recent-searches {
           pointer-events: none;
           background-color: var(--bg-color);
           border: 1px solid var(--border-color);
@@ -459,14 +459,15 @@ header > {
                   align-items: center;
                   gap: 10px;
                   img {
-                    width: 30px;
+                    @include grayColorFilter();
+                    width: 25px;
                   }
                 }
               }
             }
           }
         }
-        .top-searches.on {
+        .recent-searches.on {
           display: block;
           opacity: 1;
           pointer-events: auto;

@@ -452,7 +452,7 @@ header > .section-1 .search .box .search-form input {
   width: 100%;
 }
 
-header > .section-1 .search .box .top-searches {
+header > .section-1 .search .box .recent-searches {
   pointer-events: none;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
@@ -468,35 +468,36 @@ header > .section-1 .search .box .top-searches {
   transition: all 0.5s;
 }
 
-header > .section-1 .search .box .top-searches h6 {
+header > .section-1 .search .box .recent-searches h6 {
   padding: 5px;
   font-size: 1.1em;
 }
 
-header > .section-1 .search .box .top-searches .searches {
+header > .section-1 .search .box .recent-searches .searches {
   padding: 5px;
 }
 
-header > .section-1 .search .box .top-searches .searches ul {
+header > .section-1 .search .box .recent-searches .searches ul {
   list-style: none;
 }
 
-header > .section-1 .search .box .top-searches .searches ul li {
+header > .section-1 .search .box .recent-searches .searches ul li {
   padding: 5px;
 }
 
-header > .section-1 .search .box .top-searches .searches ul li a {
+header > .section-1 .search .box .recent-searches .searches ul li a {
   display: flex;
   justify-content: right;
   align-items: center;
   gap: 10px;
 }
 
-header > .section-1 .search .box .top-searches .searches ul li a img {
-  width: 30px;
+header > .section-1 .search .box .recent-searches .searches ul li a img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+  width: 25px;
 }
 
-header > .section-1 .search .box .top-searches.on {
+header > .section-1 .search .box .recent-searches.on {
   display: block;
   opacity: 1;
   pointer-events: auto;

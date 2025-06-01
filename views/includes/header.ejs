@@ -61,15 +61,37 @@
         <a class="special auth-link" href="/auth/login">ورود</a>
       </div>
       <% } else { %>
-      <div class="user-data">
-        <button id="open-user-data-box-btn">
+      <div class="user-box-container">
+        <button id="open-user-dropdown-btn">
           <img src="/assets/icons/person.svg" alt="" />
           <img src="/assets/icons/caret.svg" alt="" />
         </button>
-        <div class="user-data-box">
+        <div class="user-dropdown">
           <div class="name">
             <img src="/assets/icons/person.svg" alt="" />
             <span><%= user.first_name %></span>
+          </div>
+          <div class="links">
+            <a href="/user/dashboard" class="<%= page == 'dashboard' ? 'on' : '' %>">
+              <img src="/assets/icons/house.svg" alt="" />
+              <span>داشبورد</span>
+            </a>
+            <a href="#orders" class="<%= page == 'orders' ? 'on' : '' %>">
+              <img src="/assets/icons/order.svg" alt="" />
+              <span>سفارشات</span>
+            </a>
+            <a href="#cart" class="<%= page == 'cart' ? 'on' : '' %>">
+              <img src="/assets/icons/cart.svg" alt="" />
+              <span>سبد خرید</span>
+            </a>
+            <a href="#favorites" class="<%= page == 'favorites' ? 'on' : '' %>">
+              <img src="/assets/icons/heart.svg" alt="" />
+              <span>علاقه مندی ها</span>
+            </a>
+            <a href="#change-info" class="<%= page == 'change-info' ? 'on' : '' %>">
+              <img src="/assets/icons/pencil.svg" alt="">
+              <span>تغییر مشخصات</span>
+            </a>
           </div>
           <button id="exit-from-account-btn">
             <img src="/assets/icons/exit.svg" alt="" />

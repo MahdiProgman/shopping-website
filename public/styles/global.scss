@@ -586,6 +586,8 @@ header > {
         justify-content: space-between;
         align-items: center;
         gap: 5px;
+        flex-shrink: 0;
+        padding: 0 10px;
         .action-link {
           img {
             @include secondaryColorFilter();
@@ -604,10 +606,11 @@ header > {
           background-color: var(--primary-color);
         }
       }
-      .user-data {
+      .user-box-container {
+        flex-shrink: 0;
         position: relative;
-        padding: 5px;
-        #open-user-data-box-btn {
+        padding: 0 5px;
+        #open-user-dropdown-btn {
           background-color: transparent;
           border: none;
           cursor: pointer;
@@ -619,53 +622,108 @@ header > {
             transition: all 0.75s;
           }
         }
-        #open-user-data-box-btn.open {
+        #open-user-dropdown-btn.open {
           img:nth-child(2) {
             transform: rotate(180deg);
           }
         }
-        .user-data-box {
+        .user-dropdown {
           display: none;
           background-color: var(--bg-color);
-          box-shadow: 2px 2px 5px -2px black;
+          box-shadow: 0 4px 12px var(--shadow-color);
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
           position: absolute;
-          top: 100%;
+          top: calc(100% + 5px);
           left: 0;
-          transform: translateX(-30%);
-          padding: 5px 10px;
+          right: auto;
+          min-width: 200px;
+          max-width: 320px;
+          width: auto;
+          padding: 8px 0;
           z-index: 5000;
+          overflow: hidden;
+          &.on {
+            display: block;
+          }
           .name {
             display: flex;
             align-items: center;
             border-bottom: 1px solid var(--border-color);
-            gap: 5px;
-            padding: 5px;
+            gap: 12px;
+            padding: 12px 15px;
+
             img {
               @include secondaryColorFilter();
-              width: 25px;
+              width: 24px;
             }
+
             span {
               color: var(--primary-text-color);
+              font-weight: 500;
+            }
+          }
+          .links {
+            a {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding: 10px 15px;
+              text-decoration: none;
+              transition: background-color 0.2s ease-in-out;
+              img {
+                @include grayColorFilter();
+                width: 20px;
+                transition: filter 0.2s ease-in-out;
+              }
+              span {
+                color: var(--gray-color);
+                font-size: .9em;
+                transition: color 0.2s ease-in-out;
+              }
+              &:not(.on):hover {
+                background-color: rgba(0, 0, 0, 0.05);
+              }
+              &.on {
+                background-color: var(--secondary-color);
+                span {
+                  color: white;
+                }
+                img {
+                  @include whiteColorFilter();
+                }
+              }
             }
           }
           #exit-from-account-btn {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 10px;
             background-color: transparent;
             border: none;
-            gap: 5px;
-            padding: 5px 10px;
+            border-top: 1px solid var(--border-color);
+            padding: 12px 15px;
             cursor: pointer;
+            width: 100%;
+            text-align: right;
+            transition: background-color 0.2s ease-in-out;
+
             img {
-              filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);              width: 25px;
+              filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
+              width: 22px;
             }
+
             span {
               color: #ff2500;
+              font-size: .9em;
+            }
+
+            &:hover {
+              background-color: rgba(255, 37, 0, 0.1);
             }
           }
         }
-        .user-data-box.on {
+        .user-box.on {
           display: block;
         }
       }
@@ -816,6 +874,16 @@ footer {
     font-size: 22px;
   }
 }
+
+// @media screen and (max-width: 1548px) {
+//   header {
+//     .section-1 {
+//       .user-actions {
+//         justify-content: flex-start;
+//       }
+//     }
+//   }
+// }
 
 @media screen and (max-width: 1024px) {
   body {

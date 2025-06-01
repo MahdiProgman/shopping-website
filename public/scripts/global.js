@@ -9,8 +9,8 @@ const swiperProducts = document.querySelectorAll(".swiper-products");
 const recentSearchesBox = document.querySelector(".recent-searches");
 const headerOverlay = document.querySelector(".header-overlay");
 const searchInput = document.getElementById("search-input");
-const openUserDataBoxBtn = document.getElementById("open-user-data-box-btn");
-const userDataBox = document.querySelector("header .user-data-box");
+const openUserBoxBtn = document.getElementById("open-user-dropdown-btn");
+const userDropdown = document.querySelector("header .user-dropdown");
 const exitFromAccountBtn = document.getElementById("exit-from-account-btn");
 const exitFromAccountDrawerBtn = document.getElementById(
   "exit-from-account-drawer-btn"
@@ -33,14 +33,14 @@ if (time.getHours() >= 6 && time.getHours() <= 12) {
   greetingIcon.src = "/assets/icons/night.png";
 }
 
-if (openUserDataBoxBtn && userDataBox && exitFromAccountBtn) {
-  openUserDataBoxBtn.addEventListener("click", () => {
-    if (!userDataBox.classList.contains("on")) {
-      userDataBox.classList.add("on");
-      openUserDataBoxBtn.classList.add("open");
+if (openUserBoxBtn && userDropdown && exitFromAccountBtn) {
+  openUserBoxBtn.addEventListener("click", () => {
+    if (!userDropdown.classList.contains("on")) {
+      userDropdown.classList.add("on");
+      openUserBoxBtn.classList.add("open");
     } else {
-      userDataBox.classList.remove("on");
-      openUserDataBoxBtn.classList.remove("open");
+      userDropdown.classList.remove("on");
+      openUserBoxBtn.classList.remove("open");
     }
   });
 

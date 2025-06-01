@@ -6,7 +6,7 @@
   --primary-text-color: #1a1a1a;
   --secondary-text-color: #808080;
   --border-color: rgba(0, 0, 0, 0.14);
-  --shadow-color: #000000;
+  --shadow-color: rgba(0, 0, 0, 0.1);
   --success-color: #10b981;
   --error-color: #ef4444;
   --link-color: #00b2a9;

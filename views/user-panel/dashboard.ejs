@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد | وبسایت فروشگاهی</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.svg" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/user-panel/global.css">
+    <link rel="stylesheet" href="/styles/user-panel/dashboard.css">
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/libs/flexboxgrid/flexboxgrid.css">
+  </head>
+  <body>
+    <%- include("../includes/drawer", { page: 'dashboard', state: 'user-panel' }) %>
+    <div class="overlay hidden"></div>
+    <div class="main">
+      <%- include("../includes/header", { page: 'dashboard' }) %>
+      <div class="header-overlay hidden"></div>
+      <main>
+        <div class="container">
+          <%- include("includes/menu", { page: 'dashboard' }) %>
+          <div class="content">
+            <h2>داشبورد</h2>
+            <p>سلام👋، خوش اومدی آرش!</p>
+            <div class="boxes">
+              <div class="box" style="background-color: #3B82F6;">
+                <h5>سفارشات</h5>
+                <p>تعداد سفارشاتی که تا به امروز داشتید</p>
+                <span>۸</span>
+                <img src="/assets/icons/order.svg" alt="">
+              </div>
+              <div class="box" style="background-color: #10B981;">
+                <h5>سبد خرید</h5>
+                <p>تعداد محصولاتی که به سبد خرید خود اضافه کرده اید</p>
+                <span>۴</span>
+                <img src="/assets/icons/cart.svg" alt="">
+              </div>
+              <div class="box" style="background-color: #ef4444;">
+                <h5>علاقه مندی ها</h5>
+                <p>تعداد محصولاتی که به علاقه مندی خود اضافه کرده اید</p>
+                <span>۱۲</span>
+                <img src="/assets/icons/heart.svg" alt="">
+              </div>
+            </div>
+            <div class="recent-orders">
+              <h4>خرید های اخیر شما</h4>
+              <p>جدید ترین خرید هایی که داشته اید</p>
+              <div class="products row">
+                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
+                    <a href="/product/swp-300">
+                      <div class="row-1">
+                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
+                      </div>
+                      <div class="row-2">
+                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
+                    <a href="/product/swp-300">
+                      <div class="row-1">
+                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
+                      </div>
+                      <div class="row-2">
+                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
+                    <a href="/product/swp-300">
+                      <div class="row-1">
+                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
+                      </div>
+                      <div class="row-2">
+                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
+                    <a href="/product/swp-300">
+                      <div class="row-1">
+                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
+                      </div>
+                      <div class="row-2">
+                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+      <%- include("../includes/footer") %>
+    </div>
+    <script src="/libs/swiper/swiper-bundle.min.js"></script>
+    <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/scripts/global.js"></script>
+  </body>
+</html>

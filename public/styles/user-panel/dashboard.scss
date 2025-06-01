@@ -1,0 +1,97 @@
+@mixin whiteColorFilter {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+.main {
+  main {
+    .container {
+      width: 100%;
+      .content {
+        padding: 15px;
+        width: 100%;
+        h2 {
+          font-size: 2em;
+        }
+        .boxes {
+          display: flex;
+          gap: 5px;
+          padding: 5px;
+          .box {
+            border: none;
+            border-radius: 11px;
+            box-shadow: 0px 4px 12px 0 var(--shadow-color);
+            width: 33.3%;
+            padding: 10px 15px;
+            h5 {
+              color: white;
+              font-size: 1.3em;
+            }
+            p {
+              color: white;
+              font-size: .8em;
+            }
+            span {
+              color: white;
+              font-size: 3em;
+            }
+            img {
+              @include whiteColorFilter();
+              float: inline-end;
+              width: 100px;
+            }
+          }
+        }
+        .recent-orders {
+          padding: 10px;
+          h4 {
+            font-size: 1.5em;
+          }
+          .products {
+            display: flex;
+            padding: 15px 3%;
+            .product-card {
+              background-color: var(--bg-soft);
+              border: 1px solid var(--border-color);
+              a {
+                padding: 10px;
+                .row-1 {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  img {
+                    width: 70%;
+                  }
+                }
+                .row-2 {
+                  color: rgb(54, 54, 54);
+                  padding: 5px 15px;
+                  .rate {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    gap: 7px;
+                    border: 1px solid var(--border-color);
+                    border-radius: 10px;
+                    justify-self: left;
+                    width: fit-content;
+                    padding: 5px;
+                    img {
+                      width: 20px;
+                    }
+                  }
+                  .price {
+                    font-size: 1.3em;
+                    padding: 15px;
+                  }
+                }
+              }
+            }
+            .product-card:hover {
+              box-shadow: 2px 2px 5px -2px black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

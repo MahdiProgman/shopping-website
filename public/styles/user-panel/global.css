@@ -59,3 +59,9 @@
 .main main .container .menu .links a.on span {
   color: white;
 }
+
+@media screen and (max-width: 640px) {
+  .main main .container .menu {
+    display: none;
+  }
+}

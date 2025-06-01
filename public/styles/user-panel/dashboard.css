@@ -107,3 +107,12 @@
 .main main .container .content .recent-orders .products .product-card:hover {
   box-shadow: 2px 2px 5px -2px black;
 }
+
+@media screen and (max-width: 768px) {
+  .main main .container .content .boxes {
+    flex-direction: column;
+  }
+  .main main .container .content .boxes .box {
+    width: 100%;
+  }
+}

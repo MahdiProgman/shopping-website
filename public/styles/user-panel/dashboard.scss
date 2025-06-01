@@ -95,3 +95,20 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .main {
+    main {
+      .container {
+        .content {
+          .boxes {
+            flex-direction: column;
+            .box {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

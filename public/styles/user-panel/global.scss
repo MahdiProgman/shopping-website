@@ -1,0 +1,64 @@
+@mixin secondaryColorFilter {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
+}
+
+@mixin grayColorFilter {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+}
+
+@mixin whiteColorFilter {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+.main {
+  main {
+    padding: 10px 8%;
+    .container {
+      display: flex;
+      .menu {
+        padding: 10px;
+        .user-data {
+          display: flex;
+          .icon {
+            img {
+              width: 50px;
+            }
+          }
+          .data {
+            padding: 5px;
+            .name {
+              color: var(--primary-text-color);
+            }
+          }
+        }
+        .links {
+          padding: 10px;
+          a {
+            display: flex;
+            align-items: center;
+            padding: 5px 15px;
+            img {
+              @include grayColorFilter();
+              width: 25px;
+            }
+            span {
+              color: var(--gray-color);
+              padding: 5px;
+            }
+          }
+          a.on {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 15px;
+            img {
+              @include whiteColorFilter();              
+            }
+            span {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

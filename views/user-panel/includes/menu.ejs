@@ -1,0 +1,33 @@
+<div class="menu">
+  <div class="user-data">
+    <div class="icon">
+      <img src="/assets/icons/person.svg" alt="" />
+    </div>
+    <div class="data">
+      <p class="name">آرش راستگو</p>
+      <p class="email">arashrastgu@gmail.com</p>
+    </div>
+  </div>
+  <div class="links">
+    <a href="/user/dashboard" class="<%= page == 'dashboard' ? 'on' : '' %>">
+      <img src="/assets/icons/house.svg" alt="" />
+      <span>داشبورد</span>
+    </a>
+    <a href="#orders" class="<%= page == 'orders' ? 'on' : '' %>">
+      <img src="/assets/icons/order.svg" alt="" />
+      <span>سفارشات</span>
+    </a>
+    <a href="#cart" class="<%= page == 'cart' ? 'on' : '' %>">
+      <img src="/assets/icons/cart.svg" alt="" />
+      <span>سبد خرید</span>
+    </a>
+    <a href="#favorites" class="<%= page == 'favorites' ? 'on' : '' %>">
+      <img src="/assets/icons/heart.svg" alt="" />
+      <span>علاقه مندی ها</span>
+    </a>
+    <a href="#change-info" class="<%= page == 'change-info' ? 'on' : '' %>">
+      <img src="/assets/icons/pencil.svg" alt="">
+      <span>تغییر مشخصات</span>
+    </a>
+  </div>
+</div>

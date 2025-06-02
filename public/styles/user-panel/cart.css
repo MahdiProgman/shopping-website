@@ -1,0 +1,109 @@
+.main main .container {
+  width: 100%;
+}
+
+.main main .container .content {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  width: 100%;
+}
+
+.main main .container .content .products-list {
+  padding: 5px;
+}
+
+.main main .container .content .products-list h2 {
+  color: var(--primary-text-color);
+  font-size: 1.5em;
+}
+
+.main main .container .content .products-list .products .product {
+  width: 100%;
+}
+
+.main main .container .content .products-list .products .product a {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  color: #363636;
+  gap: 15px;
+}
+
+.main main .container .content .products-list .products .product a .image img {
+  width: 120px;
+}
+
+.main main .container .content .products-list .products .product a .detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main main .container .content .products-list .products .product a .detail h5 {
+  padding: 5px;
+}
+
+.main main .container .content .products-list .products .product a .detail .rate {
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  justify-self: left;
+  padding: 5px 10px;
+  align-items: center;
+  width: fit-content;
+}
+
+.main main .container .content .products-list .products .product a .detail .rate img {
+  width: 25px;
+}
+
+.main main .container .content .products-list .products .product a .detail .delete-product {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 11px;
+  margin-right: auto;
+  padding: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.main main .container .content .products-list .products .product a .detail .delete-product img {
+  width: 25px;
+}
+
+.main main .container .content .order-details {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 11px;
+  height: fit-content;
+  padding: 0 15px;
+}
+
+.main main .container .content .order-details h5 {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--secondary-color);
+  font-size: 1.5em;
+  padding: 10px 15px;
+}
+
+.main main .container .content .order-details .sum-of-all {
+  padding: 10px;
+}
+
+.main main .container .content .order-details .payable {
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px;
+}
+
+.main main .container .content .order-details .place-order-btn {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 15px;
+  margin: 25px 0;
+  cursor: pointer;
+}

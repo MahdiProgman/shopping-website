@@ -55,10 +55,6 @@ const getProductsPage = async (req, res) => {
   });
 };
 
-const getCartPage = async (req, res) => {
-  res.render("cart");
-};
-
 const getFavoritesPage = async (req, res) => {
   res.render("favorites");
 };
@@ -165,7 +161,6 @@ module.exports = {
   getHomePage,
   getProductPage,
   getProductsPage,
-  getCartPage,
   getFavoritesPage,
   getAboutUsPage,
   getSupportPage,

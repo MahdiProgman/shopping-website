@@ -1,60 +1,104 @@
 <div class="drawer">
-  <div class="section-1">
-    <div class="close-div">
-      <button id="close-btn">
-        <img src="/assets/icons/close.svg" alt="close menu button" />
-      </button>
+  <% const currentState = typeof state !== 'undefined' ? state : 'main-content' %>
+  <div class="main-content content <%= currentState === 'main-content' ? 'active' : '' %>">
+    <div class="section-1">
+      <div class="close-div">
+        <button id="close-btn">
+          <img src="/assets/icons/close.svg" alt="close menu button" />
+        </button>
+      </div>
+      <div class="brand">
+        <img src="/assets/icons/brand.png" alt="brand icon" />
+        <span class="vertical-line"></span>
+        <a href="/">وبسایت فروشگاهی</a>
+      </div>
     </div>
-    <div class="brand">
-      <img src="/assets/icons/brand.png" alt="brand icon" />
-      <span class="vertical-line"></span>
-      <a href="/">وبسایت فروشگاهی</a>
+    <div class="section-2">
+      <% if(!login_state){ %>
+      <div class="auth-links">
+        <a class="special" href="/auth/register">ثبت نام</a>
+        <a class="special" href="/auth/login">ورود</a>
+      </div>
+      <% } else { %>
+      <div class="user-data">
+        <div class="name">
+          <img src="/assets/icons/person.svg" alt="" />
+          <span><%= user.first_name %></span>
+        </div>
+        <button id="exit-from-account-drawer-btn">
+          <img src="/assets/icons/exit.svg" alt="" />
+          <span>خروج</span>
+        </button>
+      </div>
+      <div class="user-panel">
+        <button id="open-user-panel-drawer-btn" <%= currentState === 'user-panel' ? 'class=on' : '' %>>
+          <div class="right">
+            <img src="/assets/icons/person.svg" alt="">
+            <span>پنل کاربری</span>
+          </div>
+          <div class="left">
+            <img src="/assets/icons/chevron-left.svg" alt="">
+          </div>
+        </button>
+      </div>
+      <div class="action-links">
+        <a class="<%= page == 'cart' ? 'on' : '' %>" href="/cart">
+          <img src="/assets/icons/cart.svg" alt="" />
+          <span>سبد خرید</span>
+        </a>
+        <a class="<%= page == 'favorites' ? 'on' : '' %>" href="/favorites">
+          <img src="/assets/icons/heart.svg" alt="" />
+          <span>علاقه مندی ها</span>
+        </a>
+      </div>
+      <% } %>
+      <div class="navbar">
+        <a class="<%= page == 'index' ? 'on' : '' %>" href="/">
+          <img src="/assets/icons/house.svg" alt="" />
+          <span>خانه</span>
+        </a>
+        <a class="<%= page == 'products' ? 'on' : '' %>" href="/products">
+          <img src="/assets/icons/product.svg" alt="" />
+          <span>محصولات</span>
+        </a>
+        <a class="<%= page == 'support' ? 'on' : '' %>" href="/support">
+          <img src="/assets/icons/support.svg" alt="" />
+          <span>پشتیبانی</span>
+        </a>
+        <a class="<%= page == 'about-us' ? 'on' : '' %>" href="/about-us">
+          <img src="/assets/icons/about-us.svg" alt="" />
+          <span>درباره ما</span>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="section-2">
-    <% if(!login_state){ %>
-    <div class="auth-links">
-      <a class="special" href="/auth/register">ثبت نام</a>
-      <a class="special" href="/auth/login">ورود</a>
-    </div>
-    <% } else { %>
-    <div class="user-data">
-      <div class="name">
-        <img src="/assets/icons/person.svg" alt="" />
-        <span><%= user.first_name %></span>
-      </div>
-      <button id="exit-from-account-drawer-btn">
-        <img src="/assets/icons/exit.svg" alt="" />
-        <span>خروج</span>
+  <div class="user-panel-content content <%= currentState == 'user-panel' ? 'active' : '' %>">
+    <div class="title">
+      <button id="back-to-main-drawer-btn">
+        <img src="/assets/icons/chevron-right.svg" alt="">
       </button>
+      <p>پنل کاربری</p>
     </div>
-    <% } %>
-    <div class="action-links">
-      <a class="<%= page == 'cart' ? 'on' : '' %>" href="/cart">
+    <div class="links">
+      <a href="/user/dashboard" class="<%= page == 'dashboard' ? 'on' : '' %>">
+        <img src="/assets/icons/house.svg" alt="" />
+        <span>داشبورد</span>
+      </a>
+      <a href="#orders" class="<%= page == 'orders' ? 'on' : '' %>">
+        <img src="/assets/icons/order.svg" alt="" />
+        <span>سفارشات</span>
+      </a>
+      <a href="#cart" class="<%= page == 'cart' ? 'on' : '' %>">
         <img src="/assets/icons/cart.svg" alt="" />
         <span>سبد خرید</span>
       </a>
-      <a class="<%= page == 'favorites' ? 'on' : '' %>" href="/favorites">
+      <a href="#favorites" class="<%= page == 'favorites' ? 'on' : '' %>">
         <img src="/assets/icons/heart.svg" alt="" />
         <span>علاقه مندی ها</span>
       </a>
-    </div>
-    <div class="navbar">
-      <a class="<%= page == 'index' ? 'on' : '' %>" href="/">
-        <img src="/assets/icons/house.svg" alt="" />
-        <span>خانه</span>
-      </a>
-      <a class="<%= page == 'products' ? 'on' : '' %>" href="/products">
-        <img src="/assets/icons/product.svg" alt="" />
-        <span>محصولات</span>
-      </a>
-      <a class="<%= page == 'support' ? 'on' : '' %>" href="/support">
-        <img src="/assets/icons/support.svg" alt="" />
-        <span>پشتیبانی</span>
-      </a>
-      <a class="<%= page == 'about-us' ? 'on' : '' %>" href="/about-us">
-        <img src="/assets/icons/about-us.svg" alt="" />
-        <span>درباره ما</span>
+      <a href="#change-info" class="<%= page == 'change-info' ? 'on' : '' %>">
+        <img src="/assets/icons/pencil.svg" alt="">
+        <span>تغییر مشخصات</span>
       </a>
     </div>
   </div>

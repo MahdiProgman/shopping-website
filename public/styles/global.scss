@@ -156,118 +156,218 @@ a:hover::after {
   padding: 10px 0;
   z-index: 2000;
   transition: all 0.5s;
-  .section-1 {
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 1px solid var(--border-color);
-    padding: 15px 0;
-    .close-div {
-      #close-btn {
+  .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    transform: translateX(100vw);
+    transition: all .75s;
+    z-index: 0;
+  }
+  .content.active {
+    transform: translateX(0);
+    z-index: 1;
+  }
+  .main-content {
+    .section-1 {
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px 0;
+      .close-div {
+        #close-btn {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          img {
+            @include grayColorFilter();
+            width: 50px;
+          }
+        }
+      }
+      .brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 50px;
+        }
+        a {
+          color: var(--primary-color);
+          font-size: 1.2em;
+        }
+      }
+    }
+    .section-2 {
+      .auth-links {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 1.1em;
+        a {
+          color: var(--primary-color);
+        }
+      }
+      .user-data {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid var(--border-color);
+        .name {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          img {
+            @include secondaryColorFilter();
+            width: 30px;
+          }
+          span {
+            color: var(--gray-color);
+            font-size: 1.5em;
+          }
+        }
+        #exit-from-account-drawer-btn {
+          display: flex;
+          align-items: center;
+          background-color: transparent;
+          border: none;
+          padding: 10px;
+          img {
+            filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);              width: 25px;
+            width: 25px;
+          }
+          span {
+            color: #ff2500;
+            font-size: 1.5em;
+          }
+        }
+      }
+      .user-panel {
+        border-bottom: 1px solid var(--border-color);
+        #open-user-panel-drawer-btn {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: transparent;
+          border: none;
+          padding: 5px;
+          width: 100%;
+          cursor: pointer;
+          .right {
+            display: flex;
+            align-items: center;
+            span {
+              color: var(--gray-color);
+              padding: 5px
+            }
+          }
+          .left {
+            display: flex;
+            align-items: center;
+          }
+          img {
+            @include grayColorFilter();
+            width: 25px;
+          }
+        }
+        #open-user-panel-drawer-btn.on {
+          img {
+            @include secondaryColorFilter();
+          }
+          span {
+            color: var(--secondary-color);
+          }
+        }
+      }
+      .action-links {
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        a {
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          gap: 5px;
+          padding: 5px;
+          span {
+            color: var(--gray-color);
+            padding: 0 5px;
+          }
+          img {
+            @include grayColorFilter();
+            width: 25px;
+          }
+        }
+        a.on {
+          background-color: var(--secondary-color);
+          img {
+            @include whiteColorFilter();
+          }
+          span {
+            color: white;
+          }
+        }
+      }
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        a {
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          gap: 5px;
+          padding: 5px;
+          img {
+            @include grayColorFilter();
+            width: 25px;
+          }
+          span {
+            color: var(--gray-color);
+            padding: 0 5px;
+          }
+        }
+        a.on {
+          background-color: var(--secondary-color);
+          img {
+            @include whiteColorFilter();
+          }
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .user-panel-content {
+    .title {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      #back-to-main-drawer-btn {
         background-color: transparent;
         border: none;
-        outline: none;
+        padding: 5px;
         cursor: pointer;
         img {
           @include grayColorFilter();
           width: 50px;
         }
       }
-    }
-    .brand {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 50px;
-      }
-      a {
-        color: var(--primary-color);
-        font-size: 1.2em;
+      p {
+        color: var(--primary-text-color);
+        font-size: 1.3em;
+        padding: 5px;
       }
     }
-  }
-  .section-2 {
-    .auth-links {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      font-size: 1.1em;
-      a {
-        color: var(--primary-color);
-      }
-    }
-    .user-data {
-      display: flex;
-      justify-content: space-around;
-      border-bottom: 1px solid var(--border-color);
-      .name {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        img {
-          @include secondaryColorFilter();
-          width: 30px;
-        }
-        span {
-          color: var(--gray-color);
-          font-size: 1.5em;
-        }
-      }
-      #exit-from-account-drawer-btn {
-        display: flex;
-        align-items: center;
-        background-color: transparent;
-        border: none;
-        padding: 10px;
-        img {
-          filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);              width: 25px;
-          width: 25px;
-        }
-        span {
-          color: #ff2500;
-          font-size: 1.5em;
-        }
-      }
-    }
-    .action-links {
-      border-bottom: 1px solid var(--border-color);
+    .links {
       display: flex;
       flex-direction: column;
       a {
         display: flex;
-        justify-content: right;
         align-items: center;
-        gap: 5px;
-        padding: 5px;
-        span {
-          color: var(--gray-color);
-          padding: 0 5px;
-        }
-        img {
-          @include grayColorFilter();
-          width: 25px;
-        }
-      }
-      a.on {
-        background-color: var(--secondary-color);
-        img {
-          @include whiteColorFilter();
-        }
-        span {
-          color: white;
-        }
-      }
-    }
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      a {
-        display: flex;
-        justify-content: right;
-        align-items: center;
-        gap: 5px;
-        padding: 5px;
+        padding: 10px 15px;
         img {
           @include grayColorFilter();
           width: 25px;

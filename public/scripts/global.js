@@ -16,6 +16,10 @@ const exitFromAccountDrawerBtn = document.getElementById(
   "exit-from-account-drawer-btn"
 );
 const customSelectElements = document.querySelectorAll('.custom-select');
+const openUserPanelDrawerBtn = document.getElementById('open-user-panel-drawer-btn');
+const userPanelDrawerContent = document.querySelector('.drawer .user-panel-content');
+const mainDrawerContent = document.querySelector('.drawer .main-content');
+const backToMainDrawerBtn = document.getElementById('back-to-main-drawer-btn');
 const time = new Date();
 
 if (time.getHours() >= 6 && time.getHours() <= 12) {
@@ -193,6 +197,10 @@ document.addEventListener("touchstart", (e) => {
   if (!drawerBox.contains(e.target) && drawerBox.classList.contains("on")) {
     drawerBox.classList.remove("on");
     overlay.classList.add("hidden");
+    if(!mainDrawerContent.classList.contains('active') && currentState === 'main-content') {
+      userPanelDrawerContent.classList.remove('active');
+      mainDrawerContent.classList.add('active');
+    }
   }
 });
 
@@ -211,5 +219,17 @@ if(customSelectElements.length !== 0) {
         document.querySelector('.custom-select-input').value = choice.dataset.value;
       });
     });
+  });
+}
+
+if (openUserPanelDrawerBtn) {
+  openUserPanelDrawerBtn.addEventListener('click', () => {
+    mainDrawerContent.classList.remove('active');
+    userPanelDrawerContent.classList.add('active');
+  });
+
+  backToMainDrawerBtn.addEventListener('click', () => {
+    userPanelDrawerContent.classList.remove('active');
+    mainDrawerContent.classList.add('active');
   });
 }

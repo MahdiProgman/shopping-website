@@ -132,41 +132,56 @@ a:hover::after {
   transition: all 0.5s;
 }
 
-.drawer .section-1 {
+.drawer .content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  transform: translateX(100vw);
+  transition: all .75s;
+  z-index: 0;
+}
+
+.drawer .content.active {
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.drawer .main-content .section-1 {
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid var(--border-color);
   padding: 15px 0;
 }
 
-.drawer .section-1 .close-div #close-btn {
+.drawer .main-content .section-1 .close-div #close-btn {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-.drawer .section-1 .close-div #close-btn img {
+.drawer .main-content .section-1 .close-div #close-btn img {
   filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 50px;
 }
 
-.drawer .section-1 .brand {
+.drawer .main-content .section-1 .brand {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.drawer .section-1 .brand img {
+.drawer .main-content .section-1 .brand img {
   width: 50px;
 }
 
-.drawer .section-1 .brand a {
+.drawer .main-content .section-1 .brand a {
   color: var(--primary-color);
   font-size: 1.2em;
 }
 
-.drawer .section-2 .auth-links {
+.drawer .main-content .section-2 .auth-links {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -174,33 +189,33 @@ a:hover::after {
   font-size: 1.1em;
 }
 
-.drawer .section-2 .auth-links a {
+.drawer .main-content .section-2 .auth-links a {
   color: var(--primary-color);
 }
 
-.drawer .section-2 .user-data {
+.drawer .main-content .section-2 .user-data {
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid var(--border-color);
 }
 
-.drawer .section-2 .user-data .name {
+.drawer .main-content .section-2 .user-data .name {
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
-.drawer .section-2 .user-data .name img {
+.drawer .main-content .section-2 .user-data .name img {
   filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
   width: 30px;
 }
 
-.drawer .section-2 .user-data .name span {
+.drawer .main-content .section-2 .user-data .name span {
   color: var(--gray-color);
   font-size: 1.5em;
 }
 
-.drawer .section-2 .user-data #exit-from-account-drawer-btn {
+.drawer .main-content .section-2 .user-data #exit-from-account-drawer-btn {
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -208,24 +223,67 @@ a:hover::after {
   padding: 10px;
 }
 
-.drawer .section-2 .user-data #exit-from-account-drawer-btn img {
+.drawer .main-content .section-2 .user-data #exit-from-account-drawer-btn img {
   filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
   width: 25px;
   width: 25px;
 }
 
-.drawer .section-2 .user-data #exit-from-account-drawer-btn span {
+.drawer .main-content .section-2 .user-data #exit-from-account-drawer-btn span {
   color: #ff2500;
   font-size: 1.5em;
 }
 
-.drawer .section-2 .action-links {
+.drawer .main-content .section-2 .user-panel {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn .right {
+  display: flex;
+  align-items: center;
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn .right span {
+  color: var(--gray-color);
+  padding: 5px;
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn .left {
+  display: flex;
+  align-items: center;
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+  width: 25px;
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn.on img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(62%) saturate(1161%) hue-rotate(140deg) brightness(94%) contrast(101%);
+}
+
+.drawer .main-content .section-2 .user-panel #open-user-panel-drawer-btn.on span {
+  color: var(--secondary-color);
+}
+
+.drawer .main-content .section-2 .action-links {
   border-bottom: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
 }
 
-.drawer .section-2 .action-links a {
+.drawer .main-content .section-2 .action-links a {
   display: flex;
   justify-content: right;
   align-items: center;
@@ -233,34 +291,34 @@ a:hover::after {
   padding: 5px;
 }
 
-.drawer .section-2 .action-links a span {
+.drawer .main-content .section-2 .action-links a span {
   color: var(--gray-color);
   padding: 0 5px;
 }
 
-.drawer .section-2 .action-links a img {
+.drawer .main-content .section-2 .action-links a img {
   filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 25px;
 }
 
-.drawer .section-2 .action-links a.on {
+.drawer .main-content .section-2 .action-links a.on {
   background-color: var(--secondary-color);
 }
 
-.drawer .section-2 .action-links a.on img {
+.drawer .main-content .section-2 .action-links a.on img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
 }
 
-.drawer .section-2 .action-links a.on span {
+.drawer .main-content .section-2 .action-links a.on span {
   color: white;
 }
 
-.drawer .section-2 .navbar {
+.drawer .main-content .section-2 .navbar {
   display: flex;
   flex-direction: column;
 }
 
-.drawer .section-2 .navbar a {
+.drawer .main-content .section-2 .navbar a {
   display: flex;
   justify-content: right;
   align-items: center;
@@ -268,25 +326,82 @@ a:hover::after {
   padding: 5px;
 }
 
-.drawer .section-2 .navbar a img {
+.drawer .main-content .section-2 .navbar a img {
   filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
   width: 25px;
 }
 
-.drawer .section-2 .navbar a span {
+.drawer .main-content .section-2 .navbar a span {
   color: var(--gray-color);
   padding: 0 5px;
 }
 
-.drawer .section-2 .navbar a.on {
+.drawer .main-content .section-2 .navbar a.on {
   background-color: var(--secondary-color);
 }
 
-.drawer .section-2 .navbar a.on img {
+.drawer .main-content .section-2 .navbar a.on img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
 }
 
-.drawer .section-2 .navbar a.on span {
+.drawer .main-content .section-2 .navbar a.on span {
+  color: white;
+}
+
+.drawer .user-panel-content .title {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.drawer .user-panel-content .title #back-to-main-drawer-btn {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.drawer .user-panel-content .title #back-to-main-drawer-btn img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+  width: 50px;
+}
+
+.drawer .user-panel-content .title p {
+  color: var(--primary-text-color);
+  font-size: 1.3em;
+  padding: 5px;
+}
+
+.drawer .user-panel-content .links {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer .user-panel-content .links a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.drawer .user-panel-content .links a img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+  width: 25px;
+}
+
+.drawer .user-panel-content .links a span {
+  color: var(--gray-color);
+  padding: 0 5px;
+}
+
+.drawer .user-panel-content .links a.on {
+  background-color: var(--secondary-color);
+}
+
+.drawer .user-panel-content .links a.on img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+.drawer .user-panel-content .links a.on span {
   color: white;
 }
 

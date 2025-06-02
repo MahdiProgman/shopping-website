@@ -213,7 +213,7 @@ a:hover::after {
       }
       .user-data {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         border-bottom: 1px solid var(--border-color);
         .name {
           display: flex;
@@ -225,7 +225,6 @@ a:hover::after {
           }
           span {
             color: var(--gray-color);
-            font-size: 1.5em;
           }
         }
         #exit-from-account-drawer-btn {
@@ -237,10 +236,6 @@ a:hover::after {
           img {
             filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);              width: 25px;
             width: 25px;
-          }
-          span {
-            color: #ff2500;
-            font-size: 1.5em;
           }
         }
       }

@@ -195,7 +195,7 @@ a:hover::after {
 
 .drawer .main-content .section-2 .user-data {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -212,7 +212,6 @@ a:hover::after {
 
 .drawer .main-content .section-2 .user-data .name span {
   color: var(--gray-color);
-  font-size: 1.5em;
 }
 
 .drawer .main-content .section-2 .user-data #exit-from-account-drawer-btn {
@@ -227,11 +226,6 @@ a:hover::after {
   filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
   width: 25px;
   width: 25px;
-}
-
-.drawer .main-content .section-2 .user-data #exit-from-account-drawer-btn span {
-  color: #ff2500;
-  font-size: 1.5em;
 }
 
 .drawer .main-content .section-2 .user-panel {

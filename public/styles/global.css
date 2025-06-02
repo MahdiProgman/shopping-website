@@ -60,7 +60,7 @@ a {
   color: var(--link-color);
 }
 
-a:not(.special)::after {
+a.special::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -534,7 +534,7 @@ header > .section-1 .user-actions .auth-links a {
   color: var(--primary-color);
 }
 
-header > .section-1 .user-actions .auth-links a:not(.special)::after {
+header > .section-1 .user-actions .auth-links a.special::after {
   background-color: var(--primary-color);
 }
 

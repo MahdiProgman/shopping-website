@@ -55,7 +55,7 @@
                 <div
                   class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3"
                 >
-                  <a class="special" href="/product/<%= product.product_code %>">
+                  <a href="/product/<%= product.product_code %>">
                     <div class="row-1">
                       <img src="<%= product.image %>" alt="" />
                     </div>
@@ -77,7 +77,7 @@
                     <img src="/assets/icons/back.svg" style="transform: rotate(180deg);" alt="">
                   </button>
                 <% for(let page in products.pages) { %>
-                  <a class="<%= page == settings.page ? 'on' : '' %> special" href="/products?page=<%= page %>&category=<%= settings.category %>&orderBy=<%= settings.orderBy %>"><%= toPersianDigitsHelper(products.pages) %></a>
+                  <a class="<%= page == settings.page ? 'on' : '' %>" href="/products?page=<%= page %>&category=<%= settings.category %>&orderBy=<%= settings.orderBy %>"><%= toPersianDigitsHelper(products.pages) %></a>
                 <% } %>
                   <button>
                     <img src="/assets/icons/back.svg" alt="">

@@ -85,7 +85,7 @@ a {
   color: var(--link-color);
 }
 
-a:not(.special)::after {
+a.special::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -500,7 +500,7 @@ header > {
         a {
           color: var(--primary-color);
         }
-        a:not(.special)::after {
+        a.special::after {
           background-color: var(--primary-color);
         }
       }

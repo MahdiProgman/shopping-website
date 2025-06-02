@@ -107,3 +107,39 @@
   margin: 25px 0;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .main main .container .content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main main {
+    padding: 0;
+  }
+  .main main .container .content {
+    flex-direction: column;
+    position: relative;
+  }
+  .main main .container .content .products-list .products .product a {
+    flex-direction: column;
+  }
+  .main main .container .content .order-details {
+    background-color: var(--bg-color);
+    position: sticky;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 4px 0 12px 0 var(--shadow-color);
+    padding: 0;
+  }
+  .main main .container .content .order-details .place-order-btn {
+    text-align: center;
+    margin: 25px 10%;
+  }
+}

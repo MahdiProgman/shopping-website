@@ -61,3 +61,21 @@
     }
   }
 }
+
+@media screen and (max-width: 640px) {
+  .main {
+    main {
+      .container {
+        .content {
+          .products {
+            .product {
+              a {
+                flex-direction: column;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

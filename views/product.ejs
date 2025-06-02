@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="/styles/product.css" />
     <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
-    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css" />
   </head>
   <body>
     <div class="overlay <%= !isCommentBoxOpen ? 'hidden' : '' %>"></div>
     <%- include("includes/drawer", { page: 'product' }) %>
-    <div class="submit-comment-box  <%= isCommentBoxOpen ? 'on' : '' %>">
+    <div class="submit-comment-box <%= isCommentBoxOpen ? 'on' : '' %>">
       <div class="box">
         <div class="header">
           <h5>ثبت نظر</h5>
@@ -32,15 +32,16 @@
               id="comment-text"
               rows="10"
               placeholder="نظر خود را بنویسید..."
-            ><%= oldData ? oldData.comment_text : '' %></textarea>
+            >
+<%= oldData ? oldData.comment_text : '' %></textarea
+            >
             <% if(errors) { %>
-              <ul>
-                <% errors.forEach(error => { %>
-                  <% if(error.field == 'comment_text') { %>
-                    <li><%= error.error %></li>
-                  <% } %>
-                <% }); %>
-              </ul>
+            <ul>
+              <% errors.forEach(error => { %> <% if(error.field ==
+              'comment_text') { %>
+              <li><%= error.error %></li>
+              <% } %> <% }); %>
+            </ul>
             <% } %>
             <label>امتیاز</label>
             <%
@@ -55,26 +56,47 @@
               const selectedRate = oldData ? oldData.rate : '5';
             %>
             <div class="custom-select">
-              <input class="custom-select-input" id="rate" name="rate" type="hidden" value="<%= oldData ? oldData.rate : 5 %>">
+              <input
+                class="custom-select-input"
+                id="rate"
+                name="rate"
+                type="hidden"
+                value="<%= oldData ? oldData.rate : 5 %>"
+              />
               <div class="select-box">
-                <span><%= rateTexts[selectedRate] %></span>               
-                <img src="/assets/icons/caret.svg" alt="">
+                <span><%= rateTexts[selectedRate] %></span>
+                <img src="/assets/icons/caret.svg" alt="" />
               </div>
               <div class="dropdown">
                 <ul>
-                  <li data-value="5" class="<%= selectedRate == '5' ? 'selected' : 'selected' %>">
+                  <li
+                    data-value="5"
+                    class="<%= selectedRate == '5' ? 'selected' : 'selected' %>"
+                  >
                     <span>😍 عالی (۵ از ۵ امتیاز)</span>
                   </li>
-                  <li data-value="4" class="<%= selectedRate == '4' ? 'selected' : '' %>">
+                  <li
+                    data-value="4"
+                    class="<%= selectedRate == '4' ? 'selected' : '' %>"
+                  >
                     <span>😊 خوب (۴ از ۵ امتیاز)</span>
                   </li>
-                  <li data-value="3" class="<%= selectedRate == '3' ? 'selected' : '' %>">
+                  <li
+                    data-value="3"
+                    class="<%= selectedRate == '3' ? 'selected' : '' %>"
+                  >
                     <span>🙂 معمولی (۳ از ۵ امتیاز)</span>
                   </li>
-                  <li data-value="2" class="<%= selectedRate == '2' ? 'selected' : '' %>">
+                  <li
+                    data-value="2"
+                    class="<%= selectedRate == '2' ? 'selected' : '' %>"
+                  >
                     <span>☹️ ضعیف (۲ از ۵ امتیاز)</span>
                   </li>
-                  <li data-value="1" class="<%= selectedRate == '1' ? 'selected' : '' %>">
+                  <li
+                    data-value="1"
+                    class="<%= selectedRate == '1' ? 'selected' : '' %>"
+                  >
                     <span>👎 بد (۱ از ۵ امتیاز)</span>
                   </li>
                 </ul>
@@ -91,20 +113,25 @@
                 <button type="button">ثبت</button>
               </div>
               <ul>
-                <% if (oldData && oldData.positive_points && oldData.positive_points.length !== 0) { %>
-                  <% for(let positivePoint of oldData.positive_points) { %>
-                    <li>
-                      <div class="text">
-                        <img src="/assets/icons/plus.svg" />
-                        <span><%= positivePoint %></span>
-                        <input type="hidden" name="positive_points[]" required value="<%= positivePoint %>" />
-                      </div>
-                      <button type="button" class="delete-btn">
-                        <img src="/assets/icons/trash.svg" />
-                      </button>
-                    </li>
-                  <% }; %>
-                <% } %>
+                <% if (oldData && oldData.positive_points &&
+                oldData.positive_points.length !== 0) { %> <% for(let
+                positivePoint of oldData.positive_points) { %>
+                <li>
+                  <div class="text">
+                    <img src="/assets/icons/plus.svg" />
+                    <span><%= positivePoint %></span>
+                    <input
+                      type="hidden"
+                      name="positive_points[]"
+                      required
+                      value="<%= positivePoint %>"
+                    />
+                  </div>
+                  <button type="button" class="delete-btn">
+                    <img src="/assets/icons/trash.svg" />
+                  </button>
+                </li>
+                <% }; %> <% } %>
               </ul>
             </div>
             <label for="negetive-points">نکات منفی</label>
@@ -118,20 +145,25 @@
                 <button type="button">ثبت</button>
               </div>
               <ul>
-                <% if (oldData && oldData.negetive_points && oldData.negetive_points.length !== 0) { %>
-                  <% for(let negetivePoint of oldData.negetive_points) { %>
-                    <li>
-                      <div class="text">
-                        <img src="/assets/icons/plus.svg" />
-                        <span><%= negetivePoint %></span>
-                        <input type="hidden" name="negetive_points[]" required value="<%= negetivePoint %>" />
-                      </div>
-                      <button type="button" class="delete-btn">
-                        <img src="/assets/icons/trash.svg" />
-                      </button>
-                    </li>
-                  <% }; %>
-                <% } %>
+                <% if (oldData && oldData.negetive_points &&
+                oldData.negetive_points.length !== 0) { %> <% for(let
+                negetivePoint of oldData.negetive_points) { %>
+                <li>
+                  <div class="text">
+                    <img src="/assets/icons/plus.svg" />
+                    <span><%= negetivePoint %></span>
+                    <input
+                      type="hidden"
+                      name="negetive_points[]"
+                      required
+                      value="<%= negetivePoint %>"
+                    />
+                  </div>
+                  <button type="button" class="delete-btn">
+                    <img src="/assets/icons/trash.svg" />
+                  </button>
+                </li>
+                <% }; %> <% } %>
               </ul>
             </div>
             <button type="submit">ثبت نظر</button>
@@ -165,9 +197,7 @@
           <div class="details">
             <div class="category">
               <span>در دسته بندی : </span>
-              <a
-                class="special"
-                href="/products?category=<%= product.category %>"
+              <a class="special" href="/products?category=<%= product.category %>"
                 ><%= product.category_fa %></a
               >
             </div>
@@ -194,34 +224,45 @@
             </div>
             <div class="buttons">
               <% if(!isProductInFavorites) { %>
-                <form action="/favorites/add/<%= product.product_code %>" method="post">
-                  <button class="favorite">
-                    <img src="/assets/icons/heart.svg" alt="" />
-                    <span>افزودن به علاقه مندی ها</span>
-                  </button>
-                </form>
+              <form
+                action="/favorites/add/<%= product.product_code %>"
+                method="post"
+              >
+                <button class="favorite">
+                  <img src="/assets/icons/heart.svg" alt="" />
+                  <span>افزودن به علاقه مندی ها</span>
+                </button>
+              </form>
               <% } else { %>
-                <form action="/favorites/delete/<%= product.product_code %>" method="post">
-                  <button class="favorite added">
-                    <img src="/assets/icons/heart.svg" alt="" />
-                    <span>حذف از علاقه مندی ها</span>
-                  </button>
-                </form>
-              <% } %>
-              <% if(!isProductInCart) { %>
-                <form action="/cart/add/<%= product.product_code %>" method="post">
-                  <button class="cart">
-                    <img src="/assets/icons/cart.svg" alt="" />
-                    <span>افزودن به سبد خرید</span>
-                  </button>
-                </form>
+              <form
+                action="/favorites/delete/<%= product.product_code %>"
+                method="post"
+              >
+                <button class="favorite added">
+                  <img src="/assets/icons/heart.svg" alt="" />
+                  <span>حذف از علاقه مندی ها</span>
+                </button>
+              </form>
+              <% } %> <% if(!isProductInCart) { %>
+              <form
+                action="/cart/add/<%= product.product_code %>"
+                method="post"
+              >
+                <button class="cart">
+                  <img src="/assets/icons/cart.svg" alt="" />
+                  <span>افزودن به سبد خرید</span>
+                </button>
+              </form>
               <% } else { %>
-                <form action="/cart/delete/<%= product.product_code %>" method="post">
-                  <button class="cart added">
-                    <img src="/assets/icons/cart.svg" alt="" />
-                    <span>حذف از سبد خرید</span>
-                  </button>
-                </form>
+              <form
+                action="/cart/delete/<%= product.product_code %>"
+                method="post"
+              >
+                <button class="cart added">
+                  <img src="/assets/icons/cart.svg" alt="" />
+                  <span>حذف از سبد خرید</span>
+                </button>
+              </form>
               <% } %>
             </div>
           </div>
@@ -251,57 +292,65 @@
           <div class="rate-and-submit-comment">
             <div class="rate">
               <img src="/assets/icons/star.png" alt="" />
-              <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
+              <span class="rate-number"
+                ><%= toPersianDigitsHelper(product.rate) %></span
+              >
             </div>
-            <span class="comments-number">از مجموع <%= toPersianDigitsHelper(product.comments ? product.comments.length : 0) %> نظر</span>
+            <span class="comments-number"
+              >از مجموع <%= toPersianDigitsHelper(product.comments ?
+              product.comments.length : 0) %> نظر</span
+            >
             <p>شما هم نظر خود را ثبت کنید!</p>
-            <button class="write-comment-btn" id="write-comment-btn">نوشتن نظر</button>
+            <button class="write-comment-btn" id="write-comment-btn">
+              نوشتن نظر
+            </button>
           </div>
           <div class="comments">
             <h5>نظرات</h5>
             <% if(product.comments) { %>
-              <div class="comments-list">
-                <% product.comments.map(comment => { %>
-                  <div class="comment">
-                    <div class="name">
-                      <img src="/assets/icons/person.svg" alt="" />
-                      <h6><%= comment.user.first_name + ' ' + comment.user.last_name %></h6>
-                    </div>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number"><%= toPersianDigitsHelper(comment.rate) %></span>
-                    </div>
-                    <p class="comment-text">
-                      <%= comment.commentText %>
-                    </p>
-                    <ul class="positive-points">
-                      <% if(comment.positivePoints.length !== 0) { %>
-                        <% comment.positivePoints.map(positivePoint => { %>
-                          <li>
-                            <img src="/assets/icons/plus.svg" alt="" />
-                            <span><%= positivePoint %></span>
-                          </li>
-                        <% }); %>
-                      <% } %>
-                    </ul>
-                    <ul class="negetive-points">
-                      <% if(comment.negetivePoints.lenght !== 0) { %>
-                        <% comment.negetivePoints.map(negetivePoint => { %>
-                          <li>
-                            <img src="/assets/icons/minus.svg" alt="" />
-                            <span><%= negetivePoint %></span>
-                          </li>
-                        <% }); %>
-                      <% } %>
-                    </ul>
-                  </div>
-                <% }); %>
+            <div class="comments-list">
+              <% product.comments.map(comment => { %>
+              <div class="comment">
+                <div class="name">
+                  <img src="/assets/icons/person.svg" alt="" />
+                  <h6>
+                    <%= comment.user.first_name + ' ' + comment.user.last_name
+                    %>
+                  </h6>
+                </div>
+                <div class="rate">
+                  <img src="/assets/icons/star.png" alt="" />
+                  <span class="rate-number"
+                    ><%= toPersianDigitsHelper(comment.rate) %></span
+                  >
+                </div>
+                <p class="comment-text"><%= comment.commentText %></p>
+                <ul class="positive-points">
+                  <% if(comment.positivePoints.length !== 0) { %> <%
+                  comment.positivePoints.map(positivePoint => { %>
+                  <li>
+                    <img src="/assets/icons/plus.svg" alt="" />
+                    <span><%= positivePoint %></span>
+                  </li>
+                  <% }); %> <% } %>
+                </ul>
+                <ul class="negetive-points">
+                  <% if(comment.negetivePoints.lenght !== 0) { %> <%
+                  comment.negetivePoints.map(negetivePoint => { %>
+                  <li>
+                    <img src="/assets/icons/minus.svg" alt="" />
+                    <span><%= negetivePoint %></span>
+                  </li>
+                  <% }); %> <% } %>
+                </ul>
               </div>
+              <% }); %>
+            </div>
             <% } else { %>
-              <div class="no-data">
-                <img src="/assets/icons/no-data.png" alt="">
-                <span>تا الان نظری برای این محصول ثبت نشده.</span>
-              </div>
+            <div class="no-data">
+              <img src="/assets/icons/no-data.png" alt="" />
+              <span>تا الان نظری برای این محصول ثبت نشده.</span>
+            </div>
             <% } %>
           </div>
         </section>
@@ -326,7 +375,7 @@
     <script src="/scripts/global.js"></script>
     <script src="/scripts/product.js"></script>
     <script>
-      if('<%= error %>') notyf.error('<%= error %>');
+      if ("<%= error %>") notyf.error("<%= error %>");
     </script>
   </body>
 </html>

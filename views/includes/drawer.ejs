@@ -8,7 +8,7 @@
     <div class="brand">
       <img src="/assets/icons/brand.png" alt="brand icon" />
       <span class="vertical-line"></span>
-      <a class="special" href="/">وبسایت فروشگاهی</a>
+      <a href="/">وبسایت فروشگاهی</a>
     </div>
   </div>
   <div class="section-2">
@@ -30,29 +30,29 @@
     </div>
     <% } %>
     <div class="action-links">
-      <a class="special <%= page == 'cart' ? 'on' : '' %>" href="/cart">
+      <a class="<%= page == 'cart' ? 'on' : '' %>" href="/cart">
         <img src="/assets/icons/cart.svg" alt="" />
         <span>سبد خرید</span>
       </a>
-      <a class="special <%= page == 'favorites' ? 'on' : '' %>" href="/favorites">
+      <a class="<%= page == 'favorites' ? 'on' : '' %>" href="/favorites">
         <img src="/assets/icons/heart.svg" alt="" />
         <span>علاقه مندی ها</span>
       </a>
     </div>
     <div class="navbar">
-      <a class="special <%= page == 'index' ? 'on' : '' %>" href="/">
+      <a class="<%= page == 'index' ? 'on' : '' %>" href="/">
         <img src="/assets/icons/house.svg" alt="" />
         <span>خانه</span>
       </a>
-      <a class="special <%= page == 'products' ? 'on' : '' %>" href="/products">
+      <a class="<%= page == 'products' ? 'on' : '' %>" href="/products">
         <img src="/assets/icons/product.svg" alt="" />
         <span>محصولات</span>
       </a>
-      <a class="special <%= page == 'support' ? 'on' : '' %>" href="/support">
+      <a class="<%= page == 'support' ? 'on' : '' %>" href="/support">
         <img src="/assets/icons/support.svg" alt="" />
         <span>پشتیبانی</span>
       </a>
-      <a class="special <%= page == 'about-us' ? 'on' : '' %>" href="/about-us">
+      <a class="<%= page == 'about-us' ? 'on' : '' %>" href="/about-us">
         <img src="/assets/icons/about-us.svg" alt="" />
         <span>درباره ما</span>
       </a>

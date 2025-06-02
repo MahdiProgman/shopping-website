@@ -61,3 +61,9 @@
 .main main .container .content .products .product a .detail .delete-product img {
   width: 25px;
 }
+
+@media screen and (max-width: 640px) {
+  .main main .container .content .products .product a {
+    flex-direction: column;
+  }
+}

@@ -88,6 +88,15 @@ const loadModels = (sequelize) => {
         as: 'user'
     });
 
+    Product.hasMany(Favorite, {
+        foreignKey: 'product_id',
+        as: 'favorites'
+    });
+    Favorite.belongsTo(Product, {
+        foreignKey: 'product_id',
+        as: 'product'
+    });
+
     return {
         User,
         Product,

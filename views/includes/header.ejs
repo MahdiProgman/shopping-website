@@ -69,7 +69,7 @@
         <div class="user-dropdown">
           <div class="name">
             <img src="/assets/icons/person.svg" alt="" />
-            <span><%= user.first_name %></span>
+            <span><%= user.first_name + ' ' + user.last_name %></span>
           </div>
           <div class="links">
             <a href="/user/dashboard" class="<%= page == 'dashboard' ? 'on' : '' %>">

@@ -61,6 +61,4 @@ router.post(
     pagesController.removeFromFavoritesAction
 );
 
-router.use(pagesController.getNotFoundPage);
-
 module.exports = router;

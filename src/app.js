@@ -6,6 +6,8 @@ const config = require('./core/config');
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routers/auth.router");
 const pagesRouter = require('./routers/pages.router');
+const userRouter = require('./routers/user.router');
+const pagesController = require('./controllers/pages.controller');
 const setHelpersMiddleware = require("./middlewares/setHelpers.middleware");
 const setValidationDataMiddleware = require("./middlewares/setValidationData.middleware");
 
@@ -31,5 +33,8 @@ app.use(setValidationDataMiddleware);
 
 app.use("/auth", authRouter);
 app.use('/', pagesRouter);
+app.use('/user', userRouter);
+
+app.use(pagesController.getNotFoundPage);
 
 module.exports = app;

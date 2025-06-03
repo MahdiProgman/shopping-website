@@ -18,7 +18,6 @@ router.get(
     validator.validate().bind(validator),
     pagesController.getProductsPage
 );
-router.get('/favorites', pagesController.getFavoritesPage);
 router.get('/about-us', pagesController.getAboutUsPage);
 router.get('/search', pagesController.getSearchResultsPage);
 router.get('/support', pagesController.getSupportPage);

@@ -55,10 +55,6 @@ const getProductsPage = async (req, res) => {
   });
 };
 
-const getFavoritesPage = async (req, res) => {
-  res.render("favorites");
-};
-
 const getAboutUsPage = async (req, res) => {
   const result = await pagesService.aboutUsPageService();
 
@@ -161,7 +157,6 @@ module.exports = {
   getHomePage,
   getProductPage,
   getProductsPage,
-  getFavoritesPage,
   getAboutUsPage,
   getSupportPage,
   getNotFoundPage,

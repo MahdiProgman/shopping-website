@@ -1,0 +1,45 @@
+.main main .container .content {
+  width: 100%;
+}
+
+.main main .container .content h2 {
+  font-size: 1.5em;
+}
+
+.main main .container .content .orders {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.main main .container .content .orders .order {
+  border: 1px solid var(--border-color);
+  border-radius: 11px;
+  padding: 10px;
+}
+
+.main main .container .content .orders .order span {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  width: 100%;
+}
+
+.main main .container .content .orders .order .details {
+  padding: 10px 15px;
+}
+
+.main main .container .content .orders .order .products {
+  border-top: 1px solid var(--border-color);
+  padding: 0;
+}
+
+.main main .container .content .orders .order .products h6 {
+  font-size: 1.3em;
+}
+
+.main main .container .content .orders .order .products .products-list a img {
+  width: 50px;
+}

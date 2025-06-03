@@ -55,3 +55,28 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .main {
+    main {
+      .container {
+        .content {
+          flex-direction: column;
+          > div {
+            width: 100%;
+            form {
+              .inputs {
+                .input {
+                  .box {
+                    padding: 10px;
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@ const FeatureCardModel = require('./featureCard.model');
 const SupportCardModel = require('./supportCard.model');
 const FavoriteModel = require('./favorite.model');
 const UserSearchModel = require('./userSearch.model');
+const OrderModel = require('./order.model');
 
 const loadModels = (sequelize) => {
     const User = UserModel(sequelize);
@@ -26,6 +27,7 @@ const loadModels = (sequelize) => {
     const SupportCard = SupportCardModel(sequelize);
     const Favorite = FavoriteModel(sequelize);
     const UserSearch = UserSearchModel(sequelize);
+    const Order = OrderModel(sequelize);
 
     Product.hasMany(ProductComment, {
         foreignKey: 'product_id',
@@ -121,7 +123,8 @@ const loadModels = (sequelize) => {
         FeatureCard,
         SupportCard,
         Favorite,
-        UserSearch
+        UserSearch,
+        Order
     };
 };
 

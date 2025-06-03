@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تغییر مشخصات | وبسایت فروشگاهی</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/brand.svg" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/user-panel/global.css">
+    <link rel="stylesheet" href="/styles/user-panel/change-info.css">
+    <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+  </head>
+  <body>
+    <%- include("../includes/drawer", { page: 'change-info', state: 'user-panel' }) %>
+    <div class="overlay hidden"></div>
+    <div class="main">
+      <%- include("../includes/header", { page: 'change-info' }) %>
+      <div class="header-overlay hidden"></div>
+      <main>
+        <div class="container">
+          <%- include("includes/menu", { page: 'change-info' }) %>
+          <div class="content">
+            <div class="change-info">
+              <h4>تغییر مشخصات</h4>
+              <form action="">
+                <div class="inputs">
+                  <div class="input">
+                    <label for="first_name">نام</label>
+                    <div class="box">
+                      <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                  </div>
+                  <div class="input">
+                    <label for="last_name">نام خانوادگی</label>
+                    <div class="box">
+                      <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                  </div>
+                  <div class="input">
+                    <label for="email">ایمیل</label>
+                    <div class="box">
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit">اعمال تغییرات</button>
+              </form>
+            </div>
+            <div class="change-password">
+              <h4>تغییر رمز عبور</h4>
+              <form action="">
+                <div class="inputs">
+                  <div class="input">
+                    <label for="current_password">رمز عبور فعلی</label>
+                    <div class="box">
+                      <input type="password" id="current_password" name="current_password" required>
+                    </div>
+                  </div>
+                  <div class="input">
+                    <label for="new_password">رمز عبور جدید</label>
+                    <div class="box">
+                      <input type="password" id="new_password" name="new_password" required>
+                    </div>
+                  </div>
+                  <div class="input">
+                    <label for="repeat_new_password">تکرار رمز عبور جدید</label>
+                    <div class="box">
+                      <input type="password" id="repeat_new_password" required>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit">ثبت رمز عبور جدید</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+      <%- include("../includes/footer") %>
+    </div>
+    <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/scripts/global.js"></script>
+  </body>
+</html>

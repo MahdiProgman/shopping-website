@@ -1,0 +1,57 @@
+.main {
+  main {
+    .container {
+      .content {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        width: 100%;
+        > div {
+          border: 1px solid var(--border-color);
+          border-radius: 11px;
+          padding: 10px 15px;
+          width: 50%;
+          h4 {
+            font-size: 1.3em;
+          }
+          form {
+            .inputs {
+              padding: 10px;
+              .input {
+                padding: 5px;
+                label {
+                  color: var(--primary-text-color);
+                }
+                .box {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  border: 1px solid var(--border-color);
+                  border-radius: 11px;
+                  padding: 8px 10px;
+                  width: 100%;
+                  input {
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                  }
+                }
+                .box:has(input:focus) {
+                  border-color: var(--secondary-color);
+                }
+              }
+            }
+            button {
+              background-color: var(--secondary-color);
+              border: none;
+              border-radius: 11px;
+              color: white;
+              width: 100%;
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

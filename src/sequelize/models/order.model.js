@@ -24,6 +24,14 @@ module.exports = (sequelize) => {
       total_price: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      user_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'tbl_users',
+          key: 'id'
+        }
       }
     },
     {

@@ -71,10 +71,25 @@ const removeFromCartActionService = async (user_id, product_code) => {
     await userCartProductRepo.removeFromCart(user_id, productFound.id);
 }
 
+const placeOrderActionService = async (user_id) => {
+  const userCart = await userCartProductRepo.findAllProductsOfUserCartByUserId(user_id);
+  const productIds = userCart.map(product => product.id);
+  let totalPrice = 0;
+
+  userCart.forEach(product => {
+    totalPrice += product.price;
+  });
+
+  await orderRepo.createOrderWithItems(user_id, productIds, totalPrice, 'تحویل داده شده', '#70c970');
+  await productRepo.reduceInventoryOfProducts(productIds);
+  await userCartProductRepo.deleteAllOfProductsFromUserCartWithUserId(user_id);
+}
+
 module.exports = {
   dashboardPageService,
   cartPageService,
   favoritesPageService,
   removeFromFavoritesActionService,
-  removeFromCartActionService
+  removeFromCartActionService,
+  placeOrderActionService
 }

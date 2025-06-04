@@ -35,6 +35,11 @@ router.post(
 router.post(
   '/cart/remove/:product_code',
   userController.removeFromCartAction
-)
+);
+
+router.post(
+  '/place-order',
+  userController.placeOrderAction
+);
 
 module.exports = router;

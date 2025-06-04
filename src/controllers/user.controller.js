@@ -14,10 +14,12 @@ const getCartPage = async (req, res) => {
   const result = await userService.cartPageService(res.locals.user.id);
 
   const isProductRemovedFromCart = req.flash('isProductRemovedFromCart')[0];
+  const didOrderPlace = req.flash('didOrderPlace')[0];
 
   res.render('user-panel/cart', {
     ...result,
-    isProductRemovedFromCart: isProductRemovedFromCart ? isProductRemovedFromCart : false
+    isProductRemovedFromCart: isProductRemovedFromCart ? isProductRemovedFromCart : false,
+    didOrderPlace: didOrderPlace ? didOrderPlace : false
   });
 }
 
@@ -57,6 +59,13 @@ const removeFromCartAction = async (req, res) => {
   res.redirect('/user/cart');
 }
 
+const placeOrderAction = async (req, res) => {
+  await userService.placeOrderActionService(res.locals.user.id);
+
+  req.flash('didOrderPlace', true);
+  res.redirect('/user/cart');
+}
+
 module.exports = {
   getDashboardPage,
   getOrdersPage,
@@ -64,5 +73,6 @@ module.exports = {
   getFavoritesPage,
   getChangeInfoPage,
   removeFromFavoritesAction,
-  removeFromCartAction
+  removeFromCartAction,
+  placeOrderAction
 }

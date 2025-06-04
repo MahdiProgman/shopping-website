@@ -14,8 +14,10 @@ const getCartPage = (req, res) => {
   res.render('user-panel/cart');
 }
 
-const getFavoritesPage = (req, res) => {
-  res.render('user-panel/favorites');
+const getFavoritesPage = async (req, res) => {
+  const result = await userService.favoritesPageService(res.locals.user.id);
+
+  res.render('user-panel/favorites', result);
 }
 
 const getChangeInfoPage = (req, res) => {

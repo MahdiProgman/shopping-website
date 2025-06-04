@@ -19,6 +19,15 @@ const dashboardPageService = async (user_id) => {
   }
 }
 
+const favoritesPageService = async (user_id) => {
+  const userFavorites = await favoriteRepo.findAllFavoritesOfUserByUserId(user_id);
+
+  return {
+    userFavorites
+  }
+}
+
 module.exports = {
-  dashboardPageService
+  dashboardPageService,
+  favoritesPageService
 }

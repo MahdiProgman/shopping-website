@@ -211,4 +211,19 @@ module.exports = new (class {
             });
         }
     }
+
+    async reduceInventoryOfProducts(productIds) {
+        const products = await this.Product.findAll({
+            where: {
+                id: {
+                    [Op.in] : productIds
+                }
+            }
+        });
+        
+        for(const product of products) {
+            product.inventory--;
+            await product.save();
+        }
+    }
 })();

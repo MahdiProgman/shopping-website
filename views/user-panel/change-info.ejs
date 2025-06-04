@@ -79,7 +79,7 @@
             </div>
             <div class="change-password">
               <h4>تغییر رمز عبور</h4>
-              <form action="">
+              <form id="change-password-form" action="/user/change-password" method="post">
                 <div class="inputs">
                   <div class="input">
                     <label for="current_password">رمز عبور فعلی</label>
@@ -94,6 +94,15 @@
                         </button>
                       </div>
                     </div>
+                    <% if (errors && errors.length !== 0) { %>
+                      <ul>
+                        <% errors.map(error => { %>
+                          <% if(error.field === 'current_password') { %>
+                            <li style="color: red;"><%= error.error %></li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    <% } %>
                   </div>
                   <div class="input">
                     <label for="new_password">رمز عبور جدید</label>
@@ -108,6 +117,15 @@
                         </button>
                       </div>
                     </div>
+                    <% if (errors && errors.length !== 0) { %>
+                      <ul>
+                        <% errors.map(error => { %>
+                          <% if(error.field === 'new_password') { %>
+                            <li style="color: red;"><%= error.error %></li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    <% } %>
                   </div>
                   <div class="input">
                     <label for="repeat_new_password">تکرار رمز عبور جدید</label>
@@ -136,6 +154,9 @@
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
       let isUserUpdated = JSON.parse('<%= isUserUpdated %>');
+      const isPasswordNotMatch = JSON.parse('<%= isPasswordNotMatch %>');
+      const isNewPasswordMatch = JSON.parse('<%= isNewPasswordMatch %>');
+      const isNewPasswordSet = JSON.parse('<%= isNewPasswordSet %>');
     </script>
     <script src="/scripts/change-info.js"></script>
     <script src="/scripts/global.js"></script>

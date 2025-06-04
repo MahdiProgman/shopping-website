@@ -71,4 +71,12 @@ module.exports = new (class {
             price_fa: product.product.price_fa
         }));
     }
+
+    async deleteAllOfProductsFromUserCartWithUserId(user_id) {
+        await this.UserCartProduct.destroy({
+            where: {
+                user_id: user_id
+            }
+        });
+    }
 })();

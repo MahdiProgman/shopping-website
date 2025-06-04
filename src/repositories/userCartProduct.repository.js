@@ -3,6 +3,7 @@ const { models } = require('../core/db');
 module.exports = new (class {
     constructor () {
         this.UserCartProduct = models.UserCartProduct;
+        this.Product = models.Product;
     }
 
     async addToCart(user_id, product_id) {
@@ -42,5 +43,32 @@ module.exports = new (class {
         });
 
         return count;
+    }
+
+    async findAllProductsOfUserCartByUserId(user_id) {
+        const cart = await this.UserCartProduct.findAll({
+            where: {
+                user_id: user_id
+            },
+            include: [
+                {
+                    model: this.Product,
+                    as: 'product',
+                    attributes: ['id', 'product_code', 'image', 'title', 'rate', 'price', 'price_fa']
+                }
+            ]
+        });
+
+        if(cart.length === 0) return null;
+
+        return cart.map(product => ({
+            id: product.product.id,
+            product_code: product.product.product_code,
+            image: product.product.image,
+            title: product.product.title,
+            rate: product.product.rate,
+            price: product.product.price,
+            price_fa: product.product.price_fa
+        }));
     }
 })();

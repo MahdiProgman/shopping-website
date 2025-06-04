@@ -1,5 +1,9 @@
-const getDashboardPage = (req, res) => {
-  res.render('user-panel/dashboard');
+const userService = require('../services/user.service');
+
+const getDashboardPage = async (req, res) => {
+  const result = await userService.dashboardPageService(res.locals.user.id);
+
+  res.render('user-panel/dashboard', result);
 }
 
 const getOrdersPage = (req, res) => {

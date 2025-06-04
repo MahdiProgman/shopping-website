@@ -99,6 +99,15 @@ const loadModels = (sequelize) => {
         as: 'product'
     });
 
+    User.hasMany(UserSearch, {
+        foreignKey: 'user_id',
+        as: 'searches'
+    });
+    UserSearch.belongsTo(User, {
+        foreignKey: 'user_id',
+        as: 'user'
+    });
+
     return {
         User,
         Product,

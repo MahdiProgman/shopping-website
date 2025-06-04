@@ -1,6 +1,7 @@
 const favoriteRepo = require("../repositories/favorite.repository");
 const orderRepo = require("../repositories/order.repository");
 const orderItemRepo = require("../repositories/orderItem.repository");
+const productRepo = require("../repositories/product.repository");
 const userCartProductRepo = require("../repositories/userCartProduct.repository");
 
 const dashboardPageService = async (user_id) => {
@@ -27,7 +28,20 @@ const favoritesPageService = async (user_id) => {
   }
 }
 
+const removeFromFavoritesActionService = async (user_id, product_code) => {
+    const productFound = await productRepo.findByProductCode(product_code);
+
+    if(!productFound) return 'PRODUCT_IS_NOT_EXISTS';
+
+    const isProductInFavorites = await favoriteRepo.isProductInFavorites(user_id, productFound.id);
+
+    if(!isProductInFavorites) return 'PRODUCT_IS_NOT_EXISTS_IN_FAVORITES';
+
+    await favoriteRepo.removeFromFavorites(user_id, productFound.id);
+}
+
 module.exports = {
   dashboardPageService,
-  favoritesPageService
+  favoritesPageService,
+  removeFromFavoritesActionService
 }

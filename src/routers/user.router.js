@@ -27,4 +27,9 @@ router.get(
   userController.getChangeInfoPage
 );
 
+router.post(
+  '/favorites/remove/:product_code',
+  userController.removeFromFavoritesAction
+);
+
 module.exports = router;

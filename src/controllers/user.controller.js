@@ -17,11 +17,26 @@ const getCartPage = (req, res) => {
 const getFavoritesPage = async (req, res) => {
   const result = await userService.favoritesPageService(res.locals.user.id);
 
-  res.render('user-panel/favorites', result);
+  const isFavoriteRemoved = req.flash('isFavoriteRemoved')[0];
+
+  res.render('user-panel/favorites', {
+    ...result,
+    isFavoriteRemoved: isFavoriteRemoved ? isFavoriteRemoved : false
+  });
 }
 
 const getChangeInfoPage = (req, res) => {
   res.render('user-panel/change-info');
+}
+
+const removeFromFavoritesAction = async (req, res) => {
+  const { product_code } = req.params;
+  const result = await userService.removeFromFavoritesActionService(res.locals.user.id, product_code);
+
+  if(result == 'PRODUCT_IS_NOT_EXISTS_IN_FAVORITES' || result == 'PRODUCT_IS_NOT_EXISTS') return res.redirect('/');
+
+  req.flash('isFavoriteRemoved', true);
+  res.redirect('/user/favorites');
 }
 
 module.exports = {
@@ -29,5 +44,6 @@ module.exports = {
   getOrdersPage,
   getCartPage,
   getFavoritesPage,
-  getChangeInfoPage
+  getChangeInfoPage,
+  removeFromFavoritesAction
 }

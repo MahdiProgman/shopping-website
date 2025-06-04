@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/user-panel/cart.css">
     <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
     <link rel="stylesheet" href="/libs/flexboxgrid/flexboxgrid.css">
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
   </head>
   <body>
     <%- include("../includes/drawer", { page: 'cart', state: 'user-panel' }) %>
@@ -44,9 +45,11 @@
                             <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
                           </div>
                           <span class="price"><%= product.price_fa %> تومان</span>
-                          <button class="delete-product">
-                            <img src="/assets/icons/trash.svg" alt="" />
-                          </button>
+                          <form action="/user/cart/remove/<%= product.product_code %>" method="post">
+                            <button class="delete-product">
+                              <img src="/assets/icons/trash.svg" alt="" />
+                            </button>
+                          </form>
                         </div>
                       </a>
                     </div>
@@ -66,6 +69,19 @@
       <%- include("../includes/footer") %>
     </div>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/libs/notyf/notyf.min.js"></script>
+    <script>
+      const notyf = new Notyf({
+        duration: 3000,
+        ripple: true,
+        position: {
+          x: "left",
+          y: "top",
+        },
+      });
+
+      if("<%= isProductRemovedFromCart %>" == "true") notyf.success('محصول مورد نظر با موفقیت از سبد خرید حذف شد')
+    </script>
     <script src="/scripts/global.js"></script>
   </body>
 </html>

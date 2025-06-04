@@ -59,17 +59,20 @@
   width: 25px;
 }
 
-.main main .container .content .products-list .products .product a .detail .delete-product {
+.main main .container .content .products-list .products .product a .detail form {
+  margin-right: auto;
+}
+
+.main main .container .content .products-list .products .product a .detail form .delete-product {
   background-color: transparent;
   border: 1px solid var(--border-color);
   border-radius: 11px;
-  margin-right: auto;
   padding: 5px;
   width: fit-content;
   cursor: pointer;
 }
 
-.main main .container .content .products-list .products .product a .detail .delete-product img {
+.main main .container .content .products-list .products .product a .detail form .delete-product img {
   width: 25px;
 }
 

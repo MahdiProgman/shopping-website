@@ -1,3 +1,4 @@
+const { last } = require('lodash');
 const { models } = require('../core/db');
 
 module.exports = new (class {
@@ -63,5 +64,15 @@ module.exports = new (class {
             first_name: newUser.first_name,
             last_name: newUser.last_name,
         };
+    }
+
+    async updateUserById(id, first_name, last_name, email) {
+        const userFound = await this.User.findOne({
+            where: {
+                id: id
+            }
+        });
+
+        await userFound.update({ first_name, last_name, email });
     }
 })();

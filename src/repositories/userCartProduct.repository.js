@@ -33,4 +33,14 @@ module.exports = new (class {
 
         return productFound ? true : false;
     }
+
+    async getCountOfProductsInAccountCart(user_id) {
+        const count = await this.UserCartProduct.count({
+            where: {
+                user_id: user_id
+            }
+        });
+
+        return count;
+    }
 })();

@@ -11,7 +11,13 @@ module.exports = (sequelize) => {
       },
       order_id: {
         type: DataTypes.UUID,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'tbl_orders',
+          key: 'id'
+        },
+        onDelete: 'RESTRICT',
+        onUpdate: 'CASCADE'
       },
       product_id: {
         type: DataTypes.UUID,

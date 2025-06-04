@@ -46,14 +46,6 @@
       </div>
     </div>
     <div class="user-actions">
-      <div class="action-links">
-        <a class="action-link special" href="/favorites">
-          <img src="/assets/icons/heart.svg" alt="" />
-        </a>
-        <a class="action-link special" href="/cart">
-          <img src="/assets/icons/cart.svg" alt="" />
-        </a>
-      </div>
       <span class="vertical-line"></span>
       <% if(!login_state) { %>
       <div class="auth-links">
@@ -61,6 +53,14 @@
         <a class="special auth-link" href="/auth/login">ورود</a>
       </div>
       <% } else { %>
+      <div class="action-links">
+        <a class="action-link special" href="/user/favorites">
+          <img src="/assets/icons/heart.svg" alt="" />
+        </a>
+        <a class="action-link special" href="/user/cart">
+          <img src="/assets/icons/cart.svg" alt="" />
+        </a>
+      </div>
       <div class="user-box-container">
         <button id="open-user-dropdown-btn">
           <img src="/assets/icons/person.svg" alt="" />

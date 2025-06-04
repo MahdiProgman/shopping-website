@@ -60,7 +60,9 @@
                 <h5>جزییات سفارش</h5>
                 <span class="sum-of-all">جمع کل : <%= toPersianDigitsHelper(totalPrice.toLocaleString()) %> تومان</span>
                 <span class="payable">قابل پرداخت : <%= toPersianDigitsHelper(totalPrice.toLocaleString()) %> تومان</span>
-                <button class="place-order-btn">ثبت سفارش</button>
+                <form action="/user/place-order" method="post">
+                  <button class="place-order-btn">ثبت سفارش</button>
+                </form>
               </div>
             <% } %>
           </div>
@@ -81,6 +83,13 @@
       });
 
       if("<%= isProductRemovedFromCart %>" == "true") notyf.success('محصول مورد نظر با موفقیت از سبد خرید حذف شد')
+      if("<%= didOrderPlace %>" === "true") Swal.fire({
+        title: "ثبت سفارش با موفقیت انجام شد",
+        text: 'اکنون میتوانید سفارش خود را در صفحه سفارشات مشاهده کنید.',
+        confirmButtonColor: "#57b946",
+        confirmButtonText: "باشه",
+        icon: "success"
+      });
     </script>
     <script src="/scripts/global.js"></script>
   </body>

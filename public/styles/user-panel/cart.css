@@ -101,13 +101,14 @@
   padding: 10px;
 }
 
-.main main .container .content .order-details .place-order-btn {
+.main main .container .content .order-details form .place-order-btn {
   border: none;
   border-radius: 10px;
   background-color: var(--secondary-color);
   color: white;
   padding: 10px 15px;
   margin: 25px 0;
+  width: 100%;
   cursor: pointer;
 }
 

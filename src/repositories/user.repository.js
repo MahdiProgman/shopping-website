@@ -75,4 +75,14 @@ module.exports = new (class {
 
         await userFound.update({ first_name, last_name, email });
     }
+
+    async changePasswordById(id, password) {
+        const userFound = await this.User.findOne({
+            where: {
+                id: id
+            }
+        });
+
+        await userFound.update({ password : password });
+    } 
 })();

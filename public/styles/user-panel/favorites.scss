@@ -6,6 +6,16 @@
         h2 {
           padding: 10px;
         }
+        .no-data {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            img {
+              width: 300px;
+            }
+          }
         .products {
           width: 100%;
           .product {

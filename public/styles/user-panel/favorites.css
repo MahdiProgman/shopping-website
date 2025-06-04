@@ -6,6 +6,18 @@
   padding: 10px;
 }
 
+.main main .container .content .no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main main .container .content .no-data img {
+  width: 300px;
+}
+
 .main main .container .content .products {
   width: 100%;
 }

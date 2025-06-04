@@ -20,114 +20,36 @@
         <div class="container">
           <%- include("includes/menu", { page: 'favorites' }) %>
           <div class="content">
-            <h2>لیست علاقه مندی ها • ۵ محصول</h2>
-            <div class="products">
-              <div class="product">
-                <a href="">
-                  <div class="image">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="detail">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number">۵</span>
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                    <button class="delete-product">
-                      <img src="/assets/icons/trash.svg" alt="" />
-                    </button>
-                  </div>
-                </a>
+            <h2>لیست علاقه مندی ها • <%= toPersianDigitsHelper(userFavorites ? userFavorites.length : 0) %> محصول</h2>
+            <% if (!userFavorites) { %>
+              <div class="no-data">
+                <img src="/assets/icons/no-data.png" alt="" />
+                <span>محصولی اکنون در لیست علاقه مندی های شما وجود ندارد.</span>
               </div>
-              <div class="product">
-                <a href="">
-                  <div class="image">
-                    <img src="/assets/images/croma.png" alt="" />
+            <% } else { %>
+              <div class="products">
+                <% userFavorites.map(favorite => { %>
+                  <div class="product">
+                    <a href="/product/<%= favorite.product_code %>">
+                      <div class="image">
+                        <img src="<%= favorite.image %>" alt="" />
+                      </div>
+                      <div class="detail">
+                        <h5><%= favorite.title %></h5>
+                        <div class="rate">
+                          <img src="/assets/icons/star.png" alt="" />
+                          <span class="rate-number"><%= toPersianDigitsHelper(favorite.rate) %></span>
+                        </div>
+                        <span class="price"><%= favorite.price_fa %> تومان</span>
+                        <button class="delete-product">
+                          <img src="/assets/icons/trash.svg" alt="" />
+                        </button>
+                      </div>
+                    </a>
                   </div>
-                  <div class="detail">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number">۵</span>
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                    <button class="delete-product">
-                      <img src="/assets/icons/trash.svg" alt="" />
-                    </button>
-                  </div>
-                </a>
+                <% }); %>
               </div>
-              <div class="product">
-                <a href="">
-                  <div class="image">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="detail">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number">۵</span>
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                    <button class="delete-product">
-                      <img src="/assets/icons/trash.svg" alt="" />
-                    </button>
-                  </div>
-                </a>
-              </div>
-              <div class="product">
-                <a href="">
-                  <div class="image">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="detail">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number">۵</span>
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                    <button class="delete-product">
-                      <img src="/assets/icons/trash.svg" alt="" />
-                    </button>
-                  </div>
-                </a>
-              </div>
-              <div class="product">
-                <a href="">
-                  <div class="image">
-                    <img src="/assets/images/croma.png" alt="" />
-                  </div>
-                  <div class="detail">
-                    <h5>
-                      هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                      مشکی)
-                    </h5>
-                    <div class="rate">
-                      <img src="/assets/icons/star.png" alt="" />
-                      <span class="rate-number">۵</span>
-                    </div>
-                    <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                    <button class="delete-product">
-                      <img src="/assets/icons/trash.svg" alt="" />
-                    </button>
-                  </div>
-                </a>
-              </div>
-            </div>
+            <% } %>
           </div>
         </div>
       </main>

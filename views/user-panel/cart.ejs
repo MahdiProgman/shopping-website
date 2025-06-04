@@ -21,122 +21,45 @@
         <div class="container">
           <%- include("includes/menu", { page: 'cart' }) %>
           <div class="content">
-            <div class="products-list">
-              <h3>سبد خرید • ۵ محصول</h3>
-              <div class="products">
-                <div class="product">
-                  <a href="">
-                    <div class="image">
-                      <img src="/assets/images/croma.png" alt="" />
+            <% if(!userCart) { %>
+              <h2>سبد خرید</h2>
+              <div class="no-data">
+                <img src="/assets/icons/no-data.png" alt="" />
+                <span>تاکنون شما محصولی به سبد خرید خود اضافه نکرده اید.</span>
+              </div>
+            <% } else { %>
+              <div class="products-list">
+                <h3>سبد خرید • <%= toPersianDigitsHelper(userCart ? userCart.length : 0) %> محصول</h3>
+                <div class="products">
+                  <% userCart.map(product => { %>
+                    <div class="product">
+                      <a href="/product/<%= product.product_code %>">
+                        <div class="image">
+                          <img src="<%= product.image %>" alt="" />
+                        </div>
+                        <div class="detail">
+                          <h5><%= product.title %></h5>
+                          <div class="rate">
+                            <img src="/assets/icons/star.png" alt="" />
+                            <span class="rate-number"><%= toPersianDigitsHelper(product.rate) %></span>
+                          </div>
+                          <span class="price"><%= product.price_fa %> تومان</span>
+                          <button class="delete-product">
+                            <img src="/assets/icons/trash.svg" alt="" />
+                          </button>
+                        </div>
+                      </a>
                     </div>
-                    <div class="detail">
-                      <h5>
-                        هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                        مشکی)
-                      </h5>
-                      <div class="rate">
-                        <img src="/assets/icons/star.png" alt="" />
-                        <span class="rate-number">۵</span>
-                      </div>
-                      <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                      <button class="delete-product">
-                        <img src="/assets/icons/trash.svg" alt="" />
-                      </button>
-                    </div>
-                  </a>
-                </div>
-                <div class="product">
-                  <a href="">
-                    <div class="image">
-                      <img src="/assets/images/croma.png" alt="" />
-                    </div>
-                    <div class="detail">
-                      <h5>
-                        هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                        مشکی)
-                      </h5>
-                      <div class="rate">
-                        <img src="/assets/icons/star.png" alt="" />
-                        <span class="rate-number">۵</span>
-                      </div>
-                      <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                      <button class="delete-product">
-                        <img src="/assets/icons/trash.svg" alt="" />
-                      </button>
-                    </div>
-                  </a>
-                </div>
-                <div class="product">
-                  <a href="">
-                    <div class="image">
-                      <img src="/assets/images/croma.png" alt="" />
-                    </div>
-                    <div class="detail">
-                      <h5>
-                        هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                        مشکی)
-                      </h5>
-                      <div class="rate">
-                        <img src="/assets/icons/star.png" alt="" />
-                        <span class="rate-number">۵</span>
-                      </div>
-                      <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                      <button class="delete-product">
-                        <img src="/assets/icons/trash.svg" alt="" />
-                      </button>
-                    </div>
-                  </a>
-                </div>
-                <div class="product">
-                  <a href="">
-                    <div class="image">
-                      <img src="/assets/images/croma.png" alt="" />
-                    </div>
-                    <div class="detail">
-                      <h5>
-                        هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                        مشکی)
-                      </h5>
-                      <div class="rate">
-                        <img src="/assets/icons/star.png" alt="" />
-                        <span class="rate-number">۵</span>
-                      </div>
-                      <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                      <button class="delete-product">
-                        <img src="/assets/icons/trash.svg" alt="" />
-                      </button>
-                    </div>
-                  </a>
-                </div>
-                <div class="product">
-                  <a href="">
-                    <div class="image">
-                      <img src="/assets/images/croma.png" alt="" />
-                    </div>
-                    <div class="detail">
-                      <h5>
-                        هدفون بلوتوث کروما با میکروفون (پخش تا 16 ساعت، روی گوش،
-                        مشکی)
-                      </h5>
-                      <div class="rate">
-                        <img src="/assets/icons/star.png" alt="" />
-                        <span class="rate-number">۵</span>
-                      </div>
-                      <span class="price">۱۳,۹۶۰,۰۰۰ تومان</span>
-                      <button class="delete-product">
-                        <img src="/assets/icons/trash.svg" alt="" />
-                      </button>
-                    </div>
-                  </a>
+                  <% }); %>
                 </div>
               </div>
-            </div>
-            <div class="order-details">
-              <h5>جزییات سفارش</h5>
-              <span class="sum-of-all">جمع کل : ۶۹,۸۰۰,۰۰۰ تومان</span>
-              <span class="payable">قابل پرداخت : ۶۹,۸۰۰,۰۰۰ تومان</span>
-              <button class="place-order-btn">ثبت سفارش</button>
-            </div>
+              <div class="order-details">
+                <h5>جزییات سفارش</h5>
+                <span class="sum-of-all">جمع کل : <%= toPersianDigitsHelper(totalPrice.toLocaleString()) %> تومان</span>
+                <span class="payable">قابل پرداخت : <%= toPersianDigitsHelper(totalPrice.toLocaleString()) %> تومان</span>
+                <button class="place-order-btn">ثبت سفارش</button>
+              </div>
+            <% } %>
           </div>
         </div>
       </main>

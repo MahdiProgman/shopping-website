@@ -108,6 +108,22 @@
   cursor: pointer;
 }
 
+.main main .container .content .no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main main .container .content .no-data img {
+  width: 300px;
+}
+
+.main main .container .content:has(.no-data) {
+  display: block;
+}
+
 @media screen and (max-width: 768px) {
   .main main .container .content {
     display: flex;

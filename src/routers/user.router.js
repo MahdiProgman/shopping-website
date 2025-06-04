@@ -32,4 +32,9 @@ router.post(
   userController.removeFromFavoritesAction
 );
 
+router.post(
+  '/cart/remove/:product_code',
+  userController.removeFromCartAction
+)
+
 module.exports = router;

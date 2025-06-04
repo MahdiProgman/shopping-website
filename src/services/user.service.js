@@ -62,9 +62,19 @@ const removeFromFavoritesActionService = async (user_id, product_code) => {
     await favoriteRepo.removeFromFavorites(user_id, productFound.id);
 }
 
+const removeFromCartActionService = async (user_id, product_code) => {
+    const productFound = await productRepo.findByProductCode(product_code);
+    const isProductInCart = await userCartProductRepo.isProductInCart(user_id, productFound.id);
+
+    if(!isProductInCart) return 'PRODUCT_IS_NOT_EXISTS_IN_CART';
+
+    await userCartProductRepo.removeFromCart(user_id, productFound.id);
+}
+
 module.exports = {
   dashboardPageService,
   cartPageService,
   favoritesPageService,
-  removeFromFavoritesActionService
+  removeFromFavoritesActionService,
+  removeFromCartActionService
 }

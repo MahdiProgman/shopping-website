@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/user-panel/global.css">
     <link rel="stylesheet" href="/styles/user-panel/change-info.css">
     <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
   </head>
   <body>
     <%- include("../includes/drawer", { page: 'change-info', state: 'user-panel' }) %>
@@ -22,28 +23,55 @@
           <div class="content">
             <div class="change-info">
               <h4>تغییر مشخصات</h4>
-              <form action="">
+              <form action="/user/change-info" method="post">
                 <div class="inputs">
                   <div class="input">
                     <label for="first_name">نام</label>
                     <div class="box">
                       <img src="/assets/icons/name.svg" alt="">
-                      <input type="text" id="first_name" name="first_name" required>
+                      <input type="text" id="first_name" name="first_name" value="<%= user.first_name %>" required>
                     </div>
+                    <% if (errors && errors.length !== 0) { %>
+                      <ul>
+                        <% errors.map(error => { %>
+                          <% if(error.field === 'first_name') { %>
+                            <li style="color: red;"><%= error.error %></li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    <% } %>
                   </div>
                   <div class="input">
                     <label for="last_name">نام خانوادگی</label>
                     <div class="box">
                       <img src="/assets/icons/name.svg" alt="">
-                      <input type="text" id="last_name" name="last_name" required>
+                      <input type="text" id="last_name" name="last_name" value="<%= user.last_name %>" required>
                     </div>
+                    <% if (errors && errors.length !== 0) { %>
+                      <ul>
+                        <% errors.map(error => { %>
+                          <% if(error.field === 'last_name') { %>
+                            <li style="color: red;"><%= error.error %></li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    <% } %>
                   </div>
                   <div class="input">
                     <label for="email">ایمیل</label>
                     <div class="box">
                       <img src="/assets/icons/mail.svg" alt="">
-                      <input type="email" id="email" name="email" required>
+                      <input type="email" id="email" name="email" value="<%= user.email %>" required>
                     </div>
+                    <% if (errors && errors.length !== 0) { %>
+                      <ul>
+                        <% errors.map(error => { %>
+                          <% if(error.field === 'email') { %>
+                            <li style="color: red;"><%= error.error %></li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    <% } %>
                   </div>
                 </div>
                 <button type="submit">اعمال تغییرات</button>
@@ -104,7 +132,11 @@
       </main>
       <%- include("../includes/footer") %>
     </div>
+    <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script>
+      let isUserUpdated = JSON.parse('<%= isUserUpdated %>');
+    </script>
     <script src="/scripts/change-info.js"></script>
     <script src="/scripts/global.js"></script>
   </body>

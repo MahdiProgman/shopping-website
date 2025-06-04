@@ -1,4 +1,12 @@
 const showPasswordBtns = document.querySelectorAll('.show-password-btn');
+const notyf = new Notyf({
+  duration: 3000,
+  ripple: true,
+  position: {
+    x: "left",
+    y: "top",
+  },
+});
 
 showPasswordBtns.forEach(showPasswordBtn => {
   showPasswordBtn.addEventListener('click', () => {
@@ -13,3 +21,5 @@ showPasswordBtns.forEach(showPasswordBtn => {
   }
   })
 });
+
+if(isUserUpdated) notyf.success('اطلاعات با موفقیت بروزرسانی شد');

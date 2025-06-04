@@ -51,16 +51,18 @@
                     width: 25px;
                   }
                 }
-                .delete-product {
-                  background-color: transparent;
-                  border: 1px solid var(--border-color);
-                  border-radius: 11px;
+                form {
                   margin-right: auto;
-                  padding: 5px;
-                  width: fit-content;
-                  cursor: pointer;
-                  img {
-                    width: 25px;
+                  .delete-product {
+                    background-color: transparent;
+                    border: 1px solid var(--border-color);
+                    border-radius: 11px;
+                    padding: 5px;
+                    width: fit-content;
+                    cursor: pointer;
+                    img {
+                      width: 25px;
+                    }
                   }
                 }
               }

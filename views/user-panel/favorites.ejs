@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/user-panel/global.css">
     <link rel="stylesheet" href="/styles/user-panel/favorites.css">
     <link rel="stylesheet" href="/libs/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/libs/notyf/notyf.min.css">
   </head>
   <body>
     <%- include("../includes/drawer", { page: 'favorites', state: 'user-panel' }) %>
@@ -41,9 +42,11 @@
                           <span class="rate-number"><%= toPersianDigitsHelper(favorite.rate) %></span>
                         </div>
                         <span class="price"><%= favorite.price_fa %> تومان</span>
-                        <button class="delete-product">
-                          <img src="/assets/icons/trash.svg" alt="" />
-                        </button>
+                        <form action="/user/favorites/remove/<%= favorite.product_code %>" method="post">
+                          <button class="delete-product">
+                            <img src="/assets/icons/trash.svg" alt="" />
+                          </button>
+                        </form>
                       </div>
                     </a>
                   </div>
@@ -55,7 +58,20 @@
       </main>
       <%- include("../includes/footer") %>
     </div>
+    <script src="/libs/notyf/notyf.min.js"></script>
     <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script>
+      const notyf = new Notyf({
+        duration: 3000,
+        ripple: true,
+        position: {
+          x: "left",
+          y: "top",
+        },
+      });
+
+      if("<%= isFavoriteRemoved %>" == "true") notyf.success('محصول مورد نظر با موفقیت از علاقه مندی ها حذف شد')
+    </script>
     <script src="/scripts/global.js"></script>
   </body>
 </html>

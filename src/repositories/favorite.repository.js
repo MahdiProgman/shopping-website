@@ -33,4 +33,14 @@ module.exports = new (class {
 
         return favoriteFound ? true : false;
     }
+
+    async getCountOfFavoritesInAccount(user_id) {
+        const count = await this.Favorite.count({
+            where: {
+                user_id: user_id
+            }
+        });
+
+        return count;
+    }
 })();

@@ -48,6 +48,12 @@ router.post(
   userValidator.changeInfoValidation(),
   validator.validate().bind(validator),
   userController.changeInfoAction
-)
+);
+router.post(
+  '/change-password',
+  userValidator.changePasswordValidation(),
+  validator.validate((req, res) => res.redirect('/user/change-info')).bind(validator),
+  userController.changePasswordAction
+);
 
 module.exports = router;

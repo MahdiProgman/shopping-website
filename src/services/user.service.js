@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const favoriteRepo = require("../repositories/favorite.repository");
 const orderRepo = require("../repositories/order.repository");
 const orderItemRepo = require("../repositories/orderItem.repository");
@@ -105,6 +106,24 @@ const changeInfoActionService = async (user_id, first_name, last_name, email) =>
   await userRepo.updateUserById(user_id, first_name, last_name, email);
 }
 
+const changePasswordActionService = async (user_id, current_password, new_password) => {
+  const userFound = await userRepo.findById(user_id, true);
+  const isPasswordMatch = await bcrypt.compare(current_password, userFound.password);
+
+  console.log(current_password);
+  console.log(new_password)
+  if(!isPasswordMatch) return 'PASSWORD_IS_WRONG';
+
+  const isNewPasswordMatch = await bcrypt.compare(new_password, userFound.password);
+
+  if(isNewPasswordMatch) return 'NEW_PASSWORD_IS_MATCH_WITH_CURRENT_PASSWORD';
+
+  const salt = await bcrypt.genSalt(3);
+  const encryptedPass = await bcrypt.hash(new_password, salt);
+
+  await userRepo.changePasswordById(user_id, encryptedPass);
+}
+
 module.exports = {
   dashboardPageService,
   ordersPageService,
@@ -113,5 +132,6 @@ module.exports = {
   removeFromFavoritesActionService,
   removeFromCartActionService,
   placeOrderActionService,
-  changeInfoActionService
+  changeInfoActionService,
+  changePasswordActionService
 }

@@ -18,4 +18,13 @@ module.exports = new (class {
         .withMessage("طول نام خانوادگی باید بین ۴ تا ۲۴ کاراکتر باشد"),
     ];
   }
+
+  changePasswordValidation() {
+    return [
+      check('current_password').not().isEmpty().withMessage('رمز عبور نباید خالی باشد'),
+      check('current_password').isLength({ min: 8, max: 24}).withMessage('طول رمز عبور باید بین ۸ تا ۲۴ کاراکتر باشد'),
+      check('new_password').not().isEmpty().withMessage('رمز عبور نباید خالی باشد'),
+      check('new_password').isLength({ min: 8, max: 24}).withMessage('طول رمز عبور باید بین ۸ تا ۲۴ کاراکتر باشد')
+    ];
+  }
 })();

@@ -38,9 +38,15 @@ const getFavoritesPage = async (req, res) => {
 
 const getChangeInfoPage = (req, res) => {
   const isUserUpdated = req.flash('isUserUpdated')[0];
+  const isPasswordNotMatch = req.flash('isPasswordNotMatch')[0];
+  const isNewPasswordMatch = req.flash('isNewPasswordMatch')[0];
+  const isNewPasswordSet = req.flash('isNewPasswordSet')[0]
 
   res.render('user-panel/change-info', {
-    isUserUpdated: isUserUpdated ? isUserUpdated : false
+    isUserUpdated: isUserUpdated ? isUserUpdated : false,
+    isPasswordNotMatch: isPasswordNotMatch ? isPasswordNotMatch : false,
+    isNewPasswordMatch: isNewPasswordMatch ? isNewPasswordMatch : false,
+    isNewPasswordSet: isNewPasswordSet ? isNewPasswordSet : false
   });
 }
 
@@ -81,6 +87,18 @@ const changeInfoAction = async (req, res) => {
   res.redirect('/user/change-info');
 }
 
+const changePasswordAction = async (req, res) => {
+  const { current_password, new_password } = req.body;
+
+  const result = await userService.changePasswordActionService(res.locals.user.id, current_password, new_password);
+
+  if(result == 'PASSWORD_IS_WRONG') req.flash('isPasswordNotMatch', true);
+  else if(result == 'NEW_PASSWORD_IS_MATCH_WITH_CURRENT_PASSWORD') req.flash('isNewPasswordMatch', true);
+  else req.flash('isNewPasswordSet', true);
+
+  res.redirect('/user/change-info');
+}
+
 module.exports = {
   getDashboardPage,
   getOrdersPage,
@@ -90,5 +108,6 @@ module.exports = {
   removeFromFavoritesAction,
   removeFromCartAction,
   placeOrderAction,
-  changeInfoAction
+  changeInfoAction,
+  changePasswordAction
 }

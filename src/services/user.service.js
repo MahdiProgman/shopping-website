@@ -20,6 +20,28 @@ const dashboardPageService = async (user_id) => {
   }
 }
 
+const cartPageService = async (user_id) => {
+  const userCart = await userCartProductRepo.findAllProductsOfUserCartByUserId(user_id);
+  
+  if (userCart) {
+    let totalPrice = 0;
+
+    userCart.forEach(product => {
+      totalPrice += product.price;
+    });
+
+    return {
+      userCart,
+      totalPrice
+    }
+  } else {
+    return {
+      userCart,
+      totalPrice: null
+    }
+  }
+}
+
 const favoritesPageService = async (user_id) => {
   const userFavorites = await favoriteRepo.findAllFavoritesOfUserByUserId(user_id);
 
@@ -42,6 +64,7 @@ const removeFromFavoritesActionService = async (user_id, product_code) => {
 
 module.exports = {
   dashboardPageService,
+  cartPageService,
   favoritesPageService,
   removeFromFavoritesActionService
 }

@@ -10,8 +10,10 @@ const getOrdersPage = (req, res) => {
   res.render('user-panel/orders');
 }
 
-const getCartPage = (req, res) => {
-  res.render('user-panel/cart');
+const getCartPage = async (req, res) => {
+  const result = await userService.cartPageService(res.locals.user.id);
+
+  res.render('user-panel/cart', result);
 }
 
 const getFavoritesPage = async (req, res) => {

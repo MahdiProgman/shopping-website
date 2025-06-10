@@ -37,7 +37,11 @@ const getFavoritesPage = async (req, res) => {
 }
 
 const getChangeInfoPage = (req, res) => {
-  res.render('user-panel/change-info');
+  const isUserUpdated = req.flash('isUserUpdated')[0];
+
+  res.render('user-panel/change-info', {
+    isUserUpdated: isUserUpdated ? isUserUpdated : false
+  });
 }
 
 const removeFromFavoritesAction = async (req, res) => {
@@ -68,6 +72,15 @@ const placeOrderAction = async (req, res) => {
   res.redirect('/user/cart');
 }
 
+const changeInfoAction = async (req, res) => {
+  const { first_name, last_name, email } = req.body;
+
+  await userService.changeInfoActionService(res.locals.user.id, first_name, last_name, email);
+
+  req.flash('isUserUpdated', true);
+  res.redirect('/user/change-info');
+}
+
 module.exports = {
   getDashboardPage,
   getOrdersPage,
@@ -76,5 +89,6 @@ module.exports = {
   getChangeInfoPage,
   removeFromFavoritesAction,
   removeFromCartAction,
-  placeOrderAction
+  placeOrderAction,
+  changeInfoAction
 }

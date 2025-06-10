@@ -1,6 +1,8 @@
 const express = require('express');
 const authGuard = require('../guards/auth.guard');
 const userController = require('./../controllers/user.controller');
+const userValidator = require('../validators/user.validator');
+const validator = require('../validators/validator');
 
 const router = express.Router();
 
@@ -41,5 +43,11 @@ router.post(
   '/place-order',
   userController.placeOrderAction
 );
+router.post(
+  '/change-info',
+  userValidator.changeInfoValidation(),
+  validator.validate().bind(validator),
+  userController.changeInfoAction
+)
 
 module.exports = router;

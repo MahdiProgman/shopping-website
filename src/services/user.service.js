@@ -3,6 +3,7 @@ const orderRepo = require("../repositories/order.repository");
 const orderItemRepo = require("../repositories/orderItem.repository");
 const productRepo = require("../repositories/product.repository");
 const userCartProductRepo = require("../repositories/userCartProduct.repository");
+const userRepo = require('../repositories/user.repository');
 const moment = require('jalali-moment');
 
 const dashboardPageService = async (user_id) => {
@@ -100,6 +101,10 @@ const placeOrderActionService = async (user_id) => {
   await userCartProductRepo.deleteAllOfProductsFromUserCartWithUserId(user_id);
 }
 
+const changeInfoActionService = async (user_id, first_name, last_name, email) => {
+  await userRepo.updateUserById(user_id, first_name, last_name, email);
+}
+
 module.exports = {
   dashboardPageService,
   ordersPageService,
@@ -107,5 +112,6 @@ module.exports = {
   favoritesPageService,
   removeFromFavoritesActionService,
   removeFromCartActionService,
-  placeOrderActionService
+  placeOrderActionService,
+  changeInfoActionService
 }

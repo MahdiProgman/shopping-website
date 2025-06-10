@@ -23,141 +23,32 @@
           <div class="content">
             <h2>سفارشات</h2>
             <div class="orders">
-              <div class="order">
-                <span style="background-color: #70c970;color: white;">تحویل داده شده</span>
-                <div class="details">
-                  <p>تاریخ ثبت : ۰۴/۰۳/۰۱</p>
-                  <p>کد سفارش : swo-54</p>
-                  <p>مبلغ : ۳۵,۰۰۰ تومن</p>
-                </div>
-                <div class="products">
-                  <div class="products-list">
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
+              <% if (userOrders) { %>
+                <% userOrders.map(order => { %>
+                  <div class="order">
+                    <span style="background-color: <%= order.status_color %>;color: white;"><%= order.status %></span>
+                    <div class="details">
+                      <p>تاریخ ثبت : <%= toPersianDigitsHelper(order.createdAt) %></p>
+                      <p>کد سفارش : <%= order.order_code %></p>
+                      <p>مبلغ : <%= toPersianDigitsHelper(order.total_price.toLocaleString()) %> تومن</p>
+                    </div>
+                    <div class="products">
+                      <div class="products-list">
+                        <% order.orderItems.map(item => { %>
+                          <a href="/product/<%= item.product_code %>">
+                            <img src="<%= item.image %>" alt="">
+                          </a>
+                        <% }); %>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="order">
-                <span style="background-color: #70c970;color: white;">تحویل داده شده</span>
-                <div class="details">
-                  <p>تاریخ ثبت : ۰۴/۰۳/۰۱</p>
-                  <p>کد سفارش : swo-54</p>
-                  <p>مبلغ : ۳۵,۰۰۰ تومن</p>
-                </div>
-                <div class="products">
-                  <div class="products-list">
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order">
-                <span style="background-color: #70c970;color: white;">تحویل داده شده</span>
-                <div class="details">
-                  <p>تاریخ ثبت : ۰۴/۰۳/۰۱</p>
-                  <p>کد سفارش : swo-54</p>
-                  <p>مبلغ : ۳۵,۰۰۰ تومن</p>
-                </div>
-                <div class="products">
-                  <div class="products-list">
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order">
-                <span style="background-color: #70c970;color: white;">تحویل داده شده</span>
-                <div class="details">
-                  <p>تاریخ ثبت : ۰۴/۰۳/۰۱</p>
-                  <p>کد سفارش : swo-54</p>
-                  <p>مبلغ : ۳۵,۰۰۰ تومن</p>
-                </div>
-                <div class="products">
-                  <div class="products-list">
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order">
-                <span style="background-color: #70c970;color: white;">تحویل داده شده</span>
-                <div class="details">
-                  <p>تاریخ ثبت : ۰۴/۰۳/۰۱</p>
-                  <p>کد سفارش : swo-54</p>
-                  <p>مبلغ : ۳۵,۰۰۰ تومن</p>
-                </div>
-                <div class="products">
-                  <div class="products-list">
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                    <a href="/product/swp-50">
-                      <img src="/assets/images/products/cooking_tools/swp-1/1.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
-              </div>
+                <% }); %>
+              <% } else { %>
+                <div class="no-data">
+                  <img src="/assets/icons/no-data.png" alt="" />
+                  <span>تاکنون محصولی سفارش نداده اید.</span>
+                </div> 
+              <% } %>
             </div>
           </div>
         </div>

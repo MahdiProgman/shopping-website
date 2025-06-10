@@ -43,3 +43,20 @@
 .main main .container .content .orders .order .products .products-list a img {
   width: 50px;
 }
+
+.main main .container .content .orders .no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main main .container .content .orders .no-data img {
+  width: 300px;
+}
+
+.main main .container .content .orders:has(.no-data) {
+  justify-content: center;
+  align-items: center;
+}

@@ -22,6 +22,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
+    "jalali-moment": "^3.3.11",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",

@@ -5,6 +5,7 @@ module.exports = new (class {
   constructor () {
     this.Order = models.Order;
     this.OrderItem = models.OrderItem;
+    this.Product = models.Product;
   }
 
   async getCountOfOrdersInAccount(user_id) {
@@ -33,5 +34,41 @@ module.exports = new (class {
     }));
 
     await this.OrderItem.bulkCreate(orderItems);
+  }
+
+  async findUserOrdersByUserId(user_id) {
+    const orders = await this.Order.findAll({
+      where: {
+        user_id: user_id
+      },
+      include: [
+        {
+          model: this.OrderItem,
+          as: 'orderItems',
+          include: [
+            {
+              model: this.Product,
+              as: 'product',
+              attributes: ['product_code', 'image']
+            }
+          ]
+        }
+      ],
+      order: [['createdAt', 'DESC']]
+    });
+
+    if (orders.length === 0) return null;
+
+    return orders.map(order => ({
+      order_code: order.order_code,
+      status: order.status,
+      status_color: order.status_color,
+      total_price: order.total_price,
+      createdAt: order.createdAt,
+      orderItems: order.orderItems.map(item => ({
+        product_code: item.product.product_code,
+        image: item.product.image
+      }))
+    }));
   }
 })();

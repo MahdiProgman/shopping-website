@@ -3,6 +3,7 @@ const orderRepo = require("../repositories/order.repository");
 const orderItemRepo = require("../repositories/orderItem.repository");
 const productRepo = require("../repositories/product.repository");
 const userCartProductRepo = require("../repositories/userCartProduct.repository");
+const moment = require('jalali-moment');
 
 const dashboardPageService = async (user_id) => {
   const countOfOrdersInAccount = await orderRepo.getCountOfOrdersInAccount(user_id);
@@ -17,6 +18,20 @@ const dashboardPageService = async (user_id) => {
       countOfFavoritesInAccount
     },
     recentOrders: recentOrders
+  }
+}
+
+const ordersPageService = async (user_id) => {
+  const userOrders = await orderRepo.findUserOrdersByUserId(user_id);
+
+  if (userOrders) {
+    userOrders.forEach(order => {
+      order.createdAt = moment(order.createdAt).locale('fa').format('D MMM YYYY');
+    });
+  }
+
+  return {
+    userOrders
   }
 }
 
@@ -87,6 +102,7 @@ const placeOrderActionService = async (user_id) => {
 
 module.exports = {
   dashboardPageService,
+  ordersPageService,
   cartPageService,
   favoritesPageService,
   removeFromFavoritesActionService,

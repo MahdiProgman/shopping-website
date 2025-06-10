@@ -23,72 +23,51 @@
           <%- include("includes/menu", { page: 'dashboard' }) %>
           <div class="content">
             <h2>داشبورد</h2>
-            <p>سلام👋، خوش اومدی آرش!</p>
+            <p>سلام👋، خوش اومدی <%= user.first_name %>!</p>
             <div class="boxes">
               <div class="box" style="background-color: #3B82F6;">
                 <h5>سفارشات</h5>
                 <p>تعداد سفارشاتی که تا به امروز داشتید</p>
-                <span>۸</span>
+                <span><%= toPersianDigitsHelper(counts.countOfOrdersInAccount) %></span>
                 <img src="/assets/icons/order.svg" alt="">
               </div>
               <div class="box" style="background-color: #10B981;">
                 <h5>سبد خرید</h5>
                 <p>تعداد محصولاتی که به سبد خرید خود اضافه کرده اید</p>
-                <span>۴</span>
+                <span><%= toPersianDigitsHelper(counts.countOfProductsInAccountCart) %></span>
                 <img src="/assets/icons/cart.svg" alt="">
               </div>
               <div class="box" style="background-color: #ef4444;">
                 <h5>علاقه مندی ها</h5>
                 <p>تعداد محصولاتی که به علاقه مندی خود اضافه کرده اید</p>
-                <span>۱۲</span>
+                <span><%= toPersianDigitsHelper(counts.countOfFavoritesInAccount) %></span>
                 <img src="/assets/icons/heart.svg" alt="">
               </div>
             </div>
             <div class="recent-orders">
               <h4>خرید های اخیر شما</h4>
               <p>جدید ترین خرید هایی که داشته اید</p>
-              <div class="products row">
-                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
-                    <a href="/product/swp-300">
-                      <div class="row-1">
-                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
-                      </div>
-                      <div class="row-2">
-                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
-                    <a href="/product/swp-300">
-                      <div class="row-1">
-                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
-                      </div>
-                      <div class="row-2">
-                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
-                    <a href="/product/swp-300">
-                      <div class="row-1">
-                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
-                      </div>
-                      <div class="row-2">
-                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
-                    <a href="/product/swp-300">
-                      <div class="row-1">
-                        <img src="/assets/images/products/cooking_tools/swp-2/main.jpg" alt="" />
-                      </div>
-                      <div class="row-2">
-                        <h5>تابه کاج تفلون مدل GHT سایز ۳۰</h5>
-                      </div>
-                    </a>
-                  </div>
+              <% if(!recentOrders) { %>
+                <div class="no-data">
+                  <img src="/assets/icons/no-data.png" alt="" />
+                  <span>تاکنون شما محصولی سفارش نداده اید.</span>
                 </div>
+              <% } else { %>
+                <div class="products row">
+                  <% recentOrders.map(recentOrder => { %>
+                    <div class="product-card col-xs-12 col-sm-8 col-md-6 col-lg-3">
+                      <a href="/product/<%= recentOrder.product_code %>">
+                        <div class="row-1">
+                          <img src="<%= recentOrder.image %>" alt="" />
+                        </div>
+                        <div class="row-2">
+                          <h5><%= recentOrder.title %></h5>
+                        </div>
+                      </a>
+                    </div>
+                  <% }); %>
+                </div>
+              <% } %>
               </div>
             </div>
         </div>

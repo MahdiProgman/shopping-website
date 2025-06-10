@@ -108,6 +108,18 @@
   box-shadow: 2px 2px 5px -2px black;
 }
 
+.main main .container .content .recent-orders .no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main main .container .content .recent-orders .no-data img {
+  width: 300px;
+}
+
 @media screen and (max-width: 768px) {
   .main main .container .content .boxes {
     flex-direction: column;

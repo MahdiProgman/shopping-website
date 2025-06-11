@@ -1,0 +1,124 @@
+@mixin grayColorFilter {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(329%) hue-rotate(180deg) brightness(92%) contrast(83%);
+}
+
+@mixin whiteColorFilter {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(0%) hue-rotate(283deg) brightness(107%) contrast(103%);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  .menu {
+    box-shadow: 0 4px 10px -3px var(--shadow-color);
+    height: 100vh;
+    flex-shrink: 0;
+    width: clamp(350px, 25%, 450px);
+    .title {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      gap: 10px;
+      padding: 15px;
+      img {
+        width: 50px;
+      }
+      h1 {
+        color: var(--primary-color);
+        font-size: 1.8em;
+      }
+    }
+    .user-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      padding: 5px;
+      .data {
+        display: flex;
+        img {
+          width: 50px;
+        }
+        div.left {
+          p.name {
+            color: var(--primary-text-color);
+          }
+        }
+      }
+      .user-role {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        .role {
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          padding: 2px;
+        }
+      }
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      a {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid var(--border-color);
+        gap: 5px;
+        img {
+          @include grayColorFilter();
+          width: 25px;
+        }
+        span {
+          color: var(--gray-color);
+          padding: 2px 5px;
+        }
+        &:not(.on):hover {
+          background-color: var(--bg-soft);
+        }
+        &.on {
+          background-color: var(--secondary-color);
+          img {
+            @include whiteColorFilter();
+          }
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+    .exit-from-account-btn {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      gap: 5px;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: all .5s;
+      img {
+        filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(7123%) hue-rotate(0deg) brightness(105%) contrast(108%);
+        width: 25px;
+      }
+      span {
+        color: red;
+      }
+      &:hover {
+        background-color: red;
+        img {
+          @include whiteColorFilter();
+        }
+        span {
+          color: white;
+        }
+      }
+    }
+  }
+}

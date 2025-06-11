@@ -1,0 +1,58 @@
+<div class="menu">
+  <div class="title">
+    <img src="/assets/icons/brand.png" alt="">
+    <h1>پنل مدیریت</h1>
+  </div>
+  <div class="user-info">
+    <div class="data">
+      <div class="right">
+        <img src="/assets/icons/person.svg" alt="">
+      </div>
+      <div class="left">
+        <p class="name">آرش راستگو</p>
+        <p class="email">arashrastgou@gmail.com</p>
+      </div>
+    </div>
+    <div class="user-role">
+      <p class="role">مالک</p>
+    </div>
+  </div>
+  <div class="links">
+    <a <%= page === 'dashboard' ? 'class=on' : '' %> href="#dashboard">
+      <img src="/assets/icons/house.svg" alt="">
+      <span>داشبورد</span>
+    </a>
+    <a <%= page === 'products' ? 'class=on' : '' %> href="#products">
+      <img src="/assets/icons/product.svg" alt="">
+      <span>محصولات</span>
+    </a>
+    <a <%= page === 'categories' ? 'class=on' : '' %> href="#categories">
+      <img src="/assets/icons/category.svg" alt="">
+      <span>دسته بندی ها</span>
+    </a>
+    <a <%= page === 'orders' ? 'class=on' : '' %> href="#orders">
+      <img src="/assets/icons/order.svg" alt="">
+      <span>سفارشات</span>
+    </a>
+    <a <%= page === 'users' ? 'class=on' : '' %> href="#users">
+      <img src="/assets/icons/person.svg" alt="">
+      <span>کاربران</span>
+    </a>
+    <a <%= page === 'comments' ? 'class=on' : '' %> href="#comments">
+      <img src="/assets/icons/message.svg" alt="">
+      <span>نظرات کاربران</span>
+    </a>
+    <a <%= page === 'admins' ? 'class=on' : '' %> href="#admins">
+      <img src="/assets/icons/manager.svg" alt="">
+      <span>مدیران</span>
+    </a>
+    <a <%= page === 'settings' ? 'class=on' : '' %> href="#settings">
+      <img src="/assets/icons/settings.svg" alt="">
+      <span>تنظیمات</span>
+    </a>
+  </div>
+  <button class="exit-from-account-btn">
+    <img src="/assets/icons/exit.svg" alt="">
+    <span>خروج</span>
+  </button>
+</div>

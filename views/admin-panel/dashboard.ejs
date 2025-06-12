@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل مدیریت</title>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/brand.png">
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/admin-panel/global.css">
+  <link rel="stylesheet" href="/styles/admin-panel/dashboard.css">
+  <link rel="stylesheet" href="/libs/flexboxgrid/flexboxgrid.css">
+</head>
+<body>
+  <div class="main">
+    <%- include('includes/menu', { page: 'dashboard' }) %>
+    <div class="content">
+      <h1>داشبورد</h1>
+      <section class="general-statistics">
+        <div class="cards">
+          <div class="card col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <h3>درآمد امروز</h3>
+            <img src="/assets/icons/dollar-sign.svg" alt="">
+            <span>۴۴,۰۰۰ تومان</span>
+          </div>
+          <div class="card col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <h3>تعداد سفارش های امروز</h3>
+            <img src="/assets/icons/order.svg" alt="">
+            <span>۴</span>
+          </div>
+          <div class="card col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <h3>تعداد کاربران جدید امروز</h3>
+            <img src="/assets/icons/person.svg" alt="">
+            <span>۱۱</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

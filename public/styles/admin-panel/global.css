@@ -136,3 +136,10 @@ body::-webkit-scrollbar {
 .main .menu .exit-from-account-btn:hover span {
   color: white;
 }
+
+.main .content {
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}

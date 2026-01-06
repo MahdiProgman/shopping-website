@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "mahdi",
+    "password": "justapassword",
+    "database": "shopping_db",
+    "host": "mysql_db",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "mahdi",
+    "password": "justapassword",
+    "database": "shopping_db",
+    "host": "mysql_db",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "mahdi",
+    "password": "justapassword",
+    "database": "shopping_db",
+    "host": "mysql_db",
+    "port": 3306,
+    "dialect": "mysql"
+  }
+}

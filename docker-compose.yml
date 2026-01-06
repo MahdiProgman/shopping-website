@@ -1,0 +1,53 @@
+services:
+  backend_app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: development
+    container_name: backend_app
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:$$APP_PORT"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      - mysql_db
+    env_file:
+      - .env
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    networks:
+      - sw_network
+    volumes:
+      - .:/usr/src/app
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - ${PUBLIC_DB_PORT}:3306
+    networks:
+      - sw_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+networks:
+  sw_network:
+
+volumes:
+  mysql_data:
